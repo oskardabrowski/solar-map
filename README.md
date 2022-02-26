@@ -6,8 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Cześć, jestem Oskar Dąbrowski a to będzie moja praca magisterska
 
-Celem projektu jest utworzenie mapy solarnej dla miasta Torunia
-Projekt łączy zagadnienia geoinformacyjne z programistycznymi
+Celem projektu jest utworzenie mapy solarnej dla miasta Torunia,
+projekt łączy zagadnienia geoinformacyjne z programistycznymi
 
 W repozytorium poza samym kodem będą się znajdowały wyniki przeprowadzonych
 przeze mnie analiz przestrzennych. Jeśli ktoś będzie chciał skorzystać z kodu
