@@ -1,11 +1,14 @@
-import React from "react";
-import { MapContainer, TileLayer, Marker, Polygon, GeoJSON } from "react-leaflet";
+import React, { useRef, useEffect } from "react";
+import { MapContainer, Map, TileLayer, Marker, ImageOverlay, GeoJSON } from "react-leaflet";
 import styled from 'styled-components';
 import Proj from "proj4leaflet";
 import { TorBufor } from "../components/layers/TorBufor";
 import { TorGranice } from "../components/layers/TorGranice";
+// import GeoRaster from "../components/GeoRasterLayer";
+import { CRS } from "leaflet";
+import L from 'leaflet';
 
-
+// import {solartest} from '../components/layers/1000'
 const purpleOptions = { color: 'red' };
 // const MAX_ZOOM = 25;
 // const TILE_SIZE = 512;
@@ -42,17 +45,22 @@ export default function App() {
     	  zoom={12}
 		  maxZoom={20}
 		  minZoom={12}
-		  maxBounds={[
-            [52.9, 18.3],
-            [53.1, 18.9]
-          ]}
+		//   maxBounds={[
+        //     [52.91, 18.35],
+        //     [53.1, 18.9]
+        //   ]}
     	>
+		  <TileLayer url="../components/layers/RasterMap.tif" opacity={0.5} zIndex={10000000000} />
     	  <TileLayer
     	    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     	    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     	  />
+		  {/* Mapny kot testowy */}
+		  {/* <ImageOverlay url="./Cat.jpg" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} /> */}
+		  <ImageOverlay url="./Cat.jpg" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} />
 		  <GeoJSON className="TorBufor" data={TorBufor} />
 		  <GeoJSON className="TorGranice" data={TorGranice} />
+		  {/* <GeoJSON className="TorGranice" data={solartest} /> */}
     	  {/* <Polygon pathOptions={purpleOptions} positions={positions} /> */}
     	</MapContainer>
     </MapStyles>
