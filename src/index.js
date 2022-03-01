@@ -3,12 +3,30 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import GlobalStyle from './components/GlobaStyle';
+import {Helmet} from 'react-helmet';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Helmet>
+      <meta charset="utf-8" />
+      <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content="#000000" />
+      <meta
+        name="description"
+        content="Web site created using create-react-app"
+      />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+      <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+      <title>Solar Map</title>
+    </Helmet>
+    <GlobalStyle />
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.querySelector('body')
 );
 
 // If you want to start measuring performance in your app, pass a function
