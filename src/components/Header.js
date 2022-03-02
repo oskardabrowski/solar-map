@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import AppLogo from '../images/SolarnaMapaLogo.svg';
+import AppLogo from '../images/SolarMapLogo.svg';
 import UnivesityLogo from '../images/UMKAkronimLogo.svg';
 
 const Head = styled.header`
