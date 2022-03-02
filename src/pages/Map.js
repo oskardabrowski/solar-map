@@ -59,6 +59,7 @@ export default function App() {
             minNativeZoom={0}
             maxNativeZoom={19}
     	  />
+
 		  {/* Mapny kot testowy */}
 		  {/* <ImageOverlay url="./Cat.jpg" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} /> */}
 		  {/* <ImageOverlay url="./test7.webp" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
@@ -72,7 +73,6 @@ export default function App() {
     </MapStyles>
   );
 }
-
 
 const MapStyles = styled.div`
 height: 100%;

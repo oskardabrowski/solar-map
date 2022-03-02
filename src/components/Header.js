@@ -14,10 +14,7 @@ justify-content: space-between;
     margin: 1rem;
     width: auto;
 }
-
 `;
-
-
 
 const Header = () => {
     return (
