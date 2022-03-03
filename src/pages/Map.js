@@ -42,67 +42,62 @@ const purpleOptions = { color: 'red' };
 
 
 function MapEventsComponent() {
-    const {zoomLevel, setZoomLevel} = useContext(MapContext); // initial zoom level provided for MapContainer
-    
-    const mapEvents = useMapEvents({
-        zoomend: () => {
-            setZoomLevel(mapEvents.getZoom());
-        },
-    });
+	const { zoomLevel, setZoomLevel } = useContext(MapContext); // initial zoom level provided for MapContainer
 
-    return null
+	const mapEvents = useMapEvents({
+		zoomend: () => {
+			setZoomLevel(mapEvents.getZoom());
+		},
+	});
+
+	return null
 }
 
 export default function App() {
-	// const [zoomLevel, setZoomLevel] = useState(5); // initial zoom level provided for MapContainer
-    
-    // const mapEvents = useMapEvents();
-
-    // console.log(mapEvents.getZoom());
-
-	const {zoomLevel} = useContext(MapContext);
+	const { zoomLevel } = useContext(MapContext);
 
 	useEffect(() => {
-		console.log(zoomLevel)
+		console.log("Zoom level: " + zoomLevel)
 	}, [zoomLevel])
 
-  return (
-    <MapStyles>
-        <MapContainer
-    	  className="flatmap"
-    	  center={[53.01, 18.63]}
-    	  zoom={12}
-		  maxZoom={25}
-		  minZoom={12}
-		  maxBounds={[
-            [52.93, 18.35],
-            [53.1, 18.9]
-          ]}
-    	>
-		  <TileLayer url="../components/layers/RasterMap.tif" opacity={0.5} zIndex={10000000000} />
-    	  <TileLayer
-    	    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    	    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-			minZoom={1}
-            maxZoom={28}
-            minNativeZoom={0}
-            maxNativeZoom={19}
-    	  />
-		  <MapEventsComponent />
+	return (
+		<MapStyles>
+			<MapContainer
+				className="flatmap"
+				center={[53.01, 18.63]}
+				zoom={12}
+				maxZoom={25}
+				minZoom={12}
+				maxBounds={[
+					[52.93, 18.35],
+					[53.1, 18.9]
+				]}
+			>
+				<TileLayer
+					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+					minZoom={1}
+					maxZoom={28}
+					minNativeZoom={0}
+					maxNativeZoom={19}
+				/>
+				<MapEventsComponent />
 
-		  {/* Mapny kot testowy */}
-		  {/* <ImageOverlay url="./Cat.jpg" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} /> */}
-		  {/* <ImageOverlay url="./test7.webp" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
-		  {/* <ImageOverlay url="./test4.bmp" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
-		  {zoomLevel >= 16 ? <ImageOverlay url={SVGLayer} bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} minNativeZoom={16} /> : ''}
-		  {/* <ImageOverlay url="./test8.png" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
-		  <GeoJSON className="TorBufor" data={TorBufor} />
-		  <GeoJSON className="TorGranice" data={TorGranice} />
-		  {/* <GeoJSON className="TorGranice" data={solartest} /> */}
-    	  {/* <Polygon pathOptions={purpleOptions} positions={positions} /> */}
-    	</MapContainer>
-    </MapStyles>
-  );
+				{/* Mapny kot testowy */}
+				{/* <ImageOverlay url="./Cat.jpg" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} /> */}
+				{/* <ImageOverlay url="./test7.webp" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
+				{/* <ImageOverlay url="./test4.bmp" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
+
+				{/* {zoomLevel >= 19 ? <ImageOverlay url={SVGLayer} bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> : ''} */}
+
+				{/* <ImageOverlay url="./test8.png" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
+				<GeoJSON className="TorBufor" data={TorBufor} />
+				<GeoJSON className="TorGranice" data={TorGranice} />
+				{/* <GeoJSON className="TorGranice" data={solartest} /> */}
+				{/* <Polygon pathOptions={purpleOptions} positions={positions} /> */}
+			</MapContainer>
+		</MapStyles>
+	);
 }
 
 const MapStyles = styled.div`
@@ -126,10 +121,6 @@ width: 100%;
 	stroke: black;
 	stroke-width: 2.5px;
 }
-
-
-
-
 
 /* required styles */
 
