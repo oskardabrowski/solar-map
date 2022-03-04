@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, { useState, useRef, useEffect, useContext, Component } from "react";
 import { MapContainer, Map, TileLayer, Marker, ImageOverlay, GeoJSON, useMapEvents } from "react-leaflet";
 import styled from 'styled-components';
 import Proj from "proj4leaflet";
@@ -7,10 +7,16 @@ import { TorGranice } from "../components/layers/TorGranice";
 // import GeoRaster from "../components/GeoRasterLayer";
 import { CRS } from "leaflet";
 import L from 'leaflet';
+import GeoTIFF, { fromUrl, fromUrls, fromArrayBuffer, fromBlob } from 'geotiff';
 
 import { MapContext } from "../components/GlobalContext";
 
-import SVGLayer from '../images/SVGTestLayer.svg';
+
+import "leaflet-geotiff"
+import "leaflet-geotiff/leaflet-geotiff-plotty"
+import "leaflet-geotiff/leaflet-geotiff-vector-arrows"
+
+// import SVGAllLayer from '../images/SVGtest.svg';
 
 // import {solartest} from '../components/layers/1000'
 const purpleOptions = { color: 'red' };
@@ -41,6 +47,8 @@ const purpleOptions = { color: 'red' };
 // );
 
 
+
+
 function MapEventsComponent() {
 	const { zoomLevel, setZoomLevel } = useContext(MapContext); // initial zoom level provided for MapContainer
 
@@ -55,10 +63,6 @@ function MapEventsComponent() {
 
 export default function App() {
 	const { zoomLevel } = useContext(MapContext);
-
-	useEffect(() => {
-		console.log("Zoom level: " + zoomLevel)
-	}, [zoomLevel])
 
 	return (
 		<MapStyles>
@@ -82,13 +86,15 @@ export default function App() {
 					maxNativeZoom={19}
 				/>
 				<MapEventsComponent />
-
 				{/* Mapny kot testowy */}
 				{/* <ImageOverlay url="./Cat.jpg" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} /> */}
+				<ImageOverlay url="gif.gif" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} />
+
 				{/* <ImageOverlay url="./test7.webp" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
 				{/* <ImageOverlay url="./test4.bmp" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
 
 				{/* {zoomLevel >= 19 ? <ImageOverlay url={SVGLayer} bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> : ''} */}
+				{/* {zoomLevel >= 19 ? <ImageOverlay url={SVGAllLayer} bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> : ''} */}
 
 				{/* <ImageOverlay url="./test8.png" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
 				<GeoJSON className="TorBufor" data={TorBufor} />
