@@ -5,7 +5,7 @@ import {BsArrowLeftShort, BsArrowRightShort, BsFillInfoCircleFill} from 'react-i
 import {AiFillTool} from 'react-icons/ai';
 import {GrThreeDEffects} from 'react-icons/gr';
 import {SiThreedotjs} from 'react-icons/si';
-
+import { BrowserRouter as Route, Link } from 'react-router-dom';
 
 
 const Menu = () => {

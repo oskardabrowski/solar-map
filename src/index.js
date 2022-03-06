@@ -4,6 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyle from './components/GlobaStyle';
 import {Helmet} from 'react-helmet';
+// import './style.css'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,6 +21,9 @@ ReactDOM.render(
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
       <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"></link>
       <title>Solar Map</title>
     </Helmet>
     <GlobalStyle />

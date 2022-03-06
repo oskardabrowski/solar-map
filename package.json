@@ -21,6 +21,7 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
+    "react-is": "16.8",
     "react-leaflet": "^3.2.5",
     "react-leaflet-distortable-imageoverlay": "^1.0.7",
     "react-router": "^6.2.1",
@@ -37,6 +38,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": ".",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -54,5 +56,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "mini-css-extract-plugin": "2.4.5"
   }
 }

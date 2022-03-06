@@ -18,7 +18,7 @@ justify-content: space-between;
 
 const Header = () => {
     return (
-        <Head>
+        <Head className="header">
             <img className="AppLogo" src={AppLogo} alt={AppLogo} />
             <img className="UniversityLogo" src={UnivesityLogo} alt={UnivesityLogo} />
         </Head>
