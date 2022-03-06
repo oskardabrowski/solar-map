@@ -9,12 +9,13 @@ import { CRS } from "leaflet";
 import L from 'leaflet';
 import GeoTIFF, { fromUrl, fromUrls, fromArrayBuffer, fromBlob } from 'geotiff';
 
+import {Old_City} from "../components/layers/SolarLayers";
+
+
+
+
 import { MapContext } from "../components/GlobalContext";
 
-
-import "leaflet-geotiff"
-import "leaflet-geotiff/leaflet-geotiff-plotty"
-import "leaflet-geotiff/leaflet-geotiff-vector-arrows"
 
 // import SVGAllLayer from '../images/SVGtest.svg';
 
@@ -45,7 +46,36 @@ const purpleOptions = { color: 'red' };
 //     resolutions: resolutions
 //   }
 // );
+const WGS84 = new L.Proj.CRS(
+  "WGS 84 / Pseudo-Mercator",
+  "+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs",
+  {
+    resolutions: [
+        12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+    ]
+  }
+);
 
+
+const MAX_ZOOM = 25;
+const TILE_SIZE = 512;
+
+const extent = Math.sqrt(2) * 6371007.2;
+const resolutions = Array(MAX_ZOOM + 1)
+  .fill()
+  .map((_, i) => extent / TILE_SIZE / Math.pow(2, i - 1));
+
+export const ARCTIC_LAEA = new Proj.CRS(
+  "WGS 84 / Pseudo-Mercator",
+  "+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs",
+  {
+    resolutions: [
+        12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+    ],
+	origin: [-extent, extent],
+    bounds: [[-180.00, -85.06], [180.00, 85.06]],
+  }
+);
 
 
 
@@ -55,6 +85,7 @@ function MapEventsComponent() {
 	const mapEvents = useMapEvents({
 		zoomend: () => {
 			setZoomLevel(mapEvents.getZoom());
+			console.log(mapEvents.getZoom())
 		},
 	});
 
@@ -71,7 +102,7 @@ export default function App() {
 				center={[53.01, 18.63]}
 				zoom={12}
 				maxZoom={25}
-				minZoom={12}
+				minZoom={1}
 				maxBounds={[
 					[52.93, 18.35],
 					[53.1, 18.9]
@@ -86,21 +117,13 @@ export default function App() {
 					maxNativeZoom={19}
 				/>
 				<MapEventsComponent />
+				<Old_City />
+
 				{/* Mapny kot testowy */}
 				{/* <ImageOverlay url="./Cat.jpg" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} /> */}
-				<ImageOverlay url="gif.gif" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} />
 
-				{/* <ImageOverlay url="./test7.webp" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
-				{/* <ImageOverlay url="./test4.bmp" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
-
-				{/* {zoomLevel >= 19 ? <ImageOverlay url={SVGLayer} bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> : ''} */}
-				{/* {zoomLevel >= 19 ? <ImageOverlay url={SVGAllLayer} bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> : ''} */}
-
-				{/* <ImageOverlay url="./test8.png" bounds={[[53.006, 18.6], [53.017, 18.63]]} zIndex={1000} /> */}
 				<GeoJSON className="TorBufor" data={TorBufor} />
 				<GeoJSON className="TorGranice" data={TorGranice} />
-				{/* <GeoJSON className="TorGranice" data={solartest} /> */}
-				{/* <Polygon pathOptions={purpleOptions} positions={positions} /> */}
 			</MapContainer>
 		</MapStyles>
 	);
