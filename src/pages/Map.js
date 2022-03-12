@@ -119,6 +119,8 @@ export default function App() {
 				<MapEventsComponent />
 				<Old_City />
 
+				{/* <ImageOverlay url="./solar_rasters/OldCity.webp" bounds={[[53.00136240, 18.55746407], [53.02860017, 18.62149598]]} zIndex={1000} /> */}
+
 				{/* Mapny kot testowy */}
 				{/* <ImageOverlay url="./Cat.jpg" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} /> */}
 
