@@ -77,10 +77,10 @@ export const ARCTIC_LAEA = new Proj.CRS(
   }
 );
 
-
+// ! https://leaflet-extras.github.io/leaflet-providers/preview/    <--- mapy do wykorzystania w projekcie
 
 function MapEventsComponent() {
-	const { zoomLevel, setZoomLevel } = useContext(MapContext); // initial zoom level provided for MapContainer
+	const { setZoomLevel } = useContext(MapContext); // initial zoom level provided for MapContainer
 
 	const mapEvents = useMapEvents({
 		zoomend: () => {
@@ -116,8 +116,17 @@ export default function App() {
 					minNativeZoom={0}
 					maxNativeZoom={19}
 				/>
+				{/* <TileLayer
+					url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+					minZoom={1}
+					maxZoom={28}
+					minNativeZoom={0}
+					maxNativeZoom={19}
+				/> */}
 				<MapEventsComponent />
-				<Old_City />
+				{zoomLevel >= 19 ? <Old_City /> : ''}
+				{/* {zoomLevel >= 15 ? <ImageOverlay url="./solar_rasters/OldCity.webp" bounds={[[53.00136240, 18.55746407], [53.02860017, 18.62149598]]} zIndex={1000} /> : ''} */}
 
 				{/* <ImageOverlay url="./solar_rasters/OldCity.webp" bounds={[[53.00136240, 18.55746407], [53.02860017, 18.62149598]]} zIndex={1000} /> */}
 
