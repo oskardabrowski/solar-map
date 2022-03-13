@@ -126,6 +126,7 @@ export default function App() {
 				/> */}
 				<MapEventsComponent />
 				{zoomLevel >= 19 ? <Old_City /> : ''}
+				{zoomLevel <= 18 && zoomLevel >= 17 ? <ImageOverlay url="./solar_rasters/old_city/M1-3.webp" bounds={[[53.00694494, 18.58284762], [53.02396836, 18.62286757]]} zIndex={1000} /> : ''}
 				{/* {zoomLevel >= 15 ? <ImageOverlay url="./solar_rasters/OldCity.webp" bounds={[[53.00136240, 18.55746407], [53.02860017, 18.62149598]]} zIndex={1000} /> : ''} */}
 
 				{/* <ImageOverlay url="./solar_rasters/OldCity.webp" bounds={[[53.00136240, 18.55746407], [53.02860017, 18.62149598]]} zIndex={1000} /> */}
