@@ -1,81 +1,15 @@
 import React, { useState, useRef, useEffect, useContext, Component } from "react";
 import { MapContainer, Map, TileLayer, Marker, ImageOverlay, GeoJSON, useMapEvents } from "react-leaflet";
 import styled from 'styled-components';
-import Proj from "proj4leaflet";
 import { TorBufor } from "../components/layers/TorBufor";
 import { TorGranice } from "../components/layers/TorGranice";
-// import GeoRaster from "../components/GeoRasterLayer";
-import { CRS } from "leaflet";
-import L from 'leaflet';
-import GeoTIFF, { fromUrl, fromUrls, fromArrayBuffer, fromBlob } from 'geotiff';
+
 
 import {Old_City} from "../components/layers/SolarLayers";
 
-
-
+import { SolarBiggestQuality } from "../components/SolarComponents";
 
 import { MapContext } from "../components/GlobalContext";
-
-
-// import SVGAllLayer from '../images/SVGtest.svg';
-
-// import {solartest} from '../components/layers/1000'
-const purpleOptions = { color: 'red' };
-// const MAX_ZOOM = 25;
-// const TILE_SIZE = 512;
-
-// const extent = Math.sqrt(2) * 6371007.2;
-// const resolutions = Array(MAX_ZOOM + 1)
-//   .fill()
-//   .map((_, i) => extent / TILE_SIZE / Math.pow(2, i - 1));
-
-// const PUWG_1992 = new Proj.CRS(
-//   "EPSG:2180",
-//   "+proj=tmerc +lat_0=0 +lon_0=19 +k=0.9993 +x_0=500000 +y_0=-5300000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs",
-//   {
-//     origin: [0, 0],
-//     resolutions: resolutions
-//   }
-// );
-// const PUWG_1992 = new Proj.CRS(
-//   "EPSG:3575",
-//   "+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs",
-//   {
-//     origin: [-extent, extent],
-//     bounds: L.bounds(L.point(-extent, extent), L.point(extent, -extent)),
-//     resolutions: resolutions
-//   }
-// );
-const WGS84 = new L.Proj.CRS(
-  "WGS 84 / Pseudo-Mercator",
-  "+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs",
-  {
-    resolutions: [
-        12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
-    ]
-  }
-);
-
-
-const MAX_ZOOM = 25;
-const TILE_SIZE = 512;
-
-const extent = Math.sqrt(2) * 6371007.2;
-const resolutions = Array(MAX_ZOOM + 1)
-  .fill()
-  .map((_, i) => extent / TILE_SIZE / Math.pow(2, i - 1));
-
-export const ARCTIC_LAEA = new Proj.CRS(
-  "WGS 84 / Pseudo-Mercator",
-  "+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs",
-  {
-    resolutions: [
-        12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
-    ],
-	origin: [-extent, extent],
-    bounds: [[-180.00, -85.06], [180.00, 85.06]],
-  }
-);
 
 // ! https://leaflet-extras.github.io/leaflet-providers/preview/    <--- mapy do wykorzystania w projekcie
 
@@ -100,7 +34,8 @@ export default function App() {
 			<MapContainer
 				className="flatmap"
 				center={[53.01, 18.63]}
-				zoom={12}
+				// ? Zoom roboczy 16, zoom docelowy 12
+				zoom={16}
 				maxZoom={25}
 				minZoom={1}
 				maxBounds={[
@@ -125,8 +60,12 @@ export default function App() {
 					maxNativeZoom={19}
 				/> */}
 				<MapEventsComponent />
-				{zoomLevel >= 19 ? <Old_City /> : ''}
-				{zoomLevel <= 18 && zoomLevel >= 17 ? <ImageOverlay url="./solar_rasters/old_city/M1-3.webp" bounds={[[53.00694494, 18.58284762], [53.02396836, 18.62286757]]} zIndex={1000} /> : ''}
+
+				<SolarBiggestQuality />
+
+
+				{/* {zoomLevel >= 19 ? <Old_City /> : ''} */}
+				{/* {zoomLevel <= 18 && zoomLevel >= 17 ? <ImageOverlay url="./solar_rasters/old_city/M1-3.webp" bounds={[[53.00694494, 18.58284762], [53.02396836, 18.62286757]]} zIndex={1000} /> : ''} */}
 				{/* {zoomLevel >= 15 ? <ImageOverlay url="./solar_rasters/OldCity.webp" bounds={[[53.00136240, 18.55746407], [53.02860017, 18.62149598]]} zIndex={1000} /> : ''} */}
 
 				{/* <ImageOverlay url="./solar_rasters/OldCity.webp" bounds={[[53.00136240, 18.55746407], [53.02860017, 18.62149598]]} zIndex={1000} /> */}

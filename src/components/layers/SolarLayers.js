@@ -1,5 +1,5 @@
 import React from 'react'
-import { MapContainer, Map, TileLayer, Marker, ImageOverlay, GeoJSON, useMapEvents } from "react-leaflet";
+import { ImageOverlay } from "react-leaflet";
 
 export const Old_City = () => {
   return (
@@ -18,4 +18,17 @@ export const Old_City = () => {
   )
 }
 
+export const Rubinkowo = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/rubinkowo/R1.webp" bounds={[[53.01508534, 18.60874920],[53.02643290, 18.63542917]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R2.webp" bounds={[[53.01096568, 18.61130241],[53.02458369, 18.64331837]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R3.webp" bounds={[[53.01342494, 18.62661392],[53.02477293, 18.65329388]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R4.webp" bounds={[[53.02061015, 18.62674189],[53.03195625, 18.65342185]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R5.webp" bounds={[[53.01999432, 18.63540124],[53.03134058, 18.66208121]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R6.webp" bounds={[[53.02254420, 18.64146938],[53.03615855, 18.67348534]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R7.webp" bounds={[[53.02229337, 18.66060295],[53.03363902, 18.68728292]]} zIndex={1000} />
+    </>
+  )
+}
 
