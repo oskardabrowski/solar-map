@@ -28,6 +28,12 @@ export const Rubinkowo = () => {
     <ImageOverlay url="./solar_rasters/rubinkowo/R5.webp" bounds={[[53.01999432, 18.63540124],[53.03134058, 18.66208121]]} zIndex={1000} />
     <ImageOverlay url="./solar_rasters/rubinkowo/R6.webp" bounds={[[53.02254420, 18.64146938],[53.03615855, 18.67348534]]} zIndex={1000} />
     <ImageOverlay url="./solar_rasters/rubinkowo/R7.webp" bounds={[[53.02229337, 18.66060295],[53.03363902, 18.68728292]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R8.webp" bounds={[[53.02853505, 18.66166054],[53.03987907, 18.68834050]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R9.webp" bounds={[[53.02628895, 18.68099450],[53.03763355, 18.70767446]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R10.webp" bounds={[[53.02000717, 18.68225038],[53.03135343, 18.70893034]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R11.webp" bounds={[[53.01686595, 18.66618832],[53.02821303, 18.69286828]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R12_1.webp" bounds={[[53.01139409, 18.66698812],[53.02274262, 18.69366808]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R12_2.webp" bounds={[[53.01199062, 18.64193659],[53.02333899, 18.66861656]]} zIndex={1000} />
     </>
   )
 }
