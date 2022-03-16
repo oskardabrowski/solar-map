@@ -38,3 +38,23 @@ export const Rubinkowo = () => {
   )
 }
 
+export const Mokre = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/mokre/Mo1.webp" bounds={[[53.02130810, 18.60656134],[53.03265402, 18.63324130]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/mokre/Mo2.webp" bounds={[[53.02759408, 18.60707322],[53.03893834, 18.63375319]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/mokre/Mo3.webp" bounds={[[53.03444346, 18.60788370],[53.04578592, 18.63456367]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/mokre/Mo4.webp" bounds={[[53.03459737, 18.62588492],[53.04593979, 18.65256489]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/mokre/Mo5.webp" bounds={[[53.03051867, 18.62955342],[53.04186216, 18.65623338]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/mokre/Mo6.webp" bounds={[[53.02259103, 18.62119266],[53.03393661, 18.64787263]]} zIndex={1000} />
+    </>
+  )
+}
+
+export const Koniuchy = () => {
+  return (
+    <>
+    {/* <ImageOverlay url="./solar_rasters/mokre/Mo6.webp" bounds={[[53.02259103, 18.62119266],[53.03393661, 18.64787263]]} zIndex={1000} /> */}
+    </>
+  )
+}
