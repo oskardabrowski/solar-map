@@ -1,14 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import styled from 'styled-components';
 import {IoLayers, IoSearch, IoMap} from 'react-icons/io5';
 import {BsArrowLeftShort, BsArrowRightShort, BsFillInfoCircleFill} from 'react-icons/bs';
+import {RiMapFill} from 'react-icons/ri';
 import {AiFillTool} from 'react-icons/ai';
+import {MdInsertPhoto} from 'react-icons/md';
 import {GrThreeDEffects} from 'react-icons/gr';
-import {SiThreedotjs} from 'react-icons/si';
+import {SiThreedotjs, SiOpenstreetmap} from 'react-icons/si';
 import { BrowserRouter as Route, Link } from 'react-router-dom';
-
+import { MapContext } from './GlobalContext';
 
 const Menu = () => {
+    const {setMapTile} = useContext(MapContext);
     const [show, setShow] = useState(false);
     const [activePanel, setActivePanel] = useState('');
     const AllPanels = document.querySelectorAll('.PanelData');
@@ -65,7 +68,40 @@ const Menu = () => {
             </div>
             <div className="PanelData Panel Layers">here is layers</div>
             <div className="PanelData Panel Tools">here is tools</div>
-            <div className="PanelData Panel Map">here is map</div>
+            <div className="PanelData Panel Map">
+                <button className="Map-tile" onClick={() => setMapTile('default')}>
+                    <SiOpenstreetmap className="Map-tile-ico" />
+                    <span>Open Street Map</span>
+                </button>
+                <button className="Map-tile" onClick={() => setMapTile('topo')}>
+                    <SiOpenstreetmap className="Map-tile-ico" />
+                    <span>Open Topo Map</span>
+                </button>
+                <button className="Map-tile" onClick={() => setMapTile('stadiasomoth')}>
+                    <RiMapFill className="Map-tile-ico" />
+                    <span>Stadia Smooth</span>
+                </button>
+                <button className="Map-tile" onClick={() => setMapTile('stadiadark')}>
+                    <RiMapFill className="Map-tile-ico" />
+                    <span>Stadia Dark</span>
+                </button>
+                <button className="Map-tile" onClick={() => setMapTile('stadiaosmbright')}>
+                    <RiMapFill className="Map-tile-ico" />
+                    <span>Stadia OSM Bright</span>
+                </button>
+                <button className="Map-tile" onClick={() => setMapTile('cartodbpositron')}>
+                    <RiMapFill className="Map-tile-ico" />
+                    <span>Carto DB Positron</span>
+                </button>
+                <button className="Map-tile" onClick={() => setMapTile('stamentonerlite')}>
+                    <RiMapFill className="Map-tile-ico" />
+                    <span>Stamen Toner Lite</span>
+                </button>
+                <button className="Map-tile" onClick={() => setMapTile('esriworldimagery')}>
+                    <MdInsertPhoto className="Map-tile-ico" />
+                    <span>Esri World Imagery</span>
+                </button>
+            </div>
         </MenuBar>
     )
 }
@@ -78,6 +114,30 @@ flex-direction: row-reverse;
 position: relative;
 z-index: 100000;
 box-shadow: 2px 0px 5px rgba(0,0,0,.25);
+
+.Map {
+    &-tile {
+        width: 100%;
+        font-size: 1.2rem;
+        margin: 0.5rem 0rem;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        border: none;
+        background:none;
+        transition: all .5s ease-in-out;
+
+        &-ico {
+            font-size: 1.5rem;
+            margin: 0.25rem;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: #A5DFFF;
+        }
+    }
+}
 
 .PanelSearch {
     position: absolute;
@@ -142,6 +202,7 @@ box-shadow: 2px 0px 5px rgba(0,0,0,.25);
     background-color: white;
     transition: all .5s ease-in-out;
     clip-path: circle(0% at 0 0);
+    min-width: 17.5rem;
 }
 .hideShow {
     & > button {

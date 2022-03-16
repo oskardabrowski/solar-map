@@ -3,12 +3,7 @@ import { MapContainer, Map, TileLayer, Marker, ImageOverlay, GeoJSON, useMapEven
 import styled from 'styled-components';
 import { TorBufor } from "../components/layers/TorBufor";
 import { TorGranice } from "../components/layers/TorGranice";
-
-
-import {Old_City} from "../components/layers/SolarLayers";
-
 import { SolarBiggestQuality } from "../components/SolarComponents";
-
 import { MapContext } from "../components/GlobalContext";
 
 // ! https://leaflet-extras.github.io/leaflet-providers/preview/    <--- mapy do wykorzystania w projekcie
@@ -27,10 +22,31 @@ function MapEventsComponent() {
 }
 
 export default function App() {
-	const { zoomLevel } = useContext(MapContext);
+	const { zoomLevel, mapTile } = useContext(MapContext);
+	const [tileLink, setTileLink] = useState("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
+	const [tileAttribution, setTileAttribution] = useState('&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors')
+
+	// useEffect(() => {
+	// 	if(mapTile === 'default') {
+	// 		setTileLink("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+	// 		setTileAttribution('&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors')
+	// 	}
+	// 	if(mapTile === 'topo') {
+	// 		setTileLink("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png");
+	// 		setTileAttribution('Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)');
+	// 	}
+	// 	// switch(mapTile) {
+	// 	// 	case 'default': setTileLink("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"); setTileAttribution('&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'); break;
+	// 	// 	case 'topo': setTileLink("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"); setTileAttribution('Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'); break;
+	// 	// }
+	// 	alert(mapTile)
+
+	// }, [mapTile])
+// TODO Zoom roboczy 16, zoom developerski 12
 
 	return (
 		<MapStyles>
+
 			<MapContainer
 				className="flatmap"
 				center={[53.01, 18.63]}
@@ -43,25 +59,21 @@ export default function App() {
 					[53.1, 18.9]
 				]}
 			>
-				<TileLayer
-					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-					minZoom={1}
-					maxZoom={28}
-					minNativeZoom={0}
-					maxNativeZoom={19}
-				/>
-				{/* <TileLayer
-					url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
-					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-					minZoom={1}
-					maxZoom={28}
-					minNativeZoom={0}
-					maxNativeZoom={19}
-				/> */}
+				<GeoJSON className="TorBufor" data={TorBufor} />
+				<GeoJSON className="TorGranice" data={TorGranice} />
 				<MapEventsComponent />
-
 				<SolarBiggestQuality />
+
+				{/* Tile map layers */}
+				{mapTile === 'default' && <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{mapTile === 'topo' && <TileLayer url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png" attribution='Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{mapTile === 'stadiasomoth' && <TileLayer url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png' attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{mapTile === 'stadiadark' && <TileLayer url='https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png' attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{mapTile === 'stadiaosmbright' && <TileLayer url='https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png' attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{mapTile === 'cartodbpositron' && <TileLayer url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png' attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{mapTile === 'stamentonerlite' && <TileLayer url='https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png' attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{mapTile === 'esriworldimagery' && <TileLayer url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}' attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+
 
 
 				{/* {zoomLevel >= 19 ? <Old_City /> : ''} */}
@@ -73,8 +85,7 @@ export default function App() {
 				{/* Mapny kot testowy */}
 				{/* <ImageOverlay url="./Cat.jpg" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} /> */}
 
-				<GeoJSON className="TorBufor" data={TorBufor} />
-				<GeoJSON className="TorGranice" data={TorGranice} />
+
 			</MapContainer>
 		</MapStyles>
 	);
