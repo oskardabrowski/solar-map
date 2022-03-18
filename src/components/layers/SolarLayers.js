@@ -54,7 +54,14 @@ export const Mokre = () => {
 export const Koniuchy = () => {
   return (
     <>
-    {/* <ImageOverlay url="./solar_rasters/mokre/Mo6.webp" bounds={[[53.02259103, 18.62119266],[53.03393661, 18.64787263]]} zIndex={1000} /> */}
+    <ImageOverlay url="./solar_rasters/koniuchy/K1.webp" bounds={[[53.03197973, 18.59379808],[53.04332284, 18.62047805]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/koniuchy/K2.webp" bounds={[[53.02787753, 18.57895214],[53.03922172, 18.60563211]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/koniuchy/K3.webp" bounds={[[53.02651579, 18.56674293],[53.03786034, 18.59342290]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/koniuchy/K4.webp" bounds={[[53.02311987, 18.55568013],[53.03446531, 18.58236009]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/koniuchy/K5.webp" bounds={[[53.02260270, 18.57049741],[53.03394828, 18.59717737]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/koniuchy/K6.webp" bounds={[[53.02318883, 18.58302188],[53.03453425, 18.60970184]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/koniuchy/K7.webp" bounds={[[53.02491378, 18.59471125],[53.03625875, 18.62139121]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/koniuchy/K8.webp" bounds={[[53.01848348, 18.58969573],[53.02983014, 18.61637569]]} zIndex={1000} />
     </>
   )
 }
