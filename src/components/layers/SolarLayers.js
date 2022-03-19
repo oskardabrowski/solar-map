@@ -80,3 +80,16 @@ export const Wrzosy = () => {
     </>
   )
 }
+
+export const Elana = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/elana/E1_1.webp" bounds={[[53.03664866, 18.64436405],[53.05025856, 18.67638001]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/elana/E1_2.webp" bounds={[[53.04394969, 18.61737070],[53.05755729, 18.64938666]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/elana/E2_1.webp" bounds={[[53.03420274, 18.67140385],[53.04781341, 18.70341981]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/elana/E2_2.webp" bounds={[[53.03027620, 18.68943923],[53.04388811, 18.72145519]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/elana/E3.webp" bounds={[[53.04382602, 18.67924705],[53.05743366, 18.71126301]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/elana/E4.webp" bounds={[[53.03778265, 18.69895245],[53.05252612, 18.73363640]]} zIndex={1000} />
+    </>
+  )
+}
