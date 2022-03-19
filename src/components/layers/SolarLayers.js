@@ -107,7 +107,9 @@ export const Kaszczorek = () => {
 export const Port = () => {
   return (
     <>
-    
+    <ImageOverlay url="./solar_rasters/port/P1_1.webp" bounds={[[53.01177386, 18.53239261],[53.02539161, 18.56440857]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/port/P1_2.webp" bounds={[[53.02474583, 18.53266775],[53.03835949, 18.56468371]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/port/P2.webp" bounds={[[53.01224977, 18.49583377],[53.02586737, 18.52784972]]} zIndex={1000} />
     </>
   )
 }
