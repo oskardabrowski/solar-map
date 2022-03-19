@@ -53,7 +53,7 @@ export default function App() {
 				// ? Zoom roboczy 16, zoom docelowy 12
 				zoom={16}
 				maxZoom={25}
-				minZoom={1}
+				minZoom={12}
 				maxBounds={[
 					[52.93, 18.35],
 					[53.1, 18.9]

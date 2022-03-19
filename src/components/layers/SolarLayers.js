@@ -65,3 +65,18 @@ export const Koniuchy = () => {
     </>
   )
 }
+
+export const Wrzosy = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/wrzosy/W1.webp" bounds={[[53.03292387, 18.55888105],[53.04540206, 18.58823184]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/wrzosy/W2.webp" bounds={[[53.03715180, 18.57278541],[53.04962876, 18.60213620]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/wrzosy/W3.webp" bounds={[[53.03286699, 18.57524468],[53.04534519, 18.60459547]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/wrzosy/W4.webp" bounds={[[53.04092436, 18.56417795],[53.05340023, 18.59352874]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/wrzosy/W5.webp" bounds={[[53.04825999, 18.56569135],[53.06073374, 18.59504214]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/wrzosy/W6_1.webp" bounds={[[53.03924731, 18.59371516],[53.05172366, 18.62306595]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/wrzosy/W6_2.webp" bounds={[[53.05140348, 18.59305818],[53.06387632, 18.62240897]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/wrzosy/W7.webp" bounds={[[53.04660809, 18.53878576],[53.06134854, 18.57346971]]} zIndex={1000} />
+    </>
+  )
+}
