@@ -93,3 +93,21 @@ export const Elana = () => {
     </>
   )
 }
+
+export const Kaszczorek = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/kaszczorek/KS2_1.webp" bounds={[[53.00598007, 18.68622553],[53.01733002, 18.71290550]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/kaszczorek/KS2_2.webp" bounds={[[53.02089502, 18.70069889],[53.03224105, 18.72737885]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/kaszczorek/KS1.webp" bounds={[[52.99861553, 18.68840370],[53.00996741, 18.71508366]]} zIndex={1000} />
+    </>
+  )
+}
+
+export const Port = () => {
+  return (
+    <>
+    
+    </>
+  )
+}
