@@ -113,3 +113,22 @@ export const Port = () => {
     </>
   )
 }
+
+export const Pogorze = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/pogorze/P1.webp" bounds={[[52.98713051, 18.58256648],[52.99848541, 18.60924645]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P2.webp" bounds={[[52.98730957, 18.59859549],[52.99866442, 18.62527546]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P3.webp" bounds={[[52.98762789, 18.61026197],[52.99898267, 18.63694193]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P4.webp" bounds={[[52.99242242, 18.60216484],[53.00377593, 18.62884480]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P5.webp" bounds={[[52.99439180, 18.61505415],[53.00574479, 18.64173411]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P6.webp" bounds={[[52.98898076, 18.61908619],[53.00033518, 18.64576615]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P7.webp" bounds={[[52.99476975, 18.62800955],[53.00612264, 18.65468952]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P8.webp" bounds={[[52.98985612, 18.63623888],[53.00121031, 18.66291884]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P9.webp" bounds={[[52.99970271, 18.63448725],[53.01105430, 18.66116722]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P10_1.webp" bounds={[[52.99586380, 18.60946878],[53.00721641, 18.63614874]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P10_2.webp" bounds={[[52.99148743, 18.58395456],[53.00284118, 18.61063453]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P10_3.webp" bounds={[[52.98595904, 18.55257316],[52.99958493, 18.58458911]]} zIndex={1000} />
+    </>
+  )
+}
