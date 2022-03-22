@@ -146,3 +146,15 @@ export const Glinki = () => {
     </>
   )
 }
+
+export const Rudak = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/rudak/RU1_1.webp" bounds={[[52.99641607, 18.65027293],[53.00776853, 18.67695289]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rudak/RU1_2.webp" bounds={[[52.98517600, 18.64984328],[52.99653141, 18.67652325]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rudak/RU2.webp" bounds={[[52.97018661, 18.67067230],[52.98625111, 18.68953692]]} zIndex={1000} />
+    </>
+  )
+}
+
+
