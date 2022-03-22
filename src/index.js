@@ -17,6 +17,7 @@ ReactDOM.render(
         name="description"
         content="Web site created using create-react-app"
       />
+      <link rel="icon" type="image/png" href="./img/SolarMapIco.png" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />

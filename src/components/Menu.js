@@ -77,21 +77,17 @@ const Menu = () => {
                     <SiOpenstreetmap className="Map-tile-ico" />
                     <span>Open Topo Map</span>
                 </button>
-                <button className="Map-tile" onClick={() => setMapTile('stadiasomoth')}>
-                    <RiMapFill className="Map-tile-ico" />
-                    <span>Stadia Smooth</span>
-                </button>
-                <button className="Map-tile" onClick={() => setMapTile('stadiadark')}>
-                    <RiMapFill className="Map-tile-ico" />
-                    <span>Stadia Dark</span>
-                </button>
-                <button className="Map-tile" onClick={() => setMapTile('stadiaosmbright')}>
-                    <RiMapFill className="Map-tile-ico" />
-                    <span>Stadia OSM Bright</span>
-                </button>
                 <button className="Map-tile" onClick={() => setMapTile('cartodbpositron')}>
                     <RiMapFill className="Map-tile-ico" />
                     <span>Carto DB Positron</span>
+                </button>
+                <button className="Map-tile" onClick={() => setMapTile('cartodbdark')}>
+                    <RiMapFill className="Map-tile-ico" />
+                    <span>Carto DB Dark</span>
+                </button>
+                <button className="Map-tile" onClick={() => setMapTile('cartodbvoyager')}>
+                    <RiMapFill className="Map-tile-ico" />
+                    <span>Carto DB Voyager</span>
                 </button>
                 <button className="Map-tile" onClick={() => setMapTile('stamentonerlite')}>
                     <RiMapFill className="Map-tile-ico" />
