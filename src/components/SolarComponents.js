@@ -1,5 +1,5 @@
 import React from 'react';
-import {Old_City, Rubinkowo, Mokre, Koniuchy, Wrzosy, Elana, Kaszczorek, Port, Pogorze} from './layers/SolarLayers'
+import {Old_City, Rubinkowo, Mokre, Koniuchy, Wrzosy, Elana, Kaszczorek, Port, Pogorze, Glinki} from './layers/SolarLayers'
 
 export const SolarBiggestQuality = () => {
   return (
@@ -13,6 +13,7 @@ export const SolarBiggestQuality = () => {
         <Kaszczorek />
         <Port />
         <Pogorze />
+        <Glinki />
     </>
   )
 }

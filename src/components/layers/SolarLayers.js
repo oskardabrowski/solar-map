@@ -132,3 +132,17 @@ export const Pogorze = () => {
     </>
   )
 }
+
+export const Glinki = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/glinki/G1_1.webp" bounds={[[52.97440463, 18.55231164],[52.98576288, 18.57899160]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/glinki/G1_2.webp" bounds={[[52.96286639, 18.54551932],[52.97422767, 18.57219929]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/glinki/G2.webp" bounds={[[52.97977456, 18.56421116],[52.99113140, 18.59089112]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/glinki/G3_1.webp" bounds={[[52.98036771, 18.59195078],[52.99172439, 18.61863074]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/glinki/G3_2.webp" bounds={[[52.98005552, 18.61854970],[52.99141229, 18.64522966]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/glinki/G4.webp" bounds={[[52.98294313, 18.61982002],[52.99429913, 18.64649998]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/glinki/G5.webp" bounds={[[52.98372353, 18.63840815],[52.99507933, 18.66508812]]} zIndex={1000} />
+    </>
+  )
+}
