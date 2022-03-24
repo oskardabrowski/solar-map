@@ -40,23 +40,41 @@ const Menu = () => {
                 </button>
             </div>
             {show && <div className="buttons">
-                <button onClick={() => PanelHandler('PanelSearch')}>
+                <button className="buttons-btn" onClick={() => PanelHandler('PanelSearch')}>
                     <IoSearch />
+                    <div className='buttons-btn-desc'>
+                        <span>Wyszukaj daną lokalizację</span>
+                    </div>
                 </button>
-                <button onClick={() => PanelHandler('Layers')}>
+                <button className="buttons-btn" onClick={() => PanelHandler('Layers')}>
                     <IoLayers />
+                    <div className='buttons-btn-desc'>
+                        <span>Warstwy tematyczne</span>
+                    </div>
                 </button>
-                <button onClick={() => PanelHandler('Tools')}>
+                <button className="buttons-btn" onClick={() => PanelHandler('Tools')}>
                     <AiFillTool />
+                    <div className='buttons-btn-desc'>
+                        <span>Narzędzia</span>
+                    </div>
                 </button>
-                <button onClick={() => PanelHandler('Map')}>
+                <button className="buttons-btn" onClick={() => PanelHandler('Map')}>
                     <IoMap />
+                    <div className='buttons-btn-desc'>
+                        <span>Mapy bazowe</span>
+                    </div>
                 </button>
-                <button>
+                <button className="buttons-btn">
                     <SiThreedotjs />
+                    <div className='buttons-btn-desc'>
+                        <span>Wersja trójwymiarowa</span>
+                    </div>
                 </button>
-                <button>
+                <button className="buttons-btn">
                     <BsFillInfoCircleFill />
+                    <div className='buttons-btn-desc'>
+                        <span>Informacje</span>
+                    </div>
                 </button>
             </div>}
             <div className="PanelData PanelSearch">
@@ -221,14 +239,30 @@ box-shadow: 2px 0px 5px rgba(0,0,0,.25);
     flex-direction: column;
     transition: all .5s ease-in-out;
 
-    & > button {
+    &-btn {
         background: none;
         border: none;
         font-size: 1.75rem;
         margin: .5rem;
+        position: relative;
+
+        &-desc {
+            position: absolute;
+            width: max-content;
+            top: 0;
+            left: 4rem;
+            font-size: 1rem;
+            background-color: white;
+            padding: .5rem;
+            border-radius: 15px 15px 15px 0px;
+            clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+        }
 
         &:hover {
             cursor: pointer;
+            .buttons-btn-desc {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            }
         }
     }
 }
