@@ -3,8 +3,9 @@ import { MapContainer, Map, TileLayer, Marker, ImageOverlay, GeoJSON, useMapEven
 import styled from 'styled-components';
 import { TorBufor } from "../components/layers/TorBufor";
 import { TorGranice } from "../components/layers/TorGranice";
-import { SolarBiggestQuality } from "../components/SolarComponents";
 import { MapContext } from "../components/GlobalContext";
+import SolarLayer from "../components/SolarLayer";
+
 
 // ! https://leaflet-extras.github.io/leaflet-providers/preview/    <--- mapy do wykorzystania w projekcie
 
@@ -62,7 +63,7 @@ export default function App() {
 				<GeoJSON className="TorBufor" data={TorBufor} />
 				<GeoJSON className="TorGranice" data={TorGranice} />
 				<MapEventsComponent />
-				<SolarBiggestQuality />
+				<SolarLayer />
 
 				{/* Tile map layers */}
 				{mapTile === 'default' && <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
