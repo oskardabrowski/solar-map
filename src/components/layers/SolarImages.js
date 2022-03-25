@@ -157,4 +157,30 @@ export const Rudak = () => {
   )
 }
 
+export const Old_City_Standard = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/old_city/M1-5.webp" bounds={[[53.00335873, 18.57323726],[53.02605702, 18.62659718]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/old_city/M6-10.webp" bounds={[[53.00387352, 18.54802956],[53.02657154, 18.60138949]]} zIndex={1000} />
+    </>
+  )
+}
+export const Rubinkowo_Standard = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/old_city/R1-5.webp" bounds={[[53.00946716, 18.60876756],[53.03216224, 18.66212749]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/old_city/R6-8.webp" bounds={[[53.01814788, 18.63739712],[53.04083839, 18.69075705]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/old_city/R9-12.webp" bounds={[[53.01135442, 18.64886035],[53.03404851, 18.70222028]]} zIndex={1000} />
+    </>
+  )
+}
+export const Mokre_Standard = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/old_city/Mo1-3.webp" bounds={[[53.02226460, 18.59958557],[53.04495295, 18.65294550]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/old_city/Mo4-6.webp" bounds={[[53.02329372, 18.60888162],[53.04598153, 18.66224155]]} zIndex={1000} />
+    </>
+  )
+}
+
 
