@@ -168,17 +168,58 @@ export const Old_City_Standard = () => {
 export const Rubinkowo_Standard = () => {
   return (
     <>
-    <ImageOverlay url="./solar_rasters/old_city/R1-5.webp" bounds={[[53.00946716, 18.60876756],[53.03216224, 18.66212749]]} zIndex={1000} />
-    <ImageOverlay url="./solar_rasters/old_city/R6-8.webp" bounds={[[53.01814788, 18.63739712],[53.04083839, 18.69075705]]} zIndex={1000} />
-    <ImageOverlay url="./solar_rasters/old_city/R9-12.webp" bounds={[[53.01135442, 18.64886035],[53.03404851, 18.70222028]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R1-5.webp" bounds={[[53.00946716, 18.60876756],[53.03216224, 18.66212749]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R6-8.webp" bounds={[[53.01814788, 18.63739712],[53.04083839, 18.69075705]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rubinkowo/R9-12.webp" bounds={[[53.01135442, 18.64886035],[53.03404851, 18.70222028]]} zIndex={1000} />
     </>
   )
 }
 export const Mokre_Standard = () => {
   return (
     <>
-    <ImageOverlay url="./solar_rasters/old_city/Mo1-3.webp" bounds={[[53.02226460, 18.59958557],[53.04495295, 18.65294550]]} zIndex={1000} />
-    <ImageOverlay url="./solar_rasters/old_city/Mo4-6.webp" bounds={[[53.02329372, 18.60888162],[53.04598153, 18.66224155]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/mokre/Mo1-3.webp" bounds={[[53.02226460, 18.59958557],[53.04495295, 18.65294550]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/mokre/Mo4-6.webp" bounds={[[53.02329372, 18.60888162],[53.04598153, 18.66224155]]} zIndex={1000} />
+    </>
+  )
+}
+export const Koniuchy_Standard = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/koniuchy/K1-8.webp" bounds={[[53.02001916, 18.56260875],[53.04270869, 18.61596868]]} zIndex={1000} />
+    </>
+  )
+}
+export const Wrzosy_Standard = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/wrzosy/W1-4.webp" bounds={[[53.03179872, 18.55795731],[53.05448205, 18.61131724]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/wrzosy/W5i7.webp" bounds={[[53.04090534, 18.53805713],[53.06471750, 18.59408505]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/wrzosy/W6.webp" bounds={[[53.03754461, 18.58055713],[53.06022492, 18.63391706]]} zIndex={1000} />
+    </>
+  )
+}
+
+export const Elana_Standard = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/elana/E1-standard.webp" bounds={[[53.03417760, 18.63032963],[53.05685968, 18.68368956]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/elana/E2-standard.webp" bounds={[[53.02831589, 18.66942178],[53.05100105, 18.72278171]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/elana/E3-4.webp" bounds={[[53.03467643, 18.67973921],[53.05735825, 18.73309914]]} zIndex={1000} />
+    </>
+  )
+}
+export const Kaszczorek_Standard = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/kaszczorek/KS-standard.webp" bounds={[[52.99690474, 18.67185856],[53.01960642, 18.72521849]]} zIndex={1000} />
+    </>
+  )
+}
+export const Port_Standard = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/port/Po1-standard.webp" bounds={[[53.01032044, 18.52295583],[53.03301507, 18.57631576]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/port/Po2-standard.webp" bounds={[[53.00922862, 18.48381184],[53.03192382, 18.53717177]]} zIndex={1000} />
     </>
   )
 }
