@@ -52,7 +52,7 @@ export default function App() {
 				className="flatmap"
 				center={[53.01, 18.63]}
 				// ? Zoom roboczy 16, zoom docelowy 12
-				zoom={16}
+				zoom={14}
 				maxZoom={25}
 				minZoom={12}
 				maxBounds={[

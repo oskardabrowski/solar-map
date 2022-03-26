@@ -223,5 +223,32 @@ export const Port_Standard = () => {
     </>
   )
 }
+export const Rudak_Standard = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/rudak/RU1-standard.webp" bounds={[[52.98675102, 18.63657819],[53.00945804, 18.68993811]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/rudak/RU2-standard.webp" bounds={[[52.96587727, 18.65210131],[52.98859527, 18.70546124]]} zIndex={1000} />
+    </>
+  )
+}
+export const Pogorze_Standard = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/pogorze/P1-4+10.webp" bounds={[[52.98641208, 18.58236789],[53.00911928, 18.63572782]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P10-standard.webp" bounds={[[52.98391840, 18.52916297],[53.00662691, 18.58252290]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/pogorze/P5-9.webp" bounds={[[52.98813094, 18.61385651],[53.01083724, 18.66721644]]} zIndex={1000} />
+    </>
+  )
+}
+export const Glinki_Standard = () => {
+  return (
+    <>
+    <ImageOverlay url="./solar_rasters/glinki/G1-2.webp" bounds={[[52.96779072, 18.53752777],[52.99050770, 18.59088769]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/glinki/G1_fragment-standard.webp" bounds={[[52.94424222, 18.52160248],[52.96697158, 18.57496241]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/glinki/G3-4.webp" bounds={[[52.97394222, 18.58996859],[52.99665598, 18.64332852]]} zIndex={1000} />
+    <ImageOverlay url="./solar_rasters/glinki/G5-standard.webp" bounds={[[52.97762302, 18.62382992],[53.00033484, 18.67718985]]} zIndex={1000} />
+    </>
+  )
+}
 
 
