@@ -10,7 +10,6 @@ const SolarLayer = () => {
     <>
     {zoomLevel >= 19 && <SolarBiggestQuality />}
     {zoomLevel <=18 && zoomLevel >= 17 ? <SolarStandardQuality /> : ''}
-    
     </>
   )
 }

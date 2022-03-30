@@ -29,7 +29,7 @@ ReactDOM.render(
     <GlobalStyle />
     <App />
   </React.StrictMode>,
-  document.querySelector('body')
+  document.querySelector('#app')
 );
 
 reportWebVitals();

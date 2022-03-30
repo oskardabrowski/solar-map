@@ -64,12 +64,12 @@ const Menu = () => {
                         <span>Mapy bazowe</span>
                     </div>
                 </button>
-                <button className="buttons-btn">
+                <Link to="/model" className="buttons-btn">
                     <SiThreedotjs />
                     <div className='buttons-btn-desc'>
                         <span>Wersja trójwymiarowa</span>
                     </div>
-                </button>
+                </Link>
                 <button className="buttons-btn">
                     <BsFillInfoCircleFill />
                     <div className='buttons-btn-desc'>
@@ -245,6 +245,7 @@ box-shadow: 2px 0px 5px rgba(0,0,0,.25);
         font-size: 1.75rem;
         margin: .5rem;
         position: relative;
+        color: black;
 
         &-desc {
             position: absolute;
@@ -256,6 +257,7 @@ box-shadow: 2px 0px 5px rgba(0,0,0,.25);
             padding: .5rem;
             border-radius: 15px 15px 15px 0px;
             clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+            font-family: 'Work Sans';
         }
 
         &:hover {
