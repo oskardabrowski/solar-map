@@ -65,7 +65,7 @@ export default function App() {
 				<MapEventsComponent />
 				{/* <SolarLayer /> */}
 
-				<TileLayer url="./SolarTest/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />
+				<TileLayer url="./RasterTest/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />
 
 				{/* Tile map layers */}
 				{mapTile === 'default' && <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
