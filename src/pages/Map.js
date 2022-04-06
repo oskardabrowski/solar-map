@@ -27,6 +27,22 @@ export default function App() {
 	const [tileLink, setTileLink] = useState("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
 	const [tileAttribution, setTileAttribution] = useState('&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors')
 
+	// useEffect(() => {
+	// 	if(mapTile === 'default') {
+	// 		setTileLink("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+	// 		setTileAttribution('&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors')
+	// 	}
+	// 	if(mapTile === 'topo') {
+	// 		setTileLink("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png");
+	// 		setTileAttribution('Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)');
+	// 	}
+	// 	// switch(mapTile) {
+	// 	// 	case 'default': setTileLink("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"); setTileAttribution('&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'); break;
+	// 	// 	case 'topo': setTileLink("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"); setTileAttribution('Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'); break;
+	// 	// }
+	// 	alert(mapTile)
+
+	// }, [mapTile])
 // TODO Zoom roboczy 16, zoom developerski 12
 
 	return (
@@ -60,6 +76,18 @@ export default function App() {
 				{mapTile === 'cartodbpositron' && <TileLayer url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png' attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 				{mapTile === 'stamentonerlite' && <TileLayer url='https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png' attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 				{mapTile === 'esriworldimagery' && <TileLayer url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}' attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+
+
+
+				{/* {zoomLevel >= 19 ? <Old_City /> : ''} */}
+				{/* {zoomLevel <= 18 && zoomLevel >= 17 ? <ImageOverlay url="./solar_rasters/old_city/M1-3.webp" bounds={[[53.00694494, 18.58284762], [53.02396836, 18.62286757]]} zIndex={1000} /> : ''} */}
+				{/* {zoomLevel >= 15 ? <ImageOverlay url="./solar_rasters/OldCity.webp" bounds={[[53.00136240, 18.55746407], [53.02860017, 18.62149598]]} zIndex={1000} /> : ''} */}
+
+				{/* <ImageOverlay url="./solar_rasters/OldCity.webp" bounds={[[53.00136240, 18.55746407], [53.02860017, 18.62149598]]} zIndex={1000} /> */}
+
+				{/* Mapny kot testowy */}
+				{/* <ImageOverlay url="./Cat.jpg" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} /> */}
+
 
 			</MapContainer>
 		</MapStyles>

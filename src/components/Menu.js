@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import styled from 'styled-components';
-import {IoLayers, IoSearch, IoMap, IoImages} from 'react-icons/io5';
+import {IoLayers, IoSearch, IoMap} from 'react-icons/io5';
 import {BsArrowLeftShort, BsArrowRightShort, BsFillInfoCircleFill} from 'react-icons/bs';
 import {RiMapFill} from 'react-icons/ri';
 import {AiFillTool} from 'react-icons/ai';
@@ -11,7 +11,7 @@ import { BrowserRouter as Route, Link } from 'react-router-dom';
 import { MapContext } from './GlobalContext';
 
 const Menu = () => {
-    const {setMapTile, mapType, setMapType} = useContext(MapContext);
+    const {setMapTile} = useContext(MapContext);
     const [show, setShow] = useState(false);
     const [activePanel, setActivePanel] = useState('');
     const AllPanels = document.querySelectorAll('.PanelData');
@@ -39,7 +39,7 @@ const Menu = () => {
                     {show ? <BsArrowLeftShort /> : <BsArrowRightShort />}
                 </button>
             </div>
-            {show && mapType === '2D' ? <div className="buttons">
+            {show && <div className="buttons">
                 <button className="buttons-btn" onClick={() => PanelHandler('PanelSearch')}>
                     <IoSearch />
                     <div className='buttons-btn-desc'>
@@ -64,7 +64,7 @@ const Menu = () => {
                         <span>Mapy bazowe</span>
                     </div>
                 </button>
-                <Link to="/model" onClick={() => setMapType('3D')} className="buttons-btn">
+                <Link to="/model" className="buttons-btn">
                     <SiThreedotjs />
                     <div className='buttons-btn-desc'>
                         <span>Wersja trójwymiarowa</span>
@@ -76,39 +76,7 @@ const Menu = () => {
                         <span>Informacje</span>
                     </div>
                 </button>
-            </div> : ''}
-            {show && mapType === '3D' ? <div className="buttons">
-                <button className="buttons-btn" onClick={() => PanelHandler('Layers3D')}>
-                    <IoLayers />
-                    <div className='buttons-btn-desc'>
-                        <span>Warstwy tematyczne</span>
-                    </div>
-                </button>
-                <button className="buttons-btn" onClick={() => PanelHandler('Photos')}>
-                    <IoImages />
-                    <div className='buttons-btn-desc'>
-                        <span>Zdjęcia w tle</span>
-                    </div>
-                </button>
-                <button className="buttons-btn" onClick={() => PanelHandler('Tools3D')}>
-                    <AiFillTool />
-                    <div className='buttons-btn-desc'>
-                        <span>Narzędzia</span>
-                    </div>
-                </button>
-                <Link to="/" onClick={() => setMapType('2D')} className="buttons-btn">
-                    <IoMap />
-                    <div className='buttons-btn-desc'>
-                        <span>Wersja dwuwymiarowa</span>
-                    </div>
-                </Link>
-                <button className="buttons-btn">
-                    <BsFillInfoCircleFill />
-                    <div className='buttons-btn-desc'>
-                        <span>Informacje</span>
-                    </div>
-                </button>
-            </div> : ''}
+            </div>}
             <div className="PanelData PanelSearch">
                 <h2>Wpisz szukany adres:</h2>
                 <form>
@@ -148,9 +116,6 @@ const Menu = () => {
                     <span>Esri World Imagery</span>
                 </button>
             </div>
-            <div className="PanelData Panel Layers3D">here is layers 3D</div>
-            <div className="PanelData Panel Photos">here is photos</div>
-            <div className="PanelData Panel Tools3D">here is tools 3D</div>
         </MenuBar>
     )
 }
