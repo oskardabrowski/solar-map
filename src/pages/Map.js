@@ -23,7 +23,7 @@ function MapEventsComponent() {
 }
 
 export default function App() {
-	const { zoomLevel, mapTile } = useContext(MapContext);
+	const { zoomLevel, mapTile, solarTile } = useContext(MapContext);
 	const [tileLink, setTileLink] = useState("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
 	const [tileAttribution, setTileAttribution] = useState('&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors')
 
@@ -63,9 +63,12 @@ export default function App() {
 				<GeoJSON className="TorBufor" data={TorBufor} />
 				<GeoJSON className="TorGranice" data={TorGranice} />
 				<MapEventsComponent />
-				{/* <SolarLayer /> */}
 
-				<TileLayer url="./SolarRasterAll/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />
+				{solarTile === 'Static' && <SolarLayer />}
+				{solarTile === 'Roofs' && <TileLayer url="./Tiles/SolarRasterRoofs/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{solarTile === 'All' && <TileLayer url="./Tiles/SolarRasterAll/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+
+
 
 				{/* Tile map layers */}
 				{mapTile === 'default' && <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}

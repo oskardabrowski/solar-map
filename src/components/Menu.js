@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import styled from 'styled-components';
-import {IoLayers, IoSearch, IoMap} from 'react-icons/io5';
+import {IoLayers, IoSearch, IoMap, IoImages} from 'react-icons/io5';
 import {BsArrowLeftShort, BsArrowRightShort, BsFillInfoCircleFill} from 'react-icons/bs';
 import {RiMapFill} from 'react-icons/ri';
 import {AiFillTool} from 'react-icons/ai';
@@ -11,7 +11,7 @@ import { BrowserRouter as Route, Link } from 'react-router-dom';
 import { MapContext } from './GlobalContext';
 
 const Menu = () => {
-    const {setMapTile} = useContext(MapContext);
+    const {setMapTile, setSolarTile, mapType, setMapType} = useContext(MapContext);
     const [show, setShow] = useState(false);
     const [activePanel, setActivePanel] = useState('');
     const AllPanels = document.querySelectorAll('.PanelData');
@@ -39,7 +39,7 @@ const Menu = () => {
                     {show ? <BsArrowLeftShort /> : <BsArrowRightShort />}
                 </button>
             </div>
-            {show && <div className="buttons">
+            {show && mapType === '2D' ? <div className="buttons">
                 <button className="buttons-btn" onClick={() => PanelHandler('PanelSearch')}>
                     <IoSearch />
                     <div className='buttons-btn-desc'>
@@ -64,7 +64,7 @@ const Menu = () => {
                         <span>Mapy bazowe</span>
                     </div>
                 </button>
-                <Link to="/model" className="buttons-btn">
+                <Link to="/model" onClick={() => setMapType('3D')} className="buttons-btn">
                     <SiThreedotjs />
                     <div className='buttons-btn-desc'>
                         <span>Wersja trójwymiarowa</span>
@@ -76,7 +76,48 @@ const Menu = () => {
                         <span>Informacje</span>
                     </div>
                 </button>
-            </div>}
+            </div>: ''}
+            {show && mapType === '3D' ? <div className="buttons">
+                <button className="buttons-btn" onClick={() => PanelHandler('Models')}>
+                    <IoLayers />
+                    <div className='buttons-btn-desc'>
+                        <span>Modele</span>
+                    </div>
+                </button>
+                <button className="buttons-btn" onClick={() => PanelHandler('Photos')}>
+                    <IoImages />
+                    <div className='buttons-btn-desc'>
+                        <span>Zdjęcia w tle</span>
+                    </div>
+                </button>
+                <button className="buttons-btn" onClick={() => PanelHandler('3DTools')}>
+                    <AiFillTool />
+                    <div className='buttons-btn-desc'>
+                        <span>Narzędzia</span>
+                    </div>
+                </button>
+                <Link to="/" onClick={() => setMapType('2D')} className="buttons-btn">
+                    <IoMap />
+                    <div className='buttons-btn-desc'>
+                        <span>Wersja dwuwymiarowa</span>
+                    </div>
+                </Link>
+                <button className="buttons-btn">
+                    <BsFillInfoCircleFill />
+                    <div className='buttons-btn-desc'>
+                        <span>Informacje</span>
+                    </div>
+                </button>
+            </div>: ''}
+            <div className="PanelData Panel Models">
+                Here is models panel
+            </div>
+            <div className="PanelData Panel Photos">
+                Here is photos panel
+            </div>
+            <div className="PanelData Panel 3DTools">
+                Here is 3D Tools panel
+            </div>
             <div className="PanelData PanelSearch">
                 <h2>Wpisz szukany adres:</h2>
                 <form>
@@ -84,7 +125,20 @@ const Menu = () => {
                     <button><IoSearch /></button>
                 </form>
             </div>
-            <div className="PanelData Panel Layers">here is layers</div>
+            <div className="PanelData Panel Layers">
+                <button className="Map-tile" onClick={() => setSolarTile('Roofs')}>
+                    <RiMapFill className="Map-tile-ico" />
+                    <span>Dachy</span>
+                </button>
+                <button className="Map-tile" onClick={() => setSolarTile('All')}>
+                    <RiMapFill className="Map-tile-ico" />
+                    <span>Całościowe</span>
+                </button>
+                <button className="Map-tile" onClick={() => setSolarTile('Static')}>
+                    <RiMapFill className="Map-tile-ico" />
+                    <span>Statyczne</span>
+                </button>
+            </div>
             <div className="PanelData Panel Tools">here is tools</div>
             <div className="PanelData Panel Map">
                 <button className="Map-tile" onClick={() => setMapTile('default')}>
