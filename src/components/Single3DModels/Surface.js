@@ -283,4 +283,140 @@ export const N18 = () => {
     </>
   )
 }
+export const N17 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n17.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[270, 0, -103]} />
+    </>
+  )
+}
+export const N16 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n16.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[223.5, -2.535, -100.5]} />
+    </>
+  )
+}
+export const N15 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n15.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[172, 0.027, -103]} />
+    </>
+  )
+}
+export const N14 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n14.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[120, -0.34, -98.5]} />
+    </>
+  )
+}
+export const N13 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n13.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1.085} position={[62, -0.08, -105]} />
+    </>
+  )
+}
+export const N12 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n12.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1.085} position={[11, -0.13, -105]} />
+    </>
+  )
+}
+export const N11 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n11.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[-31.5, 0.05, -103]} />
+    </>
+  )
+}
+export const N10 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n10.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[-77, -0.7, -102]} />
+    </>
+  )
+}
+export const N9 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n9.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[-119, 0, -96]} />
+    </>
+  )
+}
+export const N8 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n8.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[220, 0, -137.5]} />
+    </>
+  )
+}
+export const N7 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n7.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[185, 0, -140]} />
+    </>
+  )
+}
+export const N6 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n6.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1.1} position={[131, 0, -152]} />
+    </>
+  )
+}
+export const N5 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n5.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1.06} position={[80, 0.1, -150]} />
+    </>
+  )
+}
+export const N4 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n4.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[25, 0.1, -147]} />
+    </>
+  )
+}
+export const N3 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n3.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[-25, 0, -149]} />
+    </>
+  )
+}
+export const N2 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n2.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[-72, 0, -159]} />
+    </>
+  )
+}
+export const N1 = () => {
+  const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n1.gltf");
+  return (
+    <>
+      <primitive object={gltf.scene} scale={1} position={[-111, 0, -152]} />
+    </>
+  )
+}
 
