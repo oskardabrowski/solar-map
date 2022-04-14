@@ -65,8 +65,9 @@ export default function App() {
 				<MapEventsComponent />
 
 				{solarTile === 'Static' && <SolarLayer />}
-				{solarTile === 'Roofs' && <TileLayer url="./Tiles/SolarRasterRoofs/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
-				{solarTile === 'All' && <TileLayer url="./Tiles/SolarRasterAll/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{solarTile === 'Roofs' && <TileLayer url="http://localhost:8080/SolarRasterRoofs/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{solarTile === 'All' && <TileLayer url="http://localhost:8080/SolarRasterAll/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{solarTile === 'HQ' && <TileLayer url="http://localhost:8080/SolarRasterRoofsHQ/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 
 
 

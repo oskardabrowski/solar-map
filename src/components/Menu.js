@@ -4,14 +4,14 @@ import {IoLayers, IoSearch, IoMap, IoImages} from 'react-icons/io5';
 import {BsArrowLeftShort, BsArrowRightShort, BsFillInfoCircleFill} from 'react-icons/bs';
 import {RiMapFill} from 'react-icons/ri';
 import {AiFillTool} from 'react-icons/ai';
-import {MdInsertPhoto} from 'react-icons/md';
+import {MdInsertPhoto, MdPhoto} from 'react-icons/md';
 import {GrThreeDEffects} from 'react-icons/gr';
 import {SiThreedotjs, SiOpenstreetmap} from 'react-icons/si';
 import { BrowserRouter as Route, Link } from 'react-router-dom';
 import { MapContext } from './GlobalContext';
 
 const Menu = () => {
-    const {setMapTile, setSolarTile, mapType, setMapType} = useContext(MapContext);
+    const {setSkyHDR, setMapTile, setSolarTile, mapType, setMapType} = useContext(MapContext);
     const [show, setShow] = useState(false);
     const [activePanel, setActivePanel] = useState('');
     const AllPanels = document.querySelectorAll('.PanelData');
@@ -113,7 +113,18 @@ const Menu = () => {
                 Here is models panel
             </div>
             <div className="PanelData Panel Photos">
-                Here is photos panel
+                <button className="Map-tile" onClick={() => setSkyHDR('Terrain')}>
+                    <MdPhoto className="Map-tile-ico" />
+                    <span>Domyślny</span>
+                </button>
+                <button className="Map-tile" onClick={() => setSkyHDR('Sunflowers')}>
+                    <MdPhoto className="Map-tile-ico" />
+                    <span>Zachmurzony</span>
+                </button>
+                <button className="Map-tile" onClick={() => setSkyHDR('Clear')}>
+                    <MdPhoto className="Map-tile-ico" />
+                    <span>Czysty</span>
+                </button>
             </div>
             <div className="PanelData Panel 3DTools">
                 Here is 3D Tools panel
@@ -137,6 +148,10 @@ const Menu = () => {
                 <button className="Map-tile" onClick={() => setSolarTile('Static')}>
                     <RiMapFill className="Map-tile-ico" />
                     <span>Statyczne</span>
+                </button>
+                <button className="Map-tile" onClick={() => setSolarTile('HQ')}>
+                    <RiMapFill className="Map-tile-ico" />
+                    <span>HQ</span>
                 </button>
             </div>
             <div className="PanelData Panel Tools">here is tools</div>

@@ -8,6 +8,7 @@ const MapProvider = ({children}) => {
   const [mapTile, setMapTile] = useState('default');
   const [mapType, setMapType] = useState('2D');
   const [solarTile, setSolarTile] = useState('Roofs');
+  const [skyHDR, setSkyHDR] = useState('Terrain');
   return (
     <MapContext.Provider
     value={{
@@ -18,7 +19,9 @@ const MapProvider = ({children}) => {
         solarTile,
         setSolarTile,
         mapType,
-        setMapType
+        setMapType,
+        skyHDR,
+        setSkyHDR
     }}
     >{children}</MapContext.Provider>
   )
