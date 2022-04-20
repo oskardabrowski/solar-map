@@ -5,6 +5,7 @@ import Model from './pages/Model';
 import Header from './components/Header';
 import styled from 'styled-components';
 import Menu from './components/Menu';
+import CoordsAtr from './components/CoordsAtr';
 
 import { MapProvider } from "./components/GlobalContext";
 
@@ -16,6 +17,7 @@ function App() {
           <Header />
           <div className="appBody">
             <Menu />
+            <CoordsAtr />
             <Routes>
               <Route exact path="/" element={<Map />} />
               <Route path="/model" element={<Model />} />
@@ -39,5 +41,6 @@ flex-direction: column;
   height: 100%;
   width: 100%;
   display: flex;
+  position: relative;
 }
 `;

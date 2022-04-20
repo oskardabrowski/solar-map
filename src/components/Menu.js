@@ -184,6 +184,10 @@ const Menu = () => {
                     <MdInsertPhoto className="Map-tile-ico" />
                     <span>Esri World Imagery</span>
                 </button>
+                <button className="Map-tile" onClick={() => setMapTile('geoportaltopo')}>
+                    <MdInsertPhoto className="Map-tile-ico" />
+                    <span>Topo Geoportal</span>
+                </button>
             </div>
         </MenuBar>
     )
