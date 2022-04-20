@@ -145,13 +145,9 @@ const Menu = () => {
                     <RiMapFill className="Map-tile-ico" />
                     <span>Całościowe</span>
                 </button>
-                <button className="Map-tile" onClick={() => setSolarTile('Static')}>
+                <button className="Map-tile" onClick={() => setSolarTile('GradientAll')}>
                     <RiMapFill className="Map-tile-ico" />
-                    <span>Statyczne</span>
-                </button>
-                <button className="Map-tile" onClick={() => setSolarTile('HQ')}>
-                    <RiMapFill className="Map-tile-ico" />
-                    <span>HQ</span>
+                    <span>Gradient</span>
                 </button>
             </div>
             <div className="PanelData Panel Tools">here is tools</div>

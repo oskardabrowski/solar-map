@@ -4,17 +4,86 @@ import { MapContext } from './GlobalContext';
 
 const CoordsAtr = () => {
     const {coords, mapTile} = useContext(MapContext);
-    const [wgs84coords, setWgs84coords] = useState({easting: 338948.0620048294, northing: 5874965.058542489});
     const [proj, setProj] = useState('84');
-    const utm = require('utm');
     const setProjFc = (e) => {
         const newproj = e.target.value;
         setProj(newproj);
     }
+
+    function calculatePUWG92(lat, lng) {
+
+        // ? elipsoida GRS-80 - parametry
+        const e = 0.0818191910428;
+        const R0 = 6367449.14577;
+        const Snorm = 2.0 * Math.E-6;
+        const xo = 5760000.0;
+
+        // ? Współczynniki wielomianu
+        const a0 = 5765181.11148097;
+        const a1 = 499800.81713800;
+        const a2 = -63.81145283;
+        const a3 = 0.83537915;
+        const a4 = 0.13046891;
+        const a5 = -0.00111138;
+        const a6 = -0.00010504;
+
+        // ? Parametry odwzorowania Gaussa-Kruegera dla PUWG92
+        const L0_stopnie = 19.0;
+        const m0 = 0.9993;
+        const x0 = -5300000.0;
+        const y0 = 500000.0;
+
+        // ? Zakres stosowalności bo potrzebny
+        const Bmin = 48.0 * Math.PI/180.0;
+        const Bmax = 56.0 * Math.PI/180.0;
+        const dLmin = -6.0 * Math.PI/180.0;
+        const dLmax = 6.0 * Math.PI/180.0;
+
+        // ? Weryfikacja danych wejściowych
+        const B = lat*Math.PI/180;
+        const dL_stopnie = lng - L0_stopnie;
+        const dL = dL_stopnie*Math.PI/180;
+
+        // ? Elipsoida na kulę
+        const U = 1.0-e*Math.sin(B);
+        const V = 1.0+e*Math.sin(B);
+        const K = Math.pow((U/V), (e/2.0));
+        const C = K*Math.tan(B/2.0+Math.PI/4.0);
+        const fi = 2.0*Math.atan(C)-Math.PI/2.0;
+        const d_lambda = dL;
+
+        // ? kula na walec
+        const p = Math.sin(fi);
+        const q = Math.cos(fi)*Math.cos(d_lambda);
+        const r = 1.0+Math.cos(fi)*Math.sin(d_lambda);
+        const s = 1.0-Math.cos(fi)*Math.sin(d_lambda);
+        const XMERC = R0 * Math.atan(p/q);
+        const YMERC = 0.5*R0*Math.log(r/s);
+
+        // ? walec na płaszczyznę
+        const Z1 = ((XMERC - xo) * Snorm);
+        const Z2 = (YMERC * Snorm);
+
+        const complex = (Z1, Z2);
+
+        const Xgk = a0+complex*(a1+complex*(a2+complex*(a3+complex*(a4+complex*(a5+complex*a6)))));
+
+        // const Xgk = a0+Z1*(a1+Z1*(a2+Z1*(a3+Z1*(a4+Z1*(a5+Z1*a6)))));
+        // const Ygk = a0+Z2*(a1+Z2*(a2+Z2*(a3+Z2*(a4+Z2*(a5+Z2*a6)))));
+
+        // const Xpuwg = m0*Xgk+x0;
+        // const Ypuwg = m0*Ygk+y0;
+
+        // console.log(`X ${Xpuwg}, Y ${Ypuwg}`);
+
+        console.log(Xgk);
+    }
+
     useEffect(() => {
-        const utmcoords = utm.fromLatLon(coords.lat, coords.lng, 34);
-        setWgs84coords(utmcoords)
-    }, [coords]);
+        calculatePUWG92(18.6044267, 53.0105745);
+    },[])
+
+    // calculatePUWG92(18.6044267, 53.0105745);
   return (
     <Wrapper>
         <div>
@@ -22,17 +91,16 @@ const CoordsAtr = () => {
                 <select onChange={(e) => setProjFc(e)}>
                     <option value="84">WGS 84</option>
                     <option value="92">PUWG 1992</option>
-                    <option value="latlon">Lat Lng</option>
                 </select>
             </form>
         </div>
         <div>
-            {proj === 'latlon' && `Latitude: ${coords.lat.toFixed(6)}`}
-            {proj === '84' && `Wschodnie: ${wgs84coords.easting.toFixed(6)}`}
+            {proj === '84' && `${coords.lat.toFixed(6)}`}{proj === '84' && `, ${coords.lng.toFixed(6)}`}
+            {/* {proj === '84' && `Wschodnie: ${wgs84coords.easting.toFixed(6)}`} */}
         </div>
         <div>
-            {proj === 'latlon' && `Longitude: ${coords.lng.toFixed(6)}`}
-            {proj === '84' && `Północne: ${wgs84coords.northing.toFixed(6)}`}
+            {/* {proj === '84' && `Longitude: ${coords.lng.toFixed(6)}`} */}
+            {/* {proj === '84' && `Północne: ${wgs84coords.northing.toFixed(6)}`} */}
         </div>
         <div>
             	{mapTile === 'default' && <>&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors</>}

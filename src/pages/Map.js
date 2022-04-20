@@ -60,6 +60,7 @@ export default function App() {
 
 				{solarTile === 'Roofs' && <TileLayer url="http://localhost:8080/Tiles/SolarRasterRoofs512/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 				{solarTile === 'All' && <TileLayer url="http://localhost:8080/Tiles/SolarRasterAll256/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{solarTile === 'GradientAll' && <TileLayer url="http://localhost:8080/Tiles/SolarRasterAllGradient256/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 
 				{/* Tile map layers */}
 				{mapTile === 'default' && <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
