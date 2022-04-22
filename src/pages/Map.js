@@ -5,11 +5,10 @@ import { TorBufor } from "../components/layers/TorBufor";
 import { TorGranice } from "../components/layers/TorGranice";
 import { MapContext } from "../components/GlobalContext";
 
-
 // ! https://leaflet-extras.github.io/leaflet-providers/preview/    <--- mapy do wykorzystania w projekcie
 
 function MapEventsComponent() {
-	const { setZoomLevel, setCoords } = useContext(MapContext); // initial zoom level provided for MapContainer
+	const { setZoomLevel, setCoords, setMapCenter } = useContext(MapContext); // initial zoom level provided for MapContainer
 
 	const mapEvents = useMapEvents({
 		zoomend: () => {
@@ -17,6 +16,10 @@ function MapEventsComponent() {
 		},
 		mousemove(e) {
 			setCoords(e.latlng);
+		},
+		dragend: (e) => {
+			const centerMapCoords = e.target.getCenter();
+			setMapCenter(centerMapCoords);
 		}
 
 	});
@@ -52,7 +55,7 @@ export default function App() {
 					[52.93, 18.35],
 					[53.1, 18.9]
 				]}
-				onClick={(e) => console.log(e.latlng)}
+				id="generalMap"
 			>
 				<GeoJSON className="TorBufor" data={TorBufor} />
 				<GeoJSON className="TorGranice" data={TorGranice} />
@@ -65,7 +68,6 @@ export default function App() {
 				{/* Tile map layers */}
 				{mapTile === 'default' && <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 				{mapTile === 'topo' && <TileLayer url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png" attribution='Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
-				{mapTile === 'stadiasomoth' && <TileLayer url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png' attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 				{mapTile === 'cartodbdark' && <TileLayer url='https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png' attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 				{mapTile === 'cartodbvoyager' && <TileLayer url='https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png' attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 				{mapTile === 'cartodbpositron' && <TileLayer url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png' attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}

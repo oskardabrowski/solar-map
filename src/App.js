@@ -6,6 +6,7 @@ import Header from './components/Header';
 import styled from 'styled-components';
 import Menu from './components/Menu';
 import CoordsAtr from './components/CoordsAtr';
+import LayersManagment from './components/LayersManagment';
 
 import { MapProvider } from "./components/GlobalContext";
 
@@ -14,6 +15,7 @@ function App() {
     <MapProvider>
       <Router>
         <Container>
+          {/* <LayersManagment /> */}
           <Header />
           <div className="appBody">
             <Menu />
