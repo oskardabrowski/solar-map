@@ -5,8 +5,6 @@ import { TorBufor } from "../components/layers/TorBufor";
 import { TorGranice } from "../components/layers/TorGranice";
 import { MapContext } from "../components/GlobalContext";
 
-// ! https://leaflet-extras.github.io/leaflet-providers/preview/    <--- mapy do wykorzystania w projekcie
-
 function MapEventsComponent() {
 	const { setZoomLevel, setCoords, setMapCenter } = useContext(MapContext); // initial zoom level provided for MapContainer
 
