@@ -18,7 +18,7 @@ function MapEventsComponent() {
     const map = useMapEvents({});
 
     useEffect(() => {
-        map.setView(mapCenter, (zoomLevel-2))
+        map.setView(mapCenter, (zoomLevel-1))
     }, [mapCenter, zoomLevel])
 
     return null;
@@ -166,16 +166,61 @@ const Menu = () => {
             </div>
             <div className="PanelData Panel Layers">
                 <button className="Map-tile" onClick={() => setSolarTile('Roofs')}>
-                    <RiMapFill className="Map-tile-ico" />
-                    <span>Dachy</span>
+                    <div className="Map-tile-desc">
+                        <RiMapFill className="Map-tile-ico" />
+                        <span>Klasyfikacja dachów</span>
+                    </div>
+                    <MapStyles>
+                        <MapContainer class="mapOSM" id="MapOSM"
+                        center={mapCenter}
+				        zoom={zoomLevel}
+                        scrollWheelZoom={false}
+                        zoomControl={false}
+                        doubleClickZoom={false}
+                        dragging={false}
+                        >
+                            <MapEventsComponent />
+                            <TileLayer url="http://localhost:8080/Tiles/SolarRasterRoofs512/{z}/{x}/{y}.png" minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />
+                        </MapContainer>
+                    </MapStyles>
                 </button>
                 <button className="Map-tile" onClick={() => setSolarTile('All')}>
-                    <RiMapFill className="Map-tile-ico" />
-                    <span>Całościowe</span>
+                    <div className="Map-tile-desc">
+                        <RiMapFill className="Map-tile-ico" />
+                        <span>Klasyfikacja powierzchni</span>
+                    </div>
+                    <MapStyles>
+                        <MapContainer class="mapOSM" id="MapOSM"
+                        center={mapCenter}
+				        zoom={zoomLevel}
+                        scrollWheelZoom={false}
+                        zoomControl={false}
+                        doubleClickZoom={false}
+                        dragging={false}
+                        >
+                            <MapEventsComponent />
+                            <TileLayer url="http://localhost:8080/Tiles/SolarRasterAll256/{z}/{x}/{y}.png" minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />
+                        </MapContainer>
+                    </MapStyles>
                 </button>
                 <button className="Map-tile" onClick={() => setSolarTile('GradientAll')}>
-                    <RiMapFill className="Map-tile-ico" />
-                    <span>Gradient</span>
+                    <div className="Map-tile-desc">
+                        <RiMapFill className="Map-tile-ico" />
+                        <span>Gradient powierzchni</span>
+                    </div>
+                    <MapStyles>
+                        <MapContainer class="mapOSM" id="MapOSM"
+                        center={mapCenter}
+				        zoom={zoomLevel}
+                        scrollWheelZoom={false}
+                        zoomControl={false}
+                        doubleClickZoom={false}
+                        dragging={false}
+                        >
+                            <MapEventsComponent />
+                            <TileLayer url="http://localhost:8080/Tiles/SolarRasterAllGradient256/{z}/{x}/{y}.png" minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />
+                        </MapContainer>
+                    </MapStyles>
                 </button>
             </div>
             <div className="PanelData Panel Tools">here is tools</div>
@@ -345,39 +390,7 @@ position: relative;
 z-index: 100000;
 box-shadow: 2px 0px 5px rgba(0,0,0,.25);
 
-.Map {
-    &-tile {
-        width: 100%;
-        font-size: 1.2rem;
-        margin: 0.5rem 0rem;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: left;
-        border: none;
-        background:none;
-        transition: all .5s ease-in-out;
 
-        &-desc {
-            width: 100%;
-            font-size: 1.2rem;
-            margin: 0.5rem 0rem;
-            display: flex;
-            align-items: center;
-            justify-content: left;
-            
-            &-ico {
-                font-size: 1.5rem;
-                margin: 0.25rem;
-            }
-        }
-
-        &:hover {
-            cursor: pointer;
-            background-color: #A5DFFF;
-        }
-    }
-}
 
 .PanelSearch {
     position: absolute;
@@ -396,12 +409,10 @@ box-shadow: 2px 0px 5px rgba(0,0,0,.25);
         margin: 1rem 0rem;
         width: 85%;
         font-family: 'Work Sans';
-        /* background-color: red; */
     }
     & > form {
         width: 85%;
         position: relative;
-        /* background-color: red; */
         & > h2 {
 
         }
@@ -437,7 +448,8 @@ box-shadow: 2px 0px 5px rgba(0,0,0,.25);
 .Panel {
     position: absolute;
     left: 100%;
-    width: 500%;
+    min-width: 500%;
+    max-width: auto;
     height: 100%;
     background-color: white;
     transition: all .5s ease-in-out;
@@ -445,7 +457,7 @@ box-shadow: 2px 0px 5px rgba(0,0,0,.25);
     min-width: 17.5rem;
     overflow-y: scroll;
     ::-webkit-scrollbar {
-        width: 10px;
+        width: 5px;
     }
     ::-webkit-scrollbar-track {
       background: white;
@@ -457,6 +469,66 @@ box-shadow: 2px 0px 5px rgba(0,0,0,.25);
     ::-webkit-scrollbar-thumb:hover {
       background: blue;
       cursor: pointer;
+    }
+}
+
+.Layers {
+    background: none;
+    padding: 0rem .5rem;
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+}
+
+.Map {
+    background: none;
+    padding: 0rem .5rem;
+    ::-webkit-scrollbar {
+        width: 0px;
+    }
+    &-tile {
+        width: 100%;
+        height: 10rem;
+
+        font-size: 1.2rem;
+        margin: .5rem 0rem .5rem 0rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: left;
+        border: none;
+        background:none;
+        transition: all .5s ease-in-out;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 2px solid white;
+        background-color: white;
+
+        &-desc {
+            width: max-content;
+            display: flex;
+            font-size: .75rem;
+            padding: .25rem;
+            align-items: center;
+            justify-content: left;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background-color: white;
+            border-radius: 0px 0px 10px 0px;
+            
+            &-ico {
+                font-size: 1rem;
+                margin: 0.25rem;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: #A5DFFF;
+        }
     }
 }
 .hideShow {
@@ -512,8 +584,8 @@ box-shadow: 2px 0px 5px rgba(0,0,0,.25);
 
 `;
 const MapStyles = styled.div`
-height: 5rem;
-width: 100%;
+height: 105%;
+width: 105%;
 /* background-color: red; */
 #MapOSM {
   height: 100%;
