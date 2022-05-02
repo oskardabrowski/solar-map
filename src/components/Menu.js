@@ -5,12 +5,10 @@ import {BsArrowLeftShort, BsArrowRightShort, BsFillInfoCircleFill} from 'react-i
 import {RiMapFill} from 'react-icons/ri';
 import {AiFillTool} from 'react-icons/ai';
 import {MdInsertPhoto, MdPhoto} from 'react-icons/md';
-import {GrThreeDEffects} from 'react-icons/gr';
 import {SiThreedotjs, SiOpenstreetmap} from 'react-icons/si';
 import { BrowserRouter as Route, Link } from 'react-router-dom';
 import { MapContext } from './GlobalContext';
 import { MapContainer, TileLayer, useMapEvents, WMSTileLayer } from 'react-leaflet';
-import L from 'leaflet';
 
 function MapEventsComponent() {
 	const { zoomLevel, mapCenter } = useContext(MapContext); // initial zoom level provided for MapContainer
@@ -222,6 +220,25 @@ const Menu = () => {
                         </MapContainer>
                     </MapStyles>
                 </button>
+                <button className="Map-tile" onClick={() => setSolarTile('SkyView')}>
+                    <div className="Map-tile-desc">
+                        <RiMapFill className="Map-tile-ico" />
+                        <span>Widoczność nieba</span>
+                    </div>
+                    <MapStyles>
+                        <MapContainer class="mapOSM" id="MapOSM"
+                        center={mapCenter}
+				        zoom={zoomLevel}
+                        scrollWheelZoom={false}
+                        zoomControl={false}
+                        doubleClickZoom={false}
+                        dragging={false}
+                        >
+                            <MapEventsComponent />
+                            <TileLayer url="http://localhost:8080/Tiles/SkyViewMap256/{z}/{x}/{y}.png" minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />
+                        </MapContainer>
+                    </MapStyles>
+                </button>
             </div>
             <div className="PanelData Panel Tools">here is tools</div>
             <div className="PanelData Panel Map">
@@ -372,7 +389,7 @@ const Menu = () => {
                         dragging={false}
                         >
                             <MapEventsComponent />
-                            <WMSTileLayer url='https://mapy.geoportal.gov.pl/wss/service/pub/guest/kompozycja_BDOT10k_WMS/MapServer/WMSServer' {...props} attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />
+                            <WMSTileLayer url='https://mapy.geoportal.gov.pl/wss/service/pub/guest/kompozycja_BDOT10k_WMS/MapServer/WMSServer' attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />
                         </MapContainer>
                     </MapStyles>
                 </button>
@@ -571,6 +588,7 @@ box-shadow: 2px 0px 5px rgba(0,0,0,.25);
             border-radius: 15px 15px 15px 0px;
             clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
             font-family: 'Work Sans';
+            z-index: 10000;
         }
 
         &:hover {

@@ -62,6 +62,7 @@ export default function App() {
 				{solarTile === 'Roofs' && <TileLayer url="http://localhost:8080/Tiles/SolarRasterRoofs512/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 				{solarTile === 'All' && <TileLayer url="http://localhost:8080/Tiles/SolarRasterAll256/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 				{solarTile === 'GradientAll' && <TileLayer url="http://localhost:8080/Tiles/SolarRasterAllGradient256/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
+				{solarTile === 'SkyView' && <TileLayer url="http://localhost:8080/Tiles/SkyViewMap256/{z}/{x}/{y}.png" zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 
 				{/* Tile map layers */}
 				{mapTile === 'default' && <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
@@ -72,17 +73,6 @@ export default function App() {
 				{mapTile === 'stamentonerlite' && <TileLayer url='https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png' attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 				{mapTile === 'esriworldimagery' && <TileLayer url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}' attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
 				{mapTile === 'geoportaltopo' && <WMSTileLayer url='https://mapy.geoportal.gov.pl/wss/service/pub/guest/kompozycja_BDOT10k_WMS/MapServer/WMSServer' {...props} attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}
-
-
-
-				{/* {zoomLevel >= 19 ? <Old_City /> : ''} */}
-				{/* {zoomLevel <= 18 && zoomLevel >= 17 ? <ImageOverlay url="./solar_rasters/old_city/M1-3.webp" bounds={[[53.00694494, 18.58284762], [53.02396836, 18.62286757]]} zIndex={1000} /> : ''} */}
-				{/* {zoomLevel >= 15 ? <ImageOverlay url="./solar_rasters/OldCity.webp" bounds={[[53.00136240, 18.55746407], [53.02860017, 18.62149598]]} zIndex={1000} /> : ''} */}
-
-				{/* <ImageOverlay url="./solar_rasters/OldCity.webp" bounds={[[53.00136240, 18.55746407], [53.02860017, 18.62149598]]} zIndex={1000} /> */}
-
-				{/* Mapny kot testowy */}
-				{/* <ImageOverlay url="./Cat.jpg" bounds={[[53, 18.6], [53.05, 18.7]]} zIndex={1000} /> */}
 
 
 			</MapContainer>

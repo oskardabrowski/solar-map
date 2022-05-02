@@ -103,14 +103,14 @@ const CoordsAtr = () => {
             {/* {proj === '84' && `Północne: ${wgs84coords.northing.toFixed(6)}`} */}
         </div>
         <div>
-            	{mapTile === 'default' && <>&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors</>}
-				{mapTile === 'topo' && <>Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)</>}
-				{mapTile === 'stadiasomoth' && <>&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors</>}
-				{mapTile === 'cartodbdark' && <>&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a></>}
-				{mapTile === 'cartodbvoyager' && <>&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a></>}
-				{mapTile === 'cartodbpositron' && <>&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a></>}
-				{mapTile === 'stamentonerlite' && <>Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</>}
-				{mapTile === 'esriworldimagery' && <>Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community</>}
+            	{mapTile === 'default' && <><a href="https://leafletjs.com/">Leaflet</a> &copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors</>}
+				{mapTile === 'topo' && <><a href="https://leafletjs.com/">Leaflet</a> Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)</>}
+				{mapTile === 'stadiasomoth' && <><a href="https://leafletjs.com/">Leaflet</a> &copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors</>}
+				{mapTile === 'cartodbdark' && <><a href="https://leafletjs.com/">Leaflet</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a></>}
+				{mapTile === 'cartodbvoyager' && <><a href="https://leafletjs.com/">Leaflet</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a></>}
+				{mapTile === 'cartodbpositron' && <><a href="https://leafletjs.com/">Leaflet</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a></>}
+				{mapTile === 'stamentonerlite' && <><a href="https://leafletjs.com/">Leaflet</a> Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</>}
+				{mapTile === 'esriworldimagery' && <><a href="https://leafletjs.com/">Leaflet</a> Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community</>}
         </div>
     </Wrapper>
   )
