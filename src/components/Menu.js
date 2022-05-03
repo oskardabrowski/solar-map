@@ -9,6 +9,7 @@ import {SiThreedotjs, SiOpenstreetmap} from 'react-icons/si';
 import { BrowserRouter as Route, Link } from 'react-router-dom';
 import { MapContext } from './GlobalContext';
 import { MapContainer, TileLayer, useMapEvents, WMSTileLayer } from 'react-leaflet';
+import PanelBtn from './PanelBtn';
 
 function MapEventsComponent() {
 	const { zoomLevel, mapCenter } = useContext(MapContext); // initial zoom level provided for MapContainer
@@ -27,7 +28,7 @@ const Menu = () => {
     const [show, setShow] = useState(false);
     const [activePanel, setActivePanel] = useState('');
     const AllPanels = document.querySelectorAll('.PanelData');
-    useEffect(() => {setShow(!show)}, [])
+    useEffect(() => {setShow(!show)}, []);
     const PanelHandler = async (target) => {
         await AllPanels.forEach(el => {
             el.style.clipPath = 'circle(0% at 0 0)';
@@ -43,20 +44,19 @@ const Menu = () => {
                 el.style.clipPath = 'circle(0% at 0 0)';
             }
         })
-    }
+    };
 
-
-	const props = {
-  token: "public",
-  version: "1.3",
-  format: "image/png",
-  transparent: true,
-  tiles: true,
-  uppercase: true,
-  layers: "background,named_cyclones,named_cyclones_tracks,foreground",
-  foo: [123, 5566]
-};
-
+    const SecondDimensionVersionButtons = [
+        {name: 'Wyszukaj daną lokalizację', ico: <IoSearch />, code: 'PanelSearch'},
+        {name: 'Warstwy tematyczne', ico: <IoLayers />, code: 'Layers'},
+        {name: 'Narzędzia', ico: <AiFillTool />, code: 'Tools'},
+        {name: 'Mapy bazowe', ico: <IoMap />, code: 'Map'}
+    ]
+    const ThirdDimensionVersionButtons = [
+        {name: 'Modele', ico: <IoLayers />, code: 'Models'},
+        {name: 'Zdjęcia w tle', ico: <IoImages />, code: 'Photos'},
+        {name: 'Narzędzia', ico: <AiFillTool />, code: '3DTools'},
+    ]
 
     return (
         <MenuBar>
@@ -65,76 +65,36 @@ const Menu = () => {
                     {show ? <BsArrowLeftShort /> : <BsArrowRightShort />}
                 </button>
             </div>
-            {show && mapType === '2D' ? <div className="buttons">
-                <button className="buttons-btn" onClick={() => PanelHandler('PanelSearch')}>
-                    <IoSearch />
-                    <div className='buttons-btn-desc'>
-                        <span>Wyszukaj daną lokalizację</span>
-                    </div>
-                </button>
-                <button className="buttons-btn" onClick={() => PanelHandler('Layers')}>
-                    <IoLayers />
-                    <div className='buttons-btn-desc'>
-                        <span>Warstwy tematyczne</span>
-                    </div>
-                </button>
-                <button className="buttons-btn" onClick={() => PanelHandler('Tools')}>
-                    <AiFillTool />
-                    <div className='buttons-btn-desc'>
-                        <span>Narzędzia</span>
-                    </div>
-                </button>
-                <button className="buttons-btn" onClick={() => PanelHandler('Map')}>
-                    <IoMap />
-                    <div className='buttons-btn-desc'>
-                        <span>Mapy bazowe</span>
-                    </div>
-                </button>
+            <div className="buttons">
+            {show && mapType === '2D' ? <>
+                {SecondDimensionVersionButtons.map((el, index) => (
+                    <PanelBtn key={index} name={el.name} ico={el.ico} PanelHandler={PanelHandler} code={el.code} />
+                ))}
                 <Link to="/model" onClick={() => setMapType('3D')} className="buttons-btn">
                     <SiThreedotjs />
                     <div className='buttons-btn-desc'>
                         <span>Wersja trójwymiarowa</span>
                     </div>
                 </Link>
-                <button className="buttons-btn">
-                    <BsFillInfoCircleFill />
-                    <div className='buttons-btn-desc'>
-                        <span>Informacje</span>
-                    </div>
-                </button>
-            </div>: ''}
-            {show && mapType === '3D' ? <div className="buttons">
-                <button className="buttons-btn" onClick={() => PanelHandler('Models')}>
-                    <IoLayers />
-                    <div className='buttons-btn-desc'>
-                        <span>Modele</span>
-                    </div>
-                </button>
-                <button className="buttons-btn" onClick={() => PanelHandler('Photos')}>
-                    <IoImages />
-                    <div className='buttons-btn-desc'>
-                        <span>Zdjęcia w tle</span>
-                    </div>
-                </button>
-                <button className="buttons-btn" onClick={() => PanelHandler('3DTools')}>
-                    <AiFillTool />
-                    <div className='buttons-btn-desc'>
-                        <span>Narzędzia</span>
-                    </div>
-                </button>
+            </>: ''}
+            {show && mapType === '3D' ? <>
+                {ThirdDimensionVersionButtons.map((el, index) => (
+                    <PanelBtn key={index} name={el.name} ico={el.ico} PanelHandler={PanelHandler} code={el.code} />
+                ))}
                 <Link to="/" onClick={() => setMapType('2D')} className="buttons-btn">
                     <IoMap />
                     <div className='buttons-btn-desc'>
                         <span>Wersja dwuwymiarowa</span>
                     </div>
                 </Link>
-                <button className="buttons-btn">
+            </>: ''}
+            <button className="buttons-btn">
                     <BsFillInfoCircleFill />
                     <div className='buttons-btn-desc'>
                         <span>Informacje</span>
                     </div>
-                </button>
-            </div>: ''}
+            </button>
+            </div>
             <div className="PanelData Panel Models">
                 Here is models panel
             </div>
@@ -371,25 +331,6 @@ const Menu = () => {
                         >
                             <MapEventsComponent />
                             <TileLayer url='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}' attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />
-                        </MapContainer>
-                    </MapStyles>
-                </button>
-                <button className="Map-tile" onClick={() => setMapTile('geoportaltopo')}>
-                    <div className="Map-tile-desc">
-                        <MdInsertPhoto className="Map-tile-desc-ico" />
-                        <span>Topo Geoportal</span>
-                    </div>
-                    <MapStyles>
-                        <MapContainer class="mapOSM" id="MapOSM"
-                        center={mapCenter}
-				        zoom={zoomLevel}
-                        scrollWheelZoom={false}
-                        zoomControl={false}
-                        doubleClickZoom={false}
-                        dragging={false}
-                        >
-                            <MapEventsComponent />
-                            <WMSTileLayer url='https://mapy.geoportal.gov.pl/wss/service/pub/guest/kompozycja_BDOT10k_WMS/MapServer/WMSServer' attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />
                         </MapContainer>
                     </MapStyles>
                 </button>
