@@ -25,6 +25,7 @@
     "react-is": "16.8",
     "react-leaflet": "^3.2.5",
     "react-leaflet-distortable-imageoverlay": "^1.0.7",
+    "react-leaflet-enhanced-marker": "^1.0.21",
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",

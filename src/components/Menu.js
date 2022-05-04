@@ -82,6 +82,9 @@ const Menu = () => {
         setActivePanel(target);
         el.style.clipPath = "circle(200% at 0 0)";
       } else if (classArr.includes(target) && target === activePanel) {
+        if (target === "PanelSearch") {
+          setSearchedLocation(null);
+        }
         setActivePanel("");
         el.style.clipPath = "circle(0% at 0 0)";
       }
