@@ -17,10 +17,10 @@ justify-content: space-between;
 `;
 
 const Header = () => {
-    document.addEventListener('mousemove', function(e) {
-        console.log(`X: ${e.pageX}, Y: ${e.pageY}`);
-        console.log(`Coords X: ${window.innerWidth}, Y: ${window.innerHeight}`);
-    })
+    // document.addEventListener('mousemove', function(e) {
+    //     console.log(`X: ${e.pageX}, Y: ${e.pageY}`);
+    //     console.log(`Coords X: ${window.innerWidth}, Y: ${window.innerHeight}`);
+    // })
     return (
         <Head className="header">
             <img className="AppLogo" src={AppLogo} alt={AppLogo} />
