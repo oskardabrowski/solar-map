@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useContext, Component } from "react";
-import { MapContainer, Map, TileLayer, Marker, ImageOverlay, GeoJSON, useMapEvents, WMSTileLayer } from "react-leaflet";
+import { MapContainer, Map, TileLayer, Marker, ImageOverlay, GeoJSON, useMapEvents, WMSTileLayer, useMap } from "react-leaflet";
 import styled from 'styled-components';
 import { TorBufor } from "../components/layers/TorBufor";
 import { TorGranice } from "../components/layers/TorGranice";
@@ -7,7 +7,15 @@ import { MapContext } from "../components/GlobalContext";
 import AllMaps from "../components/Maps";
 
 function MapEventsComponent() {
-	const { setZoomLevel, setCoords, setMapCenter } = useContext(MapContext); // initial zoom level provided for MapContainer
+	const { setZoomLevel, setCoords, setMapCenter, searchedLocation } = useContext(MapContext); // initial zoom level provided for MapContainer
+	const map = useMap();
+
+	useEffect(() => {
+		if(searchedLocation !== null) {
+			const {shapeY, shapeX} = searchedLocation;
+			map.flyTo([shapeY, shapeX], 19);
+		}
+	}, [searchedLocation])
 
 	const mapEvents = useMapEvents({
 		zoomend: () => {
@@ -30,18 +38,8 @@ export default function App() {
 	const { zoomLevel, mapTile, solarTile } = useContext(MapContext);
 	const [tileLink, setTileLink] = useState("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
 	const [tileAttribution, setTileAttribution] = useState('&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors');
-
-	const props = {
-  token: "public",
-  version: "1.3",
-  format: "image/png",
-  transparent: true,
-  tiles: true,
-  uppercase: true,
-  layers: "background,named_cyclones,named_cyclones_tracks,foreground",
-  foo: [123, 5566]
-};
-
+	const [thisMap, setThisMap] = useState(null);
+	// thisMap.flyTo([53.016, 18.6111], 18);
 	return (
 		<MapStyles>
 			<MapContainer
@@ -55,19 +53,20 @@ export default function App() {
 					[53.1, 18.9]
 				]}
 				id="generalMap"
+				whenCreated={map => setThisMap({ map })}
 			>
 				<GeoJSON className="TorBufor" data={TorBufor} />
 				<GeoJSON className="TorGranice" data={TorGranice} />
 				<MapEventsComponent />
 
 				{/* Tile map layers */}
-				{AllMaps.layers.map(map => (
-					<>{solarTile === map.code && <TileLayer url={map.url} zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}</>
+				{AllMaps.layers.map((map, index) => (
+					<>{solarTile === map.code && <TileLayer key={index} url={map.url} zIndex={10000} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}</>
 				))}
 
 				{/* Tile basemap layers */}
-				{AllMaps.baseMaps.map(map => (
-					<>{mapTile === map.code && <TileLayer url={map.url} attribution={map.attribution} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}</>
+				{AllMaps.baseMaps.map((map, index) => (
+					<>{mapTile === map.code && <TileLayer key={index} url={map.url} attribution={map.attribution} minZoom={1} maxZoom={28} minNativeZoom={0} maxNativeZoom={19} />}</>
 				))}
 
 			</MapContainer>

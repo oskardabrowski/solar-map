@@ -12,6 +12,7 @@ const MapProvider = ({children}) => {
   const [skyHDR, setSkyHDR] = useState('Terrain');
   const [coords, setCoords] = useState({lat: 53.01, lng: 18.63})
   const [mouseAppCoords, setMouseAppCoords] = useState({x: 0, y: 0})
+  const [searchedLocation, setSearchedLocation] = useState(null);
   return (
     <MapContext.Provider
     value={{
@@ -30,7 +31,9 @@ const MapProvider = ({children}) => {
         mouseAppCoords,
         setMouseAppCoords,
         mapCenter,
-        setMapCenter
+        setMapCenter,
+        searchedLocation,
+        setSearchedLocation
     }}
     >{children}</MapContext.Provider>
   )
