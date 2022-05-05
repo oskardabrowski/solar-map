@@ -81381,42 +81381,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.022977600000004,
-    shapeX: 18.51562865,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0154269913119,
-    shapeX: 18.545022994176346,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.015021421956924,
-    shapeX: 18.546498233930205,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01863451694733,
-    shapeX: 18.523039094549052,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01933725,
-    shapeX: 18.520858,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.02156269035969,
-    shapeX: 18.51771531582926,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.027529599999994,
     shapeX: 18.7003514,
     streetName: "Janusza Kusocińskiego",
@@ -81450,12 +81414,6 @@ export const addressDatabase = [
     shapeY: 53.01378325323254,
     shapeX: 18.559902953842393,
     streetName: "Szosa Okrężna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01289785,
-    shapeX: 18.56014475,
-    streetName: "Szosa Bydgoska",
   },
   {
     adrHouse: "",
@@ -82137,12 +82095,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03774665118232,
-    shapeX: 18.614388521187667,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.036223400000004,
     shapeX: 18.6567066,
     streetName: "Marii Skłodowskiej-Curie",
@@ -82629,30 +82581,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01569318590798,
-    shapeX: 18.543839429331054,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01668405,
-    shapeX: 18.53575025,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01581084999999,
-    shapeX: 18.54523675,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.015861,
-    shapeX: 18.54455565,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.05215235,
     shapeX: 18.708761799999998,
     streetName: "Olsztyńska",
@@ -82662,24 +82590,6 @@ export const addressDatabase = [
     shapeY: 53.05299405000001,
     shapeX: 18.70996685,
     streetName: "Olsztyńska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01626950000001,
-    shapeX: 18.53810755,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.016499499999995,
-    shapeX: 18.535664099999998,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0164063,
-    shapeX: 18.53666025,
-    streetName: "Szosa Bydgoska",
   },
   {
     adrHouse: "",
@@ -83841,12 +83751,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01672306839489,
-    shapeX: 18.604575271689438,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01699940715435,
     shapeX: 18.59151778652714,
     streetName: "Jana Matejki",
@@ -84102,12 +84006,6 @@ export const addressDatabase = [
     shapeY: 53.0369517349065,
     shapeX: 18.686281587133106,
     streetName: "Józefa Chrzanowskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.013578426502335,
-    shapeX: 18.59720364376011,
-    streetName: "Józefa Ignacego Kraszewskiego",
   },
   {
     adrHouse: "",
@@ -84381,45 +84279,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03744649822927,
-    shapeX: 18.6416016557578,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.036318121186916,
-    shapeX: 18.625317194034796,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.038061549897805,
-    shapeX: 18.612386847203396,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.04075027421142,
     shapeX: 18.628614040498054,
     streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04175918088091,
-    shapeX: 18.65195700024499,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04170849711214,
-    shapeX: 18.65201660097598,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03805771404541,
-    shapeX: 18.644265294819082,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -84531,24 +84393,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.035922958527856,
-    shapeX: 18.59189433248129,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03753056540901,
-    shapeX: 18.61791739618406,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03785357806553,
-    shapeX: 18.61353550345573,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.99120366005149,
     shapeX: 18.59130350821354,
     streetName: "Ignacego Paderewskiego",
@@ -84612,18 +84456,6 @@ export const addressDatabase = [
     shapeY: 52.998442687353815,
     shapeX: 18.60561094981311,
     streetName: "Plac Armii Krajowej",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01277661545457,
-    shapeX: 18.560500505484477,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0122248386661,
-    shapeX: 18.562612941937335,
-    streetName: "Szosa Bydgoska",
   },
   {
     adrHouse: "",
@@ -84765,12 +84597,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01967145459643,
-    shapeX: 18.520371415250594,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.04233518519245,
     shapeX: 18.614816243228177,
     streetName: "Grudziądzka",
@@ -84828,18 +84654,6 @@ export const addressDatabase = [
     shapeY: 53.02360085037274,
     shapeX: 18.513974691593056,
     streetName: "Port Drzewny",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.020339,
-    shapeX: 18.5194927,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.014079198148686,
-    shapeX: 18.593496502255398,
-    streetName: "Józefa Ignacego Kraszewskiego",
   },
   {
     adrHouse: "",
@@ -84927,12 +84741,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01099648573398,
-    shapeX: 18.568120078037783,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01381513456362,
     shapeX: 18.608318217561834,
     streetName: "Wały Generała Władysława Sikorskiego",
@@ -84948,24 +84756,6 @@ export const addressDatabase = [
     shapeY: 53.01852280554992,
     shapeX: 18.59964320376677,
     streetName: "Szosa Chełmińska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.014979849999996,
-    shapeX: 18.554215300000003,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01494250834646,
-    shapeX: 18.554532854577047,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01399434181655,
-    shapeX: 18.557062066176623,
-    streetName: "Szosa Bydgoska",
   },
   {
     adrHouse: "",
@@ -85008,12 +84798,6 @@ export const addressDatabase = [
     shapeY: 53.02255379136628,
     shapeX: 18.668927336656974,
     streetName: "Przy Skarpie",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01957667584119,
-    shapeX: 18.602665555020177,
-    streetName: "Legionów",
   },
   {
     adrHouse: "",
@@ -85401,12 +85185,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.016312850000006,
-    shapeX: 18.60569265,
-    streetName: "Odrodzenia",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01733960238676,
     shapeX: 18.609749123837833,
     streetName: "Przy Kaszowniku",
@@ -85419,21 +85197,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.015539395814514,
-    shapeX: 18.550024112198333,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02722478309613,
     shapeX: 18.656067311594427,
     streetName: "Ludwika Rydygiera",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.015645058857615,
-    shapeX: 18.603394545134922,
-    streetName: "Odrodzenia",
   },
   {
     adrHouse: "",
@@ -85758,12 +85524,6 @@ export const addressDatabase = [
     shapeY: 53.02768051385321,
     shapeX: 18.600141069396358,
     streetName: "Lecha",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03359610549696,
-    shapeX: 18.599700433650916,
-    streetName: "Legionów",
   },
   {
     adrHouse: "",
@@ -86730,12 +86490,6 @@ export const addressDatabase = [
     shapeY: 52.98724611422779,
     shapeX: 18.64016098301731,
     streetName: "Jeżyka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01367527535484,
-    shapeX: 18.59781481335064,
-    streetName: "Józefa Ignacego Kraszewskiego",
   },
   {
     adrHouse: "",
@@ -87855,12 +87609,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.039845797291,
-    shapeX: 18.604816262833847,
-    streetName: "Traktorowa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.04471377774041,
     shapeX: 18.591417428757957,
     streetName: "Kameliowa",
@@ -87939,12 +87687,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.0587586,
-    shapeX: 18.58912935,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.05370815,
     shapeX: 18.578916300000003,
     streetName: "Bananowa",
@@ -87993,36 +87735,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03506124800361,
-    shapeX: 18.586773380586653,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03501698242709,
-    shapeX: 18.586803449971114,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.05238898491885,
-    shapeX: 18.575775906135064,
-    streetName: "Sadowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.034893499999995,
-    shapeX: 18.58572225,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03481005328127,
-    shapeX: 18.585196521352007,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.053830630052424,
     shapeX: 18.58013859702784,
     streetName: "Prosowa",
@@ -88035,27 +87747,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.038888377576505,
-    shapeX: 18.598696220044804,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.05648379436401,
     shapeX: 18.694944199168987,
     streetName: "Koniczynki",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03729817970489,
-    shapeX: 18.597579237778042,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03737226666971,
-    shapeX: 18.59715259590206,
-    streetName: "Legionów",
   },
   {
     adrHouse: "",
@@ -88089,45 +87783,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.039718750000006,
-    shapeX: 18.5996788,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03715718235756,
-    shapeX: 18.596472505370425,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03752881117359,
-    shapeX: 18.597409791065147,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.037571185008716,
-    shapeX: 18.597217703561594,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.037472197958685,
-    shapeX: 18.597322779689602,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.05745548295828,
     shapeX: 18.685760953364856,
     streetName: "Koniczynki",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03725575762692,
-    shapeX: 18.597497503637083,
-    streetName: "Legionów",
   },
   {
     adrHouse: "",
@@ -88209,24 +87867,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03030737299101,
-    shapeX: 18.601332026118115,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.032264749999996,
-    shapeX: 18.60121365,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03539401360112,
-    shapeX: 18.598434596565276,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.018558268262275,
     shapeX: 18.58040228230972,
     streetName:
@@ -88261,12 +87901,6 @@ export const addressDatabase = [
     shapeY: 53.01290470808488,
     shapeX: 18.597782815435913,
     streetName: "Aleja Świętego Jana Pawła II",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01363775597699,
-    shapeX: 18.597323961206378,
-    streetName: "Józefa Ignacego Kraszewskiego",
   },
   {
     adrHouse: "",
@@ -89668,21 +89302,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.04977946377339,
-    shapeX: 18.59103078380913,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.052710890589125,
     shapeX: 18.60778358882588,
     streetName: "Henryka Strobanda",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04129142412961,
-    shapeX: 18.598895193811604,
-    streetName: "Łukasza Watzenrodego",
   },
   {
     adrHouse: "",
@@ -89878,12 +89500,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.032587644947334,
-    shapeX: 18.601021782691923,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.03778510452534,
     shapeX: 18.606756181269713,
     streetName: "Inżynierska",
@@ -89905,12 +89521,6 @@ export const addressDatabase = [
     shapeY: 52.993591694682145,
     shapeX: 18.674460572712565,
     streetName: "Lipnowska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0377940131738,
-    shapeX: 18.61350935425997,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -89938,18 +89548,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03665035,
-    shapeX: 18.637286850000002,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03635423090255,
-    shapeX: 18.634328521950113,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0590354,
     shapeX: 18.559385149999997,
     streetName: "Szosa Chełmińska",
@@ -89974,27 +89572,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03912882907692,
-    shapeX: 18.61049954451308,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03811049381569,
-    shapeX: 18.612422946362777,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.03603937427279,
     shapeX: 18.612365566104373,
     streetName: "Grudziądzka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03792126052925,
-    shapeX: 18.612706618014446,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -90071,12 +89651,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01971512645808,
-    shapeX: 18.52047650147345,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01543495,
     shapeX: 18.6176638,
     streetName: "Plac Pokoju Toruńskiego",
@@ -90104,12 +89678,6 @@ export const addressDatabase = [
     shapeY: 53.0284041917975,
     shapeX: 18.596247893881706,
     streetName: "Franciszka Żwirki i Stanisława Wigury",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01754932807482,
-    shapeX: 18.527590352941438,
-    streetName: "Szosa Bydgoska",
   },
   {
     adrHouse: "",
@@ -90146,12 +89714,6 @@ export const addressDatabase = [
     shapeY: 53.0464759041564,
     shapeX: 18.589881394602624,
     streetName: "Fasolowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04553976428635,
-    shapeX: 18.59323332384356,
-    streetName: "Ugory",
   },
   {
     adrHouse: "",
@@ -90371,18 +89933,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01509952443501,
-    shapeX: 18.550719267339467,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.016136387179785,
-    shapeX: 18.54161483453074,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02002005105471,
     shapeX: 18.564011162820226,
     streetName: "Jurija Gagarina",
@@ -90491,12 +90041,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01596656946815,
-    shapeX: 18.605356263730332,
-    streetName: "Odrodzenia",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.999208105807796,
     shapeX: 18.62186486397829,
     streetName: "Łódzka",
@@ -90545,24 +90089,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.04357465525023,
-    shapeX: 18.595462643949833,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0378333,
-    shapeX: 18.5976803,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.023447098460366,
-    shapeX: 18.601714988404947,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02238859545197,
     shapeX: 18.606358924498103,
     streetName: "Podgórna",
@@ -90584,12 +90110,6 @@ export const addressDatabase = [
     shapeY: 53.04768268976863,
     shapeX: 18.57627086113668,
     streetName: "Szosa Chełmińska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0373723029694,
-    shapeX: 18.596746901943725,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -90743,12 +90263,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.05255758513331,
-    shapeX: 18.59020674379751,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02726945982655,
     shapeX: 18.681775082660415,
     streetName: "Szosa Lubicka",
@@ -90806,18 +90320,6 @@ export const addressDatabase = [
     shapeY: 53.02535555,
     shapeX: 18.63059195,
     streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.035964661734646,
-    shapeX: 18.63291735002552,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03582980547993,
-    shapeX: 18.628957965618874,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -91157,12 +90659,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01735404519357,
-    shapeX: 18.529708936408483,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.051139521660076,
     shapeX: 18.711393159446096,
     streetName: "Dojazd",
@@ -91277,18 +90773,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01506919352815,
-    shapeX: 18.585628002621316,
-    streetName: "Józefa Ignacego Kraszewskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.014800645809544,
-    shapeX: 18.585824970391123,
-    streetName: "Józefa Ignacego Kraszewskiego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01552712933842,
     shapeX: 18.585601027509984,
     streetName: "Generała Józefa Bema",
@@ -91310,12 +90794,6 @@ export const addressDatabase = [
     shapeY: 53.01419611991811,
     shapeX: 18.582289525026855,
     streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01426571706884,
-    shapeX: 18.588489216321864,
-    streetName: "Józefa Ignacego Kraszewskiego",
   },
   {
     adrHouse: "",
@@ -91757,18 +91235,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.013941114541865,
-    shapeX: 18.593212530650135,
-    streetName: "Józefa Ignacego Kraszewskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01410019821097,
-    shapeX: 18.59115004985778,
-    streetName: "Józefa Ignacego Kraszewskiego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0117123061467,
     shapeX: 18.593250104057166,
     streetName: "Adama Mickiewicza",
@@ -92030,12 +91496,6 @@ export const addressDatabase = [
     shapeY: 53.016328200000004,
     shapeX: 18.60196195,
     streetName: "Grudziądzka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01625900873123,
-    shapeX: 18.604832304157103,
-    streetName: "Legionów",
   },
   {
     adrHouse: "",
@@ -93239,12 +92699,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.04937374409179,
-    shapeX: 18.60426995317826,
-    streetName: "Łukasza Watzenrodego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.044140192757304,
     shapeX: 18.599858901371178,
     streetName: "Adama Freytaga",
@@ -93623,36 +93077,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.0367028,
-    shapeX: 18.637646099999998,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.037029943572556,
-    shapeX: 18.63995106946082,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03801769307563,
-    shapeX: 18.612765005526054,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.037958,
-    shapeX: 18.6129888,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03785695,
-    shapeX: 18.61293845,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.03850375852401,
     shapeX: 18.61334063456707,
     streetName: "Grudziądzka",
@@ -93707,12 +93131,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.015565249999995,
-    shapeX: 18.5445026,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.033790859854264,
     shapeX: 18.618119938680824,
     streetName: "Wielki Rów",
@@ -93740,12 +93158,6 @@ export const addressDatabase = [
     shapeY: 53.03610274999999,
     shapeX: 18.6266276,
     streetName: "Mazowiecka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03593691610974,
-    shapeX: 18.62738114911224,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -94289,12 +93701,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.022529,
-    shapeX: 18.5162867,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01382730051484,
     shapeX: 18.627685199759174,
     streetName: "Lubicka",
@@ -94304,12 +93710,6 @@ export const addressDatabase = [
     shapeY: 53.0175749791638,
     shapeX: 18.635951546700014,
     streetName: "Targowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.024913405551054,
-    shapeX: 18.51275437418101,
-    streetName: "Szosa Bydgoska",
   },
   {
     adrHouse: "",
@@ -95057,18 +94457,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01189173679818,
-    shapeX: 18.56418250038862,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.011863475234094,
-    shapeX: 18.564168356458637,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0152185,
     shapeX: 18.6899108,
     streetName: "Ligi Polskiej",
@@ -95117,48 +94505,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.042614814709665,
-    shapeX: 18.59652815650519,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.014448383155795,
-    shapeX: 18.588805442770497,
-    streetName: "Józefa Ignacego Kraszewskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.014186282047476,
-    shapeX: 18.59220006989587,
-    streetName: "Józefa Ignacego Kraszewskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01366048769471,
-    shapeX: 18.596752149008687,
-    streetName: "Józefa Ignacego Kraszewskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0421557,
-    shapeX: 18.5968403,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0397021,
-    shapeX: 18.599846399999997,
-    streetName: "Traktorowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.041009935708814,
-    shapeX: 18.603871475046788,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.040822446197446,
     shapeX: 18.598047051475906,
     streetName: "Rondo Księdza Biskupa Adolfa Szelążka",
@@ -95168,30 +94514,6 @@ export const addressDatabase = [
     shapeY: 53.040636041184115,
     shapeX: 18.59827213164964,
     streetName: "Rondo Księdza Biskupa Adolfa Szelążka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04114967983545,
-    shapeX: 18.59779244665292,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04040870925976,
-    shapeX: 18.598798019441936,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.040100088679175,
-    shapeX: 18.598953866077153,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03952332745425,
-    shapeX: 18.600337293023447,
-    streetName: "Traktorowa",
   },
   {
     adrHouse: "",
@@ -95441,21 +94763,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.039538590787856,
-    shapeX: 18.59499129753877,
-    streetName: "Jeremiego Wiśniowieckiego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.04082140708911,
     shapeX: 18.598332106196892,
     streetName: "Rondo Księdza Biskupa Adolfa Szelążka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.040981429855236,
-    shapeX: 18.5975897685907,
-    streetName: "Ugory",
   },
   {
     adrHouse: "",
@@ -95477,12 +94787,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.04142475,
-    shapeX: 18.5972499,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.04040123062029,
     shapeX: 18.613995466255034,
     streetName: "Grudziądzka",
@@ -95492,12 +94796,6 @@ export const addressDatabase = [
     shapeY: 53.04136127514772,
     shapeX: 18.61453464239764,
     streetName: "Grudziądzka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04141547399688,
-    shapeX: 18.60524029624705,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -95516,12 +94814,6 @@ export const addressDatabase = [
     shapeY: 53.02416218492302,
     shapeX: 18.63253140331015,
     streetName: "Jana III Sobieskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04084880805129,
-    shapeX: 18.60753800240458,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -95585,12 +94877,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03851,
-    shapeX: 18.645333649999998,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0247511,
     shapeX: 18.66766955,
     streetName: "Plac Sybiraków",
@@ -95615,51 +94901,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03869665,
-    shapeX: 18.64573155,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.039148182435625,
-    shapeX: 18.646661581316856,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04078025208243,
-    shapeX: 18.650022914540653,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.04016516669213,
     shapeX: 18.608572216981383,
     streetName: "Rondo doktora Tadeusza Ładniaka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.039830949999995,
-    shapeX: 18.648050650000002,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03946586397042,
-    shapeX: 18.6473026934,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0393169,
-    shapeX: 18.646997,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0389174,
-    shapeX: 18.6461893,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -95831,12 +95075,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.015409709220435,
-    shapeX: 18.603267641667355,
-    streetName: "Odrodzenia",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0299364,
     shapeX: 18.59186225,
     streetName: "Hoża",
@@ -95963,18 +95201,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.015067,
-    shapeX: 18.554133,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01259653013498,
-    shapeX: 18.56107096280321,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.00004418482734,
     shapeX: 18.62154470175479,
     streetName: "Łódzka",
@@ -96026,12 +95252,6 @@ export const addressDatabase = [
     shapeY: 52.99476704941636,
     shapeX: 18.609289138436377,
     streetName: "Majora Ludwika Idzikowskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01301942636298,
-    shapeX: 18.559803220338033,
-    streetName: "Szosa Bydgoska",
   },
   {
     adrHouse: "",
@@ -96281,18 +95501,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.0248449994962,
-    shapeX: 18.60157972188303,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0398242,
-    shapeX: 18.59984265,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.020265949999995,
     shapeX: 18.5080642,
     streetName: "Droga Starotoruńska",
@@ -96449,12 +95657,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03958114849028,
-    shapeX: 18.600379777579207,
-    streetName: "Traktorowa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02171108781037,
     shapeX: 18.648502824189798,
     streetName: "Estakada imienia Marka Sudaka",
@@ -96467,21 +95669,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03994362602404,
-    shapeX: 18.59946074993305,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.040652156472994,
     shapeX: 18.59799966463989,
     streetName: "Rondo Księdza Biskupa Adolfa Szelążka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03930112035929,
-    shapeX: 18.599523606081583,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -96635,12 +95825,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.047298504560786,
-    shapeX: 18.603676399554594,
-    streetName: "Łukasza Watzenrodego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01419359999999,
     shapeX: 18.59836595,
     streetName: "Czerwona Droga",
@@ -96658,12 +95842,6 @@ export const addressDatabase = [
     shapeX: 18.5802734,
     streetName:
       "Plac Błogosławionego Księdza Podharcmistrza Stefana Wincentego Frelichowskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0191229244538,
-    shapeX: 18.521617080394453,
-    streetName: "Szosa Bydgoska",
   },
   {
     adrHouse: "",
@@ -97111,21 +96289,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.0344419014197,
-    shapeX: 18.575387126745692,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.03219979451046,
     shapeX: 18.572767241407742,
     streetName: "Hugona Morycińskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03477908660051,
-    shapeX: 18.57531927464367,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -97138,18 +96304,6 @@ export const addressDatabase = [
     shapeY: 53.00834827338734,
     shapeX: 18.594569998018304,
     streetName: "Rybaki",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0412873148454,
-    shapeX: 18.59927695059522,
-    streetName: "Łukasza Watzenrodego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04428654477478,
-    shapeX: 18.601455565715792,
-    streetName: "Łukasza Watzenrodego",
   },
   {
     adrHouse: "",
@@ -97198,18 +96352,6 @@ export const addressDatabase = [
     shapeY: 52.991982060125274,
     shapeX: 18.63715698423599,
     streetName: "Bociana",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03397551601049,
-    shapeX: 18.569662246295263,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0347364383199,
-    shapeX: 18.580389903825786,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -97345,12 +96487,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.02624965,
-    shapeX: 18.6015552,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0279165,
     shapeX: 18.686004099999998,
     streetName: "Szosa Lubicka",
@@ -97369,21 +96505,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.047631856427444,
-    shapeX: 18.5917197463712,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02570862806,
     shapeX: 18.59787055637913,
     streetName: "Trasa Prezydenta Władysława Raczkiewicza",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.02741594982502,
-    shapeX: 18.60150067173682,
-    streetName: "Legionów",
   },
   {
     adrHouse: "",
@@ -97417,12 +96541,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01906601886021,
-    shapeX: 18.521423286125273,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0466774234676,
     shapeX: 18.70534951246076,
     streetName: "Przeskok",
@@ -97435,12 +96553,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.05459082545699,
-    shapeX: 18.603103822254624,
-    streetName: "Łukasza Watzenrodego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.04597376105638,
     shapeX: 18.60523423921945,
     streetName: "Jana Michała Hubego",
@@ -97450,18 +96562,6 @@ export const addressDatabase = [
     shapeY: 53.05194625,
     shapeX: 18.6167692,
     streetName: "Henryka Strobanda",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03485175312758,
-    shapeX: 18.585168997950024,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03481654459467,
-    shapeX: 18.585779447866358,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -97801,24 +96901,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.036994343949324,
-    shapeX: 18.638560119008787,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03683672791697,
-    shapeX: 18.637448562789416,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03759383390395,
-    shapeX: 18.642953825209784,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.051645287816896,
     shapeX: 18.548774745867426,
     streetName: "Barbarka",
@@ -97939,66 +97021,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03581755,
-    shapeX: 18.63106535,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.035715249343674,
-    shapeX: 18.63034478437546,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.036528450000006,
-    shapeX: 18.6364479,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03612238879244,
-    shapeX: 18.62625292936777,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.036322549408055,
-    shapeX: 18.625696982624994,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.036054500000006,
-    shapeX: 18.62731005,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03570457870813,
-    shapeX: 18.629073523543763,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0370676,
-    shapeX: 18.62145365,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03688551591257,
-    shapeX: 18.622433521791727,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.036634415234815,
-    shapeX: 18.62384485272618,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.99212355,
     shapeX: 18.63770225,
     streetName: "Łódzka",
@@ -98080,12 +97102,6 @@ export const addressDatabase = [
     shapeY: 53.008298434396416,
     shapeX: 18.597066813196076,
     streetName: "Bulwar Filadelfijski",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01576644054009,
-    shapeX: 18.604687105471257,
-    streetName: "Odrodzenia",
   },
   {
     adrHouse: "",
@@ -98251,51 +97267,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.032849256044635,
-    shapeX: 18.601169204593752,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01612344684866,
-    shapeX: 18.60576170125833,
-    streetName: "Odrodzenia",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.016194649999996,
-    shapeX: 18.605399650000003,
-    streetName: "Odrodzenia",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03748775535771,
-    shapeX: 18.597084953814733,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03742575979393,
-    shapeX: 18.597237454708146,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03754839535483,
-    shapeX: 18.597305696624996,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.017885221479816,
     shapeX: 18.613591211074166,
     streetName: "Plac Biskupa Jana Chrapka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0256346325531,
-    shapeX: 18.601559483304964,
-    streetName: "Legionów",
   },
   {
     adrHouse: "",
@@ -98677,12 +97651,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.039339417504124,
-    shapeX: 18.599442392289497,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0108009,
     shapeX: 18.60924725,
     streetName: "Wielkie Garbary",
@@ -98806,18 +97774,6 @@ export const addressDatabase = [
     shapeY: 53.036679170799644,
     shapeX: 18.723351215669567,
     streetName: "Odległa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0383344,
-    shapeX: 18.644954249999998,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.034349299999995,
-    shapeX: 18.573629150000002,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -98995,12 +97951,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03439442577712,
-    shapeX: 18.573244642744847,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.009445219034674,
     shapeX: 18.598502424633327,
     streetName: "Fryderyka Chopina",
@@ -99097,33 +98047,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03468581233777,
-    shapeX: 18.57302847574089,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.034641014654284,
-    shapeX: 18.573096346615387,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02310959824647,
     shapeX: 18.640620919126363,
     streetName: "Hetmana Stanisława Żółkiewskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.034508074177175,
-    shapeX: 18.572322483621505,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.034440918469336,
-    shapeX: 18.57231198736569,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -99727,12 +98653,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01337528293506,
-    shapeX: 18.597521747508125,
-    streetName: "Józefa Ignacego Kraszewskiego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0118512090626,
     shapeX: 18.591477491000525,
     streetName: "Adama Mickiewicza",
@@ -99751,12 +98671,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.020754026267504,
-    shapeX: 18.518906561996236,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.050641203772074,
     shapeX: 18.603666794681466,
     streetName: "Konrada Grasera",
@@ -99772,12 +98686,6 @@ export const addressDatabase = [
     shapeY: 53.0504777130774,
     shapeX: 18.60145355727822,
     streetName: "Konrada Grasera",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0515205097358,
-    shapeX: 18.603678316172928,
-    streetName: "Łukasza Watzenrodego",
   },
   {
     adrHouse: "",
@@ -99808,12 +98716,6 @@ export const addressDatabase = [
     shapeY: 53.03696360209444,
     shapeX: 18.693526817607204,
     streetName: "Olsztyńska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01404365044058,
-    shapeX: 18.59753460837695,
-    streetName: "Józefa Ignacego Kraszewskiego",
   },
   {
     adrHouse: "",
@@ -100123,12 +99025,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.034827550618516,
-    shapeX: 18.58373030061857,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02086092809984,
     shapeX: 18.596827223612845,
     streetName: "Szosa Chełmińska",
@@ -100156,12 +99052,6 @@ export const addressDatabase = [
     shapeY: 53.034636799089135,
     shapeX: 18.572693212191382,
     streetName: "Rondo Barbary i Jerzego Matyjków",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03482796941058,
-    shapeX: 18.58439476177098,
-    streetName: "Polna",
   },
   {
     adrHouse: "",
@@ -100513,33 +99403,15 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.06033056379241,
-    shapeX: 18.588861862044467,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.006008936463424,
     shapeX: 18.561047816316634,
     streetName: "Stanisława Przybyszewskiego",
   },
   {
     adrHouse: "",
-    shapeY: 53.03251205299961,
-    shapeX: 18.600910576549364,
-    streetName: "Legionów",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.03328096797051,
     shapeX: 18.600462597943466,
     streetName: "Rondo Czadcy",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03367592832668,
-    shapeX: 18.59995489204299,
-    streetName: "Legionów",
   },
   {
     adrHouse: "",
@@ -100621,12 +99493,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.013997700000004,
-    shapeX: 18.59457535,
-    streetName: "Józefa Ignacego Kraszewskiego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02642146154925,
     shapeX: 18.5050232587872,
     streetName: "Modrzewiowa",
@@ -100675,18 +99541,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.013957167687124,
-    shapeX: 18.59618275515132,
-    streetName: "Józefa Ignacego Kraszewskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01373845,
-    shapeX: 18.59578395,
-    streetName: "Józefa Ignacego Kraszewskiego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01275094366736,
     shapeX: 18.598149646144652,
     streetName: "Aleja Świętego Jana Pawła II",
@@ -100714,30 +99568,6 @@ export const addressDatabase = [
     shapeY: 53.02372255026518,
     shapeX: 18.611672579329397,
     streetName: "Grudziądzka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01599608821513,
-    shapeX: 18.54101079817157,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01653984777363,
-    shapeX: 18.537296099792762,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01657925700539,
-    shapeX: 18.534814550658265,
-    streetName: "Szosa Bydgoska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.016683,
-    shapeX: 18.533732049999998,
-    streetName: "Szosa Bydgoska",
   },
   {
     adrHouse: "",
@@ -101293,12 +100123,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.056043703176535,
-    shapeX: 18.589357021868924,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.027094146702275,
     shapeX: 18.630751543724195,
     streetName: "Bolesława Chrobrego",
@@ -101473,128 +100297,38 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03965925,
-    shapeX: 18.59967665,
-    streetName: "Traktorowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03879544999999,
-    shapeX: 18.5988881,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.038313499999994,
-    shapeX: 18.598279650000002,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0378763,
-    shapeX: 18.59749625,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03961165,
-    shapeX: 18.5999172,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.023514750000004,
-    shapeX: 18.5148425,
+    shapeY: 53.01684816,
+    shapeX: 18.53324332,
     streetName: "Szosa Bydgoska",
   },
   {
     adrHouse: "",
-    shapeY: 53.03961070596783,
-    shapeX: 18.60102959800338,
-    streetName: "Traktorowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0418389,
-    shapeX: 18.59961435,
-    streetName: "Łukasza Watzenrodego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.040599,
-    shapeX: 18.597961499999997,
-    streetName: "Jeremiego Wiśniowieckiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04171565703236,
-    shapeX: 18.59709395882908,
-    streetName: "Ugory",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04019869916211,
-    shapeX: 18.60061034982092,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03703335638035,
-    shapeX: 18.59783699703251,
+    shapeY: 53.02988068,
+    shapeX: 18.60131072,
     streetName: "Legionów",
   },
   {
     adrHouse: "",
-    shapeY: 53.0405464,
-    shapeX: 18.59818125,
+    shapeY: 53.05106774,
+    shapeX: 18.59060804,
     streetName: "Ugory",
   },
   {
     adrHouse: "",
-    shapeY: 53.0419918,
-    shapeX: 18.59975135,
+    shapeY: 53.04675503,
+    shapeX: 18.60328082,
     streetName: "Łukasza Watzenrodego",
   },
   {
     adrHouse: "",
-    shapeY: 53.04065635,
-    shapeX: 18.5978672,
+    shapeY: 53.03949056,
+    shapeX: 18.59483914,
     streetName: "Jeremiego Wiśniowieckiego",
   },
   {
     adrHouse: "",
-    shapeY: 53.03756854122051,
-    shapeX: 18.597093367327243,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03715805,
-    shapeX: 18.59634895,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03730372354051,
-    shapeX: 18.59691334290225,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03742885,
-    shapeX: 18.5971237,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03969574198252,
-    shapeX: 18.599737826390964,
-    streetName: "Polna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03960705,
-    shapeX: 18.59979965,
+    shapeY: 53.03982803,
+    shapeX: 18.60433946,
     streetName: "Traktorowa",
   },
   {
@@ -101605,8 +100339,14 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01414235,
-    shapeX: 18.5906203,
+    shapeY: 53.01416782,
+    shapeX: 18.59141684,
     streetName: "Józefa Ignacego Kraszewskiego",
+  },
+  {
+    adrHouse: "",
+    shapeY: 53.0356411,
+    shapeX: 18.62996566,
+    streetName: "Polna",
   },
 ];
