@@ -81495,12 +81495,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03977698037288,
-    shapeX: 18.6314493813275,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0362735,
     shapeX: 18.634304,
     streetName: "Kociewska",
@@ -81672,12 +81666,6 @@ export const addressDatabase = [
     shapeY: 53.01677381480549,
     shapeX: 18.56021940117782,
     streetName: "Szosa Okrężna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01353626609478,
-    shapeX: 18.571574051075338,
-    streetName: "Mikołaja Reja",
   },
   {
     adrHouse: "",
@@ -81882,12 +81870,6 @@ export const addressDatabase = [
     shapeY: 52.98973015,
     shapeX: 18.6172457,
     streetName: "Stanisława Sędziaka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.019969,
-    shapeX: 18.5974422,
-    streetName: "Gustawa Morcinka",
   },
   {
     adrHouse: "",
@@ -82347,18 +82329,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01890310566228,
-    shapeX: 18.592539871547874,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01999701909124,
-    shapeX: 18.594397253436387,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.99437898091869,
     shapeX: 18.597811356671407,
     streetName: "Poznańska",
@@ -82374,12 +82344,6 @@ export const addressDatabase = [
     shapeY: 53.0216384614762,
     shapeX: 18.59704005491558,
     streetName: "Podgórna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01950975,
-    shapeX: 18.59331295,
-    streetName: "Generała Józefa Bema",
   },
   {
     adrHouse: "",
@@ -82434,12 +82398,6 @@ export const addressDatabase = [
     shapeY: 53.02862683618863,
     shapeX: 18.59099458841265,
     streetName: "Szosa Chełmińska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03039218455928,
-    shapeX: 18.591614768932374,
-    streetName: "Długa",
   },
   {
     adrHouse: "",
@@ -82692,12 +82650,6 @@ export const addressDatabase = [
     shapeY: 52.99219513246344,
     shapeX: 18.63990880917754,
     streetName: "Włocławska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01148588330934,
-    shapeX: 18.57152022266093,
-    streetName: "Mikołaja Reja",
   },
   {
     adrHouse: "",
@@ -83037,12 +82989,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01280685594476,
-    shapeX: 18.593531978137815,
-    streetName: "Stanisława Moniuszki",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01001867718737,
     shapeX: 18.59536896473123,
     streetName: "Aleksandra Fredry",
@@ -83070,12 +83016,6 @@ export const addressDatabase = [
     shapeY: 53.025511854665204,
     shapeX: 18.614396571058734,
     streetName: "Łąkowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.02418416966532,
-    shapeX: 18.709519850534978,
-    streetName: "Leśny Trakt",
   },
   {
     adrHouse: "",
@@ -83205,12 +83145,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.028173701667136,
-    shapeX: 18.649888908117422,
-    streetName: "Czereśniowa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02221405574207,
     shapeX: 18.64960169916196,
     streetName: "Cisowa",
@@ -83337,21 +83271,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.009953004052136,
-    shapeX: 18.60304778868802,
-    streetName: "Różana",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0083041021171,
     shapeX: 18.604868026816124,
     streetName: "Bankowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01225175,
-    shapeX: 18.6039436,
-    streetName: "Fosa Staromiejska",
   },
   {
     adrHouse: "",
@@ -83430,12 +83352,6 @@ export const addressDatabase = [
     shapeY: 53.01257711567646,
     shapeX: 18.611490920719028,
     streetName: "Świętej Katarzyny",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.016836235243,
-    shapeX: 18.59376703817402,
-    streetName: "Gustawa Morcinka",
   },
   {
     adrHouse: "",
@@ -83550,12 +83466,6 @@ export const addressDatabase = [
     shapeY: 52.974370199999996,
     shapeX: 18.67624635,
     streetName: "Wiśniowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99683927988763,
-    shapeX: 18.58603964798027,
-    streetName: "Przy Grobli",
   },
   {
     adrHouse: "",
@@ -83709,12 +83619,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01570417743581,
-    shapeX: 18.61907452505928,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.014701955278476,
     shapeX: 18.618604904013598,
     streetName: "Generała Józefa Chłopickiego",
@@ -83739,12 +83643,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01587293993355,
-    shapeX: 18.61769543333146,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01456710166908,
     shapeX: 18.60585643407264,
     streetName: "Uniwersytecka",
@@ -83760,12 +83658,6 @@ export const addressDatabase = [
     shapeY: 53.00530436513964,
     shapeX: 18.703498255867878,
     streetName: "Skierki",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0359175665492,
-    shapeX: 18.56949953279987,
-    streetName: "Barbarka",
   },
   {
     adrHouse: "",
@@ -83811,12 +83703,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.02626940367065,
-    shapeX: 18.698389027525945,
-    streetName: "Leonida Teligi",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.015391224850646,
     shapeX: 18.62243103745964,
     streetName: "Ludwika Waryńskiego",
@@ -83856,12 +83742,6 @@ export const addressDatabase = [
     shapeY: 53.00827267054193,
     shapeX: 18.705165355879462,
     streetName: "Siewna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.000139064870886,
-    shapeX: 18.72174021298968,
-    streetName: "Międzyrzecze",
   },
   {
     adrHouse: "",
@@ -84099,12 +83979,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.012010172305196,
-    shapeX: 18.603082137041472,
-    streetName: "Fosa Staromiejska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.00893200617768,
     shapeX: 18.609376668134374,
     streetName: "Podmurna",
@@ -84261,12 +84135,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01580330418614,
-    shapeX: 18.618124739280432,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.039533526961,
     shapeX: 18.6216365064089,
     streetName: "Stefana Batorego",
@@ -84276,12 +84144,6 @@ export const addressDatabase = [
     shapeY: 53.03277715445238,
     shapeX: 18.62612269946646,
     streetName: "Towarowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04075027421142,
-    shapeX: 18.628614040498054,
-    streetName: "Bolesława Chrobrego",
   },
   {
     adrHouse: "",
@@ -84300,12 +84162,6 @@ export const addressDatabase = [
     shapeY: 53.04571608868145,
     shapeX: 18.694891427618334,
     streetName: "Zakątek",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.04705826550655,
-    shapeX: 18.688210222062192,
-    streetName: "Ukośna",
   },
   {
     adrHouse: "",
@@ -84348,12 +84204,6 @@ export const addressDatabase = [
     shapeY: 53.01862849055756,
     shapeX: 18.58062891536127,
     streetName: "Świętego Józefa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.015945102720195,
-    shapeX: 18.57151548082219,
-    streetName: "Mikołaja Reja",
   },
   {
     adrHouse: "",
@@ -84639,12 +84489,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01596098972715,
-    shapeX: 18.58664898717111,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02187732503448,
     shapeX: 18.489506654875193,
     streetName: "Port Drzewny",
@@ -84687,18 +84531,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.990117012734544,
-    shapeX: 18.588394298298187,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.989393497219574,
-    shapeX: 18.592547015281685,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.011470395073104,
     shapeX: 18.61386307671822,
     streetName: "Wola Zamkowa",
@@ -84726,12 +84558,6 @@ export const addressDatabase = [
     shapeY: 52.991310834722675,
     shapeX: 18.584730673000095,
     streetName: "Poznańska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99029506153417,
-    shapeX: 18.585397699626032,
-    streetName: "Generała Władysława Andersa",
   },
   {
     adrHouse: "",
@@ -84852,12 +84678,6 @@ export const addressDatabase = [
     shapeY: 53.005471634268424,
     shapeX: 18.64800964831254,
     streetName: "Rudacka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0406662856957,
-    shapeX: 18.623960893469498,
-    streetName: "Bolesława Chrobrego",
   },
   {
     adrHouse: "",
@@ -85041,18 +84861,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03013508589511,
-    shapeX: 18.590635910483726,
-    streetName: "Długa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.991561000000004,
-    shapeX: 18.62951165,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.992164430005886,
     shapeX: 18.635870703116797,
     streetName: "Łódzka",
@@ -85167,12 +84975,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.032899477661836,
-    shapeX: 18.60007188214358,
-    streetName: "Długa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.033921837909375,
     shapeX: 18.603793191184934,
     streetName: "Wielki Rów",
@@ -85188,12 +84990,6 @@ export const addressDatabase = [
     shapeY: 53.01733960238676,
     shapeX: 18.609749123837833,
     streetName: "Przy Kaszowniku",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01388227057887,
-    shapeX: 18.58193391478603,
-    streetName: "Generała Józefa Bema",
   },
   {
     adrHouse: "",
@@ -85329,18 +85125,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01042059505843,
-    shapeX: 18.60643910600311,
-    streetName: "Szeroka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.010553264123914,
-    shapeX: 18.601067709976558,
-    streetName: "Fosa Staromiejska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.00832812718644,
     shapeX: 18.603096369867316,
     streetName: "Pod Krzywą Wieżą",
@@ -85362,12 +85146,6 @@ export const addressDatabase = [
     shapeY: 53.01566880202033,
     shapeX: 18.605748153086566,
     streetName: "Uniwersytecka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03502769225215,
-    shapeX: 18.629813738717292,
-    streetName: "Bolesława Chrobrego",
   },
   {
     adrHouse: "",
@@ -85689,12 +85467,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.039592199999994,
-    shapeX: 18.631626400000002,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.99517711216445,
     shapeX: 18.63096537451598,
     streetName: "Okólna",
@@ -85857,12 +85629,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.996881233590386,
-    shapeX: 18.614639661005945,
-    streetName: "Generała Stanisława Woyczyńskiego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01437842459505,
     shapeX: 18.608544120564908,
     streetName: "Wały Generała Władysława Sikorskiego",
@@ -85905,12 +85671,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.02921669999999,
-    shapeX: 18.587317900000002,
-    streetName: "Długa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02125986499474,
     shapeX: 18.615546451942,
     streetName: "Bażyńskich",
@@ -85926,12 +85686,6 @@ export const addressDatabase = [
     shapeY: 53.01246519792972,
     shapeX: 18.60783282666187,
     streetName: "Wysoka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01142121816373,
-    shapeX: 18.60992532002629,
-    streetName: "Królowej Jadwigi",
   },
   {
     adrHouse: "",
@@ -86055,21 +85809,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.009952406911985,
-    shapeX: 18.593464662926625,
-    streetName: "Stanisława Moniuszki",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01190641129454,
     shapeX: 18.60191699997248,
     streetName: "Wilama Horzycy",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.011339471724575,
-    shapeX: 18.60025892667048,
-    streetName: "Fosa Staromiejska",
   },
   {
     adrHouse: "",
@@ -86130,12 +85872,6 @@ export const addressDatabase = [
     shapeY: 53.03219460547792,
     shapeX: 18.575921630173404,
     streetName: "Malinowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.032235670993806,
-    shapeX: 18.574319084109604,
-    streetName: "Orzechowa",
   },
   {
     adrHouse: "",
@@ -86307,21 +86043,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.98867146801072,
-    shapeX: 18.597787295425885,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.99015255970701,
     shapeX: 18.594240860719804,
     streetName: "Michała Drzymały",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.990494171229386,
-    shapeX: 18.61332360726428,
-    streetName: "Generała Władysława Andersa",
   },
   {
     adrHouse: "",
@@ -86469,12 +86193,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01461447234778,
-    shapeX: 18.59380707486392,
-    streetName: "Stanisława Moniuszki",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0150333037459,
     shapeX: 18.591646577124465,
     streetName: "Jana Matejki",
@@ -86580,12 +86298,6 @@ export const addressDatabase = [
     shapeY: 53.012803484896246,
     shapeX: 18.579742054262724,
     streetName: "Juliusza Słowackiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03579991052792,
-    shapeX: 18.63036052704048,
-    streetName: "Bolesława Chrobrego",
   },
   {
     adrHouse: "",
@@ -87723,12 +87435,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.04489871856377,
-    shapeX: 18.588701171029843,
-    streetName: "Chabrowa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02690835341774,
     shapeX: 18.59118275423652,
     streetName: "Szosa Chełmińska",
@@ -87756,12 +87462,6 @@ export const addressDatabase = [
     shapeY: 53.01391591652505,
     shapeX: 18.697617274993664,
     streetName: "Mistrza Twardowskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0440136678114,
-    shapeX: 18.56206326754596,
-    streetName: "Barbarka",
   },
   {
     adrHouse: "",
@@ -87955,12 +87655,6 @@ export const addressDatabase = [
     shapeY: 53.03747902069808,
     shapeX: 18.69156013246617,
     streetName: "Małgorzatki",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03783095898614,
-    shapeX: 18.69043270446756,
-    streetName: "Katarzynki",
   },
   {
     adrHouse: "",
@@ -88462,12 +88156,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.025878092810736,
-    shapeX: 18.630935047060337,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.974524487849294,
     shapeX: 18.684566342174808,
     streetName: "Włocławska",
@@ -88591,18 +88279,6 @@ export const addressDatabase = [
     shapeY: 52.99777400991475,
     shapeX: 18.573200276387894,
     streetName: "Sasankowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.9976603589276,
-    shapeX: 18.571896886202413,
-    streetName: "Czereśniowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99695531470469,
-    shapeX: 18.575085483423468,
-    streetName: "Orzechowa",
   },
   {
     adrHouse: "",
@@ -89236,12 +88912,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.012374306548175,
-    shapeX: 18.571542639293096,
-    streetName: "Mikołaja Reja",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01635246549296,
     shapeX: 18.54489876403757,
     streetName: "Pera Jonssona",
@@ -89401,12 +89071,6 @@ export const addressDatabase = [
     shapeY: 53.029406425185435,
     shapeX: 18.600186579303912,
     streetName: "Spółdzielcza",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.024713705542034,
-    shapeX: 18.629871295099413,
-    streetName: "Bolesława Chrobrego",
   },
   {
     adrHouse: "",
@@ -89657,12 +89321,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01587265,
-    shapeX: 18.617965849999997,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0131406,
     shapeX: 18.61166505,
     streetName: "Leona Szumana",
@@ -89861,12 +89519,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.9901757,
-    shapeX: 18.604112800000003,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.04011604999999,
     shapeX: 18.61408155,
     streetName: "Grudziądzka",
@@ -89948,12 +89600,6 @@ export const addressDatabase = [
     shapeY: 53.024301099999995,
     shapeX: 18.6329134,
     streetName: "Plac Fryderyka Skarbka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0263083327029,
-    shapeX: 18.70365333467779,
-    streetName: "Rondo Toruńskich Olimpijczyków",
   },
   {
     adrHouse: "",
@@ -90281,12 +89927,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.990709069966805,
-    shapeX: 18.617137913178052,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.03413305,
     shapeX: 18.61226745,
     streetName: "Wielki Rów",
@@ -90314,18 +89954,6 @@ export const addressDatabase = [
     shapeY: 53.04320830000001,
     shapeX: 18.5722842,
     streetName: "Wrzosowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.02535555,
-    shapeX: 18.63059195,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03812146551888,
-    shapeX: 18.630791571250395,
-    streetName: "Bolesława Chrobrego",
   },
   {
     adrHouse: "",
@@ -90401,12 +90029,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.991684640616526,
-    shapeX: 18.630147726193858,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.987499410311216,
     shapeX: 18.580410408767417,
     streetName: "Poznańska",
@@ -90440,12 +90062,6 @@ export const addressDatabase = [
     shapeY: 52.99546484859521,
     shapeX: 18.637638018892297,
     streetName: "Zimowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03284815504099,
-    shapeX: 18.630000910216133,
-    streetName: "Bolesława Chrobrego",
   },
   {
     adrHouse: "",
@@ -90713,12 +90329,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.99933826714317,
-    shapeX: 18.56365471054114,
-    streetName: "Przy Grobli",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02256419654257,
     shapeX: 18.611279048638693,
     streetName: "Podgórna",
@@ -90767,18 +90377,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01452387865902,
-    shapeX: 18.58406049210951,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01552712933842,
-    shapeX: 18.585601027509984,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.015222194353505,
     shapeX: 18.583594460549467,
     streetName: "Juliana Fałata",
@@ -90788,18 +90386,6 @@ export const addressDatabase = [
     shapeY: 53.01529184297447,
     shapeX: 18.583711542878802,
     streetName: "Juliana Fałata",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01419611991811,
-    shapeX: 18.582289525026855,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.992046057696676,
-    shapeX: 18.63187412622442,
-    streetName: "Generała Władysława Andersa",
   },
   {
     adrHouse: "",
@@ -90974,12 +90560,6 @@ export const addressDatabase = [
     shapeY: 53.052891115270015,
     shapeX: 18.588521491932852,
     streetName: "Modrakowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.05309434999999,
-    shapeX: 18.58815825,
-    streetName: "Jemiołowa",
   },
   {
     adrHouse: "",
@@ -91541,12 +91121,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.02650887735757,
-    shapeX: 18.704118927978175,
-    streetName: "Rondo Toruńskich Olimpijczyków",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.027850281033,
     shapeX: 18.687870209382858,
     streetName: "Ludwika Kolankowskiego",
@@ -91568,12 +91142,6 @@ export const addressDatabase = [
     shapeY: 52.994167020749565,
     shapeX: 18.654068265250245,
     streetName: "Generała Józefa Dwernickiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01639392214647,
-    shapeX: 18.58757290620972,
-    streetName: "Generała Józefa Bema",
   },
   {
     adrHouse: "",
@@ -91838,24 +91406,6 @@ export const addressDatabase = [
     shapeY: 53.018093866750554,
     shapeX: 18.628887209654806,
     streetName: "Gerarda Pająkowskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.9914724,
-    shapeX: 18.628171100000003,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.991190731448306,
-    shapeX: 18.625200887022554,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.991234173797594,
-    shapeX: 18.62519749350329,
-    streetName: "Generała Władysława Andersa",
   },
   {
     adrHouse: "",
@@ -92249,12 +91799,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.0115867,
-    shapeX: 18.60191145,
-    streetName: "Fosa Staromiejska",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.011493,
     shapeX: 18.60179505,
     streetName: "Franciszkańska",
@@ -92441,18 +91985,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.02410625,
-    shapeX: 18.629181,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.02012539805533,
-    shapeX: 18.623475297950133,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02517066759195,
     shapeX: 18.627581132168668,
     streetName: "Dworcowa",
@@ -92468,18 +92000,6 @@ export const addressDatabase = [
     shapeY: 53.02198813196862,
     shapeX: 18.65498678971767,
     streetName: "Winna",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.024311,
-    shapeX: 18.629416149999997,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0251204,
-    shapeX: 18.6303304,
-    streetName: "Bolesława Chrobrego",
   },
   {
     adrHouse: "",
@@ -93191,12 +92711,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.035830847180584,
-    shapeX: 18.630031058420286,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.035490970341826,
     shapeX: 18.625105407773518,
     streetName: "Ignacego Dudojcia",
@@ -93809,24 +93323,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.9918877,
-    shapeX: 18.63247845,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.991958800000006,
-    shapeX: 18.6323877,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99191550533074,
-    shapeX: 18.632007406996127,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.99514643327557,
     shapeX: 18.600449416108525,
     streetName: "Poznańska",
@@ -93860,12 +93356,6 @@ export const addressDatabase = [
     shapeY: 52.99203267967311,
     shapeX: 18.634047168680354,
     streetName: "Łódzka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99205739361187,
-    shapeX: 18.633141411164342,
-    streetName: "Generała Władysława Andersa",
   },
   {
     adrHouse: "",
@@ -94205,12 +93695,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.010643621667164,
-    shapeX: 18.57150450748465,
-    streetName: "Mikołaja Reja",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01180738849199,
     shapeX: 18.564606677580095,
     streetName: "Rondo Polaków Poszkodowanych przez Rzeszę Niemiecką",
@@ -94322,12 +93806,6 @@ export const addressDatabase = [
     shapeY: 53.02533960986584,
     shapeX: 18.69909341073775,
     streetName: "Konstytucji 3 Maja",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.026791415345805,
-    shapeX: 18.703619381843467,
-    streetName: "Rondo Toruńskich Olimpijczyków",
   },
   {
     adrHouse: "",
@@ -94574,12 +94052,6 @@ export const addressDatabase = [
     shapeY: 52.99973045,
     shapeX: 18.604735849999997,
     streetName: "Plac Armii Krajowej",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99862426474246,
-    shapeX: 18.57106961112984,
-    streetName: "Przy Grobli",
   },
   {
     adrHouse: "",
@@ -94907,12 +94379,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.021310299999996,
-    shapeX: 18.596279600000003,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0216784,
     shapeX: 18.59560165,
     streetName: "Szosa Chełmińska",
@@ -94955,18 +94421,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03171906144202,
-    shapeX: 18.629965369097395,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.018871674620556,
-    shapeX: 18.592237909518847,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.032274318157384,
     shapeX: 18.636480490681336,
     streetName: "Trasa Prezydenta Władysława Raczkiewicza",
@@ -95006,18 +94460,6 @@ export const addressDatabase = [
     shapeY: 53.02804227467632,
     shapeX: 18.614967110784665,
     streetName: "Trasa Prezydenta Władysława Raczkiewicza",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.03174838973462,
-    shapeX: 18.63027772593265,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.02940606300368,
-    shapeX: 18.630423033557367,
-    streetName: "Bolesława Chrobrego",
   },
   {
     adrHouse: "",
@@ -95267,12 +94709,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01372614948242,
-    shapeX: 18.57156693942152,
-    streetName: "Mikołaja Reja",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.00959471319146,
     shapeX: 18.599661619394585,
     streetName: "Fryderyka Chopina",
@@ -95327,12 +94763,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.0330065433034,
-    shapeX: 18.5999357039804,
-    streetName: "Długa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.043298228626426,
     shapeX: 18.740109428465477,
     streetName: "Lubicka",
@@ -95369,39 +94799,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.99035843302758,
-    shapeX: 18.584904564166372,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.990427048616446,
-    shapeX: 18.586020776756666,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.990423803555814,
-    shapeX: 18.584908224784282,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.9901474379657,
-    shapeX: 18.5876972877181,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.06295303417409,
     shapeX: 18.576276419631533,
     streetName: "dojazd pożarowy 1/3",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99034257293726,
-    shapeX: 18.587186048195722,
-    streetName: "Generała Władysława Andersa",
   },
   {
     adrHouse: "",
@@ -95875,24 +95275,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.989575,
-    shapeX: 18.5914345,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.9897881,
-    shapeX: 18.590150549999997,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.98912661738401,
-    shapeX: 18.59412217430634,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0305552775079,
     shapeX: 18.651819879959767,
     streetName: "Teodora Donimirskiego",
@@ -96019,21 +95401,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.017747857446366,
-    shapeX: 18.590074530240113,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02523123517067,
     shapeX: 18.59610346851336,
     streetName: "Trasa Prezydenta Władysława Raczkiewicza",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.020484293546694,
-    shapeX: 18.594926886832067,
-    streetName: "Generała Józefa Bema",
   },
   {
     adrHouse: "",
@@ -96058,12 +95428,6 @@ export const addressDatabase = [
     shapeY: 53.018119,
     shapeX: 18.5909785,
     streetName: "Jana Matejki",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01834085837321,
-    shapeX: 18.59156535602333,
-    streetName: "Generała Józefa Bema",
   },
   {
     adrHouse: "",
@@ -96631,12 +95995,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.04289894741461,
-    shapeX: 18.58996114331242,
-    streetName: "Chabrowa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02092137354418,
     shapeX: 18.612666746367445,
     streetName: "Grudziądzka",
@@ -96652,12 +96010,6 @@ export const addressDatabase = [
     shapeY: 52.99204382720671,
     shapeX: 18.63791922329832,
     streetName: "Łódzka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01447492601077,
-    shapeX: 18.57154177041129,
-    streetName: "Mikołaja Reja",
   },
   {
     adrHouse: "",
@@ -96694,24 +96046,6 @@ export const addressDatabase = [
     shapeY: 53.016238226666054,
     shapeX: 18.58891506891322,
     streetName: "Konstantego Ildefonsa Gałczyńskiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01754525,
-    shapeX: 18.5899394,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.017025175892385,
-    shapeX: 18.588626276351576,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01584050776553,
-    shapeX: 18.5859520707894,
-    streetName: "Generała Józefa Bema",
   },
   {
     adrHouse: "",
@@ -96775,12 +96109,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.02521385,
-    shapeX: 18.70497355,
-    streetName: "Leśny Trakt",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01085019999999,
     shapeX: 18.68945505,
     streetName: "Turystyczna",
@@ -96814,18 +96142,6 @@ export const addressDatabase = [
     shapeY: 53.021180099999995,
     shapeX: 18.596185300000002,
     streetName: "Szosa Chełmińska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.021226250000005,
-    shapeX: 18.59638755,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.02098847731398,
-    shapeX: 18.596013458887303,
-    streetName: "Generała Józefa Bema",
   },
   {
     adrHouse: "",
@@ -96901,12 +96217,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.051645287816896,
-    shapeX: 18.548774745867426,
-    streetName: "Barbarka",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.052853236610275,
     shapeX: 18.566400464657228,
     streetName: "dojazd pożarowy 6/2",
@@ -96925,57 +96235,15 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.99036248473521,
-    shapeX: 18.607382141821315,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.99286500559557,
     shapeX: 18.60848417581494,
     streetName: "Generała Gustawa Orlicz-Dreszera",
   },
   {
     adrHouse: "",
-    shapeY: 52.99039331854791,
-    shapeX: 18.60921025165125,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99042971910469,
-    shapeX: 18.611279642125947,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.990138083353095,
-    shapeX: 18.603665651400693,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99031765,
-    shapeX: 18.6060241,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.990248,
-    shapeX: 18.60502,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.035821828647414,
     shapeX: 18.65612068968327,
     streetName: "Marii Skłodowskiej-Curie",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.9900794336212,
-    shapeX: 18.603003709726178,
-    streetName: "Generała Władysława Andersa",
   },
   {
     adrHouse: "",
@@ -96991,33 +96259,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.99059150647753,
-    shapeX: 18.615107956236812,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.990890056116676,
-    shapeX: 18.620393883391763,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99173817928809,
-    shapeX: 18.63142127579957,
-    streetName: "Generała Władysława Andersa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02311422487626,
     shapeX: 18.682077740646083,
     streetName: "Konstytucji 3 Maja",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.033748126869966,
-    shapeX: 18.62988593570095,
-    streetName: "Bolesława Chrobrego",
   },
   {
     adrHouse: "",
@@ -97111,12 +96355,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01703180223206,
-    shapeX: 18.588918465596276,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02205724471617,
     shapeX: 18.598055014667114,
     streetName: "Podgórna",
@@ -97156,12 +96394,6 @@ export const addressDatabase = [
     shapeY: 52.996406362939496,
     shapeX: 18.58845358511919,
     streetName: "Wiślana",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.9972608,
-    shapeX: 18.593514749999997,
-    streetName: "Przy Grobli",
   },
   {
     adrHouse: "",
@@ -97699,18 +96931,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03106747583406,
-    shapeX: 18.593872525008003,
-    streetName: "Długa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.02967932840416,
-    shapeX: 18.590139343185278,
-    streetName: "Długa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.02000038429594,
     shapeX: 18.60315844725689,
     streetName: "Jana Dekerta",
@@ -97807,12 +97027,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03197565889212,
-    shapeX: 18.630635934760846,
-    streetName: "Bolesława Chrobrego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.043212772650996,
     shapeX: 18.611192903368174,
     streetName: "Forteczna",
@@ -97882,18 +97096,6 @@ export const addressDatabase = [
     shapeY: 53.03261147076722,
     shapeX: 18.622224791826472,
     streetName: "Stefana Batorego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.017177994149655,
-    shapeX: 18.571528776955244,
-    streetName: "Mikołaja Reja",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01727090775218,
-    shapeX: 18.57141697178987,
-    streetName: "Mikołaja Reja",
   },
   {
     adrHouse: "",
@@ -97981,21 +97183,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.03017559959756,
-    shapeX: 18.59120118582284,
-    streetName: "Długa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01618247699405,
     shapeX: 18.615991579294842,
     streetName: "Przy Kaszowniku",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.02997689839469,
-    shapeX: 18.589947808979943,
-    streetName: "Długa",
   },
   {
     adrHouse: "",
@@ -98212,12 +97402,6 @@ export const addressDatabase = [
     shapeY: 52.991032699358804,
     shapeX: 18.5640982711557,
     streetName: "Przy Nasypie",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.996752449999995,
-    shapeX: 18.588379449999998,
-    streetName: "Przy Grobli",
   },
   {
     adrHouse: "",
@@ -98893,12 +98077,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.019095329970845,
-    shapeX: 18.595865557879844,
-    streetName: "Gustawa Morcinka",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0297109180133,
     shapeX: 18.58000206905729,
     streetName: "Osiedlowa",
@@ -98974,12 +98152,6 @@ export const addressDatabase = [
     shapeY: 53.01285018636364,
     shapeX: 18.584991999997825,
     streetName: "Juliusza Słowackiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0114163006531,
-    shapeX: 18.601202307914633,
-    streetName: "Fosa Staromiejska",
   },
   {
     adrHouse: "",
@@ -99061,12 +98233,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.02951753314381,
-    shapeX: 18.588828790531554,
-    streetName: "Długa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.04076798302198,
     shapeX: 18.615767306231056,
     streetName: "Celnicza",
@@ -99085,27 +98251,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.02926478325609,
-    shapeX: 18.587546861716206,
-    streetName: "Długa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.029076815829725,
-    shapeX: 18.58643982510438,
-    streetName: "Długa",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.9973825010208,
     shapeX: 18.627906839863286,
     streetName: "Generała Stefana Grota-Roweckiego",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0291914,
-    shapeX: 18.5871982,
-    streetName: "Długa",
   },
   {
     adrHouse: "",
@@ -99127,21 +98275,9 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.0295723694386,
-    shapeX: 18.58875883610457,
-    streetName: "Długa",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.045247825281805,
     shapeX: 18.58040129320511,
     streetName: "Rzepakowa",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.998920353521974,
-    shapeX: 18.567485746728053,
-    streetName: "Przy Grobli",
   },
   {
     adrHouse: "",
@@ -99271,18 +98407,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.99718384691321,
-    shapeX: 18.581952059551654,
-    streetName: "Przy Grobli",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99791562793318,
-    shapeX: 18.57615999384497,
-    streetName: "Przy Grobli",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.98966425739707,
     shapeX: 18.563720909496478,
     streetName: "Przy Nasypie",
@@ -99367,12 +98491,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01684094991387,
-    shapeX: 18.571497056446145,
-    streetName: "Mikołaja Reja",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.0484536782779,
     shapeX: 18.61610041202761,
     streetName: "Forteczna",
@@ -99424,12 +98542,6 @@ export const addressDatabase = [
     shapeY: 53.008547899999996,
     shapeX: 18.5823158,
     streetName: "Sebastiana Klonowica",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.0170264,
-    shapeX: 18.5714695,
-    streetName: "Mikołaja Reja",
   },
   {
     adrHouse: "",
@@ -99628,18 +98740,6 @@ export const addressDatabase = [
     shapeY: 53.043453670371925,
     shapeX: 18.66176695360656,
     streetName: "Płaska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.034292050000005,
-    shapeX: 18.5716661,
-    streetName: "Barbarka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99876785762374,
-    shapeX: 18.5697902507923,
-    streetName: "Przy Grobli",
   },
   {
     adrHouse: "",
@@ -99961,12 +99061,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.99636234348851,
-    shapeX: 18.617560675818666,
-    streetName: "Generała Stanisława Woyczyńskiego",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.03403894999999,
     shapeX: 18.57269065,
     streetName: "Hugona Morycińskiego",
@@ -100111,20 +99205,20 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.98961527213745,
-    shapeX: 18.60153373077336,
+    shapeY: 52.99064385,
+    shapeX: 18.61619517,
     streetName: "Generała Władysława Andersa",
   },
   {
     adrHouse: "",
-    shapeY: 53.032242652531664,
-    shapeX: 18.597647177186474,
+    shapeY: 53.03145337,
+    shapeX: 18.59514702,
     streetName: "Długa",
   },
   {
     adrHouse: "",
-    shapeY: 53.027094146702275,
-    shapeX: 18.630751543724195,
+    shapeY: 53.02806536,
+    shapeX: 18.63061287,
     streetName: "Bolesława Chrobrego",
   },
   {
@@ -100135,8 +99229,8 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.01175475,
-    shapeX: 18.602338449999998,
+    shapeY: 53.01187391,
+    shapeX: 18.60275558,
     streetName: "Fosa Staromiejska",
   },
   {
@@ -100165,20 +99259,8 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.016541223054716,
-    shapeX: 18.587620262307453,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01832092215939,
-    shapeX: 18.59124549614811,
-    streetName: "Generała Józefa Bema",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01787028452486,
-    shapeX: 18.590609911759167,
+    shapeY: 53.01841741,
+    shapeX: 18.59144424,
     streetName: "Generała Józefa Bema",
   },
   {
@@ -100186,12 +99268,6 @@ export const addressDatabase = [
     shapeY: 52.99717225,
     shapeX: 18.662403150000003,
     streetName: "Kikolska",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.9981648664127,
-    shapeX: 18.57500544209143,
-    streetName: "Wał przeciwpowodziowy",
   },
   {
     adrHouse: "",
@@ -100207,51 +99283,21 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.999590996694515,
-    shapeX: 18.56147702058896,
-    streetName: "Przy Grobli",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.05320745,
-    shapeX: 18.54171365,
-    streetName: "Barbarka",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.001640296226135,
     shapeX: 18.72819047664864,
     streetName: "Międzyrzecze",
   },
   {
     adrHouse: "",
-    shapeY: 53.053572452193,
-    shapeX: 18.541507674927082,
-    streetName: "Barbarka",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.01117030175402,
-    shapeX: 18.59342654303424,
+    shapeY: 53.0103206,
+    shapeX: 18.59347316,
     streetName: "Stanisława Moniuszki",
   },
   {
     adrHouse: "",
-    shapeY: 52.99718000000001,
-    shapeX: 18.5935493,
+    shapeY: 52.99799517,
+    shapeX: 18.57539165,
     streetName: "Przy Grobli",
-  },
-  {
-    adrHouse: "",
-    shapeY: 52.99736945,
-    shapeX: 18.59346825,
-    streetName: "Przy Grobli",
-  },
-  {
-    adrHouse: "",
-    shapeY: 53.025330559926495,
-    shapeX: 18.699042783765005,
-    streetName: "Leonida Teligi",
   },
   {
     adrHouse: "",
@@ -100267,12 +99313,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.9781073410637,
-    shapeX: 18.66232603648609,
-    streetName: "Planowany dojazd do S10",
-  },
-  {
-    adrHouse: "",
     shapeY: 53.01099480533902,
     shapeX: 18.609390383559074,
     streetName: "Królowej Jadwigi",
@@ -100285,14 +99325,14 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 53.013154549999996,
-    shapeX: 18.571565749999998,
+    shapeY: 53.01425294,
+    shapeX: 18.57154637,
     streetName: "Mikołaja Reja",
   },
   {
     adrHouse: "",
-    shapeY: 53.01818786717508,
-    shapeX: 18.594289833749396,
+    shapeY: 53.01937057,
+    shapeX: 18.59631364,
     streetName: "Gustawa Morcinka",
   },
   {

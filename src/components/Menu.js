@@ -51,9 +51,15 @@ const Menu = () => {
 
   const SearchLocation = async (e) => {
     const regexp = new RegExp(`${e.target.value}`);
-    const arr = await addressDatabase.filter(
-      (el) => el.adrHouse.match(regexp) || el.streetName.match(regexp)
-    );
+    const names = [];
+    const arr = await addressDatabase.filter((el) => {
+      if (el.adrHouse.match(regexp) || el.streetName.match(regexp)) {
+        if (!names.includes(el.adrHouse)) {
+          names.push(el.adrHouse);
+          return el;
+        }
+      }
+    });
     function compareNumbers(a, b) {
       const arra = a.adrHouse.split(" ");
       const arrb = b.adrHouse.split(" ");
@@ -84,6 +90,7 @@ const Menu = () => {
       } else if (classArr.includes(target) && target === activePanel) {
         if (target === "PanelSearch") {
           setSearchedLocation(null);
+          setSearchedLocation("");
         }
         setActivePanel("");
         el.style.clipPath = "circle(0% at 0 0)";

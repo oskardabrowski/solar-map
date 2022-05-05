@@ -25,7 +25,7 @@ import L from "leaflet";
 
 function GetIcon(_iconSize) {
   return L.icon({
-    iconUrl: require("../images/umkmarker.png"),
+    iconUrl: require("../images/pin.png"),
     iconSize: [50, 100],
     iconAnchor: [25, 100],
   });
