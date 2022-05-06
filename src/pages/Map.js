@@ -25,9 +25,9 @@ import L from "leaflet";
 
 function GetIcon(_iconSize) {
   return L.icon({
-    iconUrl: require("../images/pin.png"),
-    iconSize: [50, 100],
-    iconAnchor: [25, 100],
+    iconUrl: require("../images/pin3.png"),
+    iconSize: [50, 85],
+    iconAnchor: [25, 85],
   });
 }
 
@@ -44,8 +44,10 @@ function MapEventsComponent() {
   }, [searchedLocation]);
 
   const mapEvents = useMapEvents({
-    zoomend: () => {
+    zoomend: (e) => {
       setZoomLevel(mapEvents.getZoom());
+      const centerMapCoords = e.target.getCenter();
+      setMapCenter(centerMapCoords);
     },
     mousemove(e) {
       setCoords(e.latlng);

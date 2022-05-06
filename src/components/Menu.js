@@ -90,7 +90,8 @@ const Menu = () => {
       } else if (classArr.includes(target) && target === activePanel) {
         if (target === "PanelSearch") {
           setSearchedLocation(null);
-          setSearchedLocation("");
+          setSuggestions([]);
+          InputSearchRef.current.value = "";
         }
         setActivePanel("");
         el.style.clipPath = "circle(0% at 0 0)";
@@ -273,6 +274,7 @@ const MenuBar = styled.div`
   position: relative;
   z-index: 100000;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.25);
+  background-color: white;
 
   .PanelSearch {
     position: absolute;

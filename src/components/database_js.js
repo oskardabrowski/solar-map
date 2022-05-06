@@ -83445,12 +83445,6 @@ export const addressDatabase = [
   },
   {
     adrHouse: "",
-    shapeY: 52.9965512,
-    shapeX: 18.57393235,
-    streetName: "Malinowa",
-  },
-  {
-    adrHouse: "",
     shapeY: 52.99781775356454,
     shapeX: 18.57254913624001,
     streetName: "Fijołkowa",

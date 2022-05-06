@@ -1,21 +1,20 @@
-import React, {createContext, useContext, useState} from 'react';
+import React, { createContext, useContext, useState } from "react";
 
-const MapContext = createContext()
+const MapContext = createContext();
 
-
-const MapProvider = ({children}) => {
+const MapProvider = ({ children }) => {
   const [zoomLevel, setZoomLevel] = useState(12);
   const [mapCenter, setMapCenter] = useState([53.01, 18.63]);
-  const [mapTile, setMapTile] = useState('default');
-  const [mapType, setMapType] = useState('2D');
-  const [solarTile, setSolarTile] = useState('Roofs');
-  const [skyHDR, setSkyHDR] = useState('Terrain');
-  const [coords, setCoords] = useState({lat: 53.01, lng: 18.63})
-  const [mouseAppCoords, setMouseAppCoords] = useState({x: 0, y: 0})
+  const [mapTile, setMapTile] = useState("default");
+  const [mapType, setMapType] = useState("2D");
+  const [solarTile, setSolarTile] = useState("Roofs");
+  const [skyHDR, setSkyHDR] = useState("Terrain");
+  const [coords, setCoords] = useState({ lat: 53.01, lng: 18.63 });
+  const [mouseAppCoords, setMouseAppCoords] = useState({ x: 0, y: 0 });
   const [searchedLocation, setSearchedLocation] = useState(null);
   return (
     <MapContext.Provider
-    value={{
+      value={{
         zoomLevel,
         setZoomLevel,
         mapTile,
@@ -33,11 +32,12 @@ const MapProvider = ({children}) => {
         mapCenter,
         setMapCenter,
         searchedLocation,
-        setSearchedLocation
-    }}
-    >{children}</MapContext.Provider>
-  )
-}
+        setSearchedLocation,
+      }}
+    >
+      {children}
+    </MapContext.Provider>
+  );
+};
 
-
-export {MapProvider, MapContext}
+export { MapProvider, MapContext };
