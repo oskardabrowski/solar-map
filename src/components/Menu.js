@@ -16,6 +16,7 @@ import PanelBtn from "./PanelBtn";
 import MapTileBtn from "./MapTileBtn";
 import AllMaps from "./Maps";
 import { addressDatabase } from "./database_js";
+import swal from "sweetalert";
 
 function MapEventsComponent() {
   const { zoomLevel, mapCenter } = useContext(MapContext); // initial zoom level provided for MapContainer
@@ -101,9 +102,17 @@ const Menu = () => {
 
   const SelectLocation = (e, location) => {
     e.preventDefault();
-    setSearchedLocation(location);
-    InputSearchRef.current.value = location.adrHouse;
-    setSuggestions([]);
+    if (suggestions.length > 0) {
+      setSearchedLocation(location);
+      InputSearchRef.current.value = location.adrHouse;
+      setSuggestions([]);
+    } else {
+      swal(
+        "Nie znaleziono lokalizacji!",
+        "Prawdopodobnie wpisałeś nazwę źle lub nie istnieje ona w bazie danych, skorzystaj z podopowiedzi wyświetlanych pod polem wyszukiwania.",
+        "info"
+      );
+    }
   };
 
   const SecondDimensionVersionButtons = [
@@ -180,12 +189,14 @@ const Menu = () => {
         ) : (
           ""
         )}
-        <button className="buttons-btn">
-          <BsFillInfoCircleFill />
-          <div className="buttons-btn-desc">
-            <span>Informacje</span>
-          </div>
-        </button>
+        {show && (
+          <button className="buttons-btn">
+            <BsFillInfoCircleFill />
+            <div className="buttons-btn-desc">
+              <span>Informacje</span>
+            </div>
+          </button>
+        )}
       </div>
       <div className="PanelData Panel Models">Here is models panel</div>
       <div className="PanelData Panel Photos">
