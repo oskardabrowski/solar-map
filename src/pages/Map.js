@@ -22,6 +22,7 @@ import { TorGranice } from "../components/layers/TorGranice";
 import { MapContext } from "../components/GlobalContext";
 import AllMaps from "../components/Maps";
 import L from "leaflet";
+import { useSelector, useDispatch } from "react-redux";
 
 function GetIcon(_iconSize) {
   return L.icon({
@@ -64,6 +65,9 @@ function MapEventsComponent() {
 export default function App() {
   const { zoomLevel, mapTile, solarTile, searchedLocation } =
     useContext(MapContext);
+  const dispatch = useDispatch();
+  const layers = useSelector((state) => state.layers);
+  console.log(JSON.stringify(layers));
   const [tileLink, setTileLink] = useState(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   );

@@ -18,10 +18,6 @@ const Head = styled.header`
 `;
 
 const Header = () => {
-  // document.addEventListener('mousemove', function(e) {
-  //     console.log(`X: ${e.pageX}, Y: ${e.pageY}`);
-  //     console.log(`Coords X: ${window.innerWidth}, Y: ${window.innerHeight}`);
-  // })
   return (
     <Head className="header">
       <img className="AppLogo" src={AppLogo} alt={AppLogo} />

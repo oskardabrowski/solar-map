@@ -81,7 +81,7 @@ const LayersManagment = () => {
               </button>
               <div className="Content-legend">
                 {legendRoofStore.map((el, index) => (
-                  <div className="RoofsLegendElement">
+                  <div key={index} className="RoofsLegendElement">
                     <div style={{ backgroundColor: `${el.color}` }}></div>
                     <span>
                       {el.desc}
@@ -100,7 +100,7 @@ const LayersManagment = () => {
               </button>
               <div className="Content-legend">
                 {legendRoofStore.map((el, index) => (
-                  <div className="RoofsLegendElement">
+                  <div key={index} className="RoofsLegendElement">
                     <div style={{ backgroundColor: `${el.color}` }}></div>
                     <span>
                       {el.desc}

@@ -8,7 +8,6 @@ import Menu from "./components/Menu";
 import CoordsAtr from "./components/CoordsAtr";
 import LayersManagment from "./components/LayersManagment";
 import ReduxProvider from "./components/ReduxProvider";
-
 import { MapProvider } from "./components/GlobalContext";
 
 function App() {

@@ -1398,7 +1398,7 @@ export const addressDatabase = [
     adrHouse: "Lwowska 1",
     shapeY: 53.02137783331002,
     shapeX: 18.5686106402167,
-    streetName: "",
+    streetName: "UMK Wydział Nauk o Ziemi i Gospodarki Przestrzennej",
   },
   {
     adrHouse: "Łazienna 18",
