@@ -1,21 +1,63 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
-import Draggable from "react-draggable";
+import DraggableComponent from "react-draggable";
 import {
   IoMdArrowDropright,
   IoMdArrowDropdown,
   IoMdClose,
 } from "react-icons/io";
 import { Resizable, ResizableBox } from "react-resizable";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
+const reorder = (list, startIndex, endIndex) => {
+  const result = Array.from(list);
+  const [removed] = result.splice(startIndex, 1);
+  result.splice(endIndex, 0, removed);
+
+  return result;
+};
+
+const grid = 8;
+
+const getItemStyle = (isDragging, draggableStyle) => ({
+  userSelect: "none",
+  padding: grid * 2,
+  margin: `0 0 ${grid}px 0`,
+
+  background: isDragging ? "lightgreen" : "grey",
+
+  ...draggableStyle,
+});
+
+const getListStyle = (isDraggingOver) => ({
+  background: isDraggingOver ? "lightblue" : "lightgrey",
+  padding: grid,
+  width: 250,
+});
 
 const LayersManagment = () => {
   const window = useRef(null);
   const [opened, setOpened] = useState(true);
   const [size, setSize] = useState(400);
   const sizeRef = useRef(null);
+  const DraggableRef = useRef();
   const [activeLayers, setActiveLayers] = useState([
     { code: "solarRoofs", isOpened: true },
   ]);
+
+  function onDragEnd(result) {
+    if (!result.destination) {
+      return;
+    }
+
+    const newitems = reorder(
+      items,
+      result.source.index,
+      result.destination.index
+    );
+
+    items = newitems;
+  }
 
   useEffect(async () => {
     if (opened != true) {
@@ -47,8 +89,121 @@ const LayersManagment = () => {
     { desc: "< 500 kWh/m", color: "#2892C7" },
   ];
 
+  let items = [
+    {
+      id: "item-1",
+      content: (
+        <>
+          <button className="Content-btn">
+            <span className="Content-btn-ico">
+              {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
+            </span>
+            Klasyfikacja dachów
+          </button>
+          <div className="Content-legend">
+            {legendRoofStore.map((el, index) => (
+              <div key={index} className="RoofsLegendElement">
+                <div style={{ backgroundColor: `${el.color}` }}></div>
+                <span>
+                  {el.desc}
+                  <sup>2</sup>
+                </span>
+              </div>
+            ))}
+          </div>
+        </>
+      ),
+    },
+    {
+      id: "item-2",
+      content: (
+        <>
+          <button className="Content-btn">
+            <span className="Content-btn-ico">
+              {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
+            </span>
+            Klasyfikacja powierzchni
+          </button>
+          <div className="Content-legend">
+            {legendRoofStore.map((el, index) => (
+              <div key={index} className="RoofsLegendElement">
+                <div style={{ backgroundColor: `${el.color}` }}></div>
+                <span>
+                  {el.desc}
+                  <sup>2</sup>
+                </span>
+              </div>
+            ))}
+          </div>
+        </>
+      ),
+    },
+    {
+      id: "item-3",
+      content: (
+        <>
+          <button className="Content-btn">
+            <span className="Content-btn-ico">
+              {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
+            </span>
+            Gradient Powierzchni
+          </button>
+          <div className="Content-legend">
+            <div className="Content-legend-gradient">
+              <div className="Content-legend-gradient-box"></div>
+              <div className="Content-legend-gradient-desc">
+                <span>
+                  1220 kWh/m<sup>2</sup>
+                </span>
+                <span>
+                  610 kWh/m<sup>2</sup>
+                </span>
+                <span>
+                  0 kWh/m<sup>2</sup>
+                </span>
+              </div>
+            </div>
+          </div>
+        </>
+      ),
+    },
+    {
+      id: "item-4",
+      content: (
+        <>
+          <button className="Content-btn">
+            <span className="Content-btn-ico">
+              {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
+            </span>
+            Widoczność nieba
+          </button>
+          <div className="Content-legend">
+            <div className="Content-legend-gradient">
+              <div className="Content-legend-gradient-view"></div>
+              <div className="Content-legend-gradient-desc">
+                <span>100%</span>
+                <span>50%</span>
+                <span>0%</span>
+              </div>
+            </div>
+          </div>
+        </>
+      ),
+    },
+  ];
+
+  const TrackLabelPosition = (e) => {
+    console.log(e.clientX);
+    console.log(e.clientY);
+
+    e.target.style.position = "absolute";
+
+    console.log(e.target.style.top);
+    console.log(e.target.style.left);
+  };
+
   return (
-    <Draggable nodeRef={window} handle="div.PanelTitle">
+    <DraggableComponent nodeRef={window} handle="div.PanelTitle">
       <LMWindow ref={window}>
         <div className="PanelTitle">
           <div>
@@ -71,95 +226,181 @@ const LayersManagment = () => {
           ref={sizeRef}
           axis="y"
         >
-          <div className="Content">
-            <div>
-              <button className="Content-btn">
-                <span className="Content-btn-ico">
-                  {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
-                </span>
-                Klasyfikacja dachów
-              </button>
-              <div className="Content-legend">
-                {legendRoofStore.map((el, index) => (
-                  <div key={index} className="RoofsLegendElement">
-                    <div style={{ backgroundColor: `${el.color}` }}></div>
-                    <span>
-                      {el.desc}
-                      <sup>2</sup>
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <button className="Content-btn">
-                <span className="Content-btn-ico">
-                  {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
-                </span>
-                Klasyfikacja powierzchni
-              </button>
-              <div className="Content-legend">
-                {legendRoofStore.map((el, index) => (
-                  <div key={index} className="RoofsLegendElement">
-                    <div style={{ backgroundColor: `${el.color}` }}></div>
-                    <span>
-                      {el.desc}
-                      <sup>2</sup>
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <button className="Content-btn">
-                <span className="Content-btn-ico">
-                  {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
-                </span>
-                Gradient Powierzchni
-              </button>
-              <div className="Content-legend">
-                <div className="Content-legend-gradient">
-                  <div className="Content-legend-gradient-box"></div>
-                  <div className="Content-legend-gradient-desc">
-                    <span>
-                      1220 kWh/m<sup>2</sup>
-                    </span>
-                    <span>
-                      610 kWh/m<sup>2</sup>
-                    </span>
-                    <span>
-                      0 kWh/m<sup>2</sup>
-                    </span>
-                  </div>
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId="droppable" className="Dropable">
+              {(provided, snapshot) => (
+                <div
+                  {...provided.droppableProps}
+                  ref={provided.innerRef}
+                  className="Content"
+                  style={{ position: "relative" }}
+                >
+                  {items.map((item, index) => (
+                    <Draggable
+                      key={item.id}
+                      draggableId={item.id}
+                      index={index}
+                    >
+                      {(provided, snapshot) => (
+                        <div
+                          className="testElement"
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          snapshot={snapshot}
+                        >
+                          {item.content}
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
                 </div>
-              </div>
-            </div>
-            <div>
-              <button className="Content-btn">
-                <span className="Content-btn-ico">
-                  {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
-                </span>
-                Widoczność nieba
-              </button>
-              <div className="Content-legend">
-                <div className="Content-legend-gradient">
-                  <div className="Content-legend-gradient-view"></div>
-                  <div className="Content-legend-gradient-desc">
-                    <span>100%</span>
-                    <span>50%</span>
-                    <span>0%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+              )}
+            </Droppable>
+          </DragDropContext>
         </ResizableBox>
       </LMWindow>
-    </Draggable>
+    </DraggableComponent>
   );
 };
 
 export default LayersManagment;
+
+{
+  /* <Draggable draggableId={"item1"}>
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <button className="Content-btn">
+                          <span className="Content-btn-ico">
+                            {opened ? (
+                              <IoMdArrowDropdown />
+                            ) : (
+                              <IoMdArrowDropright />
+                            )}
+                          </span>
+                          Klasyfikacja dachów
+                        </button>
+                        <div className="Content-legend">
+                          {legendRoofStore.map((el, index) => (
+                            <div key={index} className="RoofsLegendElement">
+                              <div
+                                style={{ backgroundColor: `${el.color}` }}
+                              ></div>
+                              <span>
+                                {el.desc}
+                                <sup>2</sup>
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </Draggable>
+                  <Draggable draggableId={"item2"}>
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <button className="Content-btn">
+                          <span className="Content-btn-ico">
+                            {opened ? (
+                              <IoMdArrowDropdown />
+                            ) : (
+                              <IoMdArrowDropright />
+                            )}
+                          </span>
+                          Klasyfikacja powierzchni
+                        </button>
+                        <div className="Content-legend">
+                          {legendRoofStore.map((el, index) => (
+                            <div key={index} className="RoofsLegendElement">
+                              <div
+                                style={{ backgroundColor: `${el.color}` }}
+                              ></div>
+                              <span>
+                                {el.desc}
+                                <sup>2</sup>
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </Draggable>
+                  <Draggable draggableId={"item3"}>
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <button className="Content-btn">
+                          <span className="Content-btn-ico">
+                            {opened ? (
+                              <IoMdArrowDropdown />
+                            ) : (
+                              <IoMdArrowDropright />
+                            )}
+                          </span>
+                          Gradient Powierzchni
+                        </button>
+                        <div className="Content-legend">
+                          <div className="Content-legend-gradient">
+                            <div className="Content-legend-gradient-box"></div>
+                            <div className="Content-legend-gradient-desc">
+                              <span>
+                                1220 kWh/m<sup>2</sup>
+                              </span>
+                              <span>
+                                610 kWh/m<sup>2</sup>
+                              </span>
+                              <span>
+                                0 kWh/m<sup>2</sup>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </Draggable>
+                  <Draggable draggableId={"item4"}>
+                    {(provided, snapshot) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                        {...provided.dragHandleProps}
+                      >
+                        <button className="Content-btn">
+                          <span className="Content-btn-ico">
+                            {opened ? (
+                              <IoMdArrowDropdown />
+                            ) : (
+                              <IoMdArrowDropright />
+                            )}
+                          </span>
+                          Widoczność nieba
+                        </button>
+                        <div className="Content-legend">
+                          <div className="Content-legend-gradient">
+                            <div className="Content-legend-gradient-view"></div>
+                            <div className="Content-legend-gradient-desc">
+                              <span>100%</span>
+                              <span>50%</span>
+                              <span>0%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </Draggable> */
+}
 
 const LMWindow = styled.div`
   position: absolute;
@@ -174,6 +415,14 @@ const LMWindow = styled.div`
   border-radius: 10px;
   overflow: hidden;
 
+  .testElement {
+    top: auto !important;
+    left: auto !important;
+  }
+
+  .SpecialZindex {
+    z-index: 1000000;
+  }
   .RoofsLegendElement {
     display: flex;
     align-items: center;

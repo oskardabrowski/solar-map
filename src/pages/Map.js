@@ -108,7 +108,7 @@ export default function App() {
               <TileLayer
                 key={index}
                 url={map.url}
-                zIndex={10000}
+                zIndex={10000 + arrExists.indexOf(map.code)}
                 minZoom={1}
                 maxZoom={28}
                 minNativeZoom={0}

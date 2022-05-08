@@ -15,7 +15,9 @@ const MapTileBtn = ({
   addLayerHandler = null,
 }) => {
   const actionsHandler = () => {
-    addLayerHandler({ code: code, index: 100 });
+    if (addLayerHandler != null) {
+      addLayerHandler({ code: code, index: 100 });
+    }
     action(code);
   };
   return (

@@ -6,8 +6,8 @@ import {
   BsArrowRightShort,
   BsFillInfoCircleFill,
 } from "react-icons/bs";
-import { AiFillTool } from "react-icons/ai";
-import { MdPhoto } from "react-icons/md";
+import { AiFillTool, AiOutlineCheck } from "react-icons/ai";
+import { MdPhoto, MdCheckBoxOutlineBlank } from "react-icons/md";
 import { SiThreedotjs } from "react-icons/si";
 import { BrowserRouter as Route, Link } from "react-router-dom";
 import { MapContext } from "./GlobalContext";
@@ -52,15 +52,15 @@ const Menu = () => {
   const dispatch = useDispatch();
   const layers = useSelector((state) => state.layers.array);
   const arrExists = layers.map((el) => el.code);
-  console.log(JSON.stringify(layers));
-  console.log(JSON.stringify(arrExists));
+  arrExists.reverse();
+  // console.log(JSON.stringify(layers));
+  // console.log(JSON.stringify(arrExists));
 
   const addLayerHandler = (el) => {
     if (!arrExists.includes(el.code)) {
       dispatch(MapLayerActions.addLayer(el));
     } else {
       const newArr = layers.filter((element) => element.code != el.code);
-      console.log(newArr);
       dispatch(MapLayerActions.removeLayer(newArr));
     }
   };
@@ -264,7 +264,13 @@ const Menu = () => {
           <MapTileBtn
             code={mapel.code}
             key={index}
-            Icon={mapel.ico}
+            Icon={
+              arrExists.includes(mapel.code) ? (
+                <AiOutlineCheck />
+              ) : (
+                <MdCheckBoxOutlineBlank />
+              )
+            }
             name={mapel.name}
             Events={<MapEventsComponent />}
             url={mapel.url}

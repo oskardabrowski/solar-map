@@ -21,6 +21,7 @@
     "lodash": "^4.17.21",
     "proj4leaflet": "^1.0.2",
     "react": "^17.0.2",
+    "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^17.0.2",
     "react-draggable": "^4.4.5",
     "react-helmet": "^6.1.0",
