@@ -2,12 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const mapLayersSlice = createSlice({
   name: "mapLayersManagement",
-  initialState: [{ code: "Roofs", index: 1000 }],
+  initialState: {
+    array: [{ code: "Roofs", index: 1000 }],
+  },
   reducers: {
-    addLayer: (state, layer) => {
-      state.push(layer);
+    addLayer: (state, action) => {
+      state.array = [...state.array, action.payload];
+    },
+    removeLayer: (state, action) => {
+      state.array = [...action.payload];
     },
   },
 });
+
+export const MapLayerActions = mapLayersSlice.actions;
 
 export default mapLayersSlice.reducer;

@@ -17,6 +17,8 @@ import MapTileBtn from "./MapTileBtn";
 import AllMaps from "./Maps";
 import { addressDatabase } from "./database_js";
 import swal from "sweetalert";
+import { useSelector, useDispatch } from "react-redux";
+import { MapLayerActions } from "./LayersReducer";
 
 function MapEventsComponent() {
   const { zoomLevel, mapCenter } = useContext(MapContext); // initial zoom level provided for MapContainer
@@ -46,6 +48,23 @@ const Menu = () => {
   const AllPanels = document.querySelectorAll(".PanelData");
   const [suggestions, setSuggestions] = useState([]);
   const InputSearchRef = useRef();
+
+  const dispatch = useDispatch();
+  const layers = useSelector((state) => state.layers.array);
+  const arrExists = layers.map((el) => el.code);
+  console.log(JSON.stringify(layers));
+  console.log(JSON.stringify(arrExists));
+
+  const addLayerHandler = (el) => {
+    if (!arrExists.includes(el.code)) {
+      dispatch(MapLayerActions.addLayer(el));
+    } else {
+      const newArr = layers.filter((element) => element.code != el.code);
+      console.log(newArr);
+      dispatch(MapLayerActions.removeLayer(newArr));
+    }
+  };
+
   useEffect(() => {
     setShow(!show);
   }, []);
@@ -253,6 +272,7 @@ const Menu = () => {
             action={setSolarTile}
             mapCenter={mapCenter}
             zoomLevel={zoomLevel}
+            addLayerHandler={addLayerHandler}
           />
         ))}
       </div>

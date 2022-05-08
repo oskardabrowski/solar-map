@@ -22,7 +22,7 @@ import { TorGranice } from "../components/layers/TorGranice";
 import { MapContext } from "../components/GlobalContext";
 import AllMaps from "../components/Maps";
 import L from "leaflet";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 function GetIcon(_iconSize) {
   return L.icon({
@@ -65,9 +65,9 @@ function MapEventsComponent() {
 export default function App() {
   const { zoomLevel, mapTile, solarTile, searchedLocation } =
     useContext(MapContext);
-  const dispatch = useDispatch();
-  const layers = useSelector((state) => state.layers);
-  console.log(JSON.stringify(layers));
+  const layers = useSelector((state) => state.layers.array);
+  const arrExists = layers.map((el) => el.code);
+
   const [tileLink, setTileLink] = useState(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   );
@@ -104,7 +104,7 @@ export default function App() {
         {/* Tile map layers */}
         {AllMaps.layers.map((map, index) => (
           <>
-            {solarTile === map.code && (
+            {arrExists.includes(map.code) && (
               <TileLayer
                 key={index}
                 url={map.url}
