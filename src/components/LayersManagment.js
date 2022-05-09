@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import styled from "styled-components";
 import DraggableComponent from "react-draggable";
 import {
@@ -10,6 +10,7 @@ import { Resizable, ResizableBox } from "react-resizable";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useSelector, useDispatch } from "react-redux";
 import { MapLayerActions } from "./LayersReducer";
+import { MapContext } from "./GlobalContext";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -18,24 +19,6 @@ const reorder = (list, startIndex, endIndex) => {
 
   return result;
 };
-
-const grid = 8;
-
-const getItemStyle = (isDragging, draggableStyle) => ({
-  userSelect: "none",
-  padding: grid * 2,
-  margin: `0 0 ${grid}px 0`,
-
-  background: isDragging ? "lightgreen" : "grey",
-
-  ...draggableStyle,
-});
-
-const getListStyle = (isDraggingOver) => ({
-  background: isDraggingOver ? "lightblue" : "lightgrey",
-  padding: grid,
-  width: 250,
-});
 
 const LayersManagment = () => {
   const window = useRef(null);
@@ -46,13 +29,15 @@ const LayersManagment = () => {
   const [activeLayers, setActiveLayers] = useState(["Roofs"]);
   const [activeLegends, setActiveLegends] = useState(["Roofs"]);
 
+  const { generalLegendSeen } = useContext(MapContext);
+
   const dispatch = useDispatch();
 
   const layers = useSelector((state) => state.layers.array);
   useEffect(() => {
     const layersArray = [];
     layers.forEach((el) => layersArray.push(el.code));
-    setActiveLayers(layersArray);
+    setActiveLayers(layersArray.reverse());
   }, [layers]);
 
   async function onDragEnd(result) {
@@ -60,16 +45,14 @@ const LayersManagment = () => {
       return;
     }
 
-    // console.log(result);
-    // console.log(result.source.index);
-    // console.log(result.destination.index);
+    console.log(layers.length);
 
     const reducerArr = [];
 
     const newitems = await reorder(
       layers,
-      result.source.index,
-      result.destination.index
+      layers.length - 1 - result.source.index,
+      layers.length - 1 - result.destination.index
     );
 
     await newitems.forEach((el) => {
@@ -77,9 +60,6 @@ const LayersManagment = () => {
       const obj = { code: code, index: 1000 };
       reducerArr.push(obj);
     });
-
-    // console.log(newitems);
-    // console.log(reducerArr);
 
     dispatch(MapLayerActions.removeLayer(reducerArr));
   }
@@ -147,7 +127,11 @@ const LayersManagment = () => {
             </span>
             Klasyfikacja dachów
           </article>
-          <div className="Content-legend ContentOpened">
+          <div
+            className={`Content-legend ${
+              !generalLegendSeen && "ContentOpened"
+            }`}
+          >
             {legendRoofStore.map((el, index) => (
               <div key={index} className="RoofsLegendElement">
                 <div style={{ backgroundColor: `${el.color}` }}></div>
@@ -318,29 +302,6 @@ const LayersManagment = () => {
                       </Draggable>
                     );
                   })}
-                  {/* {items.map((item, index) => {
-                    if (layersArray.includes(item.code)) {
-                      return (
-                        <Draggable
-                          key={item.id}
-                          draggableId={item.id}
-                          index={index}
-                        >
-                          {(provided, snapshot) => (
-                            <div
-                              className="testElement"
-                              ref={provided.innerRef}
-                              {...provided.draggableProps}
-                              {...provided.dragHandleProps}
-                              snapshot={snapshot}
-                            >
-                              {item.content}
-                            </div>
-                          )}
-                        </Draggable>
-                      );
-                    }
-                  })} */}
                   {provided.placeholder}
                 </div>
               )}

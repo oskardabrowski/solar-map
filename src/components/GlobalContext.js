@@ -12,6 +12,7 @@ const MapProvider = ({ children }) => {
   const [coords, setCoords] = useState({ lat: 53.01, lng: 18.63 });
   const [mouseAppCoords, setMouseAppCoords] = useState({ x: 0, y: 0 });
   const [searchedLocation, setSearchedLocation] = useState(null);
+  const [generalLegendSeen, setGeneralLegendSeen] = useState(false);
   return (
     <MapContext.Provider
       value={{
@@ -33,6 +34,8 @@ const MapProvider = ({ children }) => {
         setMapCenter,
         searchedLocation,
         setSearchedLocation,
+        generalLegendSeen,
+        setGeneralLegendSeen,
       }}
     >
       {children}

@@ -42,6 +42,8 @@ const Menu = () => {
     zoomLevel,
     mapCenter,
     setSearchedLocation,
+    generalLegendSeen,
+    setGeneralLegendSeen,
   } = useContext(MapContext);
   const [show, setShow] = useState(false);
   const [activePanel, setActivePanel] = useState("");
@@ -53,8 +55,6 @@ const Menu = () => {
   const layers = useSelector((state) => state.layers.array);
   const arrExists = layers.map((el) => el.code);
   arrExists.reverse();
-  // console.log(JSON.stringify(layers));
-  // console.log(JSON.stringify(arrExists));
 
   const addLayerHandler = (el) => {
     if (!arrExists.includes(el.code)) {
@@ -62,6 +62,9 @@ const Menu = () => {
     } else {
       const newArr = layers.filter((element) => element.code != el.code);
       dispatch(MapLayerActions.removeLayer(newArr));
+      if (el.code === "Roofs" && generalLegendSeen != true) {
+        setGeneralLegendSeen(true);
+      }
     }
   };
 
