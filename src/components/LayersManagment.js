@@ -8,6 +8,8 @@ import {
 } from "react-icons/io";
 import { Resizable, ResizableBox } from "react-resizable";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { useSelector, useDispatch } from "react-redux";
+import { MapLayerActions } from "./LayersReducer";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -41,22 +43,45 @@ const LayersManagment = () => {
   const [size, setSize] = useState(400);
   const sizeRef = useRef(null);
   const DraggableRef = useRef();
-  const [activeLayers, setActiveLayers] = useState([
-    { code: "solarRoofs", isOpened: true },
-  ]);
+  const [activeLayers, setActiveLayers] = useState(["Roofs"]);
+  const [activeLegends, setActiveLegends] = useState(["Roofs"]);
 
-  function onDragEnd(result) {
+  const dispatch = useDispatch();
+
+  const layers = useSelector((state) => state.layers.array);
+  useEffect(() => {
+    const layersArray = [];
+    layers.forEach((el) => layersArray.push(el.code));
+    setActiveLayers(layersArray);
+  }, [layers]);
+
+  async function onDragEnd(result) {
     if (!result.destination) {
       return;
     }
 
-    const newitems = reorder(
-      items,
+    // console.log(result);
+    // console.log(result.source.index);
+    // console.log(result.destination.index);
+
+    const reducerArr = [];
+
+    const newitems = await reorder(
+      layers,
       result.source.index,
       result.destination.index
     );
 
-    items = newitems;
+    await newitems.forEach((el) => {
+      const code = el.code;
+      const obj = { code: code, index: 1000 };
+      reducerArr.push(obj);
+    });
+
+    // console.log(newitems);
+    // console.log(reducerArr);
+
+    dispatch(MapLayerActions.removeLayer(reducerArr));
   }
 
   useEffect(async () => {
@@ -89,18 +114,40 @@ const LayersManagment = () => {
     { desc: "< 500 kWh/m", color: "#2892C7" },
   ];
 
+  const openLegend = (e, code) => {
+    const btn = e.target.closest("article");
+    const legend = btn.parentElement.querySelector(".Content-legend");
+    legend.classList.toggle("ContentOpened");
+
+    if (activeLayers.includes(code)) {
+      const newArr = activeLegends.filter((el) => el !== code);
+      setActiveLegends(newArr);
+    } else {
+      const newArr = [...activeLegends, code];
+      setActiveLegends(newArr);
+    }
+  };
+
   let items = [
     {
       id: "item-1",
+      code: "Roofs",
       content: (
         <>
-          <button className="Content-btn">
-            <span className="Content-btn-ico">
-              {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
+          <article className="Content-btn">
+            <span
+              className="Content-btn-ico"
+              onClick={(e) => openLegend(e, "Roofs")}
+            >
+              {activeLayers.includes("Roofs") ? (
+                <IoMdArrowDropdown />
+              ) : (
+                <IoMdArrowDropright />
+              )}
             </span>
             Klasyfikacja dachów
-          </button>
-          <div className="Content-legend">
+          </article>
+          <div className="Content-legend ContentOpened">
             {legendRoofStore.map((el, index) => (
               <div key={index} className="RoofsLegendElement">
                 <div style={{ backgroundColor: `${el.color}` }}></div>
@@ -116,14 +163,22 @@ const LayersManagment = () => {
     },
     {
       id: "item-2",
+      code: "All",
       content: (
         <>
-          <button className="Content-btn">
-            <span className="Content-btn-ico">
-              {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
+          <article className="Content-btn">
+            <span
+              className="Content-btn-ico"
+              onClick={(e) => openLegend(e, "All")}
+            >
+              {activeLayers.includes("All") ? (
+                <IoMdArrowDropdown />
+              ) : (
+                <IoMdArrowDropright />
+              )}
             </span>
             Klasyfikacja powierzchni
-          </button>
+          </article>
           <div className="Content-legend">
             {legendRoofStore.map((el, index) => (
               <div key={index} className="RoofsLegendElement">
@@ -140,14 +195,22 @@ const LayersManagment = () => {
     },
     {
       id: "item-3",
+      code: "GradientAll",
       content: (
         <>
-          <button className="Content-btn">
-            <span className="Content-btn-ico">
-              {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
+          <article className="Content-btn">
+            <span
+              className="Content-btn-ico"
+              onClick={(e) => openLegend(e, "GradientAll")}
+            >
+              {activeLayers.includes("GradientAll") ? (
+                <IoMdArrowDropdown />
+              ) : (
+                <IoMdArrowDropright />
+              )}
             </span>
             Gradient Powierzchni
-          </button>
+          </article>
           <div className="Content-legend">
             <div className="Content-legend-gradient">
               <div className="Content-legend-gradient-box"></div>
@@ -169,14 +232,22 @@ const LayersManagment = () => {
     },
     {
       id: "item-4",
+      code: "SkyView",
       content: (
         <>
-          <button className="Content-btn">
-            <span className="Content-btn-ico">
-              {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
+          <article className="Content-btn">
+            <span
+              className="Content-btn-ico"
+              onClick={(e) => openLegend(e, "SkyView")}
+            >
+              {activeLayers.includes("SkyView") ? (
+                <IoMdArrowDropdown />
+              ) : (
+                <IoMdArrowDropright />
+              )}
             </span>
             Widoczność nieba
-          </button>
+          </article>
           <div className="Content-legend">
             <div className="Content-legend-gradient">
               <div className="Content-legend-gradient-view"></div>
@@ -191,16 +262,6 @@ const LayersManagment = () => {
       ),
     },
   ];
-
-  const TrackLabelPosition = (e) => {
-    console.log(e.clientX);
-    console.log(e.clientY);
-
-    e.target.style.position = "absolute";
-
-    console.log(e.target.style.top);
-    console.log(e.target.style.left);
-  };
 
   return (
     <DraggableComponent nodeRef={window} handle="div.PanelTitle">
@@ -235,25 +296,51 @@ const LayersManagment = () => {
                   className="Content"
                   style={{ position: "relative" }}
                 >
-                  {items.map((item, index) => (
-                    <Draggable
-                      key={item.id}
-                      draggableId={item.id}
-                      index={index}
-                    >
-                      {(provided, snapshot) => (
-                        <div
-                          className="testElement"
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          snapshot={snapshot}
+                  {activeLayers.map((elementCode, index) => {
+                    const item = items.find((el) => el.code === elementCode);
+                    return (
+                      <Draggable
+                        key={item.id}
+                        draggableId={item.id}
+                        index={index}
+                      >
+                        {(provided, snapshot) => (
+                          <div
+                            className="testElement"
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            snapshot={snapshot}
+                          >
+                            {item.content}
+                          </div>
+                        )}
+                      </Draggable>
+                    );
+                  })}
+                  {/* {items.map((item, index) => {
+                    if (layersArray.includes(item.code)) {
+                      return (
+                        <Draggable
+                          key={item.id}
+                          draggableId={item.id}
+                          index={index}
                         >
-                          {item.content}
-                        </div>
-                      )}
-                    </Draggable>
-                  ))}
+                          {(provided, snapshot) => (
+                            <div
+                              className="testElement"
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              snapshot={snapshot}
+                            >
+                              {item.content}
+                            </div>
+                          )}
+                        </Draggable>
+                      );
+                    }
+                  })} */}
                   {provided.placeholder}
                 </div>
               )}
@@ -304,8 +391,13 @@ const LMWindow = styled.div`
     }
   }
 
+  .ContentOpened {
+    height: 100% !important;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%) !important;
+  }
+
   .Content {
-    height: 100%;
+    height: min-content;
     margin-bottom: 5rem;
     position: relative !important;
     &-btn {
@@ -316,14 +408,20 @@ const LMWindow = styled.div`
       margin-top: 0.25rem;
       background: none;
       border: none;
+      font-family: "Work Sans";
       &-ico {
         margin: 0rem 0.5rem;
         font-size: 1rem;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
     &-legend {
       padding-bottom: 1rem;
+      height: 0;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
       &-gradient {
         display: flex;
         justify-content: left;
