@@ -267,141 +267,6 @@ const LayersManagment = () => {
 
 export default LayersManagment;
 
-{
-  /* <Draggable draggableId={"item1"}>
-                    {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        <button className="Content-btn">
-                          <span className="Content-btn-ico">
-                            {opened ? (
-                              <IoMdArrowDropdown />
-                            ) : (
-                              <IoMdArrowDropright />
-                            )}
-                          </span>
-                          Klasyfikacja dachów
-                        </button>
-                        <div className="Content-legend">
-                          {legendRoofStore.map((el, index) => (
-                            <div key={index} className="RoofsLegendElement">
-                              <div
-                                style={{ backgroundColor: `${el.color}` }}
-                              ></div>
-                              <span>
-                                {el.desc}
-                                <sup>2</sup>
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </Draggable>
-                  <Draggable draggableId={"item2"}>
-                    {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.droppableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        <button className="Content-btn">
-                          <span className="Content-btn-ico">
-                            {opened ? (
-                              <IoMdArrowDropdown />
-                            ) : (
-                              <IoMdArrowDropright />
-                            )}
-                          </span>
-                          Klasyfikacja powierzchni
-                        </button>
-                        <div className="Content-legend">
-                          {legendRoofStore.map((el, index) => (
-                            <div key={index} className="RoofsLegendElement">
-                              <div
-                                style={{ backgroundColor: `${el.color}` }}
-                              ></div>
-                              <span>
-                                {el.desc}
-                                <sup>2</sup>
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </Draggable>
-                  <Draggable draggableId={"item3"}>
-                    {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.droppableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        <button className="Content-btn">
-                          <span className="Content-btn-ico">
-                            {opened ? (
-                              <IoMdArrowDropdown />
-                            ) : (
-                              <IoMdArrowDropright />
-                            )}
-                          </span>
-                          Gradient Powierzchni
-                        </button>
-                        <div className="Content-legend">
-                          <div className="Content-legend-gradient">
-                            <div className="Content-legend-gradient-box"></div>
-                            <div className="Content-legend-gradient-desc">
-                              <span>
-                                1220 kWh/m<sup>2</sup>
-                              </span>
-                              <span>
-                                610 kWh/m<sup>2</sup>
-                              </span>
-                              <span>
-                                0 kWh/m<sup>2</sup>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </Draggable>
-                  <Draggable draggableId={"item4"}>
-                    {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.droppableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        <button className="Content-btn">
-                          <span className="Content-btn-ico">
-                            {opened ? (
-                              <IoMdArrowDropdown />
-                            ) : (
-                              <IoMdArrowDropright />
-                            )}
-                          </span>
-                          Widoczność nieba
-                        </button>
-                        <div className="Content-legend">
-                          <div className="Content-legend-gradient">
-                            <div className="Content-legend-gradient-view"></div>
-                            <div className="Content-legend-gradient-desc">
-                              <span>100%</span>
-                              <span>50%</span>
-                              <span>0%</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </Draggable> */
-}
-
 const LMWindow = styled.div`
   position: absolute;
   top: 80px;
@@ -442,6 +307,7 @@ const LMWindow = styled.div`
   .Content {
     height: 100%;
     margin-bottom: 5rem;
+    position: relative !important;
     &-btn {
       width: 100%;
       display: flex;
