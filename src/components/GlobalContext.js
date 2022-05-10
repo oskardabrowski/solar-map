@@ -13,6 +13,20 @@ const MapProvider = ({ children }) => {
   const [mouseAppCoords, setMouseAppCoords] = useState({ x: 0, y: 0 });
   const [searchedLocation, setSearchedLocation] = useState(null);
   const [generalLegendSeen, setGeneralLegendSeen] = useState(false);
+  const [tools, setTools] = useState(["LayersManagement"]);
+
+  const removeTool = (tool) => {
+    const toolsArr = tools.filter((el) => el != tool);
+    setTools(toolsArr);
+    console.log(tools);
+  };
+
+  const addTool = (tool) => {
+    const toolArr = [...tools, tool];
+    setTools(toolArr);
+    console.log(tools);
+  };
+
   return (
     <MapContext.Provider
       value={{
@@ -36,6 +50,9 @@ const MapProvider = ({ children }) => {
         setSearchedLocation,
         generalLegendSeen,
         setGeneralLegendSeen,
+        tools,
+        removeTool,
+        addTool,
       }}
     >
       {children}

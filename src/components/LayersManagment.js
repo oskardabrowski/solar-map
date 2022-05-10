@@ -29,7 +29,7 @@ const LayersManagment = () => {
   const [activeLayers, setActiveLayers] = useState(["Roofs"]);
   const [activeLegends, setActiveLegends] = useState(["Roofs"]);
 
-  const { generalLegendSeen } = useContext(MapContext);
+  const { generalLegendSeen, removeTool } = useContext(MapContext);
 
   const dispatch = useDispatch();
 
@@ -260,7 +260,10 @@ const LayersManagment = () => {
             </button>
             <span>Zarządzanie warstwami</span>
           </div>
-          <button class="BtnClose">
+          <button
+            class="BtnClose"
+            onClick={() => removeTool("LayersManagement")}
+          >
             <IoMdClose />
           </button>
         </div>

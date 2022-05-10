@@ -6,9 +6,9 @@ import Header from "./components/Header";
 import styled from "styled-components";
 import Menu from "./components/Menu";
 import CoordsAtr from "./components/CoordsAtr";
-import LayersManagment from "./components/LayersManagment";
 import ReduxProvider from "./components/ReduxProvider";
 import { MapProvider } from "./components/GlobalContext";
+import Tools from "./components/Tools";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <MapProvider>
         <Router>
           <Container>
-            <LayersManagment />
+            <Tools />
             <Header />
             <div className="appBody">
               <Menu />

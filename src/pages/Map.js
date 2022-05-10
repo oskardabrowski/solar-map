@@ -34,7 +34,7 @@ function GetIcon(_iconSize) {
 
 function MapEventsComponent() {
   const { setZoomLevel, setCoords, setMapCenter, searchedLocation } =
-    useContext(MapContext); // initial zoom level provided for MapContainer
+    useContext(MapContext);
   const map = useMap();
 
   useEffect(() => {

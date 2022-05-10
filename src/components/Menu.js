@@ -44,6 +44,9 @@ const Menu = () => {
     setSearchedLocation,
     generalLegendSeen,
     setGeneralLegendSeen,
+    addTool,
+    removeTool,
+    tools,
   } = useContext(MapContext);
   const [show, setShow] = useState(false);
   const [activePanel, setActivePanel] = useState("");
@@ -134,6 +137,14 @@ const Menu = () => {
         "Prawdopodobnie wpisałeś nazwę źle lub nie istnieje ona w bazie danych, skorzystaj z podopowiedzi wyświetlanych pod polem wyszukiwania.",
         "info"
       );
+    }
+  };
+
+  const ToolToogle = (tool) => {
+    if (!tools.includes(tool)) {
+      addTool(tool);
+    } else {
+      removeTool(tool);
     }
   };
 
@@ -285,7 +296,14 @@ const Menu = () => {
           />
         ))}
       </div>
-      <div className="PanelData Panel Tools">here is tools</div>
+      <div className="PanelData Panel Tools">
+        <button
+          className="Tools-tool"
+          onClick={() => ToolToogle("LayersManagement")}
+        >
+          <AiFillTool /> Zarządzanie warstwami
+        </button>
+      </div>
       <div className="PanelData Panel Map">
         {AllMaps.baseMaps.map((mapel, index) => (
           <MapTileBtn
@@ -315,6 +333,16 @@ const MenuBar = styled.div`
   z-index: 100000;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.25);
   background-color: white;
+
+  .Tools {
+    &-tool {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      padding: 0.5rem;
+    }
+  }
 
   .PanelSearch {
     position: absolute;
