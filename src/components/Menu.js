@@ -288,6 +288,7 @@ const Menu = () => {
             name={mapel.name}
             Events={<MapEventsComponent />}
             url={mapel.url}
+            // url={mapel.googleDrive}
             attribution={""}
             action={setSolarTile}
             mapCenter={mapCenter}
@@ -302,6 +303,9 @@ const Menu = () => {
           onClick={() => ToolToogle("LayersManagement")}
         >
           <AiFillTool /> Zarządzanie warstwami
+        </button>
+        <button className="Tools-tool" onClick={() => ToolToogle("MiniMap")}>
+          <AiFillTool /> MiniMapa
         </button>
       </div>
       <div className="PanelData Panel Map">

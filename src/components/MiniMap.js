@@ -1,174 +1,98 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useContext,
-  Component,
-} from "react";
-import {
-  MapContainer,
-  Map,
-  TileLayer,
-  ImageOverlay,
-  GeoJSON,
-  useMapEvents,
-  WMSTileLayer,
-  useMap,
-  Marker,
-} from "react-leaflet";
+import React, { useRef, useContext, useEffect, useState } from "react";
 import styled from "styled-components";
-import { TorBufor } from "../components/layers/TorBufor";
-import { TorGranice } from "../components/layers/TorGranice";
-import { MapContext } from "../components/GlobalContext";
-import AllMaps from "../components/Maps";
-import L from "leaflet";
-import { useSelector } from "react-redux";
+import DraggableComponent from "react-draggable";
+import { MapContainer, GeoJSON, Polygon } from "react-leaflet";
+import { TorGranice } from "./layers/TorGranice";
+import { IoMdClose } from "react-icons/io";
+import { MapContext } from "./GlobalContext";
 
-function GetIcon(_iconSize) {
-  return L.icon({
-    iconUrl: require("../images/pin3.png"),
-    iconSize: [50, 85],
-    iconAnchor: [25, 85],
-  });
-}
-
-function MapEventsComponent() {
-  const {
-    setZoomLevel,
-    setCoords,
-    setMapCenter,
-    searchedLocation,
-    setMapBounds,
-  } = useContext(MapContext);
-  const map = useMap();
+const MiniMap = () => {
+  const DraggableRef = useRef(null);
+  const [polygonCoords, setPolygonCoords] = useState(null);
+  const { mapBounds, removeTool } = useContext(MapContext);
+  const purpleOptions = { color: "skyblue" };
 
   useEffect(() => {
-    if (searchedLocation !== null) {
-      const { shapeY, shapeX } = searchedLocation;
-      map.flyTo([shapeY, shapeX], 19);
+    if (mapBounds) {
+      const NE = mapBounds._northEast;
+      const SW = mapBounds._southWest;
+
+      const polygonBounds = [
+        [NE.lat, NE.lng],
+        [NE.lat, SW.lng],
+        [SW.lat, SW.lng],
+        [SW.lat, NE.lng],
+      ];
+      setPolygonCoords(polygonBounds);
     }
-  }, [searchedLocation]);
+  }, [mapBounds]);
 
-  const mapEvents = useMapEvents({
-    zoomend: (e) => {
-      setZoomLevel(mapEvents.getZoom());
-      const centerMapCoords = e.target.getCenter();
-      const MapBounds = e.target.getBounds();
-      setMapCenter(centerMapCoords);
-      setMapBounds(MapBounds);
-    },
-    mousemove(e) {
-      setCoords(e.latlng);
-    },
-    dragend: (e) => {
-      const centerMapCoords = e.target.getCenter();
-      const MapBounds = e.target.getBounds();
-      setMapCenter(centerMapCoords);
-      setMapBounds(MapBounds);
-    },
-  });
-
-  return null;
-}
-
-export default function App() {
-  const { zoomLevel, mapTile, solarTile, searchedLocation } =
-    useContext(MapContext);
-  const layers = useSelector((state) => state.layers.array);
-  const arrExists = layers.map((el) => el.code);
-
-  const [tileLink, setTileLink] = useState(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  );
-  const [tileAttribution, setTileAttribution] = useState(
-    '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  );
-  const [thisMap, setThisMap] = useState(null);
   return (
-    <MapStyles>
-      <MapContainer
-        className="flatmap"
-        center={[53.01, 18.63]}
-        zoom={12}
-        maxZoom={25}
-        minZoom={12}
-        maxBounds={[
-          [52.93, 18.35],
-          [53.1, 18.9],
-        ]}
-        id="generalMap"
-        whenCreated={(map) => setThisMap({ map })}
-      >
-        <GeoJSON className="TorBufor" data={TorBufor} />
-        <GeoJSON className="TorGranice" data={TorGranice} />
-        <MapEventsComponent />
-
-        {searchedLocation != null && (
-          <Marker
-            icon={GetIcon()}
-            position={[searchedLocation.shapeY, searchedLocation.shapeX]}
-          ></Marker>
-        )}
-
-        {/* Tile map layers */}
-        {AllMaps.layers.map((map, index) => (
-          <>
-            {arrExists.includes(map.code) && (
-              <TileLayer
-                key={index}
-                url={map.url}
-                // url={map.googleDrive}
-                zIndex={10000 + arrExists.indexOf(map.code)}
-                minZoom={1}
-                maxZoom={28}
-                minNativeZoom={0}
-                maxNativeZoom={19}
-              />
-            )}
-          </>
-        ))}
-
-        {/* Tile basemap layers */}
-        {AllMaps.baseMaps.map((map, index) => (
-          <>
-            {mapTile === map.code && (
-              <TileLayer
-                key={index}
-                url={map.url}
-                attribution={map.attribution}
-                minZoom={1}
-                maxZoom={28}
-                minNativeZoom={0}
-                maxNativeZoom={19}
-              />
-            )}
-          </>
-        ))}
-      </MapContainer>
-    </MapStyles>
+    <DraggableComponent nodeRef={DraggableRef}>
+      <Container ref={DraggableRef}>
+        <button className="CloseMiniMap" onClick={() => removeTool("MiniMap")}>
+          <IoMdClose />
+        </button>
+        <MapContainer
+          class="MiniMap"
+          id="MapOSM"
+          center={[53.02, 18.6]}
+          zoom={9.5}
+          scrollWheelZoom={false}
+          zoomControl={false}
+          doubleClickZoom={false}
+          dragging={false}
+        >
+          {polygonCoords != null && (
+            <Polygon pathOptions={purpleOptions} positions={polygonCoords} />
+          )}
+          <GeoJSON className="TorGranice" data={TorGranice} />
+        </MapContainer>
+      </Container>
+    </DraggableComponent>
   );
-}
+};
 
-const MapStyles = styled.div`
-  height: 100%;
-  width: 100%;
-  .flatmap {
+export default MiniMap;
+
+const Container = styled.div`
+  position: fixed;
+  width: 14rem;
+  height: 12rem;
+  background-color: white;
+  bottom: 2rem;
+  right: 0.5rem;
+  z-index: 4000;
+  border-radius: 15px;
+  overflow: hidden;
+
+  #MapOSM {
     height: 100%;
-    min-height: 90vh;
+    background-color: white;
   }
 
-  .TorBufor {
-    color: white;
-    fill: white;
-    fill-opacity: 0.55;
-    stroke: none;
+  &:hover {
+    cursor: move;
+  }
+
+  .CloseMiniMap {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 3000;
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .TorGranice {
     color: black;
     fill: none;
     stroke: black;
-    stroke-width: 2.5px;
+    stroke-width: 1.5px;
   }
 
   /* required styles */

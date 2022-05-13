@@ -119,28 +119,31 @@ const AllMaps = {
       code: "Roofs",
       url: "http://localhost:8080/Tiles/SolarRasterRoofs512/{z}/{x}/{y}.png",
       googleDrive:
-        "https://drive.google.com/drive/folders/1sNAxT60z-XXNc5zr2Ts0fhbY3HPMG8fi?usp=sharing/SolarRasterRoofs512/{z}/{x}/{y}.png",
+        "https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SolarRasterRoofs512/{z}/{x}/{y}.png",
       name: "Klasyfikacja dachów",
       ico: <RiMapFill className="Map-tile-desc-ico" />,
     },
     {
       code: "All",
       url: "http://localhost:8080/Tiles/SolarRasterAll256/{z}/{x}/{y}.png",
-      googleDrive: "",
+      googleDrive:
+        "https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SolarRasterAll256/{z}/{x}/{y}.png",
       name: "Klasyfikacja powierzchni",
       ico: <RiMapFill className="Map-tile-desc-ico" />,
     },
     {
       code: "GradientAll",
       url: "http://localhost:8080/Tiles/SolarRasterAllGradient256/{z}/{x}/{y}.png",
-      googleDrive: "",
+      googleDrive:
+        "https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SolarRasterAllGradient256/{z}/{x}/{y}.png",
       name: "Gradient powierzchni",
       ico: <RiMapFill className="Map-tile-desc-ico" />,
     },
     {
       code: "SkyView",
       url: "http://localhost:8080/Tiles/SkyViewMap256/{z}/{x}/{y}.png",
-      googleDrive: "",
+      googleDrive:
+        "https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SkyViewMap256/{z}/{x}/{y}.png",
       name: "Widoczność nieba",
       ico: <RiMapFill className="Map-tile-desc-ico" />,
     },
@@ -148,3 +151,5 @@ const AllMaps = {
 };
 
 export default AllMaps;
+
+// ! https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/

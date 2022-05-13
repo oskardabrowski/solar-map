@@ -13,7 +13,8 @@ const MapProvider = ({ children }) => {
   const [mouseAppCoords, setMouseAppCoords] = useState({ x: 0, y: 0 });
   const [searchedLocation, setSearchedLocation] = useState(null);
   const [generalLegendSeen, setGeneralLegendSeen] = useState(false);
-  const [tools, setTools] = useState(["LayersManagement"]);
+  const [tools, setTools] = useState(["LayersManagement", "MiniMap"]);
+  const [mapBounds, setMapBounds] = useState();
 
   const removeTool = (tool) => {
     const toolsArr = tools.filter((el) => el != tool);
@@ -53,6 +54,8 @@ const MapProvider = ({ children }) => {
         tools,
         removeTool,
         addTool,
+        mapBounds,
+        setMapBounds,
       }}
     >
       {children}
