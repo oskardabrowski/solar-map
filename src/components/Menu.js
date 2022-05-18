@@ -305,7 +305,7 @@ const Menu = () => {
           <AiFillTool /> Zarządzanie warstwami
         </button>
         <button className="Tools-tool" onClick={() => ToolToogle("MiniMap")}>
-          <AiFillTool /> MiniMapa
+          <AiFillTool /> Mini mapa
         </button>
       </div>
       <div className="PanelData Panel Map">
