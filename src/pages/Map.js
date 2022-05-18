@@ -15,6 +15,10 @@ import {
   WMSTileLayer,
   useMap,
   Marker,
+  Polyline,
+  Polygon,
+  Circle,
+  Rectangle,
 } from "react-leaflet";
 import styled from "styled-components";
 import { TorBufor } from "../components/layers/TorBufor";
@@ -84,6 +88,7 @@ export default function App() {
     '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   );
   const [thisMap, setThisMap] = useState(null);
+
   return (
     <MapStyles>
       <MapContainer
@@ -98,9 +103,40 @@ export default function App() {
         ]}
         id="generalMap"
         whenCreated={(map) => setThisMap({ map })}
+        // drawControl={true}
       >
         <GeoJSON className="TorBufor" data={TorBufor} />
         <GeoJSON className="TorGranice" data={TorGranice} />
+
+        <Polyline
+          style={{ color: "blue" }}
+          positions={[
+            [53.010782, 18.601885],
+            [53.010905, 18.603301],
+          ]}
+        />
+        <Polygon
+          style={{ color: "blue", fillColor: "blue" }}
+          positions={[
+            [53.010862, 18.601948],
+            [53.0109, 18.602553],
+            [53.011004, 18.602522],
+            [53.01096, 18.601921],
+          ]}
+        />
+        <Circle
+          center={[53.011201, 18.602678]}
+          style={{ color: "blue", fillColor: "blue" }}
+          radius={10}
+        />
+        <Rectangle
+          bounds={[
+            [53.011035, 18.602619],
+            [53.010925, 18.602856],
+          ]}
+          style={{ color: "blue", fillColor: "blue" }}
+        />
+
         <MapEventsComponent />
 
         {searchedLocation != null && (
@@ -155,6 +191,13 @@ const MapStyles = styled.div`
   .flatmap {
     height: 100%;
     min-height: 90vh;
+    cursor: -webkit-grab;
+    cursor: grab;
+
+    &:active {
+      cursor: -webkit-grabbing;
+      cursor: grabbing;
+    }
   }
 
   .TorBufor {

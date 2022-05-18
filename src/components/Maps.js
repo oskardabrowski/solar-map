@@ -113,6 +113,19 @@ const AllMaps = {
       name: "Esri World Imagery",
       ico: <MdInsertPhoto className="Map-tile-desc-ico" />,
     },
+    {
+      code: "orto2021",
+      url: "http://localhost:8080/Tiles/Orto2021/{z}/{x}/{y}.png",
+      attribution:
+        "&copy; <a href='https://www.geoportal.gov.pl/'>geoportal.gov.pl</a>",
+      attributionCode: (
+        <>
+          &copy; <a href="https://www.geoportal.gov.pl/">geoportal.gov.pl</a>
+        </>
+      ),
+      name: "Ortofotomapa 2021",
+      ico: <MdInsertPhoto className="Map-tile-desc-ico" />,
+    },
   ],
   layers: [
     {

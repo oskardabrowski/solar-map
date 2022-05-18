@@ -1,9 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import GlobalStyle from './components/GlobaStyle';
-import {Helmet} from 'react-helmet';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import GlobalStyle from "./components/GlobaStyle";
+import { Helmet } from "react-helmet";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -23,13 +23,20 @@ ReactDOM.render(
       <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"></link>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+        rel="stylesheet"
+      ></link>
+      <link
+        rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"
+      />
       <title>Solar Map</title>
     </Helmet>
     <GlobalStyle />
     <App />
   </React.StrictMode>,
-  document.querySelector('#app')
+  document.querySelector("#app")
 );
 
 reportWebVitals();

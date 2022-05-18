@@ -6,6 +6,9 @@ import {
   IoMdArrowDropdown,
   IoMdClose,
 } from "react-icons/io";
+import { IoTrash, IoAnalyticsOutline } from "react-icons/io5";
+import { AiFillEdit } from "react-icons/ai";
+import { BiShapeCircle, BiShapeSquare, BiShapePolygon } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
 import { MapLayerActions } from "./LayersReducer";
 import { MapContext } from "./GlobalContext";
@@ -24,88 +27,70 @@ const reorder = (list, startIndex, endIndex) => {
 const DrawMeasurement = () => {
   const window = useRef(null);
   const [opened, setOpened] = useState(true);
-  const [size, setSize] = useState(400);
-  const sizeRef = useRef(null);
-  const DraggableRef = useRef();
-  const [activeLayers, setActiveLayers] = useState(["Roofs"]);
-  const [activeLegends, setActiveLegends] = useState(["Roofs"]);
+  const [toolActive, setToolActive] = useState("");
+  const { removeTool } = useContext(MapContext);
 
-  const { generalLegendSeen, removeTool } = useContext(MapContext);
-
-  const dispatch = useDispatch();
-
-  const layers = useSelector((state) => state.layers.array);
-  useEffect(() => {
-    const layersArray = [];
-    layers.forEach((el) => layersArray.push(el.code));
-    setActiveLayers(layersArray.reverse());
-  }, [layers]);
-
-  async function onDragEnd(result) {
-    if (!result.destination) {
-      return;
-    }
-
-    console.log(layers.length);
-
-    const reducerArr = [];
-
-    const newitems = await reorder(
-      layers,
-      layers.length - 1 - result.source.index,
-      layers.length - 1 - result.destination.index
-    );
-
-    await newitems.forEach((el) => {
-      const code = el.code;
-      const obj = { code: code, index: 1000 };
-      reducerArr.push(obj);
-    });
-
-    dispatch(MapLayerActions.removeLayer(reducerArr));
-  }
-
-  useEffect(async () => {
-    if (opened != true) {
-      document.querySelector(".ContentContainer").style.transition =
-        "all .5s ease-in-out";
-      setSize(0);
-      setTimeout(() => {
-        document.querySelector(".ContentContainer").style.transition =
-          "all .5s ease-in-out";
-      }, 501);
-    } else {
-      setSize(400);
-      setTimeout(() => {
-        document.querySelector(".ContentContainer").style.transition =
-          "all 0s ease-in-out";
-      }, 500);
-    }
-  }, [opened]);
-
-  const legendRoofStore = [
-    { desc: "> 1200 kWh/m", color: "#E81014" },
-    { desc: "1101 - 1200 kWh/m", color: "#F25922" },
-    { desc: "1001 - 1100 kWh/m", color: "#FA8D34" },
-    { desc: "901 - 1000 kWh/m", color: "#FCC44C" },
-    { desc: "801 - 900 kWh/m", color: "#FFEF14" },
-    { desc: "701 - 800 kWh/m", color: "#CEDE81" },
-    { desc: "601 - 700 kWh/m", color: "#A0C29B" },
-    { desc: "501 - 600 kWh/m", color: "#6DA9B3" },
-    { desc: "< 500 kWh/m", color: "#2892C7" },
+  const ToolsList = [
+    {
+      name: "Linia",
+      ico: <IoAnalyticsOutline className="ico" />,
+      code: "poline",
+    },
+    {
+      name: "Poligon",
+      ico: <BiShapePolygon className="ico" />,
+      code: "polygon",
+    },
+    {
+      name: "Kwadrat",
+      ico: <BiShapeSquare className="ico" />,
+      code: "rectangle",
+    },
+    {
+      name: "Koło",
+      ico: <BiShapeCircle className="ico" />,
+      code: "circle",
+    },
+    {
+      name: "Edycja",
+      ico: <AiFillEdit className="ico" />,
+      code: "edit",
+    },
+    {
+      name: "Usuń",
+      ico: <IoTrash className="ico" />,
+      code: "remove",
+    },
   ];
 
-  const openLegend = (e, code) => {
-    const btn = e.target.closest("article");
-    const legend = btn.parentElement.querySelector(".Content-legend");
-    legend.classList.toggle("ContentOpened");
+  const toolHandler = (e, code) => {
+    e.preventDefault();
 
-    if (activeLayers.includes(code)) {
-      const newArr = activeLegends.filter((el) => el !== code);
-      setActiveLegends(newArr);
-    } else {
-      const newArr = [...activeLegends, code];
-      setActiveLegends(newArr);
+    switch (code) {
+      case toolActive:
+        setToolActive("");
+        break;
+      case "poline":
+        setToolActive("poline");
+        break;
+      case "polygon":
+        setToolActive("polygon");
+        break;
+      case "rectangle":
+        setToolActive("rectangle");
+        break;
+      case "circle":
+        setToolActive("circle");
+        break;
+      case "edit":
+        setToolActive("edit");
+        break;
+      case "remove":
+        setToolActive("remove");
+        break;
+      default:
+        setToolActive("");
+        break;
     }
   };
 
@@ -129,7 +114,25 @@ const DrawMeasurement = () => {
             <IoMdClose />
           </button>
         </div>
-        <div className="Content">Sth</div>
+        <div className={`Content ${opened && "ContentOpened"}`}>
+          {ToolsList.map((el, index) => {
+            return (
+              <div key={index} className="DrawElement">
+                <button onClick={(e) => toolHandler(e, el.code)}>
+                  {el.ico}
+                  {el.name}
+                </button>
+                {toolActive === el.code && (
+                  <div className="DrawElement-options">
+                    <button>Zakończ</button>
+                    <button>Usuń ostatni punkt</button>
+                    <button>Anuluj</button>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </LMWindow>
     </DraggableComponent>
   );
@@ -150,24 +153,59 @@ const LMWindow = styled.div`
   border-radius: 10px;
   overflow: hidden;
 
-  .RoofsLegendElement {
+  .DrawElement {
     display: flex;
-    align-items: center;
-    & > div {
-      width: 1.5rem;
-      height: 1.5rem;
-      margin: 0.5rem;
-      border-radius: 50%;
-    }
+    flex-direction: column;
+    & > button {
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      text-align: left;
+      border-radius: 0px;
+      background: none;
+      border: none;
+      border-bottom: 1px solid grey;
 
-    & > span {
-      font-family: "Arial";
-      font-size: 0.9rem;
+      &:hover {
+        cursor: pointer;
+        background-color: #ebebeb;
+      }
+
+      & > .ico {
+        margin: 0rem 0.5rem;
+      }
+    }
+    &-options {
+      border-bottom: 1px solid grey;
+      display: inline-grid;
+      grid-template-columns: auto auto auto;
+      & > button {
+        padding: 0.15rem;
+        background: none;
+        border-radius: 0px;
+        border: none;
+        &:hover {
+          cursor: pointer;
+          background-color: #ebebeb;
+        }
+        &:first-child {
+          border-right: 1px solid grey;
+        }
+        &:last-child {
+          border-left: 1px solid grey;
+        }
+      }
     }
   }
 
+  .Content {
+    transition: all 0.5s ease-in-out;
+    height: 0rem;
+    display: flex;
+    flex-direction: column;
+  }
+
   .ContentOpened {
-    height: 100% !important;
+    height: min-content;
   }
 
   .BtnClose {
@@ -192,6 +230,7 @@ const LMWindow = styled.div`
     display: flex;
     justify-content: space-between;
     z-index: 200;
+    border-radius: 10px 10px 0px 0px;
 
     &:hover {
       cursor: move;

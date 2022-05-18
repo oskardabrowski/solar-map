@@ -41,7 +41,7 @@ const MapTileBtn = ({
           <TileLayer
             url={url}
             attribution={attribution}
-            minZoom={1}
+            minZoom={10}
             maxZoom={28}
             minNativeZoom={0}
             maxNativeZoom={19}
