@@ -43,6 +43,8 @@ function MapEventsComponent() {
     setMapCenter,
     searchedLocation,
     setMapBounds,
+    measurementShape,
+    setMeasurementShape,
   } = useContext(MapContext);
   const map = useMap();
 
@@ -70,33 +72,106 @@ function MapEventsComponent() {
       setMapCenter(centerMapCoords);
       setMapBounds(MapBounds);
     },
+    click(e) {
+      if (measurementShape.code !== "NotActive") {
+        if (measurementShape.code !== "circle") {
+          const coords = measurementShape.coords;
+          const newCoords = e.latlng;
+          const newCoordsArr = [...coords, newCoords];
+          setMeasurementShape({
+            code: measurementShape.code,
+            coords: newCoordsArr,
+          });
+        } else if (measurementShape.code == "circle") {
+          const coords = measurementShape.coords;
+          const newCoords = e.latlng;
+          if (coords.length > 0) {
+            const lat = coords[0].lat;
+            const lng = coords[0].lng;
+            // console.log(lat);
+            // console.log(lng);
+
+            const newlat = newCoords.lat;
+            const newlng = newCoords.lng;
+            // console.log(newlat);
+            // console.log(newlng);
+
+            let w = lat - newlat;
+            let h = lng - newlng;
+
+            // console.log(w);
+            // console.log(h);
+
+            if (w < 0) {
+              w = w * -1;
+            }
+            if (h < 0) {
+              h = h * -1;
+            }
+
+            // console.log(Math.pow(h, 2));
+            // console.log(Math.pow(w, 2));
+
+            const c2 = Math.pow(h, 2) + Math.pow(w, 2);
+            const c2sqrt = Math.sqrt(c2) * 70000;
+            console.log(c2sqrt);
+            const newCoordsArr = [...coords, c2sqrt];
+            setMeasurementShape({
+              code: measurementShape.code,
+              coords: newCoordsArr,
+            });
+          } else {
+            const newCoordsArr = [...coords, newCoords];
+            setMeasurementShape({
+              code: measurementShape.code,
+              coords: newCoordsArr,
+            });
+          }
+        }
+      }
+    },
   });
 
   return null;
 }
 
 export default function App() {
-  const { zoomLevel, mapTile, solarTile, searchedLocation } =
+  const { zoomLevel, mapTile, solarTile, searchedLocation, measurementShape } =
     useContext(MapContext);
   const layers = useSelector((state) => state.layers.array);
   const arrExists = layers.map((el) => el.code);
-
-  const [tileLink, setTileLink] = useState(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-  );
-  const [tileAttribution, setTileAttribution] = useState(
-    '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  );
+  const MapRef = useRef();
+  const [currentShapeTool, setCurrentShapeTool] = useState("NotActive");
   const [thisMap, setThisMap] = useState(null);
+
+  useEffect(() => {
+    if (measurementShape.code !== "NotActive") {
+      document
+        .querySelector("#generalMap")
+        .classList.add("CreatingShapeCursor");
+      setCurrentShapeTool(measurementShape.code);
+    } else if (measurementShape.code === currentShapeTool) {
+      document
+        .querySelector("#generalMap")
+        .classList.remove("CreatingShapeCursor");
+      setCurrentShapeTool("NotActive");
+    } else {
+      document
+        .querySelector("#generalMap")
+        .classList.remove("CreatingShapeCursor");
+      setCurrentShapeTool("NotActive");
+    }
+  }, [measurementShape]);
 
   return (
     <MapStyles>
       <MapContainer
-        className="flatmap"
+        className={`flatmap`}
         center={[53.01, 18.63]}
         zoom={12}
         maxZoom={25}
         minZoom={12}
+        ref={MapRef}
         maxBounds={[
           [52.93, 18.35],
           [53.1, 18.9],
@@ -108,34 +183,37 @@ export default function App() {
         <GeoJSON className="TorBufor" data={TorBufor} />
         <GeoJSON className="TorGranice" data={TorGranice} />
 
-        <Polyline
-          style={{ color: "blue" }}
-          positions={[
-            [53.010782, 18.601885],
-            [53.010905, 18.603301],
-          ]}
-        />
-        <Polygon
-          style={{ color: "blue", fillColor: "blue" }}
-          positions={[
-            [53.010862, 18.601948],
-            [53.0109, 18.602553],
-            [53.011004, 18.602522],
-            [53.01096, 18.601921],
-          ]}
-        />
-        <Circle
-          center={[53.011201, 18.602678]}
-          style={{ color: "blue", fillColor: "blue" }}
-          radius={10}
-        />
-        <Rectangle
-          bounds={[
-            [53.011035, 18.602619],
-            [53.010925, 18.602856],
-          ]}
-          style={{ color: "blue", fillColor: "blue" }}
-        />
+        {measurementShape.code === "poline" && (
+          <Polyline
+            style={{ color: "blue" }}
+            positions={measurementShape.coords}
+          />
+        )}
+        {measurementShape.code === "polygon" && (
+          <Polygon
+            style={{ color: "blue", fillColor: "blue" }}
+            positions={measurementShape.coords}
+          />
+        )}
+        {measurementShape.code === "circle" &&
+        measurementShape.coords.length > 1 ? (
+          <Circle
+            center={measurementShape.coords[0]}
+            style={{ color: "blue", fillColor: "blue" }}
+            radius={measurementShape.coords[1]}
+          />
+        ) : (
+          ""
+        )}
+        {measurementShape.code === "rectangle" &&
+        measurementShape.coords.length > 1 ? (
+          <Rectangle
+            bounds={measurementShape.coords}
+            style={{ color: "blue", fillColor: "blue" }}
+          />
+        ) : (
+          ""
+        )}
 
         <MapEventsComponent />
 
@@ -197,6 +275,15 @@ const MapStyles = styled.div`
     &:active {
       cursor: -webkit-grabbing;
       cursor: grabbing;
+    }
+  }
+
+  .CreatingShapeCursor {
+    &:hover {
+      cursor: crosshair !important;
+    }
+    &:active {
+      cursor: crosshair !important;
     }
   }
 

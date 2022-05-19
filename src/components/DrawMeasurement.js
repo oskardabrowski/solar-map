@@ -28,7 +28,7 @@ const DrawMeasurement = () => {
   const window = useRef(null);
   const [opened, setOpened] = useState(true);
   const [toolActive, setToolActive] = useState("");
-  const { removeTool } = useContext(MapContext);
+  const { removeTool, setMeasurementShape } = useContext(MapContext);
 
   const ToolsList = [
     {
@@ -69,18 +69,23 @@ const DrawMeasurement = () => {
     switch (code) {
       case toolActive:
         setToolActive("");
+        setMeasurementShape({ code: "NotActive", coords: [] });
         break;
       case "poline":
         setToolActive("poline");
+        setMeasurementShape({ code: "poline", coords: [] });
         break;
       case "polygon":
         setToolActive("polygon");
+        setMeasurementShape({ code: "polygon", coords: [] });
         break;
       case "rectangle":
         setToolActive("rectangle");
+        setMeasurementShape({ code: "rectangle", coords: [] });
         break;
       case "circle":
         setToolActive("circle");
+        setMeasurementShape({ code: "circle", coords: [] });
         break;
       case "edit":
         setToolActive("edit");
@@ -90,9 +95,12 @@ const DrawMeasurement = () => {
         break;
       default:
         setToolActive("");
+        setMeasurementShape({ code: "NotActive", coords: [] });
         break;
     }
   };
+
+  const shapeHandler = () => {};
 
   return (
     <DraggableComponent nodeRef={window} handle="div.PanelTitle">
