@@ -37,9 +37,9 @@ function GetIcon(_iconSize) {
 }
 function GetPoint(_iconSize) {
   return L.icon({
-    iconUrl: require("../images/pin3.png"),
-    iconSize: [50, 85],
-    iconAnchor: [25, 85],
+    iconUrl: require("../images/point.png"),
+    iconSize: [20, 20],
+    iconAnchor: [10, 10],
   });
 }
 
@@ -224,20 +224,31 @@ export default function App() {
         {measurementShape.code === "polygon" && (
           <>
             <Polygon
-              style={{ color: "blue", fillColor: "blue" }}
+              style={{ color: "blue", fillColor: "rgba(0,0,0,0)" }}
               positions={measurementShape.coords}
               className={`${
                 measurementShape.code != "NotActive" ? "whileEdit" : ""
               }`}
             />
-            {measurementShape.coords.map((point) => {
+            {measurementShape.coords.map((point, index) => {
+              if (index != measurementShape.coords.length - 1) {
+                return (
+                  <Marker
+                    icon={GetPoint()}
+                    position={[point.lat, point.lng]}
+                  ></Marker>
+                );
+              }
+            })}
+            {/* {measurementShape.coords.map((point) => {
               return (
                 <Marker
-                  icon={GetIcon()}
+                  icon={GetPoint()}
                   position={[point.lat, point.lng]}
+                  className="whileEdit"
                 ></Marker>
               );
-            })}
+            })} */}
           </>
         )}
         {measurementShape.code === "circle" &&
