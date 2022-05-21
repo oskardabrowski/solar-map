@@ -35,6 +35,13 @@ function GetIcon(_iconSize) {
     iconAnchor: [25, 85],
   });
 }
+function GetPoint(_iconSize) {
+  return L.icon({
+    iconUrl: require("../images/pin3.png"),
+    iconSize: [50, 85],
+    iconAnchor: [25, 85],
+  });
+}
 
 function MapEventsComponent() {
   const {
@@ -65,6 +72,27 @@ function MapEventsComponent() {
     },
     mousemove(e) {
       setCoords(e.latlng);
+      if (measurementShape.code !== "NotActive") {
+        if (measurementShape.code !== "circle") {
+          const coords = measurementShape.coords;
+          if (coords.length == 1) {
+            const newCoords = e.latlng;
+            const newCoordsArr = [...coords, newCoords];
+            setMeasurementShape({
+              code: measurementShape.code,
+              coords: newCoordsArr,
+            });
+          } else if (coords.length > 1) {
+            const newCoords = e.latlng;
+            coords.pop();
+            const newCoordsArr = [...coords, newCoords];
+            setMeasurementShape({
+              code: measurementShape.code,
+              coords: newCoordsArr,
+            });
+          }
+        }
+      }
     },
     dragend: (e) => {
       const centerMapCoords = e.target.getCenter();
@@ -114,13 +142,14 @@ function MapEventsComponent() {
 
             const c2 = Math.pow(h, 2) + Math.pow(w, 2);
             const c2sqrt = Math.sqrt(c2) * 70000;
-            console.log(c2sqrt);
             const newCoordsArr = [...coords, c2sqrt];
             setMeasurementShape({
               code: measurementShape.code,
               coords: newCoordsArr,
             });
           } else {
+            const coords = measurementShape.coords;
+            const newCoords = e.latlng;
             const newCoordsArr = [...coords, newCoords];
             setMeasurementShape({
               code: measurementShape.code,
@@ -187,13 +216,29 @@ export default function App() {
           <Polyline
             style={{ color: "blue" }}
             positions={measurementShape.coords}
+            className={`${
+              measurementShape.code != "NotActive" ? "whileEdit" : ""
+            }`}
           />
         )}
         {measurementShape.code === "polygon" && (
-          <Polygon
-            style={{ color: "blue", fillColor: "blue" }}
-            positions={measurementShape.coords}
-          />
+          <>
+            <Polygon
+              style={{ color: "blue", fillColor: "blue" }}
+              positions={measurementShape.coords}
+              className={`${
+                measurementShape.code != "NotActive" ? "whileEdit" : ""
+              }`}
+            />
+            {measurementShape.coords.map((point) => {
+              return (
+                <Marker
+                  icon={GetIcon()}
+                  position={[point.lat, point.lng]}
+                ></Marker>
+              );
+            })}
+          </>
         )}
         {measurementShape.code === "circle" &&
         measurementShape.coords.length > 1 ? (
@@ -275,6 +320,12 @@ const MapStyles = styled.div`
     &:active {
       cursor: -webkit-grabbing;
       cursor: grabbing;
+    }
+  }
+
+  .whileEdit {
+    &:hover {
+      cursor: crosshair !important;
     }
   }
 
