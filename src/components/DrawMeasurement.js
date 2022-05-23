@@ -56,88 +56,46 @@ const DrawMeasurement = () => {
       const ToolsArr = DocumentTools.querySelectorAll(".button-container");
       const EditTools = document.querySelector(".leaflet-pm-edit");
       const EditAllTools = EditTools.querySelectorAll(".button-container");
-      console.log(ToolsArr);
       ToolsArr.forEach((el) => {
         const title = el.getAttribute("title");
         const titleParagraph = document.createElement("p");
         titleParagraph.classList.add("ToolTitle");
         titleParagraph.textContent = title;
         const btn = el.querySelector(".leaflet-buttons-control-button");
-        const classes = el.classList;
         console.log(btn.querySelector(".ToolTitle"));
         if (!btn.querySelector(".ToolTitle")) {
           btn.appendChild(titleParagraph);
-          // el.addEventListener("click", ShowOptions(el));
         }
       });
       EditAllTools.forEach((el) => {
-        const title = el.getAttribute("title");
+        let title = el.getAttribute("title");
+        console.log(!el.getAttribute("title"));
+        if (!el.getAttribute("title")) {
+          title = "Obróć element";
+        }
         const titleParagraph = document.createElement("p");
         titleParagraph.classList.add("ToolTitle");
         titleParagraph.textContent = title;
         const btn = el.querySelector(".leaflet-buttons-control-button");
-        const classes = el.classList;
         console.log(btn.querySelector(".ToolTitle"));
         if (!btn.querySelector(".ToolTitle")) {
           btn.appendChild(titleParagraph);
-          // el.addEventListener("click", ShowOptions(el));
         }
       });
-      // EditAllTools.forEach((el) => {
-      //   const title = el.getAttribute("title");
-      //   const titleParagraph = document.createElement("p");
-      //   titleParagraph.classList.add("ToolTitle");
-      //   titleParagraph.textContent = title;
-      //   const btn = el.querySelector(".leaflet-buttons-control-button");
-      //   if (!el.querySelector(".ToolTitle")) {
-      //     btn.appendChild(titleParagraph);
-      //     el.addEventListener("click", ShowOptions(el));
-      //   }
-      // });
     }
   }, [toolsSet]);
 
   useEffect(() => {
     setTimeout(() => {
       const DocumentTools = document.querySelector(".leaflet-pm-draw");
-      // const DrawAllTools = DocumentTools.querySelectorAll(".button-container");
       EditionRef.current.appendChild(DocumentTools);
-      // DrawAllTools.forEach((el) => {
-      //   EditionRef.current.appendChild(el);
-      // });
       const EditTools = document.querySelector(".leaflet-pm-edit");
-      // const EditAllTools = EditTools.querySelectorAll(".button-container");
       EditionRef.current.appendChild(EditTools);
-      // EditAllTools.forEach((el) => {
-      //   EditionRef.current.appendChild(el);
-      // });
       setTimeout(() => {
         setToolsSet(true);
       }, 10);
     }, 10);
-    // setTimeout(() => {
-    //   const DocumentTools = document.querySelector(".leaflet-pm-draw");
-    //   const DrawAllTools = DocumentTools.querySelectorAll(".button-container");
-    // const EditTools = document.querySelector(".leaflet-pm-edit");
-    // const EditAllTools = EditTools.querySelectorAll(".button-container");
-    // DrawAllTools.forEach((el) => {
-    //   const title = el.getAttribute("title");
-    //   const titleParagraph = document.createElement("p");
-    //   titleParagraph.classList.add("ToolTitle");
-    //   titleParagraph.textContent = title;
-    //   const btn = el.querySelector(".leaflet-buttons-control-button");
-    //   if (!el.querySelector(".ToolTitle")) {
-    //     btn.appendChild(titleParagraph);
-    //     el.addEventListener("click", ShowOptions(el));
-    //   }
-    // });
-    // }, 15);
-    // const DocumentToolsEdit = document.querySelector(".leaflet-pm-edit");
-    // EditionRef.current.appendChild(DocumentToolsEdit);
-    // setToolsSet(true);
   }, []);
-
-  // console.log(DocumentTools.childNodes);
 
   const ToolsList = [
     {
@@ -268,7 +226,7 @@ const GeomanStyles = styled.div`
     height: auto;
     background-color: white;
     color: black;
-    /* border-bottom: 2px solid grey; */
+    border-bottom: 1px solid grey;
     padding: 0px !important;
     margin: 0px !important;
   }
@@ -281,7 +239,7 @@ const GeomanStyles = styled.div`
     font-family: "Arial";
     color: black;
     text-decoration: none;
-    border-bottom: 1px solid grey;
+    /* border-bottom: 1px solid grey; */
     & > div {
       width: 1.2rem !important;
       margin: 0rem 1rem;
@@ -312,6 +270,11 @@ const GeomanStyles = styled.div`
     color: black !important;
     text-decoration: none;
     font-family: "Arial";
+  }
+  .leaflet-pm-draw {
+    &:last-child {
+      border-bottom: 1px solid grey !important;
+    }
   }
   .show-options {
     display: flex !important;
