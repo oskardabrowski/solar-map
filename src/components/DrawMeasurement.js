@@ -43,13 +43,6 @@ const DrawMeasurement = () => {
     ElToShow.classList.add("show-options");
   };
 
-  // useEffect(() => {
-  //   const DocumentTools = document.querySelector(".leaflet-pm-draw");
-  //   EditionRef.current.appendChild(DocumentTools);
-  //   // const DocumentToolsEdit = document.querySelector(".leaflet-pm-edit");
-  //   // EditionRef.current.appendChild(DocumentToolsEdit);
-  // }, []);
-
   useEffect(() => {
     if (toolsSet) {
       const DocumentTools = document.querySelector(".leaflet-pm-draw");
@@ -62,7 +55,6 @@ const DrawMeasurement = () => {
         titleParagraph.classList.add("ToolTitle");
         titleParagraph.textContent = title;
         const btn = el.querySelector(".leaflet-buttons-control-button");
-        console.log(btn.querySelector(".ToolTitle"));
         if (!btn.querySelector(".ToolTitle")) {
           btn.appendChild(titleParagraph);
         }
@@ -77,7 +69,6 @@ const DrawMeasurement = () => {
         titleParagraph.classList.add("ToolTitle");
         titleParagraph.textContent = title;
         const btn = el.querySelector(".leaflet-buttons-control-button");
-        console.log(btn.querySelector(".ToolTitle"));
         if (!btn.querySelector(".ToolTitle")) {
           btn.appendChild(titleParagraph);
         }
@@ -96,78 +87,6 @@ const DrawMeasurement = () => {
       }, 10);
     }, 10);
   }, []);
-
-  const ToolsList = [
-    {
-      name: "Linia",
-      ico: <IoAnalyticsOutline className="ico" />,
-      code: "poline",
-    },
-    {
-      name: "Poligon",
-      ico: <BiShapePolygon className="ico" />,
-      code: "polygon",
-    },
-    {
-      name: "Kwadrat",
-      ico: <BiShapeSquare className="ico" />,
-      code: "rectangle",
-    },
-    {
-      name: "Koło",
-      ico: <BiShapeCircle className="ico" />,
-      code: "circle",
-    },
-    {
-      name: "Edycja",
-      ico: <AiFillEdit className="ico" />,
-      code: "edit",
-    },
-    {
-      name: "Usuń",
-      ico: <IoTrash className="ico" />,
-      code: "remove",
-    },
-  ];
-
-  const toolHandler = (e, code) => {
-    e.preventDefault();
-
-    switch (code) {
-      case toolActive:
-        setToolActive("");
-        setMeasurementShape({ code: "NotActive", coords: [] });
-        break;
-      case "poline":
-        setToolActive("poline");
-        setMeasurementShape({ code: "poline", coords: [] });
-        break;
-      case "polygon":
-        setToolActive("polygon");
-        setMeasurementShape({ code: "polygon", coords: [] });
-        break;
-      case "rectangle":
-        setToolActive("rectangle");
-        setMeasurementShape({ code: "rectangle", coords: [] });
-        break;
-      case "circle":
-        setToolActive("circle");
-        setMeasurementShape({ code: "circle", coords: [] });
-        break;
-      case "edit":
-        setToolActive("edit");
-        break;
-      case "remove":
-        setToolActive("remove");
-        break;
-      default:
-        setToolActive("");
-        setMeasurementShape({ code: "NotActive", coords: [] });
-        break;
-    }
-  };
-
-  const shapeHandler = () => {};
 
   return (
     <DraggableComponent nodeRef={window} handle="div.PanelTitle">
@@ -193,25 +112,7 @@ const DrawMeasurement = () => {
           <div
             ref={EditionRef}
             className={`Content ${opened && "ContentOpened"}`}
-          >
-            {/* {ToolsList.map((el, index) => {
-            return (
-              <div key={index} className="DrawElement">
-                <button onClick={(e) => toolHandler(e, el.code)}>
-                  {el.ico}
-                  {el.name}
-                </button>
-                {toolActive === el.code && (
-                  <div className="DrawElement-options">
-                    <button>Zakończ</button>
-                    <button>Usuń ostatni punkt</button>
-                    <button>Anuluj</button>
-                  </div>
-                )}
-              </div>
-            );
-          })} */}
-          </div>
+          ></div>
         </GeomanStyles>
       </LMWindow>
     </DraggableComponent>
@@ -284,7 +185,7 @@ const GeomanStyles = styled.div`
 const LMWindow = styled.div`
   position: absolute;
   top: 80px;
-  right: 400px;
+  right: 350px;
   width: 20rem;
   z-index: 5000;
   background-color: white;

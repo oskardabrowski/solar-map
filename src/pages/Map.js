@@ -51,8 +51,6 @@ function MapEventsComponent() {
     setMapCenter,
     searchedLocation,
     setMapBounds,
-    measurementShape,
-    setMeasurementShape,
   } = useContext(MapContext);
   const map = useMap();
 
@@ -73,92 +71,12 @@ function MapEventsComponent() {
     },
     mousemove(e) {
       setCoords(e.latlng);
-      if (measurementShape.code !== "NotActive") {
-        if (measurementShape.code !== "circle") {
-          const coords = measurementShape.coords;
-          if (coords.length == 1) {
-            const newCoords = e.latlng;
-            const newCoordsArr = [...coords, newCoords];
-            setMeasurementShape({
-              code: measurementShape.code,
-              coords: newCoordsArr,
-            });
-          } else if (coords.length > 1) {
-            const newCoords = e.latlng;
-            coords.pop();
-            const newCoordsArr = [...coords, newCoords];
-            setMeasurementShape({
-              code: measurementShape.code,
-              coords: newCoordsArr,
-            });
-          }
-        }
-      }
     },
     dragend: (e) => {
       const centerMapCoords = e.target.getCenter();
       const MapBounds = e.target.getBounds();
       setMapCenter(centerMapCoords);
       setMapBounds(MapBounds);
-    },
-    click(e) {
-      if (measurementShape.code !== "NotActive") {
-        if (measurementShape.code !== "circle") {
-          const coords = measurementShape.coords;
-          const newCoords = e.latlng;
-          const newCoordsArr = [...coords, newCoords];
-          setMeasurementShape({
-            code: measurementShape.code,
-            coords: newCoordsArr,
-          });
-        } else if (measurementShape.code == "circle") {
-          const coords = measurementShape.coords;
-          const newCoords = e.latlng;
-          if (coords.length > 0) {
-            const lat = coords[0].lat;
-            const lng = coords[0].lng;
-            // console.log(lat);
-            // console.log(lng);
-
-            const newlat = newCoords.lat;
-            const newlng = newCoords.lng;
-            // console.log(newlat);
-            // console.log(newlng);
-
-            let w = lat - newlat;
-            let h = lng - newlng;
-
-            // console.log(w);
-            // console.log(h);
-
-            if (w < 0) {
-              w = w * -1;
-            }
-            if (h < 0) {
-              h = h * -1;
-            }
-
-            // console.log(Math.pow(h, 2));
-            // console.log(Math.pow(w, 2));
-
-            const c2 = Math.pow(h, 2) + Math.pow(w, 2);
-            const c2sqrt = Math.sqrt(c2) * 70000;
-            const newCoordsArr = [...coords, c2sqrt];
-            setMeasurementShape({
-              code: measurementShape.code,
-              coords: newCoordsArr,
-            });
-          } else {
-            const coords = measurementShape.coords;
-            const newCoords = e.latlng;
-            const newCoordsArr = [...coords, newCoords];
-            setMeasurementShape({
-              code: measurementShape.code,
-              coords: newCoordsArr,
-            });
-          }
-        }
-      }
     },
   });
 
@@ -173,25 +91,6 @@ export default function App() {
   const MapRef = useRef();
   const [currentShapeTool, setCurrentShapeTool] = useState("NotActive");
   const [thisMap, setThisMap] = useState(null);
-
-  useEffect(() => {
-    if (measurementShape.code !== "NotActive") {
-      document
-        .querySelector("#generalMap")
-        .classList.add("CreatingShapeCursor");
-      setCurrentShapeTool(measurementShape.code);
-    } else if (measurementShape.code === currentShapeTool) {
-      document
-        .querySelector("#generalMap")
-        .classList.remove("CreatingShapeCursor");
-      setCurrentShapeTool("NotActive");
-    } else {
-      document
-        .querySelector("#generalMap")
-        .classList.remove("CreatingShapeCursor");
-      setCurrentShapeTool("NotActive");
-    }
-  }, [measurementShape]);
 
   return (
     <MapStyles>
@@ -208,93 +107,9 @@ export default function App() {
         ]}
         id="generalMap"
         whenCreated={(map) => setThisMap({ map })}
-        // drawControl={true}
       >
         <GeoJSON className="TorBufor" data={TorBufor} />
         <GeoJSON className="TorGranice" data={TorGranice} />
-
-        {measurementShape.code === "poline" && (
-          <>
-            <Polyline
-              style={{ color: "blue" }}
-              positions={measurementShape.coords}
-              className={`${
-                measurementShape.code != "NotActive" ? "whileEdit" : ""
-              }`}
-            />
-            {measurementShape.coords.map((point, index) => {
-              if (index != measurementShape.coords.length - 1) {
-                return (
-                  <Marker
-                    icon={GetPoint()}
-                    position={[point.lat, point.lng]}
-                  ></Marker>
-                );
-              }
-            })}
-          </>
-        )}
-        {measurementShape.code === "polygon" && (
-          <>
-            <Polygon
-              style={{ color: "blue", fillColor: "rgba(0,0,0,0)" }}
-              positions={measurementShape.coords}
-              className={`${
-                measurementShape.code != "NotActive" ? "whileEdit" : ""
-              }`}
-            />
-            {measurementShape.coords.map((point, index) => {
-              if (index != measurementShape.coords.length - 1) {
-                return (
-                  <Marker
-                    icon={GetPoint()}
-                    position={[point.lat, point.lng]}
-                  ></Marker>
-                );
-              }
-            })}
-            {/* {measurementShape.coords.map((point) => {
-              return (
-                <Marker
-                  icon={GetPoint()}
-                  position={[point.lat, point.lng]}
-                  className="whileEdit"
-                ></Marker>
-              );
-            })} */}
-          </>
-        )}
-        {measurementShape.code === "circle" &&
-        measurementShape.coords.length > 1 ? (
-          <Circle
-            center={measurementShape.coords[0]}
-            style={{ color: "blue", fillColor: "blue" }}
-            radius={measurementShape.coords[1]}
-          />
-        ) : (
-          ""
-        )}
-        {measurementShape.code === "rectangle" &&
-        measurementShape.coords.length > 1 ? (
-          <>
-            <Rectangle
-              bounds={measurementShape.coords}
-              style={{ color: "blue", fillColor: "blue" }}
-            />
-            {measurementShape.coords.map((point, index) => {
-              if (index != measurementShape.coords.length - 1) {
-                return (
-                  <Marker
-                    icon={GetPoint()}
-                    position={[point.lat, point.lng]}
-                  ></Marker>
-                );
-              }
-            })}
-          </>
-        ) : (
-          ""
-        )}
 
         <MapEventsComponent />
         <Geoman />

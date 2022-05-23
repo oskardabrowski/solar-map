@@ -15,10 +15,6 @@ const MapProvider = ({ children }) => {
   const [generalLegendSeen, setGeneralLegendSeen] = useState(false);
   const [tools, setTools] = useState(["LayersManagement", "MiniMap"]);
   const [mapBounds, setMapBounds] = useState();
-  const [measurementShape, setMeasurementShape] = useState({
-    code: "NotActive",
-    coords: [],
-  });
 
   const removeTool = (tool) => {
     const toolsArr = tools.filter((el) => el != tool);
@@ -60,8 +56,6 @@ const MapProvider = ({ children }) => {
         addTool,
         mapBounds,
         setMapBounds,
-        measurementShape,
-        setMeasurementShape,
       }}
     >
       {children}
