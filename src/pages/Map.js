@@ -27,6 +27,7 @@ import { MapContext } from "../components/GlobalContext";
 import AllMaps from "../components/Maps";
 import L from "leaflet";
 import { useSelector } from "react-redux";
+import Geoman from "../components/Geoman";
 
 function GetIcon(_iconSize) {
   return L.icon({
@@ -213,13 +214,25 @@ export default function App() {
         <GeoJSON className="TorGranice" data={TorGranice} />
 
         {measurementShape.code === "poline" && (
-          <Polyline
-            style={{ color: "blue" }}
-            positions={measurementShape.coords}
-            className={`${
-              measurementShape.code != "NotActive" ? "whileEdit" : ""
-            }`}
-          />
+          <>
+            <Polyline
+              style={{ color: "blue" }}
+              positions={measurementShape.coords}
+              className={`${
+                measurementShape.code != "NotActive" ? "whileEdit" : ""
+              }`}
+            />
+            {measurementShape.coords.map((point, index) => {
+              if (index != measurementShape.coords.length - 1) {
+                return (
+                  <Marker
+                    icon={GetPoint()}
+                    position={[point.lat, point.lng]}
+                  ></Marker>
+                );
+              }
+            })}
+          </>
         )}
         {measurementShape.code === "polygon" && (
           <>
@@ -263,15 +276,28 @@ export default function App() {
         )}
         {measurementShape.code === "rectangle" &&
         measurementShape.coords.length > 1 ? (
-          <Rectangle
-            bounds={measurementShape.coords}
-            style={{ color: "blue", fillColor: "blue" }}
-          />
+          <>
+            <Rectangle
+              bounds={measurementShape.coords}
+              style={{ color: "blue", fillColor: "blue" }}
+            />
+            {measurementShape.coords.map((point, index) => {
+              if (index != measurementShape.coords.length - 1) {
+                return (
+                  <Marker
+                    icon={GetPoint()}
+                    position={[point.lat, point.lng]}
+                  ></Marker>
+                );
+              }
+            })}
+          </>
         ) : (
           ""
         )}
 
         <MapEventsComponent />
+        <Geoman />
 
         {searchedLocation != null && (
           <Marker

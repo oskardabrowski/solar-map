@@ -26,9 +26,118 @@ const reorder = (list, startIndex, endIndex) => {
 
 const DrawMeasurement = () => {
   const window = useRef(null);
+  const EditionRef = useRef();
   const [opened, setOpened] = useState(true);
   const [toolActive, setToolActive] = useState("");
   const { removeTool, setMeasurementShape } = useContext(MapContext);
+  const [toolsSet, setToolsSet] = useState(false);
+
+  const ShowOptions = (el) => {
+    const ElToShow = el.closest(".leaflet-pm-actions-container");
+    const AllActions = document.querySelectorAll(
+      "leaflet-pm-actions-container"
+    );
+    AllActions.forEach((el) => {
+      el.classList.remove("show-options");
+    });
+    ElToShow.classList.add("show-options");
+  };
+
+  // useEffect(() => {
+  //   const DocumentTools = document.querySelector(".leaflet-pm-draw");
+  //   EditionRef.current.appendChild(DocumentTools);
+  //   // const DocumentToolsEdit = document.querySelector(".leaflet-pm-edit");
+  //   // EditionRef.current.appendChild(DocumentToolsEdit);
+  // }, []);
+
+  useEffect(() => {
+    if (toolsSet) {
+      const DocumentTools = document.querySelector(".leaflet-pm-draw");
+      const ToolsArr = DocumentTools.querySelectorAll(".button-container");
+      const EditTools = document.querySelector(".leaflet-pm-edit");
+      const EditAllTools = EditTools.querySelectorAll(".button-container");
+      console.log(ToolsArr);
+      ToolsArr.forEach((el) => {
+        const title = el.getAttribute("title");
+        const titleParagraph = document.createElement("p");
+        titleParagraph.classList.add("ToolTitle");
+        titleParagraph.textContent = title;
+        const btn = el.querySelector(".leaflet-buttons-control-button");
+        const classes = el.classList;
+        console.log(btn.querySelector(".ToolTitle"));
+        if (!btn.querySelector(".ToolTitle")) {
+          btn.appendChild(titleParagraph);
+          // el.addEventListener("click", ShowOptions(el));
+        }
+      });
+      EditAllTools.forEach((el) => {
+        const title = el.getAttribute("title");
+        const titleParagraph = document.createElement("p");
+        titleParagraph.classList.add("ToolTitle");
+        titleParagraph.textContent = title;
+        const btn = el.querySelector(".leaflet-buttons-control-button");
+        const classes = el.classList;
+        console.log(btn.querySelector(".ToolTitle"));
+        if (!btn.querySelector(".ToolTitle")) {
+          btn.appendChild(titleParagraph);
+          // el.addEventListener("click", ShowOptions(el));
+        }
+      });
+      // EditAllTools.forEach((el) => {
+      //   const title = el.getAttribute("title");
+      //   const titleParagraph = document.createElement("p");
+      //   titleParagraph.classList.add("ToolTitle");
+      //   titleParagraph.textContent = title;
+      //   const btn = el.querySelector(".leaflet-buttons-control-button");
+      //   if (!el.querySelector(".ToolTitle")) {
+      //     btn.appendChild(titleParagraph);
+      //     el.addEventListener("click", ShowOptions(el));
+      //   }
+      // });
+    }
+  }, [toolsSet]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      const DocumentTools = document.querySelector(".leaflet-pm-draw");
+      // const DrawAllTools = DocumentTools.querySelectorAll(".button-container");
+      EditionRef.current.appendChild(DocumentTools);
+      // DrawAllTools.forEach((el) => {
+      //   EditionRef.current.appendChild(el);
+      // });
+      const EditTools = document.querySelector(".leaflet-pm-edit");
+      // const EditAllTools = EditTools.querySelectorAll(".button-container");
+      EditionRef.current.appendChild(EditTools);
+      // EditAllTools.forEach((el) => {
+      //   EditionRef.current.appendChild(el);
+      // });
+      setTimeout(() => {
+        setToolsSet(true);
+      }, 10);
+    }, 10);
+    // setTimeout(() => {
+    //   const DocumentTools = document.querySelector(".leaflet-pm-draw");
+    //   const DrawAllTools = DocumentTools.querySelectorAll(".button-container");
+    // const EditTools = document.querySelector(".leaflet-pm-edit");
+    // const EditAllTools = EditTools.querySelectorAll(".button-container");
+    // DrawAllTools.forEach((el) => {
+    //   const title = el.getAttribute("title");
+    //   const titleParagraph = document.createElement("p");
+    //   titleParagraph.classList.add("ToolTitle");
+    //   titleParagraph.textContent = title;
+    //   const btn = el.querySelector(".leaflet-buttons-control-button");
+    //   if (!el.querySelector(".ToolTitle")) {
+    //     btn.appendChild(titleParagraph);
+    //     el.addEventListener("click", ShowOptions(el));
+    //   }
+    // });
+    // }, 15);
+    // const DocumentToolsEdit = document.querySelector(".leaflet-pm-edit");
+    // EditionRef.current.appendChild(DocumentToolsEdit);
+    // setToolsSet(true);
+  }, []);
+
+  // console.log(DocumentTools.childNodes);
 
   const ToolsList = [
     {
@@ -122,8 +231,12 @@ const DrawMeasurement = () => {
             <IoMdClose />
           </button>
         </div>
-        <div className={`Content ${opened && "ContentOpened"}`}>
-          {ToolsList.map((el, index) => {
+        <GeomanStyles>
+          <div
+            ref={EditionRef}
+            className={`Content ${opened && "ContentOpened"}`}
+          >
+            {/* {ToolsList.map((el, index) => {
             return (
               <div key={index} className="DrawElement">
                 <button onClick={(e) => toolHandler(e, el.code)}>
@@ -139,14 +252,71 @@ const DrawMeasurement = () => {
                 )}
               </div>
             );
-          })}
-        </div>
+          })} */}
+          </div>
+        </GeomanStyles>
       </LMWindow>
     </DraggableComponent>
   );
 };
 
 export default DrawMeasurement;
+
+const GeomanStyles = styled.div`
+  .button-container {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    color: black;
+    /* border-bottom: 2px solid grey; */
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+  a.leaflet-buttons-control-button {
+    width: 100% !important;
+    height: 2rem !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    font-family: "Arial";
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid grey;
+    & > div {
+      width: 1.2rem !important;
+      margin: 0rem 1rem;
+    }
+  }
+  .leaflet-pm-actions-container {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    display: none;
+    min-height: 30px;
+    justify-content: center;
+
+    & > a {
+      border-bottom: 1px solid grey !important;
+      &:last-child {
+        border-bottom: 1.5px solid black !important;
+      }
+    }
+  }
+  .leaflet-pm-action {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px;
+    background-color: white !important;
+    color: black !important;
+    text-decoration: none;
+    font-family: "Arial";
+  }
+  .show-options {
+    display: flex !important;
+  }
+`;
 
 const LMWindow = styled.div`
   position: absolute;
