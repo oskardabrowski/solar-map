@@ -10,7 +10,7 @@ const Tools = () => {
     <>
       {tools.includes("LayersManagement") && <LayersManagment />}
       {tools.includes("MiniMap") && <MiniMap />}
-      <DrawMeasurement />
+      {tools.includes("DrawTools") && <DrawMeasurement />}
     </>
   );
 };

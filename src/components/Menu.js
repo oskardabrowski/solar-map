@@ -148,6 +148,21 @@ const Menu = () => {
     }
   };
 
+  const RemoveDrawToolsHandler = () => {
+    if (!tools.includes("DrawTools")) {
+      addTool("DrawTools");
+    } else {
+      const ToolsContainer = document.querySelector(".ToolsContainer");
+      const DocumentTools = document.querySelector(".leaflet-pm-draw");
+      ToolsContainer.appendChild(DocumentTools);
+      const EditTools = document.querySelector(".leaflet-pm-edit");
+      ToolsContainer.appendChild(EditTools);
+      setTimeout(() => {
+        removeTool("DrawTools");
+      }, 1);
+    }
+  };
+
   const SecondDimensionVersionButtons = [
     {
       name: "Wyszukaj daną lokalizację",
@@ -306,6 +321,9 @@ const Menu = () => {
         </button>
         <button className="Tools-tool" onClick={() => ToolToogle("MiniMap")}>
           <AiFillTool /> Mini mapa
+        </button>
+        <button className="Tools-tool" onClick={() => RemoveDrawToolsHandler()}>
+          <AiFillTool /> Pomiary
         </button>
       </div>
       <div className="PanelData Panel Map">

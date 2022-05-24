@@ -32,17 +32,6 @@ const DrawMeasurement = () => {
   const { removeTool, setMeasurementShape } = useContext(MapContext);
   const [toolsSet, setToolsSet] = useState(false);
 
-  const ShowOptions = (el) => {
-    const ElToShow = el.closest(".leaflet-pm-actions-container");
-    const AllActions = document.querySelectorAll(
-      "leaflet-pm-actions-container"
-    );
-    AllActions.forEach((el) => {
-      el.classList.remove("show-options");
-    });
-    ElToShow.classList.add("show-options");
-  };
-
   useEffect(() => {
     if (toolsSet) {
       const DocumentTools = document.querySelector(".leaflet-pm-draw");
@@ -88,6 +77,17 @@ const DrawMeasurement = () => {
     }, 10);
   }, []);
 
+  const RemoveDrawToolsHandler = () => {
+    const ToolsContainer = document.querySelector(".ToolsContainer");
+    const DocumentTools = document.querySelector(".leaflet-pm-draw");
+    ToolsContainer.appendChild(DocumentTools);
+    const EditTools = document.querySelector(".leaflet-pm-edit");
+    ToolsContainer.appendChild(EditTools);
+    setTimeout(() => {
+      removeTool("DrawTools");
+    }, 1);
+  };
+
   return (
     <DraggableComponent nodeRef={window} handle="div.PanelTitle">
       <LMWindow ref={window}>
@@ -101,10 +101,7 @@ const DrawMeasurement = () => {
             </button>
             <span>Pomiary</span>
           </div>
-          <button
-            class="BtnClose"
-            onClick={() => removeTool("LayersManagement")}
-          >
+          <button class="BtnClose" onClick={() => RemoveDrawToolsHandler()}>
             <IoMdClose />
           </button>
         </div>

@@ -27,16 +27,18 @@ const Geoman = () => {
         const shape = e;
         shape.layer.pm.enable();
         leafletContainer.pm.getGeomanLayers().map((layer, index) => {
-          console.log(layer);
           if (e.shape === "Line") {
             layer
-              .bindPopup(`${turf.length(e.layer.toGeoJSON()) * 1000} m`, {
-                autoPan: false,
-              })
+              .bindPopup(
+                `${(turf.length(e.layer.toGeoJSON()) * 1000).toFixed(2)} m`,
+                {
+                  autoPan: false,
+                }
+              )
               .openPopup();
           } else if (e.shape === "Polygon" || e.shape === "Rectangle") {
             layer
-              .bindPopup(`${turf.area(e.layer.toGeoJSON())} m2`, {
+              .bindPopup(`${turf.area(e.layer.toGeoJSON()).toFixed(2)} m2`, {
                 autoPan: false,
               })
               .openPopup();
@@ -45,25 +47,38 @@ const Geoman = () => {
             const radius = e.layer.options.radius;
             const circle = turf.circle([latlng.lat, latlng.lng], radius);
             layer
-              .bindPopup(`${turf.area(circle) / 1_000_000} m2`, {
+              .bindPopup(`${(turf.area(circle) / 1_000_000).toFixed(2)} m2`, {
                 autoPan: false,
               })
               .openPopup();
           }
         });
-        leafletContainer.pm.getGeomanLayers().map((layer, index) => {
-          console.log(layer);
-        });
+        leafletContainer.pm.getGeomanLayers().map((layer, index) => {});
         shape.layer.on("pm:edit", (e) => {
           if (e.shape === "Line") {
-            e.layer.bindPopup(`${turf.length(e.layer.toGeoJSON()) * 1000} m`);
+            e.layer.bindPopup(
+              `${(turf.length(e.layer.toGeoJSON()) * 1000).toFixed(2)} m`,
+              {
+                autoPan: false,
+              }
+            );
           } else if (e.shape === "Polygon" || e.shape === "Rectangle") {
-            e.layer.bindPopup(`${turf.area(e.layer.toGeoJSON())} m2`);
+            e.layer.bindPopup(
+              `${turf.area(e.layer.toGeoJSON()).toFixed(2)} m2`,
+              {
+                autoPan: false,
+              }
+            );
           } else if (e.shape === "Circle") {
             const latlng = e.layer._latlng;
             const radius = e.layer._mRadius;
             const circle = turf.circle([latlng.lat, latlng.lng], radius);
-            e.layer.bindPopup(`${turf.area(circle) / 1_000_000} m2`);
+            e.layer.bindPopup(
+              `${(turf.area(circle) / 1_000_000).toFixed(2)} m2`,
+              {
+                autoPan: false,
+              }
+            );
           }
         });
       }
