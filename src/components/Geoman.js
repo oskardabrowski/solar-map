@@ -25,36 +25,51 @@ const Geoman = () => {
     leafletContainer.on("pm:create", (e) => {
       if (e.layer && e.layer.pm) {
         const shape = e;
-        console.log(e);
-        console.log(turf.area(e.layer.toGeoJSON()));
-
-        // enable editing of circle
         shape.layer.pm.enable();
-
-        // console.log(`object created: ${shape.layer.pm.getShape()}`);
-        // console.log(leafletContainer.pm.getGeomanLayers(true).toGeoJSON());
-        // leafletContainer.pm
-        //   .getGeomanLayers(true)
-        //   .bindPopup("i am whole")
-        //   .openPopup();
         leafletContainer.pm.getGeomanLayers().map((layer, index) => {
-          layer.bindPopup(`${turf.area(e.layer.toGeoJSON())} m2`);
+          console.log(layer);
+          if (e.shape === "Line") {
+            layer
+              .bindPopup(`${turf.length(e.layer.toGeoJSON()) * 1000} m`, {
+                autoPan: false,
+              })
+              .openPopup();
+          } else if (e.shape === "Polygon" || e.shape === "Rectangle") {
+            layer
+              .bindPopup(`${turf.area(e.layer.toGeoJSON())} m2`, {
+                autoPan: false,
+              })
+              .openPopup();
+          } else if (e.shape === "Circle") {
+            const latlng = e.layer._latlng;
+            const radius = e.layer.options.radius;
+            const circle = turf.circle([latlng.lat, latlng.lng], radius);
+            layer
+              .bindPopup(`${turf.area(circle) / 1_000_000} m2`, {
+                autoPan: false,
+              })
+              .openPopup();
+          }
         });
         leafletContainer.pm.getGeomanLayers().map((layer, index) => {
           console.log(layer);
         });
-        //   .map((layer, index) => layer.showMeasurements());
         shape.layer.on("pm:edit", (e) => {
-          const event = e;
-          // console.log(leafletContainer.pm.getGeomanLayers(true).toGeoJSON());
+          if (e.shape === "Line") {
+            e.layer.bindPopup(`${turf.length(e.layer.toGeoJSON()) * 1000} m`);
+          } else if (e.shape === "Polygon" || e.shape === "Rectangle") {
+            e.layer.bindPopup(`${turf.area(e.layer.toGeoJSON())} m2`);
+          } else if (e.shape === "Circle") {
+            const latlng = e.layer._latlng;
+            const radius = e.layer._mRadius;
+            const circle = turf.circle([latlng.lat, latlng.lng], radius);
+            e.layer.bindPopup(`${turf.area(circle) / 1_000_000} m2`);
+          }
         });
       }
     });
 
-    leafletContainer.on("pm:remove", (e) => {
-      //   console.log("object removed");
-      // console.log(leafletContainer.pm.getGeomanLayers(true).toGeoJSON());
-    });
+    leafletContainer.on("pm:remove", (e) => {});
 
     return () => {
       leafletContainer.pm.removeControls();

@@ -108,8 +108,16 @@ export default function App() {
         id="generalMap"
         whenCreated={(map) => setThisMap({ map })}
       >
-        <GeoJSON className="TorBufor" data={TorBufor} />
-        <GeoJSON className="TorGranice" data={TorGranice} />
+        <GeoJSON
+          className="TorBufor"
+          data={TorBufor}
+          onClick={(e) => e.stopImmediatePropagation()}
+        />
+        <GeoJSON
+          className="TorGranice"
+          data={TorGranice}
+          onClick={(e) => e.stopImmediatePropagation()}
+        />
 
         <MapEventsComponent />
         <Geoman />
@@ -195,6 +203,10 @@ const MapStyles = styled.div`
     fill: white;
     fill-opacity: 0.55;
     stroke: none;
+
+    &:hover {
+      cursor: context-menu;
+    }
   }
 
   .TorGranice {
@@ -202,6 +214,9 @@ const MapStyles = styled.div`
     fill: none;
     stroke: black;
     stroke-width: 2.5px;
+    &:hover {
+      cursor: context-menu;
+    }
   }
 
   /* required styles */
