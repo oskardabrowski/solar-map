@@ -7,18 +7,12 @@ import React, {
 } from "react";
 import {
   MapContainer,
-  Map,
   TileLayer,
-  ImageOverlay,
   GeoJSON,
   useMapEvents,
-  WMSTileLayer,
   useMap,
   Marker,
-  Polyline,
-  Polygon,
-  Circle,
-  Rectangle,
+  FeatureGroup,
 } from "react-leaflet";
 import styled from "styled-components";
 import { TorBufor } from "../components/layers/TorBufor";
@@ -89,7 +83,6 @@ export default function App() {
   const layers = useSelector((state) => state.layers.array);
   const arrExists = layers.map((el) => el.code);
   const MapRef = useRef();
-  const [currentShapeTool, setCurrentShapeTool] = useState("NotActive");
   const [thisMap, setThisMap] = useState(null);
 
   return (
@@ -108,16 +101,20 @@ export default function App() {
         id="generalMap"
         whenCreated={(map) => setThisMap({ map })}
       >
-        <GeoJSON
-          className="TorBufor"
-          data={TorBufor}
-          onClick={(e) => e.stopImmediatePropagation()}
-        />
-        <GeoJSON
-          className="TorGranice"
-          data={TorGranice}
-          onClick={(e) => e.stopImmediatePropagation()}
-        />
+        <FeatureGroup>
+          <GeoJSON
+            className="TorBufor"
+            data={TorBufor}
+            onClick={(e) => e.preventDefault()}
+            blocked={true}
+          />
+          <GeoJSON
+            className="TorGranice"
+            data={TorGranice}
+            onClick={(e) => e.preventDefault()}
+            blocked={true}
+          />
+        </FeatureGroup>
 
         <MapEventsComponent />
         <Geoman />

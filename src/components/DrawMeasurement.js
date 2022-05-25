@@ -6,14 +6,7 @@ import {
   IoMdArrowDropdown,
   IoMdClose,
 } from "react-icons/io";
-import { IoTrash, IoAnalyticsOutline } from "react-icons/io5";
-import { AiFillEdit } from "react-icons/ai";
-import { BiShapeCircle, BiShapeSquare, BiShapePolygon } from "react-icons/bi";
-import { useSelector, useDispatch } from "react-redux";
-import { MapLayerActions } from "./LayersReducer";
 import { MapContext } from "./GlobalContext";
-import { FeatureGroup } from "react-leaflet";
-import { EditControl } from "react-leaflet-draw";
 
 const reorder = (list, startIndex, endIndex) => {
   const result = Array.from(list);
@@ -27,8 +20,7 @@ const DrawMeasurement = () => {
   const window = useRef(null);
   const EditionRef = useRef();
   const [opened, setOpened] = useState(true);
-  const [toolActive, setToolActive] = useState("");
-  const { removeTool, setMeasurementShape } = useContext(MapContext);
+  const { removeTool } = useContext(MapContext);
   const [toolsSet, setToolsSet] = useState(false);
 
   useEffect(() => {
@@ -136,7 +128,6 @@ const GeomanStyles = styled.div`
     font-family: "Arial";
     color: black;
     text-decoration: none;
-    /* border-bottom: 1px solid grey; */
     & > div {
       width: 1.2rem !important;
       margin: 0rem 1rem;

@@ -8,7 +8,12 @@ import { MapContext } from "./GlobalContext";
 
 const MiniMap = () => {
   const DraggableRef = useRef(null);
-  const [polygonCoords, setPolygonCoords] = useState(null);
+  const [polygonCoords, setPolygonCoords] = useState([
+    [53.15, 18.9],
+    [53.15, 18.35],
+    [52.9, 18.35],
+    [52.9, 18.9],
+  ]);
   const { mapBounds, removeTool } = useContext(MapContext);
   const purpleOptions = { color: "skyblue" };
 

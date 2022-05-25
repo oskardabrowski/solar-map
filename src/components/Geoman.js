@@ -12,8 +12,16 @@ const Geoman = () => {
   useEffect(() => {
     const leafletContainer = context.layerContainer || context.map;
     if (!tools.includes("DrawTools")) {
+      console.log("Layers remover");
       leafletContainer.pm.getGeomanLayers().forEach((layer) => {
-        leafletContainer.removeLayer(layer);
+        console.log(layer);
+        if (!layer.hasOwnProperty("defaultOptions")) {
+          leafletContainer.removeLayer(layer);
+        } else {
+          if (!layer.defaultOptions.hasOwnProperty("blocked")) {
+            leafletContainer.removeLayer(layer);
+          }
+        }
       });
     }
   }, [tools]);
@@ -48,18 +56,24 @@ const Geoman = () => {
               .openPopup();
           } else if (e.shape === "Polygon" || e.shape === "Rectangle") {
             layer
-              .bindPopup(`${turf.area(e.layer.toGeoJSON()).toFixed(2)} m2`, {
-                autoPan: false,
-              })
+              .bindPopup(
+                `${turf.area(e.layer.toGeoJSON()).toFixed(2)} m${"2".sup()}`,
+                {
+                  autoPan: false,
+                }
+              )
               .openPopup();
           } else if (e.shape === "Circle") {
             const latlng = e.layer._latlng;
             const radius = e.layer.options.radius;
             const circle = turf.circle([latlng.lat, latlng.lng], radius);
             layer
-              .bindPopup(`${(turf.area(circle) / 1_000_000).toFixed(2)} m2`, {
-                autoPan: false,
-              })
+              .bindPopup(
+                `${(turf.area(circle) / 1_000_000).toFixed(2)} m${"2".sup()}`,
+                {
+                  autoPan: false,
+                }
+              )
               .openPopup();
           }
         });
@@ -94,7 +108,11 @@ const Geoman = () => {
       }
     });
 
-    leafletContainer.on("pm:remove", (e) => {});
+    leafletContainer.on("pm:remove", (e) => {
+      if (e.layer.hasOwnProperty("defaultOptions")) {
+        leafletContainer.addLayer(e.layer);
+      }
+    });
 
     return () => {
       leafletContainer.pm.removeControls();
