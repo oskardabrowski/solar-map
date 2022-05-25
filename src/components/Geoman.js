@@ -1,12 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { MapContext } from "./GlobalContext";
 import { useLeafletContext } from "@react-leaflet/core";
 import "@geoman-io/leaflet-geoman-free";
 import "@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css";
-import GeoUtil from "leaflet-geometryutil";
 import * as turf from "@turf/turf";
 
 const Geoman = () => {
   const context = useLeafletContext();
+  const { tools } = useContext(MapContext);
+
+  useEffect(() => {
+    const leafletContainer = context.layerContainer || context.map;
+    if (!tools.includes("DrawTools")) {
+      leafletContainer.pm.getGeomanLayers().forEach((layer) => {
+        leafletContainer.removeLayer(layer);
+      });
+    }
+  }, [tools]);
 
   useEffect(() => {
     const leafletContainer = context.layerContainer || context.map;

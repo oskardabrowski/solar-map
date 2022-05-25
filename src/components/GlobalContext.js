@@ -25,7 +25,6 @@ const MapProvider = ({ children }) => {
   const addTool = (tool) => {
     const toolArr = [...tools, tool];
     setTools(toolArr);
-    console.log(tools);
   };
 
   return (

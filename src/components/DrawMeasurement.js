@@ -12,7 +12,6 @@ import { BiShapeCircle, BiShapeSquare, BiShapePolygon } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
 import { MapLayerActions } from "./LayersReducer";
 import { MapContext } from "./GlobalContext";
-
 import { FeatureGroup } from "react-leaflet";
 import { EditControl } from "react-leaflet-draw";
 
@@ -50,7 +49,6 @@ const DrawMeasurement = () => {
       });
       EditAllTools.forEach((el) => {
         let title = el.getAttribute("title");
-        console.log(!el.getAttribute("title"));
         if (!el.getAttribute("title")) {
           title = "Obróć element";
         }
@@ -71,6 +69,7 @@ const DrawMeasurement = () => {
       EditionRef.current.appendChild(DocumentTools);
       const EditTools = document.querySelector(".leaflet-pm-edit");
       EditionRef.current.appendChild(EditTools);
+
       setTimeout(() => {
         setToolsSet(true);
       }, 10);
