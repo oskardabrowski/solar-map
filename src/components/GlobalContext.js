@@ -15,6 +15,7 @@ const MapProvider = ({ children }) => {
   const [generalLegendSeen, setGeneralLegendSeen] = useState(false);
   const [tools, setTools] = useState(["LayersManagement", "MiniMap"]);
   const [mapBounds, setMapBounds] = useState();
+  const [infoOpen, setInfoOpen] = useState(false);
 
   const removeTool = (tool) => {
     const toolsArr = tools.filter((el) => el != tool);
@@ -55,6 +56,8 @@ const MapProvider = ({ children }) => {
         addTool,
         mapBounds,
         setMapBounds,
+        infoOpen,
+        setInfoOpen,
       }}
     >
       {children}

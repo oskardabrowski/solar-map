@@ -47,6 +47,7 @@ const Menu = () => {
     addTool,
     removeTool,
     tools,
+    setInfoOpen,
   } = useContext(MapContext);
   const [show, setShow] = useState(false);
   const [activePanel, setActivePanel] = useState("");
@@ -238,7 +239,7 @@ const Menu = () => {
           ""
         )}
         {show && (
-          <button className="buttons-btn">
+          <button className="buttons-btn" onClick={() => setInfoOpen(true)}>
             <BsFillInfoCircleFill />
             <div className="buttons-btn-desc">
               <span>Informacje</span>
