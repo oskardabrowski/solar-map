@@ -77,6 +77,14 @@ function MapEventsComponent() {
   return null;
 }
 
+const DisableEdit = () => {
+  const AllLayersDisabled = document.querySelectorAll(".DisabledGEOJSON");
+  AllLayersDisabled.forEach((el) => {
+    el.editing.disable();
+  });
+};
+DisableEdit();
+
 export default function App() {
   const { zoomLevel, mapTile, solarTile, searchedLocation, measurementShape } =
     useContext(MapContext);
@@ -103,13 +111,13 @@ export default function App() {
       >
         <FeatureGroup>
           <GeoJSON
-            className="TorBufor"
+            className="TorBufor DisabledGEOJSON"
             data={TorBufor}
             onClick={(e) => e.preventDefault()}
             blocked={true}
           />
           <GeoJSON
-            className="TorGranice"
+            className="TorGranice DisabledGEOJSON"
             data={TorGranice}
             onClick={(e) => e.preventDefault()}
             blocked={true}

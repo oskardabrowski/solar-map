@@ -12,9 +12,7 @@ const Geoman = () => {
   useEffect(() => {
     const leafletContainer = context.layerContainer || context.map;
     if (!tools.includes("DrawTools")) {
-      console.log("Layers remover");
       leafletContainer.pm.getGeomanLayers().forEach((layer) => {
-        console.log(layer);
         if (!layer.hasOwnProperty("defaultOptions")) {
           leafletContainer.removeLayer(layer);
         } else {
@@ -40,10 +38,17 @@ const Geoman = () => {
 
     leafletContainer.pm.setGlobalOptions({ pmIgnore: false });
 
+    leafletContainer.pm.getGeomanLayers().forEach((el) => {
+      if (el.hasOwnProperty("defaultOptions")) {
+        el.setStyle({ pmIgnore: true });
+      }
+    });
+
     leafletContainer.on("pm:create", (e) => {
       if (e.layer && e.layer.pm) {
         const shape = e;
         shape.layer.pm.enable();
+        console.log(leafletContainer.pm.getGeomanLayers());
         leafletContainer.pm.getGeomanLayers().map((layer, index) => {
           if (e.shape === "Line") {
             layer
@@ -77,7 +82,7 @@ const Geoman = () => {
               .openPopup();
           }
         });
-        leafletContainer.pm.getGeomanLayers().map((layer, index) => {});
+        // leafletContainer.pm.getGeomanLayers().map((layer, index) => {});
         shape.layer.on("pm:edit", (e) => {
           if (e.shape === "Line") {
             e.layer.bindPopup(
@@ -108,11 +113,7 @@ const Geoman = () => {
       }
     });
 
-    leafletContainer.on("pm:remove", (e) => {
-      if (e.layer.hasOwnProperty("defaultOptions")) {
-        leafletContainer.addLayer(e.layer);
-      }
-    });
+    leafletContainer.on("pm:remove", (e) => {});
 
     return () => {
       leafletContainer.pm.removeControls();
