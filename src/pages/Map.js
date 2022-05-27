@@ -13,6 +13,7 @@ import {
   useMap,
   Marker,
   FeatureGroup,
+  Rectangle,
 } from "react-leaflet";
 import styled from "styled-components";
 import { TorBufor } from "../components/layers/TorBufor";
@@ -92,6 +93,14 @@ export default function App() {
   const arrExists = layers.map((el) => el.code);
   const MapRef = useRef();
   const [thisMap, setThisMap] = useState(null);
+
+  const data = [
+    [18.612798, 53.005923],
+    [18.617821, 53.005923],
+    [18.617821, 53.008545],
+    [18.612798, 53.008545],
+    [18.612798, 53.005923],
+  ];
 
   return (
     <MapStyles>

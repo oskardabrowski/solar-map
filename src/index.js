@@ -31,6 +31,15 @@ ReactDOM.render(
         rel="stylesheet"
         href="//cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"
       />
+      {/* <link
+        rel="stylesheet"
+        href="https://prominentedge.com/leaflet-measure-path/leaflet-measure-path.css"
+      /> */}
+      {/* <script
+        defer
+        src="https://prominentedge.com/leaflet-measure-path/leaflet-measure-path.js"
+      ></script> */}
+      <script defer src="./vendors/MeasurePathModule.js"></script>
       <title>Solar Map</title>
     </Helmet>
     <GlobalStyle />

@@ -3,21 +3,26 @@ import { MapContext } from "./GlobalContext";
 import { useLeafletContext } from "@react-leaflet/core";
 import "@geoman-io/leaflet-geoman-free";
 import "@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css";
+// import "leaflet.pm";
+// import "leaflet.pm/dist/leaflet.pm.css";
+// import "leaflet.pm-measure-path";
+// import "leaflet.pm-measure-path/dist/leaflet.pm-measure-path.css";
 import * as turf from "@turf/turf";
+import L from "leaflet";
 
 const Geoman = () => {
   const context = useLeafletContext();
   const { tools } = useContext(MapContext);
+  const map = context.layerContainer || context.map;
 
   useEffect(() => {
-    const leafletContainer = context.layerContainer || context.map;
     if (!tools.includes("DrawTools")) {
-      leafletContainer.pm.getGeomanLayers().forEach((layer) => {
+      map.pm.getGeomanLayers().forEach((layer) => {
         if (!layer.hasOwnProperty("defaultOptions")) {
-          leafletContainer.removeLayer(layer);
+          map.removeLayer(layer);
         } else {
           if (!layer.defaultOptions.hasOwnProperty("blocked")) {
-            leafletContainer.removeLayer(layer);
+            map.removeLayer(layer);
           }
         }
       });
@@ -25,99 +30,122 @@ const Geoman = () => {
   }, [tools]);
 
   useEffect(() => {
-    const leafletContainer = context.layerContainer || context.map;
-
-    leafletContainer.pm.addControls({
+    map.pm.addControls({
       drawMarker: false,
       drawCircleMarker: false,
       drawText: false,
       cutPolygon: false,
     });
 
-    leafletContainer.pm.setLang("pl");
+    map.pm.setLang("pl");
 
-    leafletContainer.pm.setGlobalOptions({ pmIgnore: false });
+    map.pm.setGlobalOptions({ pmIgnore: false });
 
-    leafletContainer.pm.getGeomanLayers().forEach((el) => {
+    map.pm.getGeomanLayers().forEach((el) => {
       if (el.hasOwnProperty("defaultOptions")) {
         el.setStyle({ pmIgnore: true });
       }
     });
 
-    leafletContainer.on("pm:create", (e) => {
-      if (e.layer && e.layer.pm) {
-        const shape = e;
-        shape.layer.pm.enable();
-        console.log(leafletContainer.pm.getGeomanLayers());
-        leafletContainer.pm.getGeomanLayers().map((layer, index) => {
-          if (e.shape === "Line") {
-            layer
-              .bindPopup(
-                `${(turf.length(e.layer.toGeoJSON()) * 1000).toFixed(2)} m`,
-                {
-                  autoPan: false,
-                }
-              )
-              .openPopup();
-          } else if (e.shape === "Polygon" || e.shape === "Rectangle") {
-            layer
-              .bindPopup(
-                `${turf.area(e.layer.toGeoJSON()).toFixed(2)} m${"2".sup()}`,
-                {
-                  autoPan: false,
-                }
-              )
-              .openPopup();
-          } else if (e.shape === "Circle") {
-            const latlng = e.layer._latlng;
-            const radius = e.layer.options.radius;
-            const circle = turf.circle([latlng.lat, latlng.lng], radius);
-            layer
-              .bindPopup(
-                `${(turf.area(circle) / 1_000_000).toFixed(2)} m${"2".sup()}`,
-                {
-                  autoPan: false,
-                }
-              )
-              .openPopup();
-          }
-        });
-        // leafletContainer.pm.getGeomanLayers().map((layer, index) => {});
-        shape.layer.on("pm:edit", (e) => {
-          if (e.shape === "Line") {
-            e.layer.bindPopup(
-              `${(turf.length(e.layer.toGeoJSON()) * 1000).toFixed(2)} m`,
-              {
-                autoPan: false,
-              }
-            );
-          } else if (e.shape === "Polygon" || e.shape === "Rectangle") {
-            e.layer.bindPopup(
-              `${turf.area(e.layer.toGeoJSON()).toFixed(2)} m2`,
-              {
-                autoPan: false,
-              }
-            );
-          } else if (e.shape === "Circle") {
-            const latlng = e.layer._latlng;
-            const radius = e.layer._mRadius;
-            const circle = turf.circle([latlng.lat, latlng.lng], radius);
-            e.layer.bindPopup(
-              `${(turf.area(circle) / 1_000_000).toFixed(2)} m2`,
-              {
-                autoPan: false,
-              }
-            );
-          }
-        });
-      }
+    map.pm.Draw.getShapes();
+
+    map.pm.disableDraw("Poly");
+
+    map.on("pm:drawstart", function (e) {
+      console.log(e);
     });
 
-    leafletContainer.on("pm:remove", (e) => {});
+    map.on("pm:drawend", function (e) {
+      console.log(e);
+    });
+
+    map.on("pm:create", function (e) {
+      console.log(e);
+      e.layer.showMeasurements();
+
+      e.layer.on("pm:edit", function (x) {
+        console.log("edit", x);
+      });
+    });
+
+    map.on("pm:create", (e) => {
+      // e.layer.showMeasurements();
+      // if (e.layer && e.layer.pm) {
+      //   const shape = e;
+      //   // shape.layer.pm.enable();
+      //   shape.layer.showMeasurements();
+      //   console.log(shape.layer);
+      //   console.log(leafletContainer.pm.getGeomanLayers());
+      //   // leafletContainer.each;
+      //   leafletContainer.pm.getGeomanLayers().map((layer, index) => {
+      //     // layer.showMeasurements();
+      //     // console.log(layer);
+      //     if (e.shape === "Line") {
+      //       // layer.showMeasurements();
+      //     } else if (e.shape === "Polygon" || e.shape === "Rectangle") {
+      //       layer
+      //         .bindPopup(
+      //           `${turf.area(e.layer.toGeoJSON()).toFixed(2)} m${"2".sup()}`,
+      //           {
+      //             autoPan: false,
+      //           }
+      //         )
+      //         .openPopup();
+      //       // .showMeasurements();
+      //       layer.eachLayer(function (lr) {
+      //         lr.showMeasurements();
+      //       });
+      //     } else if (e.shape === "Circle") {
+      //       const latlng = e.layer._latlng;
+      //       const radius = e.layer.options.radius;
+      //       const circle = turf.circle([latlng.lat, latlng.lng], radius);
+      //       layer
+      //         .bindPopup(
+      //           `${(turf.area(circle) / 1_000_000).toFixed(2)} m${"2".sup()}`,
+      //           {
+      //             autoPan: false,
+      //           }
+      //         )
+      //         .openPopup();
+      //       // .showMeasurements();
+      //     }
+      //   });
+      //   // leafletContainer.pm.getGeomanLayers().map((layer, index) => {});
+      //   shape.layer.on("pm:edit", (e) => {
+      //     // if (e.shape === "Line") {
+      //     //   e.layer.bindPopup(
+      //     //     `${(turf.length(e.layer.toGeoJSON()) * 1000).toFixed(2)} m`,
+      //     //     {
+      //     //       autoPan: false,
+      //     //     }
+      //     //   );
+      //     // } else if (e.shape === "Polygon" || e.shape === "Rectangle") {
+      //     //   e.layer.bindPopup(
+      //     //     `${turf.area(e.layer.toGeoJSON()).toFixed(2)} m2`,
+      //     //     {
+      //     //       autoPan: false,
+      //     //     }
+      //     //   );
+      //     // } else if (e.shape === "Circle") {
+      //     //   const latlng = e.layer._latlng;
+      //     //   const radius = e.layer._mRadius;
+      //     //   const circle = turf.circle([latlng.lat, latlng.lng], radius);
+      //     //   e.layer.bindPopup(
+      //     //     `${(turf.area(circle) / 1_000_000).toFixed(2)} m2`,
+      //     //     {
+      //     //       autoPan: false,
+      //     //     }
+      //     //   );
+      //     // }
+      //   });
+      // }
+    });
+
+    map.on("pm:remove", (e) => {});
 
     return () => {
-      leafletContainer.pm.removeControls();
-      leafletContainer.pm.setGlobalOptions({ pmIgnore: true });
+      map.pm.removeControls();
+      map.pm.setGlobalOptions({ pmIgnore: true });
     };
   }, [context]);
 
