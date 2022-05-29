@@ -51,21 +51,16 @@ const Geoman = () => {
 
     map.pm.disableDraw("Poly");
 
-    map.on("pm:drawstart", function (e) {
-      console.log(e);
-    });
+    map.on("pm:drawstart", function (e) {});
 
-    map.on("pm:drawend", function (e) {
-      console.log(e);
-    });
+    map.on("pm:drawend", function (e) {});
 
     map.on("pm:create", function (e) {
-      console.log(e);
       e.layer.showMeasurements();
+      console.log(e.layer);
+      // e.layer.setStyle({ color: "green" });
 
-      e.layer.on("pm:edit", function (x) {
-        console.log("edit", x);
-      });
+      e.layer.on("pm:edit", function (x) {});
     });
 
     map.on("pm:create", (e) => {

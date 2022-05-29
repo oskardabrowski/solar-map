@@ -16,6 +16,7 @@ const MapProvider = ({ children }) => {
   const [tools, setTools] = useState(["LayersManagement", "MiniMap"]);
   const [mapBounds, setMapBounds] = useState();
   const [infoOpen, setInfoOpen] = useState(false);
+  const [solarPanelDrawing, setSolarPanelDrawing] = useState(false);
 
   const removeTool = (tool) => {
     const toolsArr = tools.filter((el) => el != tool);

@@ -8,67 +8,32 @@ import {
 } from "react-icons/io";
 import { MapContext } from "./GlobalContext";
 
-const DrawMeasurement = () => {
+const DrawPanel = () => {
   const window = useRef(null);
   const EditionRef = useRef();
   const [opened, setOpened] = useState(true);
   const { removeTool } = useContext(MapContext);
   const [toolsSet, setToolsSet] = useState(false);
 
-  useEffect(() => {
-    if (toolsSet) {
-      const DocumentTools = document.querySelector(".leaflet-pm-draw");
-      const ToolsArr = DocumentTools.querySelectorAll(".button-container");
-      const EditTools = document.querySelector(".leaflet-pm-edit");
-      const EditAllTools = EditTools.querySelectorAll(".button-container");
-      ToolsArr.forEach((el) => {
-        const title = el.getAttribute("title");
-        const titleParagraph = document.createElement("p");
-        titleParagraph.classList.add("ToolTitle");
-        titleParagraph.textContent = title;
-        const btn = el.querySelector(".leaflet-buttons-control-button");
-        if (!btn.querySelector(".ToolTitle")) {
-          btn.appendChild(titleParagraph);
-        }
-      });
-      EditAllTools.forEach((el) => {
-        let title = el.getAttribute("title");
-        if (!el.getAttribute("title")) {
-          title = "Obróć element";
-        }
-        const titleParagraph = document.createElement("p");
-        titleParagraph.classList.add("ToolTitle");
-        titleParagraph.textContent = title;
-        const btn = el.querySelector(".leaflet-buttons-control-button");
-        if (!btn.querySelector(".ToolTitle")) {
-          btn.appendChild(titleParagraph);
-        }
-      });
-    }
-  }, [toolsSet]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      const DocumentTools = document.querySelector(".leaflet-pm-draw");
-      EditionRef.current.appendChild(DocumentTools);
-      const EditTools = document.querySelector(".leaflet-pm-edit");
-      EditionRef.current.appendChild(EditTools);
-
-      setTimeout(() => {
-        setToolsSet(true);
-      }, 10);
-    }, 10);
-  }, []);
-
-  const RemoveDrawToolsHandler = () => {
-    const ToolsContainer = document.querySelector(".ToolsContainer");
+  const DrawSpecialPolygon = () => {
     const DocumentTools = document.querySelector(".leaflet-pm-draw");
-    ToolsContainer.appendChild(DocumentTools);
-    const EditTools = document.querySelector(".leaflet-pm-edit");
-    ToolsContainer.appendChild(EditTools);
-    setTimeout(() => {
-      removeTool("DrawTools");
-    }, 1);
+    const PolygonButton = DocumentTools.querySelector(
+      "div[title='Narysuj wielokąt']"
+    );
+    const btn = PolygonButton.querySelector("a");
+    btn.click();
+  };
+  const EditSpecialPolygon = () => {
+    const DocumentTools = document.querySelector(".leaflet-pm-edit");
+    const PolygonButton = DocumentTools.querySelector("div[title='Edytuj']");
+    const btn = PolygonButton.querySelector("a");
+    btn.click();
+  };
+  const DeleteSpecialPolygon = () => {
+    const DocumentTools = document.querySelector(".leaflet-pm-edit");
+    const PolygonButton = DocumentTools.querySelector("div[title='Usuń']");
+    const btn = PolygonButton.querySelector("a");
+    btn.click();
   };
 
   return (
@@ -82,24 +47,28 @@ const DrawMeasurement = () => {
             >
               {opened ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
             </button>
-            <span>Pomiary</span>
+            <span>Rysuj panel</span>
           </div>
-          <button class="BtnClose" onClick={() => RemoveDrawToolsHandler()}>
+          <button class="BtnClose">
             <IoMdClose />
           </button>
         </div>
-        <GeomanStyles>
+        <div>
           <div
             ref={EditionRef}
             className={`Content ${opened && "ContentOpened"}`}
-          ></div>
-        </GeomanStyles>
+          >
+            <button onClick={() => DrawSpecialPolygon()}>Rysuj</button>
+            <button onClick={() => EditSpecialPolygon()}>Edytuj</button>
+            <button onClick={() => DeleteSpecialPolygon()}>Usuń</button>
+          </div>
+        </div>
       </LMWindow>
     </DraggableComponent>
   );
 };
 
-export default DrawMeasurement;
+export default DrawPanel;
 
 const GeomanStyles = styled.div`
   .button-container {
@@ -221,12 +190,14 @@ const LMWindow = styled.div`
   .Content {
     transition: all 0.5s ease-in-out;
     height: 0rem;
+    /* height: 25rem; */
     display: flex;
     flex-direction: column;
   }
 
   .ContentOpened {
-    height: min-content;
+    /* height: min-content; */
+    height: 25rem;
   }
 
   .BtnClose {
