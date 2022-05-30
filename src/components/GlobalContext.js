@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
 const MapContext = createContext();
 
@@ -59,6 +59,8 @@ const MapProvider = ({ children }) => {
         setMapBounds,
         infoOpen,
         setInfoOpen,
+        solarPanelDrawing,
+        setSolarPanelDrawing,
       }}
     >
       {children}

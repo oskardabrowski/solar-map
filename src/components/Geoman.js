@@ -12,8 +12,28 @@ import L from "leaflet";
 
 const Geoman = () => {
   const context = useLeafletContext();
-  const { tools } = useContext(MapContext);
+  const { tools, solarPanelDrawing, setSolarPanelDrawing } =
+    useContext(MapContext);
   const map = context.layerContainer || context.map;
+
+  map.on("pm:create", function (e) {
+    e.layer.showMeasurements();
+    // console.log(solarPanelDrawing);
+    // e.layer.solarPanel = solarPanelDrawing;
+    if (solarPanelDrawing === true) {
+      e.layer.solarPanel = true;
+      e.layer.setStyle({ color: "green" });
+    }
+
+    console.log(e.layer);
+    setSolarPanelDrawing(false);
+    console.log(solarPanelDrawing);
+    e.layer.on("pm:edit", function (x) {});
+  });
+
+  map.on("pm:drawend", function (e) {
+    setSolarPanelDrawing(false);
+  });
 
   useEffect(() => {
     if (!tools.includes("DrawTools")) {
@@ -53,15 +73,19 @@ const Geoman = () => {
 
     map.on("pm:drawstart", function (e) {});
 
-    map.on("pm:drawend", function (e) {});
+    // map.on("pm:create", function (e) {
+    //   e.layer.showMeasurements();
+    //   // console.log(solarPanelDrawing);
+    //   // e.layer.solarPanel = solarPanelDrawing;
+    //   if (solarPanelDrawing === true) {
+    //     e.layer.solarPanel = true;
+    //     e.layer.setStyle({ color: "green" });
+    //   }
 
-    map.on("pm:create", function (e) {
-      e.layer.showMeasurements();
-      console.log(e.layer);
-      // e.layer.setStyle({ color: "green" });
+    //   console.log(e.layer);
 
-      e.layer.on("pm:edit", function (x) {});
-    });
+    //   e.layer.on("pm:edit", function (x) {});
+    // });
 
     map.on("pm:create", (e) => {
       // e.layer.showMeasurements();

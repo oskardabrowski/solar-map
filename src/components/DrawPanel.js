@@ -12,15 +12,19 @@ const DrawPanel = () => {
   const window = useRef(null);
   const EditionRef = useRef();
   const [opened, setOpened] = useState(true);
-  const { removeTool } = useContext(MapContext);
+  const { removeTool, solarPanelDrawing, setSolarPanelDrawing } =
+    useContext(MapContext);
   const [toolsSet, setToolsSet] = useState(false);
 
   const DrawSpecialPolygon = () => {
+    setSolarPanelDrawing(true);
     const DocumentTools = document.querySelector(".leaflet-pm-draw");
     const PolygonButton = DocumentTools.querySelector(
       "div[title='Narysuj wielokąt']"
     );
     const btn = PolygonButton.querySelector("a");
+
+    console.log(solarPanelDrawing);
     btn.click();
   };
   const EditSpecialPolygon = () => {
