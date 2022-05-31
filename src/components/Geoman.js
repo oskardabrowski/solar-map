@@ -18,9 +18,18 @@ const Geoman = () => {
   const layers = map.pm.getGeomanLayers();
 
   useEffect(() => {
+    const arr = [];
     map.pm.getGeomanLayers().forEach((layer) => {
-      if (layer.hasOwnProperty("SolarPanel") && layer.SolarPanel === true) {
+      if (layer.SolarPanel === true) {
         layer.setStyle({ color: "lime", fillColor: "lime", fillOpacity: "1" });
+        if (layer.pm._shape !== "Polygon") {
+          map.removeLayer(layer);
+        } else {
+          arr.push(layer);
+        }
+      }
+      if (arr.length > 1) {
+        map.removeLayer(arr[0]);
       }
     });
   }, [map.pm.getGeomanLayers()]);
@@ -28,6 +37,21 @@ const Geoman = () => {
   map.on("pm:create", function (e) {
     e.layer.showMeasurements();
     e.layer.SolarPanel = solarPanelDrawing;
+
+    // console.log(map.pm.getGeomanLayers());
+
+    // map.pm.getGeomanLayers().forEach((layer) => {
+    //   const arr = [];
+    //   if (layer.SolarPanel === true) {
+    //     arr.push(layer);
+    //   }
+    // });
+
+    // if (arr.length > 1) {
+    //   for (let i = 0; i < arr.length - 2; i++) {
+    //     map.removeLayer(arr[i]);
+    //   }
+    // }
 
     setSolarPanelDrawing(false);
     // e.layer.on("pm:edit", function ({ layer }) {
