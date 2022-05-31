@@ -12,7 +12,7 @@ const DrawPanel = () => {
   const window = useRef(null);
   const EditionRef = useRef();
   const [opened, setOpened] = useState(true);
-  const { removeTool, solarPanelDrawing, setSolarPanelDrawing } =
+  const { removeTool, solarPanelDrawing, setSolarPanelDrawing, panelArea } =
     useContext(MapContext);
   const [toolsSet, setToolsSet] = useState(false);
 
@@ -23,8 +23,6 @@ const DrawPanel = () => {
       "div[title='Narysuj wielokąt']"
     );
     const btn = PolygonButton.querySelector("a");
-
-    console.log(solarPanelDrawing);
     btn.click();
   };
   const EditSpecialPolygon = () => {
@@ -53,7 +51,7 @@ const DrawPanel = () => {
             </button>
             <span>Rysuj panel</span>
           </div>
-          <button class="BtnClose">
+          <button class="BtnClose" onClick={() => removeTool("DrawPanel")}>
             <IoMdClose />
           </button>
         </div>
@@ -62,9 +60,16 @@ const DrawPanel = () => {
             ref={EditionRef}
             className={`Content ${opened && "ContentOpened"}`}
           >
-            <button onClick={() => DrawSpecialPolygon()}>Rysuj</button>
-            <button onClick={() => EditSpecialPolygon()}>Edytuj</button>
-            <button onClick={() => DeleteSpecialPolygon()}>Usuń</button>
+            <div>
+              <button onClick={() => DrawSpecialPolygon()}>Rysuj</button>
+              <button onClick={() => EditSpecialPolygon()}>Edytuj</button>
+              <button onClick={() => DeleteSpecialPolygon()}>Usuń</button>
+            </div>
+            <div>
+              <span>
+                Area: {panelArea.toFixed(2)} m<sup>2</sup>
+              </span>
+            </div>
           </div>
         </div>
       </LMWindow>
@@ -197,6 +202,11 @@ const LMWindow = styled.div`
     /* height: 25rem; */
     display: flex;
     flex-direction: column;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   .ContentOpened {

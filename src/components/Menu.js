@@ -141,7 +141,7 @@ const Menu = () => {
     }
   };
 
-  const ToolToogle = (tool) => {
+  const ToolToggle = (tool) => {
     if (!tools.includes(tool)) {
       addTool(tool);
     } else {
@@ -316,15 +316,18 @@ const Menu = () => {
       <div className="PanelData Panel Tools">
         <button
           className="Tools-tool"
-          onClick={() => ToolToogle("LayersManagement")}
+          onClick={() => ToolToggle("LayersManagement")}
         >
           <AiFillTool /> Zarządzanie warstwami
         </button>
-        <button className="Tools-tool" onClick={() => ToolToogle("MiniMap")}>
+        <button className="Tools-tool" onClick={() => ToolToggle("MiniMap")}>
           <AiFillTool /> Mini mapa
         </button>
         <button className="Tools-tool" onClick={() => RemoveDrawToolsHandler()}>
           <AiFillTool /> Pomiary
+        </button>
+        <button className="Tools-tool" onClick={() => ToolToggle("DrawPanel")}>
+          <AiFillTool /> Rysuj panel
         </button>
       </div>
       <div className="PanelData Panel Map">

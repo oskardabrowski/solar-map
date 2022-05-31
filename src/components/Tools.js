@@ -13,6 +13,7 @@ const Tools = () => {
       {tools.includes("LayersManagement") && <LayersManagment />}
       {tools.includes("MiniMap") && <MiniMap />}
       {tools.includes("DrawTools") && <DrawMeasurement />}
+      {/* {tools.includes("DrawPanel") && <DrawPanel />} */}
       {infoOpen === true && <InfoWindow />}
       <DrawPanel />
     </>
