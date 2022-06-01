@@ -49,15 +49,23 @@ const Geoman = () => {
   useEffect(() => {
     if (!tools.includes("DrawTools")) {
       map.pm.getGeomanLayers().forEach((layer) => {
-        if (!layer.hasOwnProperty("defaultOptions")) {
+        if (
+          !layer.hasOwnProperty("defaultOptions") &&
+          layer.SolarPanel !== true
+        ) {
           map.removeLayer(layer);
-        } else {
-          if (!layer.defaultOptions.hasOwnProperty("blocked")) {
-            map.removeLayer(layer);
-          }
         }
       });
     }
+    // else if (!tools.includes("DrawTools")) {
+    //   map.pm.getGeomanLayers().forEach((layer) => {
+    //     if (
+    //       layer.SolarPanel === true
+    //     ) {
+    //       map.removeLayer(layer);
+    //     }
+    //   });
+    // }
   }, [tools]);
 
   useEffect(() => {

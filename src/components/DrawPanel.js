@@ -6,36 +6,98 @@ import {
   IoMdArrowDropdown,
   IoMdClose,
 } from "react-icons/io";
+import { MdDraw, MdEditLocationAlt } from "react-icons/md";
+import { BsEraserFill } from "react-icons/bs";
 import { MapContext } from "./GlobalContext";
 
 const DrawPanel = () => {
   const window = useRef(null);
   const EditionRef = useRef();
+  const ActionsDrawRef = useRef();
+  const ActionsEditRef = useRef();
+  const ActionsRemoveRef = useRef();
   const [opened, setOpened] = useState(true);
   const { removeTool, solarPanelDrawing, setSolarPanelDrawing, panelArea } =
     useContext(MapContext);
   const [toolsSet, setToolsSet] = useState(false);
 
-  const DrawSpecialPolygon = () => {
+  useEffect(() => {
+    const arr = [ActionsDrawRef, ActionsEditRef, ActionsRemoveRef];
+    if (!solarPanelDrawing) {
+      arr.forEach((el) => {
+        el.current.style.display = "none";
+      });
+    }
+  }, [solarPanelDrawing]);
+
+  const DrawSpecialPolygon = (e, action) => {
     setSolarPanelDrawing(true);
     const DocumentTools = document.querySelector(".leaflet-pm-draw");
     const PolygonButton = DocumentTools.querySelector(
       "div[title='Narysuj wielokąt']"
     );
-    const btn = PolygonButton.querySelector("a");
-    btn.click();
+    const actionsBtns = PolygonButton.querySelector(
+      "div.leaflet-pm-actions-container"
+    );
+    if (action === "start") {
+      const btn = PolygonButton.querySelector("a");
+      const actions = e.target.closest("span").querySelector(".actions");
+      actions.style.display = "flex";
+      btn.click();
+    } else if (action === "finish") {
+      const btn = actionsBtns.querySelector("a.action-finish");
+      btn.click();
+    } else if (action === "removeVertex") {
+      const btn = actionsBtns.querySelector("a.action-removeLastVertex");
+      btn.click();
+    } else if (action === "cancel") {
+      const btn = actionsBtns.querySelector("a.action-cancel");
+      btn.click();
+    }
   };
-  const EditSpecialPolygon = () => {
+  const EditSpecialPolygon = (e, action) => {
     const DocumentTools = document.querySelector(".leaflet-pm-edit");
-    const PolygonButton = DocumentTools.querySelector("div[title='Edytuj']");
-    const btn = PolygonButton.querySelector("a");
-    btn.click();
+    const EditButton = DocumentTools.querySelector("div[title='Edytuj']");
+    const actionsBtns = EditButton.querySelector(
+      "div.leaflet-pm-actions-container"
+    );
+    if (action === "Edit") {
+      const btn = EditButton.querySelector("a");
+      const actions = e.target.closest("span").querySelector(".actions");
+      actions.style.display = "flex";
+      if (solarPanelDrawing) {
+        setSolarPanelDrawing(false);
+      } else {
+        setSolarPanelDrawing(true);
+      }
+      btn.click();
+    } else if (action === "finish") {
+      const btn = actionsBtns.querySelector("a.action-finishMode");
+      setSolarPanelDrawing(false);
+      btn.click();
+    }
   };
-  const DeleteSpecialPolygon = () => {
+  const DeleteSpecialPolygon = (e, action) => {
+    setSolarPanelDrawing(true);
     const DocumentTools = document.querySelector(".leaflet-pm-edit");
-    const PolygonButton = DocumentTools.querySelector("div[title='Usuń']");
-    const btn = PolygonButton.querySelector("a");
-    btn.click();
+    const DelButton = DocumentTools.querySelector("div[title='Usuń']");
+    const actionsBtns = DelButton.querySelector(
+      "div.leaflet-pm-actions-container"
+    );
+    if (action === "Delete") {
+      const btn = DelButton.querySelector("a");
+      ActionsRemoveRef.current.style.display = "flex";
+      if (solarPanelDrawing) {
+        setSolarPanelDrawing(false);
+      } else {
+        setSolarPanelDrawing(true);
+      }
+      btn.click();
+    } else if (action === "cancel") {
+      const btn = actionsBtns.querySelector("a.action-finishMode");
+      setSolarPanelDrawing(false);
+      btn.click();
+    }
   };
 
   return (
@@ -60,10 +122,51 @@ const DrawPanel = () => {
             ref={EditionRef}
             className={`Content ${opened && "ContentOpened"}`}
           >
-            <div>
-              <button onClick={() => DrawSpecialPolygon()}>Rysuj</button>
-              <button onClick={() => EditSpecialPolygon()}>Edytuj</button>
-              <button onClick={() => DeleteSpecialPolygon()}>Usuń</button>
+            <div className="Controls">
+              <span>
+                <button onClick={(e) => DrawSpecialPolygon(e, "start")}>
+                  <MdDraw className="ico" />
+                  Rysuj
+                </button>
+                <span className="actions" ref={ActionsDrawRef}>
+                  <button onClick={(e) => DrawSpecialPolygon(e, "finish")}>
+                    Zakończ
+                  </button>
+                  <button
+                    onClick={(e) => DrawSpecialPolygon(e, "removeVertex")}
+                  >
+                    Usuń ostatni punkt
+                  </button>
+                  <button onClick={(e) => DrawSpecialPolygon(e, "cancel")}>
+                    Anuluj
+                  </button>
+                </span>
+              </span>
+              <span>
+                <button onClick={(e) => EditSpecialPolygon(e, "Edit")}>
+                  <MdEditLocationAlt className="ico" />
+                  Edytuj
+                </button>
+                <span className="actions" ref={ActionsEditRef}>
+                  <button onClick={(e) => EditSpecialPolygon(e, "finish")}>
+                    Zakończ
+                  </button>
+                </span>
+              </span>
+              <span>
+                <button
+                  className="actions"
+                  onClick={(e) => DeleteSpecialPolygon(e, "Delete")}
+                >
+                  <BsEraserFill className="ico" />
+                  Usuń
+                </button>
+                <span ref={ActionsRemoveRef}>
+                  <button onClick={(e) => DeleteSpecialPolygon(e, "cancel")}>
+                    Zakończ
+                  </button>
+                </span>
+              </span>
             </div>
             <div>
               <span>
@@ -79,66 +182,6 @@ const DrawPanel = () => {
 
 export default DrawPanel;
 
-const GeomanStyles = styled.div`
-  .button-container {
-    width: 100%;
-    height: auto;
-    background-color: white;
-    color: black;
-    border-bottom: 1px solid grey;
-    padding: 0px !important;
-    margin: 0px !important;
-  }
-  a.leaflet-buttons-control-button {
-    width: 100% !important;
-    height: 2rem !important;
-    padding: 0 !important;
-    display: flex;
-    align-items: center;
-    font-family: "Arial";
-    color: black;
-    text-decoration: none;
-    & > div {
-      width: 1.2rem !important;
-      margin: 0rem 1rem;
-    }
-  }
-  .leaflet-pm-actions-container {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    display: none;
-    min-height: 30px;
-    justify-content: center;
-
-    & > a {
-      border-bottom: 1px solid grey !important;
-      &:last-child {
-        border-bottom: 1.5px solid black !important;
-      }
-    }
-  }
-  .leaflet-pm-action {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0px;
-    background-color: white !important;
-    color: black !important;
-    text-decoration: none;
-    font-family: "Arial";
-  }
-  .leaflet-pm-draw {
-    &:last-child {
-      border-bottom: 1px solid grey !important;
-    }
-  }
-  .show-options {
-    display: flex !important;
-  }
-`;
-
 const LMWindow = styled.div`
   position: absolute;
   top: 80px;
@@ -151,6 +194,58 @@ const LMWindow = styled.div`
   justify-content: stretch;
   border-radius: 10px;
   overflow: hidden;
+
+  .Content {
+    transition: all 0.5s ease-in-out;
+    height: 0rem;
+    /* height: 25rem; */
+    display: flex;
+    flex-direction: column;
+
+    & > div.Controls {
+      display: flex;
+      flex-direction: column;
+      & > span {
+        width: 100%;
+        border-top: 1.5px solid grey;
+        border-bottom: 1.5px solid grey;
+        & > button {
+          width: 100%;
+          padding: 0.25rem;
+          font-size: 1rem;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          border-radius: 0px;
+          border: none;
+          background: none;
+          & > .ico {
+            margin: 0rem 0.25rem 0rem 0rem;
+          }
+        }
+
+        & > span {
+          display: flex;
+          flex-direction: column;
+          display: none;
+
+          & > button {
+            padding: 0.25rem 0.5rem;
+            border-radius: 0px;
+            border: none;
+            background: none;
+            border-top: 1px solid grey;
+            /* border-bottom: 1px solid grey; */
+          }
+        }
+      }
+    }
+  }
+
+  .ContentOpened {
+    /* height: min-content; */
+    height: 25rem;
+  }
 
   .DrawElement {
     display: flex;
@@ -194,24 +289,6 @@ const LMWindow = styled.div`
         }
       }
     }
-  }
-
-  .Content {
-    transition: all 0.5s ease-in-out;
-    height: 0rem;
-    /* height: 25rem; */
-    display: flex;
-    flex-direction: column;
-
-    & > div {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-
-  .ContentOpened {
-    /* height: min-content; */
-    height: 25rem;
   }
 
   .BtnClose {
