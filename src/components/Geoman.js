@@ -54,28 +54,43 @@ const Geoman = () => {
       building = "";
     const collection = await fetch("./JSON/cityParts.json");
     const data = await collection.json();
-    const granice = turf.polygon(
+    const borders = turf.polygon(
       TorGranice.features[0].geometry.coordinates[0]
     );
     const geoLayer = layer.toGeoJSON();
-    const isInBorders = await turf.booleanContains(granice, geoLayer);
-    if (isInBorders) {
-      await data.features.forEach(async (feature) => {
-        const polygon = turf.polygon(feature.geometry.coordinates[0]);
-        const result = await turf.booleanContains(polygon, geoLayer);
-        const part = feature.properties.Dzielnica;
-        if (result) {
-          console.log(`${part}: ${result}`);
-          cityPart = part;
-        }
-      });
-    } else {
-      swal(
-        "Twój panel znajduje się poza miastem",
-        "Narysuj go na budynku wewnątrz Torunia",
-        "error"
-      );
-    }
+    const isInBorders = await turf.booleanContains(borders, geoLayer);
+    const checkIsInBorders = async (callback) => {
+      if (isInBorders) {
+        await data.features.forEach(async (feature) => {
+          const polygon = turf.polygon(feature.geometry.coordinates[0]);
+          const result = await turf.booleanContains(polygon, geoLayer);
+          const part = feature.properties.Dzielnica;
+          if (result) {
+            console.log(`${part}: ${result}`);
+            cityPart = part;
+            console.log(cityPart.length);
+          }
+        });
+        await callback();
+      } else {
+        swal(
+          "Twój panel znajduje się poza miastem!",
+          "Narysuj go na budynku wewnątrz Torunia",
+          "error"
+        );
+      }
+    };
+
+    const checkDistrict = async () => {
+      if (cityPart.length === 0) {
+        swal("Twój panel jest zbyt duży!", "Narysuj go na budynku", "error");
+      } else {
+        console.log("Next check");
+      }
+    };
+
+    await checkIsInBorders(checkDistrict);
+    // await checkDistrict();
 
     // if (cityPart === "") {
 
