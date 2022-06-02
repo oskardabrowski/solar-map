@@ -38,6 +38,7 @@
     "styled-components": "^5.3.3",
     "sweetalert": "^2.1.2",
     "three": "^0.136.0",
+    "turf-inside": "^3.0.12",
     "utm": "^1.1.1",
     "web-vitals": "^2.1.3"
   },

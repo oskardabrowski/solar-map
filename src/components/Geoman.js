@@ -1,9 +1,11 @@
 import { useEffect, useContext } from "react";
 import { MapContext } from "./GlobalContext";
 import { useLeafletContext } from "@react-leaflet/core";
+import { TorGranice } from "./layers/TorGranice";
 import "@geoman-io/leaflet-geoman-free";
 import "@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css";
 import * as turf from "@turf/turf";
+import swal from "sweetalert";
 import L from "leaflet";
 
 const Geoman = () => {
@@ -45,6 +47,40 @@ const Geoman = () => {
   map.on("pm:drawend", function (e) {
     setSolarPanelDrawing(false);
   });
+
+  async function IdentifyRoof(layer) {
+    let cityPart = "",
+      districtPart = "",
+      building = "";
+    const collection = await fetch("./JSON/cityParts.json");
+    const data = await collection.json();
+    const granice = turf.polygon(
+      TorGranice.features[0].geometry.coordinates[0]
+    );
+    const geoLayer = layer.toGeoJSON();
+    const isInBorders = await turf.booleanContains(granice, geoLayer);
+    if (isInBorders) {
+      await data.features.forEach(async (feature) => {
+        const polygon = turf.polygon(feature.geometry.coordinates[0]);
+        const result = await turf.booleanContains(polygon, geoLayer);
+        const part = feature.properties.Dzielnica;
+        if (result) {
+          console.log(`${part}: ${result}`);
+          cityPart = part;
+        }
+      });
+    } else {
+      swal(
+        "Twój panel znajduje się poza miastem",
+        "Narysuj go na budynku wewnątrz Torunia",
+        "error"
+      );
+    }
+
+    // if (cityPart === "") {
+
+    // }
+  }
 
   useEffect(() => {
     if (!tools.includes("DrawTools")) {
@@ -90,6 +126,9 @@ const Geoman = () => {
 
     map.pm.disableDraw("Poly");
 
+    map.on("pm:create", function (e) {
+      IdentifyRoof(e.layer);
+    });
     map.on("pm:drawstart", function (e) {});
 
     map.on("pm:remove", (e) => {});
