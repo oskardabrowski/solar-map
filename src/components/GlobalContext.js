@@ -18,6 +18,7 @@ const MapProvider = ({ children }) => {
   const [infoOpen, setInfoOpen] = useState(false);
   const [solarPanelDrawing, setSolarPanelDrawing] = useState(false);
   const [panelArea, setPanelArea] = useState(0);
+  const [buildingMean, setBuildingMean] = useState(0);
 
   const removeTool = (tool) => {
     const toolsArr = tools.filter((el) => el != tool);
@@ -64,6 +65,8 @@ const MapProvider = ({ children }) => {
         setSolarPanelDrawing,
         panelArea,
         setPanelArea,
+        setBuildingMean,
+        buildingMean
       }}
     >
       {children}

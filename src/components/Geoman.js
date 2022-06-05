@@ -10,7 +10,7 @@ import L from "leaflet";
 
 const Geoman = () => {
   const context = useLeafletContext();
-  const { tools, solarPanelDrawing, setSolarPanelDrawing, setPanelArea } =
+  const { tools, solarPanelDrawing, setSolarPanelDrawing, setPanelArea, setBuildingMean } =
     useContext(MapContext);
   const map = context.layerContainer || context.map;
   const layers = map.pm.getGeomanLayers();
@@ -127,6 +127,8 @@ const Geoman = () => {
           if (result) {
             SearchedBuilding = buildingFromGeoJSON;
             console.log(SearchedBuilding);
+            console.log(feature.properties._mean);
+            setBuildingMean(feature.properties._mean);
           }
         });
         await AlertWhenPanelIsOutside();

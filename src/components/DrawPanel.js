@@ -17,7 +17,7 @@ const DrawPanel = () => {
   const ActionsEditRef = useRef();
   const ActionsRemoveRef = useRef();
   const [opened, setOpened] = useState(true);
-  const { removeTool, solarPanelDrawing, setSolarPanelDrawing, panelArea } =
+  const { removeTool, solarPanelDrawing, setSolarPanelDrawing, panelArea, buildingMean} =
     useContext(MapContext);
   const [toolsSet, setToolsSet] = useState(false);
 
@@ -170,7 +170,7 @@ const DrawPanel = () => {
             </div>
             <div>
               <span>
-                Area: {panelArea.toFixed(2)} m<sup>2</sup>
+                Dopływ energii: {panelArea * buildingMean} kWh/m<sup>2</sup>
               </span>
             </div>
           </div>
