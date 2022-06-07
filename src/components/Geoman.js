@@ -46,11 +46,6 @@ const Geoman = () => {
 	map.on("pm:create", function (e) {
 		e.layer.showMeasurements();
 		e.layer.SolarPanel = solarPanelDrawing;
-		// if (solarPanelDrawing) {
-		//   e.layer.on("pn:edit", function (e) {
-		//     IdentifyRoof(e.layer);
-		//   });
-		// }
 
 		setSolarPanelDrawing(false);
 	});
@@ -76,7 +71,6 @@ const Geoman = () => {
 					const result = await turf.booleanContains(polygon, geoLayer);
 					const part = feature.properties.Dzielnica;
 					if (result) {
-						console.log(`${part}: ${result}`);
 						cityPart = part;
 					}
 				});
@@ -105,7 +99,6 @@ const Geoman = () => {
 					const result = await turf.booleanContains(polygon, geoLayer);
 					const part = feature.properties.Symbol;
 					if (result) {
-						console.log(`${part}: ${result}`);
 						districtPart = part;
 					}
 				});
@@ -131,8 +124,6 @@ const Geoman = () => {
 					const buildingFromGeoJSON = feature.properties.gml_id;
 					if (result) {
 						SearchedBuilding = buildingFromGeoJSON;
-						console.log(SearchedBuilding);
-						console.log(feature.properties._mean);
 						setBuildingMean(feature.properties._mean);
 					}
 				});
@@ -153,11 +144,6 @@ const Geoman = () => {
 		if (layer.SolarPanel === true) {
 			await checkIsInBorders();
 		}
-		// await checkDistrict();
-
-		// if (cityPart === "") {
-
-		// }
 	}
 
 	useEffect(() => {
@@ -206,10 +192,10 @@ const Geoman = () => {
 
 		map.on("pm:create", function (e) {
 			IdentifyRoof(e.layer);
+			e.layer.on("pm:edit", function (e) {
+				IdentifyRoof(e.layer);
+			});
 		});
-		// map.on("pm:edit", function (e) {
-		//   IdentifyRoof(e.layer);
-		// });
 		map.on("pm:drawstart", function (e) {});
 
 		map.on("pm:remove", (e) => {});

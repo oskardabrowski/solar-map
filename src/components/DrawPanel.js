@@ -17,6 +17,7 @@ const DrawPanel = () => {
 	const ActionsEditRef = useRef();
 	const ActionsRemoveRef = useRef();
 	const [opened, setOpened] = useState(true);
+	const [percentageEfficiency, setPercentageEfficiency] = useState(20);
 	const {
 		removeTool,
 		solarPanelDrawing,
@@ -173,9 +174,25 @@ const DrawPanel = () => {
 								</span>
 							</span>
 						</div>
-						<div>
+						<div className="Content-options">
+							<form>
+								<input
+									type="number"
+									value={percentageEfficiency}
+									min="1"
+									max="100"
+									onChange={(e) => setPercentageEfficiency(e.target.value)}
+								/>
+							</form>
 							<span>
-								Dopływ energii: {panelArea * buildingMean} kWh/m<sup>2</sup>
+								Dopływ energii:{" "}
+								{(
+									panelArea *
+									buildingMean *
+									(percentageEfficiency / 100)
+								).toFixed(2)}{" "}
+								kWh/m
+								<sup>2</sup>
 							</span>
 						</div>
 					</div>
