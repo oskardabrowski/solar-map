@@ -176,24 +176,46 @@ const DrawPanel = () => {
 						</div>
 						<div className="Content-options">
 							<form>
-								<input
-									type="number"
-									value={percentageEfficiency}
-									min="1"
-									max="100"
-									onChange={(e) => setPercentageEfficiency(e.target.value)}
-								/>
+								<label htmlFor="PanelEfficiency">Sprawność panelu:</label>
+								<span>
+									<input
+										type="number"
+										value={percentageEfficiency}
+										min="1"
+										max="100"
+										id="PanelEfficiency"
+										onChange={(e) => setPercentageEfficiency(e.target.value)}
+									/>
+									%
+								</span>
+								<label htmlFor="PanelEnergy">Dopływ energii słonecznej:</label>
+								<span>
+									<input
+										type="text"
+										value={(
+											panelArea *
+											buildingMean *
+											(percentageEfficiency / 100)
+										).toFixed(2)}
+										id="PanelEnergy"
+										readOnly
+									/>
+									kWh/m
+									<sup>2</sup>/rok
+								</span>
 							</form>
-							<span>
-								Dopływ energii:{" "}
-								{(
-									panelArea *
-									buildingMean *
-									(percentageEfficiency / 100)
-								).toFixed(2)}{" "}
-								kWh/m
-								<sup>2</sup>
-							</span>
+							<div className="Content-options-analysis">
+								<p className="Content-options-analysis-header">
+									Analiza solarna dachu:
+								</p>
+								<button>Przeprowadź analizę</button>
+								<p className="Content-options-analysis-desc">
+									Jest to analiza dające dokładniejsze wyniki odnośnie
+									promieniowania słonecznego dopływającego do panelu. Może ona
+									zająć chwilę czasu w zależności od regionu miasta,
+									przeglądarki i parametrów komputera.
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -223,6 +245,76 @@ const LMWindow = styled.div`
 		/* height: 25rem; */
 		display: flex;
 		flex-direction: column;
+
+		&-options {
+			&-analysis {
+				margin-top: 1rem;
+				font-family: "Work Sans";
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				&-header {
+					font-size: 1.2rem;
+				}
+				&-desc {
+					font-size: 0.75rem;
+					padding: 0rem 0.75rem;
+					text-align: justify;
+				}
+				& > button {
+					margin: 0.5rem 0rem;
+					padding: 0.5rem;
+					background: #001f45;
+					color: white;
+					border: none;
+					border-radius: 10px;
+					font-family: "Work Sans";
+					transition: all 0.5s ease-in-out;
+
+					&:hover {
+						cursor: pointer;
+						background: #005fd3;
+					}
+				}
+			}
+			& > form {
+				display: flex;
+				flex-direction: column;
+				font-family: "Work Sans";
+
+				& > label {
+					margin-top: 0.5rem;
+					margin-left: 1rem;
+				}
+				& > span {
+					display: flex;
+					justify-content: left;
+					align-items: center;
+					padding-left: 1rem;
+
+					& > input {
+						width: 7rem;
+						height: 1.5rem;
+						margin-top: 0.5rem;
+						margin-right: 0.5rem;
+						text-align: right;
+						border: 1px solid black;
+
+						&::-webkit-inner-spin-button {
+							opacity: 1;
+							margin-left: 0.5rem;
+							/* height: 100%; */
+						}
+
+						&:first-child {
+							padding-right: 0.5rem;
+						}
+					}
+				}
+			}
+		}
 
 		& > div.Controls {
 			display: flex;
