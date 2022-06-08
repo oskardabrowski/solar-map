@@ -21,6 +21,7 @@ const MapProvider = ({ children }) => {
 	const [panelLocationData, setPanelLocationData] = useState({
 		city: false,
 		district: "",
+		districtPart: "",
 		building: false,
 	});
 	const [calculateSolarData, setCalculateSolarData] = useState(false);

@@ -28,10 +28,40 @@ const Geoman = () => {
 		const index = layers.findIndex((el) => el.SolarPanel === true);
 		if (index != -1) {
 			const SolarLayersList = [500, 600, 700, 800, 900, 1000, 1100, 1200, 1300];
-			const panel = layers[index];
+			const panel = layers[index].toGeoJSON();
 			if (panelLocationData.city === true) {
 				if (panelLocationData.building === true) {
-					alert("Here we can go");
+					async function getData() {
+						await SolarLayersList.forEach(async (el) => {
+							const data = await fetch(
+								`http://localhost:8080/Tiles/dist-parts/${panelLocationData.district}/${panelLocationData.districtPart}/${el}.json`
+							);
+							const response = await data.json();
+							console.log(response);
+							if (el === 500 || el === 600) {
+								// response.features.forEach((feature) => {
+								// 									const polygon = await turf.polygon(
+								// 	feature.geometry.coordinates[0]
+								// );
+								// const result = await turf.booleanContains(polygon, panel);
+								// console.log(`${el}: ${result}`);
+								// })
+							}
+							// for (let i = 0; i < response.features.length; i++) {
+							// 	// console.log(response.features[i]);
+							// const polygon = await turf.polygon(
+							// 	response.features[i].geometry.coordinates[0]
+							// );
+							// const result = await turf.booleanContains(polygon, panel);
+							// console.log(`${el}: ${result}`);
+							// if (result === true) {
+							// 	break;
+							// }
+							// }
+						});
+						console.log("Measurements done!");
+					}
+					getData();
 				} else {
 					swal(
 						"Analiza może przebiegać tylko wewnątrz pojedynczego budynku!",
@@ -123,7 +153,8 @@ const Geoman = () => {
 				SearchedBuilding = "";
 				setPanelLocationData({
 					city: false,
-					district: districtPart,
+					district: cityPart,
+					districtPart: districtPart,
 					building: false,
 				});
 			}
@@ -140,7 +171,8 @@ const Geoman = () => {
 				SearchedBuilding = "";
 				setPanelLocationData({
 					city: true,
-					district: districtPart,
+					district: cityPart,
+					districtPart: districtPart,
 					building: false,
 				});
 			} else {
@@ -179,7 +211,8 @@ const Geoman = () => {
 						setBuildingMean(feature.properties._mean);
 						setPanelLocationData({
 							city: true,
-							district: districtPart,
+							district: cityPart,
+							districtPart: districtPart,
 							building: true,
 						});
 					}
@@ -198,7 +231,8 @@ const Geoman = () => {
 				setBuildingMean(0);
 				setPanelLocationData({
 					city: true,
-					district: districtPart,
+					district: cityPart,
+					districtPart: districtPart,
 					building: false,
 				});
 				SearchedBuilding = "";
