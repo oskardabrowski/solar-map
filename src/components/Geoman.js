@@ -16,9 +16,46 @@ const Geoman = () => {
 		setSolarPanelDrawing,
 		setPanelArea,
 		setBuildingMean,
+		panelLocationData,
+		setPanelLocationData,
+		calculateSolarData,
+		setCalculateSolarData,
 	} = useContext(MapContext);
 	const map = context.layerContainer || context.map;
 	const layers = map.pm.getGeomanLayers();
+
+	function CalculateSolarIrradiation() {
+		const index = layers.findIndex((el) => el.SolarPanel === true);
+		if (index != -1) {
+			const SolarLayersList = [500, 600, 700, 800, 900, 1000, 1100, 1200, 1300];
+			const panel = layers[index];
+			if (panelLocationData.city === true) {
+				if (panelLocationData.building === true) {
+					alert("Here we can go");
+				} else {
+					swal(
+						"Analiza może przebiegać tylko wewnątrz pojedynczego budynku!",
+						"Narysuj panel w obrębie jednego budynku",
+						"error"
+					);
+				}
+			} else {
+				swal(
+					"Twój panel znajduje się poza miastem!",
+					"Narysuj go w obrębie budynku wewnątrz Torunia",
+					"error"
+				);
+			}
+		} else {
+		}
+		setCalculateSolarData(false);
+	}
+
+	useEffect(() => {
+		if (calculateSolarData === true) {
+			CalculateSolarIrradiation();
+		}
+	}, [calculateSolarData]);
 
 	useEffect(() => {
 		const arr = [];
@@ -81,6 +118,14 @@ const Geoman = () => {
 					"Narysuj go w obrębie budynku wewnątrz Torunia",
 					"error"
 				);
+				cityPart = "";
+				districtPart = "";
+				SearchedBuilding = "";
+				setPanelLocationData({
+					city: false,
+					district: districtPart,
+					building: false,
+				});
 			}
 		};
 
@@ -91,6 +136,13 @@ const Geoman = () => {
 					"Narysuj go w obrębie budynku",
 					"error"
 				);
+				districtPart = "";
+				SearchedBuilding = "";
+				setPanelLocationData({
+					city: true,
+					district: districtPart,
+					building: false,
+				});
 			} else {
 				const collection = await fetch(`./JSON/district/${cityPart}.json`);
 				const data = await collection.json();
@@ -125,6 +177,11 @@ const Geoman = () => {
 					if (result) {
 						SearchedBuilding = buildingFromGeoJSON;
 						setBuildingMean(feature.properties._mean);
+						setPanelLocationData({
+							city: true,
+							district: districtPart,
+							building: true,
+						});
 					}
 				});
 				await AlertWhenPanelIsOutside();
@@ -138,6 +195,13 @@ const Geoman = () => {
 					"Narysuj go w obrębie budynku lub edytuj",
 					"error"
 				);
+				setBuildingMean(0);
+				setPanelLocationData({
+					city: true,
+					district: districtPart,
+					building: false,
+				});
+				SearchedBuilding = "";
 			}
 		};
 

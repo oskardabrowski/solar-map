@@ -9,6 +9,7 @@ import {
 import { MdDraw, MdEditLocationAlt } from "react-icons/md";
 import { BsEraserFill } from "react-icons/bs";
 import { MapContext } from "./GlobalContext";
+import Geoman from "./Geoman";
 
 const DrawPanel = () => {
 	const window = useRef(null);
@@ -24,6 +25,7 @@ const DrawPanel = () => {
 		setSolarPanelDrawing,
 		panelArea,
 		buildingMean,
+		setCalculateSolarData,
 	} = useContext(MapContext);
 	const [toolsSet, setToolsSet] = useState(false);
 
@@ -188,7 +190,9 @@ const DrawPanel = () => {
 									/>
 									%
 								</span>
-								<label htmlFor="PanelEnergy">Dopływ energii słonecznej:</label>
+								<label htmlFor="PanelEnergy">
+									Średni dopływ energii słonecznej:
+								</label>
 								<span>
 									<input
 										type="text"
@@ -208,7 +212,9 @@ const DrawPanel = () => {
 								<p className="Content-options-analysis-header">
 									Analiza solarna dachu:
 								</p>
-								<button>Przeprowadź analizę</button>
+								<button onClick={() => setCalculateSolarData(true)}>
+									Przeprowadź analizę
+								</button>
 								<p className="Content-options-analysis-desc">
 									Jest to analiza dające dokładniejsze wyniki odnośnie
 									promieniowania słonecznego dopływającego do panelu. Może ona
@@ -245,6 +251,20 @@ const LMWindow = styled.div`
 		/* height: 25rem; */
 		display: flex;
 		flex-direction: column;
+		overflow-y: scroll;
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+		::-webkit-scrollbar-track {
+			background: white;
+		}
+		::-webkit-scrollbar-thumb {
+			background: #001f45;
+		}
+		::-webkit-scrollbar-thumb:hover {
+			background: #004aa5;
+			cursor: pointer;
+		}
 
 		&-options {
 			&-analysis {
