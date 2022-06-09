@@ -216,7 +216,7 @@ const DrawPanel = () => {
 									Przeprowadź analizę
 								</button>
 								<p className="Content-options-analysis-desc">
-									Jest to analiza dające dokładniejsze wyniki odnośnie
+									Jest to analiza dająca dokładniejsze wyniki odnośnie
 									promieniowania słonecznego dopływającego do panelu. Może ona
 									zająć chwilę czasu w zależności od regionu miasta,
 									przeglądarki i parametrów komputera.
