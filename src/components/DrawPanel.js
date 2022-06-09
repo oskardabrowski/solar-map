@@ -9,6 +9,7 @@ import {
 import { MdDraw, MdEditLocationAlt } from "react-icons/md";
 import { BsEraserFill } from "react-icons/bs";
 import { MapContext } from "./GlobalContext";
+import CircularProgress from "@mui/material/CircularProgress";
 import Geoman from "./Geoman";
 
 const DrawPanel = () => {
@@ -17,6 +18,7 @@ const DrawPanel = () => {
 	const ActionsDrawRef = useRef();
 	const ActionsEditRef = useRef();
 	const ActionsRemoveRef = useRef();
+	const EfficiencyRef = useRef();
 	const [opened, setOpened] = useState(true);
 	const [percentageEfficiency, setPercentageEfficiency] = useState(20);
 	const {
@@ -26,8 +28,35 @@ const DrawPanel = () => {
 		panelArea,
 		buildingMean,
 		setCalculateSolarData,
+		calculatedSolarData,
+		solarCalculationProgress,
+		setSolarCalculationProgress,
 	} = useContext(MapContext);
-	const [toolsSet, setToolsSet] = useState(false);
+	const [totalCalculatedEnergy, setTotalCalculatedEnergy] = useState(0);
+
+	useEffect(() => {
+		if (calculatedSolarData.length > 0) {
+			console.log(calculatedSolarData);
+			let TotalEnergy = 0;
+			calculatedSolarData.forEach((data) => {
+				if (data.id !== 1300) {
+					const mean = data.id - 50;
+					const area = data.area;
+					const efficiency = EfficiencyRef.current.value;
+					const energyFromPart = mean * area * (efficiency / 100);
+					TotalEnergy += energyFromPart;
+				} else {
+					const mean = 1210;
+					const area = data.area;
+					const efficiency = EfficiencyRef.current.value;
+					const energyFromPart = mean * area * (efficiency / 100);
+					TotalEnergy += energyFromPart;
+				}
+			});
+			console.log(TotalEnergy.toFixed(2));
+			setTotalCalculatedEnergy(TotalEnergy.toFixed(2));
+		}
+	}, [calculatedSolarData]);
 
 	useEffect(() => {
 		const arr = [ActionsDrawRef, ActionsEditRef, ActionsRemoveRef];
@@ -186,6 +215,7 @@ const DrawPanel = () => {
 										min="1"
 										max="100"
 										id="PanelEfficiency"
+										ref={EfficiencyRef}
 										onChange={(e) => setPercentageEfficiency(e.target.value)}
 									/>
 									%
@@ -209,18 +239,37 @@ const DrawPanel = () => {
 								</span>
 							</form>
 							<div className="Content-options-analysis">
-								<p className="Content-options-analysis-header">
-									Analiza solarna dachu:
-								</p>
-								<button onClick={() => setCalculateSolarData(true)}>
-									Przeprowadź analizę
-								</button>
-								<p className="Content-options-analysis-desc">
-									Jest to analiza dająca dokładniejsze wyniki odnośnie
-									promieniowania słonecznego dopływającego do panelu. Może ona
-									zająć chwilę czasu w zależności od regionu miasta,
-									przeglądarki i parametrów komputera.
-								</p>
+								<span>
+									<p className="Content-options-analysis-header">
+										Analiza solarna dachu:
+									</p>
+									<button onClick={() => setCalculateSolarData(true)}>
+										Przeprowadź analizę
+									</button>
+									<p className="Content-options-analysis-desc">
+										Jest to analiza dająca dokładniejsze wyniki odnośnie
+										promieniowania słonecznego dopływającego do panelu. Może ona
+										zająć chwilę czasu w zależności od regionu miasta,
+										przeglądarki i parametrów komputera.
+									</p>
+								</span>
+								<span>
+									<CircularProgress
+										size={80}
+										variant="determinate"
+										value={solarCalculationProgress}
+										sx={{
+											color: "#001F45",
+										}}
+									/>
+									<p class="percentage">{solarCalculationProgress}%</p>
+								</span>
+								<span>
+									<p>
+										{totalCalculatedEnergy} kWh/m<sup>2</sup>/rok
+									</p>
+									<a>Zresetuj wynik</a>
+								</span>
 							</div>
 						</div>
 					</div>
@@ -267,6 +316,13 @@ const LMWindow = styled.div`
 		}
 
 		&-options {
+			margin-top: 1rem;
+			font-family: "Work Sans";
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
 			&-analysis {
 				margin-top: 1rem;
 				font-family: "Work Sans";
@@ -283,19 +339,45 @@ const LMWindow = styled.div`
 					padding: 0rem 0.75rem;
 					text-align: justify;
 				}
-				& > button {
-					margin: 0.5rem 0rem;
-					padding: 0.5rem;
-					background: #001f45;
-					color: white;
-					border: none;
-					border-radius: 10px;
-					font-family: "Work Sans";
-					transition: all 0.5s ease-in-out;
+				& > span {
+					&:nth-child(1) {
+						font-family: "Work Sans";
+						width: 100%;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: center;
 
-					&:hover {
-						cursor: pointer;
-						background: #005fd3;
+						& > button {
+							margin: 0.5rem 0rem;
+							padding: 0.5rem;
+							background: #001f45;
+							color: white;
+							border: none;
+							border-radius: 10px;
+							font-family: "Work Sans";
+							transition: all 0.5s ease-in-out;
+
+							&:hover {
+								cursor: pointer;
+								background: #005fd3;
+							}
+						}
+					}
+					&:nth-child(2) {
+						width: 100%;
+						margin-top: 1rem;
+						font-family: "Work Sans";
+						width: 100%;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: center;
+						position: relative;
+
+						& > .percentage {
+							position: absolute;
+						}
 					}
 				}
 			}

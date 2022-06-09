@@ -20,91 +20,106 @@ const Geoman = () => {
 		setPanelLocationData,
 		calculateSolarData,
 		setCalculateSolarData,
+		setCalculatedSolarData,
+		solarCalculationProgress,
+		setSolarCalculationProgress,
 	} = useContext(MapContext);
 	const map = context.layerContainer || context.map;
 	const layers = map.pm.getGeomanLayers();
 
-	function CalculateSolarIrradiation() {
-		const index = layers.findIndex((el) => el.SolarPanel === true);
+	async function CalculateSolarIrradiation() {
+		setSolarCalculationProgress(10);
+		const geolayers = map.pm.getGeomanLayers();
+		const index = geolayers.findIndex((el) => el.SolarPanel === true);
 		if (index != -1) {
 			const SolarLayersList = [500, 600, 700, 800, 900, 1000, 1100, 1200, 1300];
-			const panel = layers[index].toGeoJSON();
+			const panel = geolayers[index].toGeoJSON();
 			if (panelLocationData.city === true) {
 				if (panelLocationData.building === true) {
 					async function getData() {
 						const MeasurementsList = [];
-						await SolarLayersList.forEach(async (el) => {
-							const data = await fetch(
-								`http://localhost:8080/Tiles/dist-parts/${panelLocationData.district}/${panelLocationData.districtPart}/${el}.json`
-							);
-							const response = await data.json();
-							let totalArea = 0;
-							if (el === 500 || el === 600) {
-								// console.log(response.features[0].geometry.coordinates);
-								await response.features[0].geometry.coordinates.forEach(
-									async (feature) => {
-										const polygon = await turf.polygon(feature);
-										const result = await turf.booleanOverlap(polygon, panel);
-										console.log(`${el}: ${result}`);
-										if (result) {
-											const section = await turf.intersect(polygon, panel);
-											const area = turf.area(section);
-											console.log(`Section: ${area}`);
-											console.log(`Section: ${typeof area}`);
-											const ElementTotalArea = MeasurementsList.filter(
-												(item) => item.id === el
-											);
-											console.log(ElementTotalArea);
-											if (ElementTotalArea.length > 0) {
-												MeasurementsList.map((item) => {
-													if (item.id === el) {
-														const currentArea = item.area;
-														const newArea = currentArea + area;
-														item.area = newArea;
-													}
-												});
-											} else {
-												MeasurementsList.push({ id: el, area: area });
-											}
-											console.log(MeasurementsList);
-										}
-									}
+						let progress = 10;
+
+						await Promise.all(
+							SolarLayersList.map(async (el) => {
+								const data = await fetch(
+									`http://localhost:8080/Tiles/dist-parts/${panelLocationData.district}/${panelLocationData.districtPart}/${el}.json`
 								);
-							} else {
-								await response.features.forEach(async (feature) => {
-									const polygon = await turf.polygon(
-										feature.geometry.coordinates[0]
-									);
-									const result = await turf.booleanOverlap(polygon, panel);
-									console.log(`${el}: ${result}`);
-									if (result) {
-										const section = await turf.intersect(polygon, panel);
-										const area = turf.area(section);
-										console.log(`Section: ${area}`);
-										console.log(`Section: ${typeof area}`);
-										const ElementTotalArea = MeasurementsList.filter(
-											(item) => item.id === el
-										);
-										console.log(ElementTotalArea);
-										if (ElementTotalArea.length > 0) {
-											MeasurementsList.map((item) => {
-												if (item.id === el) {
-													const currentArea = item.area;
-													const newArea = currentArea + area;
-													item.area = newArea;
+								const response = await data.json();
+
+								if (el === 500 || el === 600) {
+									await Promise.all(
+										response.features[0].geometry.coordinates.map(
+											async (feature) => {
+												const polygon = await turf.polygon(feature);
+												const result = await turf.booleanOverlap(
+													polygon,
+													panel
+												);
+												const resultContains = await turf.booleanContains(
+													polygon,
+													panel
+												);
+												// console.log(`${el}: ${result}`);
+												if (result || resultContains) {
+													const section = await turf.intersect(polygon, panel);
+													const area = turf.area(section);
+													const ElementTotalArea = MeasurementsList.filter(
+														(item) => item.id === el
+													);
+													if (ElementTotalArea.length > 0) {
+														MeasurementsList.map((item) => {
+															if (item.id === el) {
+																const currentArea = item.area;
+																const newArea = currentArea + area;
+																item.area = newArea;
+															}
+														});
+													} else {
+														MeasurementsList.push({ id: el, area: area });
+													}
 												}
-											});
-										} else {
-											MeasurementsList.push({ id: el, area: area });
-										}
-										console.log(MeasurementsList);
-									}
-								});
-							}
-							// await MeasurementsList.push({ item: el, area: totalArea });
-							// console.log(MeasurementsList);
-						});
-						// await console.log(MeasurementsList);
+											}
+										)
+									);
+								} else {
+									await Promise.all(
+										response.features.map(async (feature) => {
+											const polygon = await turf.polygon(
+												feature.geometry.coordinates[0]
+											);
+											const result = await turf.booleanOverlap(polygon, panel);
+											const resultContains = await turf.booleanContains(
+												polygon,
+												panel
+											);
+											// console.log(`${el}: ${result}`);
+											if (result || resultContains) {
+												const section = await turf.intersect(polygon, panel);
+												const area = turf.area(section);
+												const ElementTotalArea = MeasurementsList.filter(
+													(item) => item.id === el
+												);
+												if (ElementTotalArea.length > 0) {
+													MeasurementsList.map((item) => {
+														if (item.id === el) {
+															const currentArea = item.area;
+															const newArea = currentArea + area;
+															item.area = newArea;
+														}
+													});
+												} else {
+													MeasurementsList.push({ id: el, area: area });
+												}
+											}
+										})
+									);
+								}
+								progress += 10;
+								await setSolarCalculationProgress(progress);
+							})
+						);
+						await setCalculatedSolarData(MeasurementsList);
 					}
 					getData();
 				} else {
@@ -122,6 +137,11 @@ const Geoman = () => {
 				);
 			}
 		} else {
+			swal(
+				"Twój panel nie istnieje!",
+				"Narysuj go w obrębie budynku wewnątrz Torunia",
+				"error"
+			);
 		}
 		setCalculateSolarData(false);
 	}
