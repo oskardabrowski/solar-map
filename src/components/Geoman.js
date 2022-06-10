@@ -328,7 +328,8 @@ const Geoman = () => {
 					map.removeLayer(layer);
 				}
 			});
-		} else if (!tools.includes("DrawTools")) {
+		}
+		if (!tools.includes("DrawPanel")) {
 			map.pm.getGeomanLayers().forEach((layer) => {
 				if (layer.SolarPanel === true) {
 					map.removeLayer(layer);

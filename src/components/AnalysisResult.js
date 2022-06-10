@@ -5,7 +5,7 @@ const AnalysisResult = ({ energy, progress }) => {
 	return (
 		<MeasurementsResult>
 			<p>
-				{energy} kWh/m<sup>2</sup>/rok
+				<b>{energy}</b> kWh/m<sup>2</sup>/rok
 			</p>
 			<a onClick={() => progress(0)}>Zresetuj wynik</a>
 		</MeasurementsResult>
