@@ -9,7 +9,9 @@ import {
 import { MdDraw, MdEditLocationAlt } from "react-icons/md";
 import { BsEraserFill } from "react-icons/bs";
 import { MapContext } from "./GlobalContext";
-import CircularProgress from "@mui/material/CircularProgress";
+import AnalysisBtn from "./AnalysisBtn";
+import AnalysisProgress from "./AnalysisProgress";
+import AnalysisResult from "./AnalysisResult";
 import Geoman from "./Geoman";
 
 const DrawPanel = () => {
@@ -21,12 +23,14 @@ const DrawPanel = () => {
 	const EfficiencyRef = useRef();
 	const [opened, setOpened] = useState(true);
 	const [percentageEfficiency, setPercentageEfficiency] = useState(20);
+	const [analysisStart, setAnalysisStart] = useState(false);
 	const {
 		removeTool,
 		solarPanelDrawing,
 		setSolarPanelDrawing,
 		panelArea,
 		buildingMean,
+		calculateSolarData,
 		setCalculateSolarData,
 		calculatedSolarData,
 		solarCalculationProgress,
@@ -35,8 +39,13 @@ const DrawPanel = () => {
 	const [totalCalculatedEnergy, setTotalCalculatedEnergy] = useState(0);
 
 	useEffect(() => {
+		if (solarCalculationProgress === 0) {
+			setAnalysisStart(false);
+		}
+	}, [solarCalculationProgress]);
+
+	useEffect(() => {
 		if (calculatedSolarData.length > 0) {
-			console.log(calculatedSolarData);
 			let TotalEnergy = 0;
 			calculatedSolarData.forEach((data) => {
 				if (data.id !== 1300) {
@@ -53,7 +62,6 @@ const DrawPanel = () => {
 					TotalEnergy += energyFromPart;
 				}
 			});
-			console.log(TotalEnergy.toFixed(2));
 			setTotalCalculatedEnergy(TotalEnergy.toFixed(2));
 		}
 	}, [calculatedSolarData]);
@@ -239,37 +247,28 @@ const DrawPanel = () => {
 								</span>
 							</form>
 							<div className="Content-options-analysis">
-								<span>
-									<p className="Content-options-analysis-header">
-										Analiza solarna dachu:
-									</p>
-									<button onClick={() => setCalculateSolarData(true)}>
-										Przeprowadź analizę
-									</button>
-									<p className="Content-options-analysis-desc">
-										Jest to analiza dająca dokładniejsze wyniki odnośnie
-										promieniowania słonecznego dopływającego do panelu. Może ona
-										zająć chwilę czasu w zależności od regionu miasta,
-										przeglądarki i parametrów komputera.
-									</p>
-								</span>
-								<span>
-									<CircularProgress
-										size={80}
-										variant="determinate"
-										value={solarCalculationProgress}
-										sx={{
-											color: "#001F45",
-										}}
+								<p className="Content-options-analysis-header">
+									Analiza solarna dachu:
+								</p>
+								{analysisStart === false && (
+									<AnalysisBtn
+										fn={setCalculateSolarData}
+										start={setAnalysisStart}
 									/>
-									<p class="percentage">{solarCalculationProgress}%</p>
-								</span>
-								<span>
-									<p>
-										{totalCalculatedEnergy} kWh/m<sup>2</sup>/rok
-									</p>
-									<a>Zresetuj wynik</a>
-								</span>
+								)}
+								{solarCalculationProgress < 100 &&
+								solarCalculationProgress > 0 ? (
+									<AnalysisProgress progress={solarCalculationProgress} />
+								) : (
+									""
+								)}
+								{solarCalculationProgress === 100 && (
+									<AnalysisResult
+										energy={totalCalculatedEnergy}
+										start={setAnalysisStart}
+										progress={setSolarCalculationProgress}
+									/>
+								)}
 							</div>
 						</div>
 					</div>
@@ -347,6 +346,15 @@ const LMWindow = styled.div`
 						flex-direction: column;
 						align-items: center;
 						justify-content: center;
+					}
+					&:nth-child(2) {
+						font-family: "Work Sans";
+						width: 100%;
+
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: center;
 
 						& > button {
 							margin: 0.5rem 0rem;
@@ -362,21 +370,6 @@ const LMWindow = styled.div`
 								cursor: pointer;
 								background: #005fd3;
 							}
-						}
-					}
-					&:nth-child(2) {
-						width: 100%;
-						margin-top: 1rem;
-						font-family: "Work Sans";
-						width: 100%;
-						display: flex;
-						flex-direction: column;
-						align-items: center;
-						justify-content: center;
-						position: relative;
-
-						& > .percentage {
-							position: absolute;
 						}
 					}
 				}

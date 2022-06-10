@@ -28,10 +28,10 @@ const Geoman = () => {
 	const layers = map.pm.getGeomanLayers();
 
 	async function CalculateSolarIrradiation() {
-		setSolarCalculationProgress(10);
 		const geolayers = map.pm.getGeomanLayers();
 		const index = geolayers.findIndex((el) => el.SolarPanel === true);
 		if (index != -1) {
+			setSolarCalculationProgress(10);
 			const SolarLayersList = [500, 600, 700, 800, 900, 1000, 1100, 1200, 1300];
 			const panel = geolayers[index].toGeoJSON();
 			if (panelLocationData.city === true) {
@@ -45,6 +45,15 @@ const Geoman = () => {
 								const data = await fetch(
 									`http://localhost:8080/Tiles/dist-parts/${panelLocationData.district}/${panelLocationData.districtPart}/${el}.json`
 								);
+								if (data.status !== 200) {
+									swal(
+										"Coś poszło źle w trakcie pobierania danych!",
+										"Sprubój ponownie później",
+										"error"
+									);
+									setCalculateSolarData(false);
+									setSolarCalculationProgress(0);
+								}
 								const response = await data.json();
 
 								if (el === 500 || el === 600) {
@@ -319,16 +328,13 @@ const Geoman = () => {
 					map.removeLayer(layer);
 				}
 			});
+		} else if (!tools.includes("DrawTools")) {
+			map.pm.getGeomanLayers().forEach((layer) => {
+				if (layer.SolarPanel === true) {
+					map.removeLayer(layer);
+				}
+			});
 		}
-		// else if (!tools.includes("DrawTools")) {
-		//   map.pm.getGeomanLayers().forEach((layer) => {
-		//     if (
-		//       layer.SolarPanel === true
-		//     ) {
-		//       map.removeLayer(layer);
-		//     }
-		//   });
-		// }
 	}, [tools]);
 
 	useEffect(() => {
