@@ -294,12 +294,12 @@ const LMWindow = styled.div`
 	overflow: hidden;
 
 	.Content {
-		transition: all 0.5s ease-in-out;
-		height: 0rem;
+		transition: all 0.75s ease-in-out;
+		max-height: 0rem;
 		/* height: 25rem; */
 		display: flex;
 		flex-direction: column;
-		overflow-y: scroll;
+		/* overflow-y: scroll; */
 		::-webkit-scrollbar {
 			width: 10px;
 		}
@@ -323,7 +323,7 @@ const LMWindow = styled.div`
 			align-items: center;
 			justify-content: center;
 			&-analysis {
-				margin-top: 1rem;
+				margin: 1rem 0rem;
 				font-family: "Work Sans";
 				width: 100%;
 				display: flex;
@@ -431,6 +431,10 @@ const LMWindow = styled.div`
 					& > .ico {
 						margin: 0rem 0.25rem 0rem 0rem;
 					}
+
+					&:hover {
+						cursor: pointer;
+					}
 				}
 
 				& > span {
@@ -445,6 +449,9 @@ const LMWindow = styled.div`
 						background: none;
 						border-top: 1px solid grey;
 						/* border-bottom: 1px solid grey; */
+						&:hover {
+							cursor: pointer;
+						}
 					}
 				}
 			}
@@ -453,7 +460,8 @@ const LMWindow = styled.div`
 
 	.ContentOpened {
 		/* height: min-content; */
-		height: 25rem;
+		max-height: 50rem;
+		transition: all 0.75s ease-in-out;
 	}
 
 	.DrawElement {
