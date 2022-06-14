@@ -5,6 +5,7 @@ import MiniMap from "./MiniMap";
 import DrawMeasurement from "./DrawMeasurement";
 import InfoWindow from "./InfoWindow";
 import DrawPanel from "./DrawPanel";
+import CoordsAtr from "./CoordsAtr";
 
 const Tools = () => {
 	const { tools, infoOpen } = useContext(MapContext);
@@ -14,6 +15,7 @@ const Tools = () => {
 			{tools.includes("MiniMap") && <MiniMap />}
 			{tools.includes("DrawTools") && <DrawMeasurement />}
 			{tools.includes("DrawPanel") && <DrawPanel />}
+			{tools.includes("Coords") && <CoordsAtr />}
 			{infoOpen === true && <InfoWindow />}
 		</>
 	);

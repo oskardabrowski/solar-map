@@ -3,7 +3,6 @@ import { MapContext } from "./GlobalContext";
 
 const EndFetchingData = () => {
 	const context = useContext(MapContext);
-	console.log(context);
 	const { isAppLoading, setIsAppLoading } = useContext(MapContext);
 
 	useEffect(() => {

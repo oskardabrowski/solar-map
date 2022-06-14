@@ -1,9 +1,8 @@
 import React from "react";
 
-const AnalysisBtn = ({ fn, start }) => {
+const AnalysisBtn = ({ fn }) => {
 	const startBoth = () => {
 		fn(true);
-		start(true);
 	};
 	return (
 		<span>

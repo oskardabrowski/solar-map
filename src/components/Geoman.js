@@ -132,6 +132,7 @@ const Geoman = () => {
 					}
 					getData();
 				} else {
+					setSolarCalculationProgress(0);
 					swal(
 						"Analiza może przebiegać tylko wewnątrz pojedynczego budynku!",
 						"Narysuj panel w obrębie jednego budynku",
@@ -139,6 +140,7 @@ const Geoman = () => {
 					);
 				}
 			} else {
+				setSolarCalculationProgress(0);
 				swal(
 					"Twój panel znajduje się poza miastem!",
 					"Narysuj go w obrębie budynku wewnątrz Torunia",
@@ -146,6 +148,7 @@ const Geoman = () => {
 				);
 			}
 		} else {
+			setSolarCalculationProgress(0);
 			swal(
 				"Twój panel nie istnieje!",
 				"Narysuj go w obrębie budynku wewnątrz Torunia",

@@ -13,7 +13,7 @@ const MapProvider = ({ children }) => {
 	const [mouseAppCoords, setMouseAppCoords] = useState({ x: 0, y: 0 });
 	const [searchedLocation, setSearchedLocation] = useState(null);
 	const [generalLegendSeen, setGeneralLegendSeen] = useState(false);
-	const [tools, setTools] = useState(["LayersManagement", "MiniMap"]);
+	const [tools, setTools] = useState(["LayersManagement", "MiniMap", "Coords"]);
 	const [mapBounds, setMapBounds] = useState();
 	const [infoOpen, setInfoOpen] = useState(false);
 	const [solarPanelDrawing, setSolarPanelDrawing] = useState(false);
@@ -33,7 +33,6 @@ const MapProvider = ({ children }) => {
 	const removeTool = (tool) => {
 		const toolsArr = tools.filter((el) => el != tool);
 		setTools(toolsArr);
-		console.log(tools);
 	};
 
 	const addTool = (tool) => {
@@ -67,6 +66,7 @@ const MapProvider = ({ children }) => {
 				tools,
 				removeTool,
 				addTool,
+				setTools,
 				mapBounds,
 				setMapBounds,
 				infoOpen,

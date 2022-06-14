@@ -12,7 +12,6 @@ import { MapContext } from "./GlobalContext";
 import AnalysisBtn from "./AnalysisBtn";
 import AnalysisProgress from "./AnalysisProgress";
 import AnalysisResult from "./AnalysisResult";
-import Geoman from "./Geoman";
 
 const DrawPanel = () => {
 	const window = useRef(null);
@@ -23,7 +22,6 @@ const DrawPanel = () => {
 	const EfficiencyRef = useRef();
 	const [opened, setOpened] = useState(true);
 	const [percentageEfficiency, setPercentageEfficiency] = useState(20);
-	const [analysisStart, setAnalysisStart] = useState(false);
 	const {
 		removeTool,
 		solarPanelDrawing,
@@ -37,12 +35,6 @@ const DrawPanel = () => {
 		setSolarCalculationProgress,
 	} = useContext(MapContext);
 	const [totalCalculatedEnergy, setTotalCalculatedEnergy] = useState(0);
-
-	useEffect(() => {
-		if (solarCalculationProgress === 0) {
-			setAnalysisStart(false);
-		}
-	}, [solarCalculationProgress]);
 
 	useEffect(() => {
 		if (calculatedSolarData.length > 0) {
@@ -250,11 +242,8 @@ const DrawPanel = () => {
 								<p className="Content-options-analysis-header">
 									Analiza solarna dachu:
 								</p>
-								{analysisStart === false && (
-									<AnalysisBtn
-										fn={setCalculateSolarData}
-										start={setAnalysisStart}
-									/>
+								{solarCalculationProgress === 0 && (
+									<AnalysisBtn fn={setCalculateSolarData} />
 								)}
 								{solarCalculationProgress < 100 &&
 								solarCalculationProgress > 0 ? (
@@ -265,7 +254,6 @@ const DrawPanel = () => {
 								{solarCalculationProgress === 100 && (
 									<AnalysisResult
 										energy={totalCalculatedEnergy}
-										start={setAnalysisStart}
 										progress={setSolarCalculationProgress}
 									/>
 								)}

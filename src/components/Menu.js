@@ -50,6 +50,7 @@ const Menu = () => {
 		setMapType,
 		zoomLevel,
 		mapCenter,
+		setTools,
 		setSearchedLocation,
 		generalLegendSeen,
 		setGeneralLegendSeen,
@@ -76,9 +77,18 @@ const Menu = () => {
 		let type;
 		if (page === "/model") {
 			type = "3D";
+
+			setTimeout(() => {
+				setTools([]);
+			}, 600);
 		} else {
 			type = "2D";
+
+			setTimeout(() => {
+				setTools(["LayersManagement", "MiniMap", "Coords"]);
+			}, 600);
 		}
+
 		if (isAppLoading === false) {
 			setIsAppLoading(true);
 			setTimeout(() => {
@@ -291,16 +301,6 @@ const Menu = () => {
 								code={el.code}
 							/>
 						))}
-						{/* <Link
-							to="/"
-							onClick={() => setMapType("2D")}
-							className="buttons-btn"
-						>
-							<IoMap />
-							<div className="buttons-btn-desc">
-								<span>Wersja dwuwymiarowa</span>
-							</div>
-						</Link> */}
 						<button onClick={() => navigateToPage("/")} className="buttons-btn">
 							<IoMap />
 							<div className="buttons-btn-desc">
