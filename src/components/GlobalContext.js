@@ -28,6 +28,7 @@ const MapProvider = ({ children }) => {
 	const [buildingMean, setBuildingMean] = useState(0);
 	const [calculatedSolarData, setCalculatedSolarData] = useState([]);
 	const [solarCalculationProgress, setSolarCalculationProgress] = useState(0);
+	const [isAppLoading, setIsAppLoading] = useState(true);
 
 	const removeTool = (tool) => {
 		const toolsArr = tools.filter((el) => el != tool);
@@ -84,6 +85,8 @@ const MapProvider = ({ children }) => {
 				setCalculatedSolarData,
 				solarCalculationProgress,
 				setSolarCalculationProgress,
+				isAppLoading,
+				setIsAppLoading,
 			}}
 		>
 			{children}

@@ -18,6 +18,7 @@ import {
 } from "react-icons/md";
 import { SiThreedotjs } from "react-icons/si";
 import { BrowserRouter as Route, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MapContext } from "./GlobalContext";
 import { useMapEvents } from "react-leaflet";
 import PanelBtn from "./PanelBtn";
@@ -56,6 +57,8 @@ const Menu = () => {
 		removeTool,
 		tools,
 		setInfoOpen,
+		isAppLoading,
+		setIsAppLoading,
 	} = useContext(MapContext);
 	const [show, setShow] = useState(false);
 	const [activePanel, setActivePanel] = useState("");
@@ -67,6 +70,25 @@ const Menu = () => {
 	const layers = useSelector((state) => state.layers.array);
 	const arrExists = layers.map((el) => el.code);
 	arrExists.reverse();
+
+	const navigate = useNavigate();
+	const navigateToPage = (page) => {
+		let type;
+		if (page === "/model") {
+			type = "3D";
+		} else {
+			type = "2D";
+		}
+		if (isAppLoading === false) {
+			setIsAppLoading(true);
+			setTimeout(() => {
+				setMapType(type);
+			}, 950);
+			setTimeout(() => {
+				navigate(page);
+			}, 500);
+		}
+	};
 
 	const addLayerHandler = (el) => {
 		if (!arrExists.includes(el.code)) {
@@ -245,16 +267,15 @@ const Menu = () => {
 								code={el.code}
 							/>
 						))}
-						<Link
-							to="/model"
-							onClick={() => setMapType("3D")}
+						<button
+							onClick={() => navigateToPage("/model")}
 							className="buttons-btn"
 						>
 							<Md3DRotation />
 							<div className="buttons-btn-desc">
 								<span>Wersja trójwymiarowa</span>
 							</div>
-						</Link>
+						</button>
 					</>
 				) : (
 					""
@@ -270,7 +291,7 @@ const Menu = () => {
 								code={el.code}
 							/>
 						))}
-						<Link
+						{/* <Link
 							to="/"
 							onClick={() => setMapType("2D")}
 							className="buttons-btn"
@@ -279,7 +300,13 @@ const Menu = () => {
 							<div className="buttons-btn-desc">
 								<span>Wersja dwuwymiarowa</span>
 							</div>
-						</Link>
+						</Link> */}
+						<button onClick={() => navigateToPage("/")} className="buttons-btn">
+							<IoMap />
+							<div className="buttons-btn-desc">
+								<span>Wersja dwuwymiarowa</span>
+							</div>
+						</button>
 					</>
 				) : (
 					""
@@ -409,6 +436,7 @@ const MenuBar = styled.div`
 	background-color: white;
 
 	.Tools {
+		overflow: hidden;
 		&-tool {
 			width: 100%;
 			display: flex;
