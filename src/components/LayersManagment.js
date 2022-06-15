@@ -27,6 +27,7 @@ const LayersManagment = () => {
 	const sizeRef = useRef(null);
 	const DraggableRef = useRef();
 	const [activeLayers, setActiveLayers] = useState(["Roofs"]);
+	// const activeLayers = useRef(["Roofs"]);
 	const [activeLegends, setActiveLegends] = useState(["Roofs"]);
 
 	const { generalLegendSeen, removeTool } = useContext(MapContext);
