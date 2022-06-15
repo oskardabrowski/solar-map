@@ -6,7 +6,7 @@ import {
 	IoMdArrowDropdown,
 	IoMdClose,
 } from "react-icons/io";
-import { Resizable, ResizableBox } from "react-resizable";
+import { ResizableBox } from "react-resizable";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useSelector, useDispatch } from "react-redux";
 import { MapLayerActions } from "./LayersReducer";
@@ -25,7 +25,6 @@ const LayersManagment = () => {
 	const [opened, setOpened] = useState(true);
 	const [size, setSize] = useState(400);
 	const sizeRef = useRef(null);
-	const DraggableRef = useRef();
 	const [activeLayers, setActiveLayers] = useState(["Roofs"]);
 	// const activeLayers = useRef(["Roofs"]);
 	const [activeLegends, setActiveLegends] = useState(["Roofs"]);
@@ -46,8 +45,6 @@ const LayersManagment = () => {
 			return;
 		}
 
-		console.log(layers.length);
-
 		const reducerArr = [];
 
 		const newitems = await reorder(
@@ -66,7 +63,7 @@ const LayersManagment = () => {
 	}
 
 	useEffect(async () => {
-		if (opened != true) {
+		if (opened !== true) {
 			document.querySelector(".ContentContainer").style.transition =
 				"all .5s ease-in-out";
 			setSize(0);
