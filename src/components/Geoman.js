@@ -69,7 +69,6 @@ const Geoman = () => {
 													polygon,
 													panel
 												);
-												// console.log(`${el}: ${result}`);
 												if (result || resultContains) {
 													const section = await turf.intersect(polygon, panel);
 													const area = turf.area(section);
@@ -94,33 +93,35 @@ const Geoman = () => {
 								} else {
 									await Promise.all(
 										response.features.map(async (feature) => {
-											const polygon = await turf.polygon(
-												feature.geometry.coordinates[0]
-											);
-											const result = await turf.booleanOverlap(polygon, panel);
-											const resultContains = await turf.booleanContains(
-												polygon,
-												panel
-											);
-											// console.log(`${el}: ${result}`);
-											if (result || resultContains) {
-												const section = await turf.intersect(polygon, panel);
-												const area = turf.area(section);
-												const ElementTotalArea = MeasurementsList.filter(
-													(item) => item.id === el
+											await feature.geometry.coordinates.map(async (coords) => {
+												const polygon = await turf.polygon(coords);
+												const result = await turf.booleanOverlap(
+													polygon,
+													panel
 												);
-												if (ElementTotalArea.length > 0) {
-													MeasurementsList.map((item) => {
-														if (item.id === el) {
-															const currentArea = item.area;
-															const newArea = currentArea + area;
-															item.area = newArea;
-														}
-													});
-												} else {
-													MeasurementsList.push({ id: el, area: area });
+												const resultContains = await turf.booleanContains(
+													polygon,
+													panel
+												);
+												if (result || resultContains) {
+													const section = await turf.intersect(polygon, panel);
+													const area = turf.area(section);
+													const ElementTotalArea = MeasurementsList.filter(
+														(item) => item.id === el
+													);
+													if (ElementTotalArea.length > 0) {
+														MeasurementsList.map((item) => {
+															if (item.id === el) {
+																const currentArea = item.area;
+																const newArea = currentArea + area;
+																item.area = newArea;
+															}
+														});
+													} else {
+														MeasurementsList.push({ id: el, area: area });
+													}
 												}
-											}
+											});
 										})
 									);
 								}
@@ -279,6 +280,8 @@ const Geoman = () => {
 					`http://localhost:8080/Tiles/dist-parts/${districtPart}.json`
 				);
 				const data = await collection.json();
+				console.log(districtPart);
+				console.log(data);
 				await data.features.forEach(async (feature) => {
 					const polygon = turf.polygon(feature.geometry.coordinates[0]);
 					const result = await turf.booleanContains(polygon, geoLayer);
