@@ -15,6 +15,8 @@ import {
 	Marker,
 	FeatureGroup,
 	Rectangle,
+	CircleMarker,
+	Popup,
 } from "react-leaflet";
 import styled from "styled-components";
 import { TorBufor } from "../components/layers/TorBufor";
@@ -25,6 +27,7 @@ import L from "leaflet";
 import { useSelector } from "react-redux";
 import Geoman from "../components/Geoman";
 import EndFetchingData from "../components/EndFetchingData";
+import { SimpleMapScreenshoter } from "leaflet-simple-map-screenshoter";
 
 function GetIcon(_iconSize) {
 	return L.icon({
@@ -41,6 +44,17 @@ function GetPoint(_iconSize) {
 	});
 }
 
+const snapshotOptions = {
+	hideElementsWithSelectors: [
+		".leaflet-control-container",
+		".leaflet-dont-include-pane",
+		"#snapshot-button",
+	],
+	hidden: true,
+};
+
+const screenshotter = new SimpleMapScreenshoter(snapshotOptions);
+
 function MapEventsComponent() {
 	const {
 		setZoomLevel,
@@ -48,8 +62,16 @@ function MapEventsComponent() {
 		setMapCenter,
 		searchedLocation,
 		setMapBounds,
+		setMapRef,
 	} = useContext(MapContext);
 	const map = useMap();
+
+	useEffect(() => {
+		if (map) {
+			screenshotter.addTo(map);
+			setMapRef(map);
+		}
+	}, [map]);
 
 	useEffect(() => {
 		if (searchedLocation !== null) {
@@ -89,20 +111,18 @@ const DisableEdit = () => {
 DisableEdit();
 
 export default function App() {
-	const { zoomLevel, mapTile, solarTile, searchedLocation, measurementShape } =
-		useContext(MapContext);
+	const {
+		zoomLevel,
+		mapTile,
+		solarTile,
+		searchedLocation,
+		measurementShape,
+		mapCenter,
+	} = useContext(MapContext);
 	const layers = useSelector((state) => state.layers.array);
 	const arrExists = layers.map((el) => el.code);
 	const MapRef = useRef();
 	const [thisMap, setThisMap] = useState(null);
-
-	const data = [
-		[18.612798, 53.005923],
-		[18.617821, 53.005923],
-		[18.617821, 53.008545],
-		[18.612798, 53.008545],
-		[18.612798, 53.005923],
-	];
 
 	return (
 		<MapStyles>
@@ -139,6 +159,17 @@ export default function App() {
 
 					<MapEventsComponent />
 					<Geoman />
+
+					<CircleMarker
+						center={mapCenter}
+						pathOptions={{ color: "red" }}
+						defaultOptions=""
+						radius={10}
+						className="DisabledGEOJSON"
+						blocked={true}
+					>
+						<Popup>Popup in CircleMarker</Popup>
+					</CircleMarker>
 
 					{searchedLocation != null && (
 						<Marker

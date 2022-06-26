@@ -16,8 +16,6 @@ import {
 	MdManageSearch,
 	Md3DRotation,
 } from "react-icons/md";
-import { SiThreedotjs } from "react-icons/si";
-import { BrowserRouter as Route, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { MapContext } from "./GlobalContext";
 import { useMapEvents } from "react-leaflet";
@@ -74,6 +72,9 @@ const Menu = () => {
 
 	const navigate = useNavigate();
 	const navigateToPage = (page) => {
+		AllPanels.forEach((el) => {
+			el.style.clipPath = "circle(0% at 0 0)";
+		});
 		let type;
 		if (page === "/model") {
 			type = "3D";
@@ -255,6 +256,13 @@ const Menu = () => {
       Pierwsza z nich oparta jest o statystykę strefową, czyli pokazuje dopływ promieniowania słonecznego liczony ze średniej dla całego dachu. Jest to narzędzie stworzone z myślą o szybkim sprawdzeniu ilości dopływu promieniowania do danej powierzhcni.
       Wersja druga przeprowadza analizę dla narysowanego panelu poprzez wykorzystanie wcześniej już przygotowanych danych przestrzennych. Jest to proces który pobiera dane a następnie zlicza powierzchnię poszczegółnych przedziałów znajdujących się w panelu, wynik jest sumą ich średnich.
       `,
+		},
+		{
+			name: "Pobierz mapę",
+			fnc: "GetMap",
+			special: false,
+			ico: <MdDraw className="icon" />,
+			desc: ``,
 		},
 	];
 

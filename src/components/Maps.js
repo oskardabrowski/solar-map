@@ -19,6 +19,27 @@ const AllMaps = {
 			ico: <SiOpenstreetmap className="Map-tile-desc-ico" />,
 		},
 		{
+			code: "frhot",
+			url: "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
+			attribution:
+				'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>',
+			attributionCode: (
+				<>
+					&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>{" "}
+					contributors, Tiles style by{" "}
+					<a href="https://www.hotosm.org/" target="_blank">
+						Humanitarian OpenStreetMap Team
+					</a>{" "}
+					hosted by{" "}
+					<a href="https://openstreetmap.fr/" target="_blank">
+						OpenStreetMap France
+					</a>
+				</>
+			),
+			name: "Open Street Map HOT",
+			ico: <SiOpenstreetmap className="Map-tile-desc-ico" />,
+		},
+		{
 			code: "topo",
 			url: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
 			attribution:

@@ -280,8 +280,6 @@ const Geoman = () => {
 					`http://localhost:8080/Tiles/dist-parts/${districtPart}.json`
 				);
 				const data = await collection.json();
-				console.log(districtPart);
-				console.log(data);
 				await data.features.forEach(async (feature) => {
 					const polygon = turf.polygon(feature.geometry.coordinates[0]);
 					const result = await turf.booleanContains(polygon, geoLayer);
@@ -327,10 +325,7 @@ const Geoman = () => {
 	useEffect(() => {
 		if (!tools.includes("DrawTools")) {
 			map.pm.getGeomanLayers().forEach((layer) => {
-				if (
-					!layer.hasOwnProperty("defaultOptions") &&
-					layer.SolarPanel !== true
-				) {
+				if (layer.options?.blocked !== true && layer.SolarPanel !== true) {
 					map.removeLayer(layer);
 				}
 			});
