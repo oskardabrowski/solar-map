@@ -124,6 +124,8 @@ export default function App() {
 	const MapRef = useRef();
 	const [thisMap, setThisMap] = useState(null);
 
+	console.log(mapCenter);
+
 	return (
 		<MapStyles>
 			<MapContainer
@@ -163,13 +165,17 @@ export default function App() {
 					<CircleMarker
 						center={mapCenter}
 						pathOptions={{ color: "red" }}
-						defaultOptions=""
 						radius={10}
-						className="DisabledGEOJSON"
 						blocked={true}
-					>
-						<Popup>Popup in CircleMarker</Popup>
-					</CircleMarker>
+					></CircleMarker>
+
+					<Rectangle
+						bounds={[
+							[52.95, 18.56],
+							[53.07, 18.7],
+						]}
+						pathOptions={{ color: "red" }}
+					/>
 
 					{searchedLocation != null && (
 						<Marker
