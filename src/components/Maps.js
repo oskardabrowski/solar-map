@@ -2,6 +2,8 @@ import { SiOpenstreetmap } from "react-icons/si";
 import { RiMapFill } from "react-icons/ri";
 import { MdInsertPhoto } from "react-icons/md";
 
+export const devMode = false;
+
 const AllMaps = {
 	baseMaps: [
 		{
@@ -136,7 +138,8 @@ const AllMaps = {
 		},
 		{
 			code: "orto2021",
-			url: "http://localhost:8080/Tiles/Orto2021/{z}/{x}/{y}.png",
+			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/Orto2021/{z}/{x}/{y}.png",
+			devUrl: "http://localhost:8080/Tiles/Orto2021/{z}/{x}/{y}.png",
 			attribution:
 				"&copy; <a href='https://www.geoportal.gov.pl/'>geoportal.gov.pl</a>",
 			attributionCode: (
@@ -151,41 +154,37 @@ const AllMaps = {
 	layers: [
 		{
 			code: "Roofs",
-			url: "http://localhost:8080/Tiles/SolarRasterRoofs512/{z}/{x}/{y}.png",
-			googleDrive:
-				"https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SolarRasterRoofs512/{z}/{x}/{y}.png",
+			url: "https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SolarRasterRoofs512/{z}/{x}/{y}.png",
+			devUrl: "http://localhost:8080/Tiles/SolarRasterRoofs512/{z}/{x}/{y}.png",
 			name: "Klasyfikacja dachów",
 			ico: <RiMapFill className="Map-tile-desc-ico" />,
 		},
 		{
 			code: "All",
-			url: "http://localhost:8080/Tiles/SolarRasterAll256/{z}/{x}/{y}.png",
-			googleDrive:
-				"https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SolarRasterAll256/{z}/{x}/{y}.png",
+			url: "https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SolarRasterAll256/{z}/{x}/{y}.png",
+			devUrl: "http://localhost:8080/Tiles/SolarRasterAll256/{z}/{x}/{y}.png",
 			name: "Klasyfikacja powierzchni",
 			ico: <RiMapFill className="Map-tile-desc-ico" />,
 		},
 		{
 			code: "GradientAll",
-			url: "http://localhost:8080/Tiles/SolarRasterAllGradient256/{z}/{x}/{y}.png",
-			googleDrive:
-				"https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SolarRasterAllGradient256/{z}/{x}/{y}.png",
+			url: "https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SolarRasterAllGradient256/{z}/{x}/{y}.png",
+			devUrl:
+				"http://localhost:8080/Tiles/SolarRasterAllGradient256/{z}/{x}/{y}.png",
 			name: "Gradient powierzchni",
 			ico: <RiMapFill className="Map-tile-desc-ico" />,
 		},
 		{
 			code: "SkyView",
-			url: "http://localhost:8080/Tiles/SkyViewMap256/{z}/{x}/{y}.png",
-			googleDrive:
-				"https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SkyViewMap256/{z}/{x}/{y}.png",
+			url: "https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SkyViewMap256/{z}/{x}/{y}.png",
+			devUrl: "http://localhost:8080/Tiles/SkyViewMap256/{z}/{x}/{y}.png",
 			name: "Widoczność nieba",
 			ico: <RiMapFill className="Map-tile-desc-ico" />,
 		},
 		{
 			code: "Buildings",
-			url: "http://localhost:8080/Tiles/ObrysBDOT/{z}/{x}/{y}.png",
-			googleDrive:
-				"https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/SkyViewMap256/{z}/{x}/{y}.png",
+			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/ObrysBDOT/{z}/{x}/{y}.png",
+			devUrl: "http://localhost:8080/Tiles/ObrysBDOT/{z}/{x}/{y}.png",
 			name: "Obrysy Budynków",
 			ico: <RiMapFill className="Map-tile-desc-ico" />,
 		},

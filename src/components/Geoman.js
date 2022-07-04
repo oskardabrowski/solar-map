@@ -7,6 +7,7 @@ import "@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css";
 import * as turf from "@turf/turf";
 import swal from "sweetalert";
 import L from "leaflet";
+import { devMode } from "./Maps";
 
 const Geoman = () => {
 	const context = useLeafletContext();
@@ -40,10 +41,15 @@ const Geoman = () => {
 						const MeasurementsList = [];
 						let progress = 10;
 
+						const urlMode =
+							devMode == true
+								? "http://localhost:8080/Tiles/"
+								: "https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/";
+
 						await Promise.all(
 							SolarLayersList.map(async (el) => {
 								const data = await fetch(
-									`http://localhost:8080/Tiles/dist-parts/${panelLocationData.district}/${panelLocationData.districtPart}/${el}.json`
+									`${urlMode}dist-parts/${panelLocationData.district}/${panelLocationData.districtPart}/${el}.json`
 								);
 								if (data.status !== 200) {
 									swal(
@@ -269,6 +275,10 @@ const Geoman = () => {
 		};
 
 		const checkBuilding = async () => {
+			const urlMode =
+				devMode == true
+					? "http://localhost:8080/Tiles/"
+					: "https://nrfachowqojnxfsh6wd8qq.on.drv.tw/www.tiles/";
 			if (districtPart.length === 0) {
 				swal(
 					"Twój panel jest zbyt duży!",
@@ -277,7 +287,7 @@ const Geoman = () => {
 				);
 			} else {
 				const collection = await fetch(
-					`http://localhost:8080/Tiles/dist-parts/${districtPart}.json`
+					`${urlMode}dist-parts/${districtPart}.json`
 				);
 				const data = await collection.json();
 				await data.features.forEach(async (feature) => {

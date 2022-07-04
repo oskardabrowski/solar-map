@@ -26,6 +26,7 @@ import { addressDatabase } from "./database_js";
 import swal from "sweetalert";
 import { useSelector, useDispatch } from "react-redux";
 import { MapLayerActions } from "./LayersReducer";
+import { devMode } from "./Maps";
 
 function MapEventsComponent() {
 	const { zoomLevel, mapCenter } = useContext(MapContext); // initial zoom level provided for MapContainer
@@ -384,7 +385,7 @@ const Menu = () => {
 						}
 						name={mapel.name}
 						Events={<MapEventsComponent />}
-						url={mapel.url}
+						url={devMode == true ? mapel.devUrl : mapel.url}
 						// url={mapel.googleDrive}
 						attribution={""}
 						action={setSolarTile}

@@ -6,6 +6,7 @@ import React, {
 	Component,
 	Suspense,
 } from "react";
+import { useLeafletContext } from "@react-leaflet/core";
 import {
 	MapContainer,
 	TileLayer,
@@ -28,6 +29,7 @@ import { useSelector } from "react-redux";
 import Geoman from "../components/Geoman";
 import EndFetchingData from "../components/EndFetchingData";
 import { SimpleMapScreenshoter } from "leaflet-simple-map-screenshoter";
+import { devMode } from "../components/Maps";
 
 function GetIcon(_iconSize) {
 	return L.icon({
@@ -36,21 +38,13 @@ function GetIcon(_iconSize) {
 		iconAnchor: [25, 85],
 	});
 }
-function GetPoint(_iconSize) {
-	return L.icon({
-		iconUrl: require("../images/point.png"),
-		iconSize: [20, 20],
-		iconAnchor: [10, 10],
-	});
-}
-
 const snapshotOptions = {
 	hideElementsWithSelectors: [
-		".leaflet-control-container",
-		".leaflet-dont-include-pane",
-		"#snapshot-button",
+		// ".leaflet-control-container",
+		// ".leaflet-dont-include-pane",
+		// "#snapshot-button",
 	],
-	hidden: true,
+	hidden: false,
 };
 
 const screenshotter = new SimpleMapScreenshoter(snapshotOptions);
@@ -65,6 +59,7 @@ function MapEventsComponent() {
 		setMapRef,
 	} = useContext(MapContext);
 	const map = useMap();
+	const context = useLeafletContext();
 
 	useEffect(() => {
 		if (map) {
@@ -118,13 +113,12 @@ export default function App() {
 		searchedLocation,
 		measurementShape,
 		mapCenter,
+		mapRef,
 	} = useContext(MapContext);
 	const layers = useSelector((state) => state.layers.array);
 	const arrExists = layers.map((el) => el.code);
 	const MapRef = useRef();
 	const [thisMap, setThisMap] = useState(null);
-
-	console.log(mapCenter);
 
 	return (
 		<MapStyles>
@@ -162,7 +156,7 @@ export default function App() {
 					<MapEventsComponent />
 					<Geoman />
 
-					<CircleMarker
+					{/* <CircleMarker
 						center={mapCenter}
 						pathOptions={{ color: "red" }}
 						radius={10}
@@ -175,7 +169,7 @@ export default function App() {
 							[53.07, 18.7],
 						]}
 						pathOptions={{ color: "red" }}
-					/>
+					/> */}
 
 					{searchedLocation != null && (
 						<Marker
