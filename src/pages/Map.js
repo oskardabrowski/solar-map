@@ -61,12 +61,12 @@ function MapEventsComponent() {
 	const map = useMap();
 	const context = useLeafletContext();
 
-	useEffect(() => {
-		if (map) {
-			screenshotter.addTo(map);
-			setMapRef(map);
-		}
-	}, [map]);
+	// useEffect(() => {
+	// 	if (map) {
+	// 		screenshotter.addTo(map);
+	// 		setMapRef(map);
+	// 	}
+	// }, [map]);
 
 	useEffect(() => {
 		if (searchedLocation !== null) {
@@ -179,22 +179,44 @@ export default function App() {
 					)}
 
 					{/* Tile map layers */}
-					{AllMaps.layers.map((map, index) => (
+					{devMode === false && (
 						<>
-							{arrExists.includes(map.code) && (
-								<TileLayer
-									key={index}
-									url={map.url}
-									// url={map.googleDrive}
-									zIndex={10000 + arrExists.indexOf(map.code)}
-									minZoom={1}
-									maxZoom={28}
-									minNativeZoom={0}
-									maxNativeZoom={19}
-								/>
-							)}
+							{AllMaps.layers.map((map, index) => (
+								<>
+									{arrExists.includes(map.code) && (
+										<TileLayer
+											key={index}
+											url={map.url}
+											zIndex={10000 + arrExists.indexOf(map.code)}
+											minZoom={1}
+											maxZoom={28}
+											minNativeZoom={0}
+											maxNativeZoom={19}
+										/>
+									)}
+								</>
+							))}
 						</>
-					))}
+					)}
+					{devMode === true && (
+						<>
+							{AllMaps.layers.map((map, index) => (
+								<>
+									{arrExists.includes(map.code) && (
+										<TileLayer
+											key={index}
+											url={map.devUrl}
+											zIndex={10000 + arrExists.indexOf(map.code)}
+											minZoom={1}
+											maxZoom={28}
+											minNativeZoom={0}
+											maxNativeZoom={19}
+										/>
+									)}
+								</>
+							))}
+						</>
+					)}
 				</Suspense>
 
 				{/* Tile basemap layers */}

@@ -1,5 +1,6 @@
 import React from "react";
 import {
+	CityTile1,
 	N50,
 	N49,
 	N48,
@@ -58,7 +59,8 @@ import EndFetchingData from "../components/EndFetchingData";
 const CityModel = () => {
 	return (
 		<>
-			<N50 />
+			<CityTile1 />
+			{/* <N50 />
 			<N49 />
 			<N48 />
 			<N47 />
@@ -109,7 +111,7 @@ const CityModel = () => {
 			<N4 />
 			<N3 />
 			<N2 />
-			<N1 />
+			<N1 /> */}
 		</>
 	);
 };

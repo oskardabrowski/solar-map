@@ -30,7 +30,7 @@ const Model = () => {
 	return (
 		<ThreeModel>
 			<Suspense className="Center" fallback={<DataLoader />}>
-				<Canvas>
+				<Canvas camera={{ fov: 50, position: [-10, 45, 20] }}>
 					<CityModel />
 					{skyHDR === "Terrain" && (
 						<Environment
