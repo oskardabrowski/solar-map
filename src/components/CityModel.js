@@ -1,6 +1,7 @@
 import React from "react";
 import {
 	CityTile1,
+	CityTile2,
 	N50,
 	N49,
 	N48,
@@ -60,6 +61,7 @@ const CityModel = () => {
 	return (
 		<>
 			<CityTile1 />
+			<CityTile2 />
 			{/* <N50 />
 			<N49 />
 			<N48 />
