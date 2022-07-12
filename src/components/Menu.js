@@ -208,7 +208,7 @@ const Menu = () => {
 
 	const SecondDimensionVersionButtons = [
 		{
-			name: "Wyszukaj daną lokalizację",
+			name: "Wyszukaj adres",
 			ico: <IoSearch />,
 			code: "PanelSearch",
 		},

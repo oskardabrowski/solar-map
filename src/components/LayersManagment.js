@@ -26,7 +26,6 @@ const LayersManagment = () => {
 	const [size, setSize] = useState(400);
 	const sizeRef = useRef(null);
 	const [activeLayers, setActiveLayers] = useState(["Roofs"]);
-	// const activeLayers = useRef(["Roofs"]);
 	const [activeLegends, setActiveLegends] = useState(["Roofs"]);
 
 	const { generalLegendSeen, removeTool } = useContext(MapContext);

@@ -34,6 +34,21 @@ export const CityTile2 = () => {
 		</>
 	);
 };
+export const CityTile3 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[2].devUrl : AllMaps.models[2].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={0.945}
+				position={[39.3, -0.95, 0.5]}
+			/>
+		</>
+	);
+};
 // export const N50 = () => {
 // 	const gltf = useLoader(GLTFLoader, "./Models/SurfaceFragments/n50.gltf");
 // 	return (
