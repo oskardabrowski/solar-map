@@ -6,9 +6,10 @@ import {
 	BsArrowRightShort,
 	BsFillInfoCircleFill,
 	BsRulers,
+	BsFillCloudDownloadFill,
 } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
-import { AiFillTool, AiOutlineCheck } from "react-icons/ai";
+import { AiFillTool, AiOutlineCheck, AiFillPrinter } from "react-icons/ai";
 import {
 	MdPhoto,
 	MdCheckBoxOutlineBlank,
@@ -260,10 +261,10 @@ const Menu = () => {
 		},
 		{
 			name: "Pobierz mapę",
-			fnc: "GetMap",
+			fnc: "Print",
 			special: false,
-			ico: <MdDraw className="icon" />,
-			desc: ``,
+			ico: <BsFillCloudDownloadFill className="icon" />,
+			desc: `Narzędzie pozwalające pobrać aktualny widok mapy do formatu PDF.`,
 		},
 	];
 

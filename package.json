@@ -7,6 +7,8 @@
     "@emotion/styled": "^11.8.1",
     "@geoman-io/leaflet-geoman-free": "^2.13.0",
     "@mui/material": "^5.8.3",
+    "@progress/kendo-drawing": "^1.16.3",
+    "@progress/kendo-react-pdf": "^5.5.0",
     "@react-three/drei": "^8.0.0",
     "@react-three/fiber": "^7.0.27",
     "@redux-devtools/core": "^3.12.0",

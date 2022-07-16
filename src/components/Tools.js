@@ -6,6 +6,7 @@ import DrawMeasurement from "./DrawMeasurement";
 import InfoWindow from "./InfoWindow";
 import DrawPanel from "./DrawPanel";
 import CoordsAtr from "./CoordsAtr";
+import SelectMapPart from "./SelectMapPart";
 
 const Tools = () => {
 	const { tools, infoOpen } = useContext(MapContext);
@@ -16,6 +17,7 @@ const Tools = () => {
 			{tools.includes("DrawTools") && <DrawMeasurement />}
 			{tools.includes("DrawPanel") && <DrawPanel />}
 			{tools.includes("Coords") && <CoordsAtr />}
+			{tools.includes("Print") && <SelectMapPart />}
 			{infoOpen === true && <InfoWindow />}
 		</>
 	);

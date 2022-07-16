@@ -30,6 +30,7 @@ const MapProvider = ({ children }) => {
 	const [solarCalculationProgress, setSolarCalculationProgress] = useState(0);
 	const [isAppLoading, setIsAppLoading] = useState(true);
 	const [mapRef, setMapRef] = useState();
+	const [takeScreen, setTakeScreen] = useState(false);
 
 	const removeTool = (tool) => {
 		const toolsArr = tools.filter((el) => el != tool);
@@ -90,6 +91,8 @@ const MapProvider = ({ children }) => {
 				setIsAppLoading,
 				mapRef,
 				setMapRef,
+				takeScreen,
+				setTakeScreen,
 			}}
 		>
 			{children}

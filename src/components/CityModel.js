@@ -3,6 +3,7 @@ import {
 	CityTile1,
 	CityTile2,
 	CityTile3,
+	CityTile4,
 	N50,
 	N49,
 	N48,
@@ -64,6 +65,7 @@ const CityModel = () => {
 			<CityTile1 />
 			<CityTile2 />
 			<CityTile3 />
+			<CityTile4 />
 			{/* <N50 />
 			<N49 />
 			<N48 />

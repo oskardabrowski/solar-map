@@ -44,7 +44,7 @@ const snapshotOptions = {
 		// ".leaflet-dont-include-pane",
 		// "#snapshot-button",
 	],
-	hidden: false,
+	hidden: true,
 };
 
 const screenshotter = new SimpleMapScreenshoter(snapshotOptions);
@@ -57,16 +57,70 @@ function MapEventsComponent() {
 		searchedLocation,
 		setMapBounds,
 		setMapRef,
+		takeScreen,
 	} = useContext(MapContext);
 	const map = useMap();
 	const context = useLeafletContext();
 
-	// useEffect(() => {
-	// 	if (map) {
-	// 		screenshotter.addTo(map);
-	// 		setMapRef(map);
-	// 	}
-	// }, [map]);
+	useEffect(() => {
+		if (map) {
+			screenshotter.addTo(map);
+			setMapRef(map);
+		}
+	}, [map]);
+
+	useEffect(() => {
+		if (takeScreen == true) {
+			takeScreenShot();
+		}
+	}, [takeScreen]);
+
+	const takeScreenShot = () => {
+		// const featureBounds = greekborder.getBounds().pad(0.1);
+
+		// const nw = featureBounds.getNorthWest();
+		// const se = featureBounds.getSouthEast();
+		// const topLeft = map.latLngToContainerPoint(nw);
+		// const bottomRight = map.latLngToContainerPoint(se);
+
+		// const imageSize = bottomRight.subtract(topLeft);
+		screenshotter.takeScreen("image").then((image) => {
+			var img = new Image();
+
+			img.onload = () => {
+				const canvas = document.createElement("canvas");
+				const ctx = canvas.getContext("2d");
+				canvas.width = 210;
+				canvas.height = 297;
+				canvas.style.background = "skyblue";
+				// from https://stackoverflow.com/questions/26015497/how-to-resize-then-crop-an-image-with-canvas
+				ctx.drawImage(
+					img,
+					window.innerWidth / 2 - 210,
+					window.innerHeight / 2 - 297,
+					420,
+					594,
+					0,
+					0,
+					210,
+					297
+				);
+
+				var imageurl = canvas.toDataURL("image/png");
+				const resultantImage = new Image();
+				resultantImage.style = "border: 1px solid black";
+				resultantImage.src = imageurl;
+
+				document.querySelector(".MapCanvasContainer").appendChild(canvas);
+
+				// canvas.toBlob(function (blob) {
+				// 	// saveAs function installed as part of leaflet snapshot package
+				// 	saveAs(blob, "greek_border.png");
+				// });
+			};
+			img.src = image;
+		});
+	};
 
 	useEffect(() => {
 		if (searchedLocation !== null) {

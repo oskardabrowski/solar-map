@@ -4,6 +4,7 @@ import AppLogo from "../images/SolarMapLogo.svg";
 import UnivesityLogo from "../images/UMKAkronimLogo.svg";
 import Loader from "./Loader";
 import { MapContext } from "./GlobalContext";
+import PDFGenerator from "./PDFGenerator";
 
 const Head = styled.header`
 	width: 100%;
@@ -29,7 +30,7 @@ const Head = styled.header`
 
 const Header = () => {
 	const ToolsContainerRef = useRef();
-	const { isAppLoading } = useContext(MapContext);
+	const { isAppLoading, takeScreen } = useContext(MapContext);
 	useEffect(() => {
 		setTimeout(() => {
 			const DocumentTools = document.querySelector(".leaflet-pm-draw");
@@ -44,6 +45,8 @@ const Header = () => {
 			<img className="UniversityLogo" src={UnivesityLogo} alt={UnivesityLogo} />
 			<div className="ToolsContainer" ref={ToolsContainerRef}></div>
 			<Loader />
+			{takeScreen ? <PDFGenerator /> : ""}
+			{/* <PDFGenerator /> */}
 		</Head>
 	);
 };

@@ -205,6 +205,12 @@ const AllMaps = {
 		{
 			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/GLTF/CityGltfTile3.gltf",
 			devUrl: "http://localhost:8080/Tiles/GLTF/CityGltfTile3.gltf",
+			position: [39.3, -0.95, 0.5],
+			scale: 0.945,
+		},
+		{
+			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/GLTF/CityGltfTile4.gltf",
+			devUrl: "http://localhost:8080/Tiles/GLTF/CityGltfTile4.gltf",
 			position: [-26.5, -0.01, 0],
 			scale: 1,
 		},
