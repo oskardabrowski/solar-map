@@ -1,8 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import styled from "styled-components";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import SolarMapLogo from "../images/SolarMapLogo.png";
+import { MapContext } from "./GlobalContext";
 
+const CloseBtn = () => {
+	const { setTakeScreen } = useContext(MapContext);
+	return (
+		<button onClick={() => setTakeScreen(false)} className="ExportMenu-Exit">
+			Wróć
+		</button>
+	);
+};
 class PDFGenerator extends Component {
 	map;
 
@@ -17,9 +26,12 @@ class PDFGenerator extends Component {
 	render() {
 		return (
 			<PDFWindow>
-				<button onClick={this.exportPDF} className="ExportBtn">
-					Download PDF
-				</button>
+				<div className="ExportMenu">
+					<button onClick={this.exportPDF} className="ExportMenu-Download">
+						Pobierz PDF
+					</button>
+					<CloseBtn />
+				</div>
 				<PDFExport
 					paperSize={"Letter"}
 					fileName="MapTest.pdf"
@@ -51,7 +63,6 @@ const PDFWindow = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	overflow-y: scroll;
 	/* padding: 3rem 0rem; */
 
 	.PaperA4 {
@@ -71,10 +82,32 @@ const PDFWindow = styled.div`
 		z-index: 100000000;
 	}
 
-	.ExportBtn {
+	.ExportMenu {
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: 5rem;
+		left: 10rem;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: space-evenly;
+		width: 12.5rem;
+		height: 5rem;
+
+		& > button {
+			padding: 0.5rem 0rem;
+			border: none;
+			border-radius: 50rem;
+			font-family: "Work Sans";
+			color: black;
+			background-color: white;
+			transition: all 0.5s ease-in-out;
+
+			&:hover {
+				color: white;
+				background-color: #001f45;
+				cursor: pointer;
+			}
+		}
 	}
 
 	.MapCanvasContainer {

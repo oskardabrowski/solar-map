@@ -90,8 +90,8 @@ function MapEventsComponent() {
 			img.onload = () => {
 				const canvas = document.createElement("canvas");
 				const ctx = canvas.getContext("2d");
-				canvas.width = 210;
-				canvas.height = 297;
+				canvas.width = 420;
+				canvas.height = 594;
 				canvas.style.background = "skyblue";
 				// from https://stackoverflow.com/questions/26015497/how-to-resize-then-crop-an-image-with-canvas
 				ctx.drawImage(
@@ -102,8 +102,8 @@ function MapEventsComponent() {
 					594,
 					0,
 					0,
-					210,
-					297
+					420,
+					594
 				);
 
 				var imageurl = canvas.toDataURL("image/png");
