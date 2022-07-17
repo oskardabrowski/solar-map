@@ -273,7 +273,7 @@ const LMWindow = styled.div`
 	top: 80px;
 	right: 350px;
 	width: 20rem;
-	z-index: 5000;
+	z-index: 500000;
 	background-color: white;
 	display: flex;
 	flex-direction: column;

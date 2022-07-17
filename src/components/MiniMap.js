@@ -81,7 +81,7 @@ const Container = styled.div`
 	background-color: white;
 	bottom: 2rem;
 	right: 0.5rem;
-	z-index: 4000;
+	z-index: 500000;
 	border-radius: 15px;
 	overflow: hidden;
 

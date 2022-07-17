@@ -46,7 +46,6 @@ const Header = () => {
 			<div className="ToolsContainer" ref={ToolsContainerRef}></div>
 			<Loader />
 			{takeScreen ? <PDFGenerator /> : ""}
-			{/* <PDFGenerator /> */}
 		</Head>
 	);
 };

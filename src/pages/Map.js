@@ -97,7 +97,7 @@ function MapEventsComponent() {
 				ctx.drawImage(
 					img,
 					window.innerWidth / 2 - 210,
-					window.innerHeight / 2 - 297,
+					window.innerHeight / 2 - 320,
 					420,
 					594,
 					0,

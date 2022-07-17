@@ -60,8 +60,9 @@ const Menu = () => {
 		setInfoOpen,
 		isAppLoading,
 		setIsAppLoading,
+		show,
+		setShow,
 	} = useContext(MapContext);
-	const [show, setShow] = useState(false);
 	const [activePanel, setActivePanel] = useState("");
 	const AllPanels = document.querySelectorAll(".PanelData");
 	const [suggestions, setSuggestions] = useState([]);

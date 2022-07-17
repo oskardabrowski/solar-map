@@ -13,7 +13,20 @@ const SelectMapPart = () => {
 	const EditionRef = useRef();
 	const [opened, setOpened] = useState(true);
 	const [toolsSet, setToolsSet] = useState(false);
-	const { removeTool, setTakeScreen } = useContext(MapContext);
+	const {
+		removeTool,
+		setTakeScreen,
+		showCross,
+		setShowCross,
+		showPrintBorders,
+		setPrintBorders,
+	} = useContext(MapContext);
+
+	const RemoveToolHandler = () => {
+		removeTool("Print");
+		setShowCross(false);
+		setPrintBorders(false);
+	};
 
 	return (
 		<DraggableComponent nodeRef={window} handle="div.PanelTitle">
@@ -28,7 +41,7 @@ const SelectMapPart = () => {
 						</button>
 						<span>Pobierz mapę</span>
 					</div>
-					<button class="BtnClose">
+					<button class="BtnClose" onClick={() => RemoveToolHandler()}>
 						<IoMdClose />
 					</button>
 				</div>
@@ -36,7 +49,13 @@ const SelectMapPart = () => {
 					ref={EditionRef}
 					className={`Content ${opened && "ContentOpened"}`}
 				>
-					<button onClick={() => setTakeScreen(true)}>Download</button>
+					<button onClick={() => setTakeScreen(true)}>Pobierz PDF</button>
+					<button onClick={() => setShowCross(!showCross)}>
+						Wyświetl celownik
+					</button>
+					<button onClick={() => setPrintBorders(!showPrintBorders)}>
+						Wyświetl granice
+					</button>
 				</div>
 			</LMWindow>
 		</DraggableComponent>
@@ -50,7 +69,7 @@ const LMWindow = styled.div`
 	top: 80px;
 	right: 350px;
 	width: 20rem;
-	z-index: 5000;
+	z-index: 500000;
 	background-color: white;
 	display: flex;
 	flex-direction: column;
@@ -108,6 +127,23 @@ const LMWindow = styled.div`
 		display: flex;
 		flex-direction: column;
 		transition: max-height 0.75s ease-in-out;
+		background-color: white;
+
+		& > button {
+			padding: 0.75rem 0rem;
+			border: none;
+			font-family: "Work Sans";
+			transition: all 0.5s ease-in-out;
+			&:nth-child(2) {
+				border-top: 1px solid grey;
+				border-bottom: 1px solid grey;
+			}
+
+			&:hover {
+				background-color: #c1c1c1;
+				cursor: pointer;
+			}
+		}
 	}
 
 	.ContentOpened {

@@ -31,6 +31,9 @@ const MapProvider = ({ children }) => {
 	const [isAppLoading, setIsAppLoading] = useState(true);
 	const [mapRef, setMapRef] = useState();
 	const [takeScreen, setTakeScreen] = useState(false);
+	const [show, setShow] = useState(false);
+	const [showCross, setShowCross] = useState(false);
+	const [showPrintBorders, setPrintBorders] = useState(false);
 
 	const removeTool = (tool) => {
 		const toolsArr = tools.filter((el) => el != tool);
@@ -93,6 +96,12 @@ const MapProvider = ({ children }) => {
 				setMapRef,
 				takeScreen,
 				setTakeScreen,
+				show,
+				setShow,
+				showCross,
+				setShowCross,
+				showPrintBorders,
+				setPrintBorders,
 			}}
 		>
 			{children}
