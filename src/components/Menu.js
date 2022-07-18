@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import styled from "styled-components";
 import { IoLayers, IoSearch, IoMap, IoImages } from "react-icons/io5";
+import { IoIosAirplane } from "react-icons/io";
 import {
 	BsArrowLeftShort,
 	BsArrowRightShort,
@@ -17,6 +18,7 @@ import {
 	MdManageSearch,
 	Md3DRotation,
 } from "react-icons/md";
+import { GiOrbit } from "react-icons/gi";
 import { useNavigate } from "react-router-dom";
 import { MapContext } from "./GlobalContext";
 import { useMapEvents } from "react-leaflet";
@@ -28,6 +30,9 @@ import swal from "sweetalert";
 import { useSelector, useDispatch } from "react-redux";
 import { MapLayerActions } from "./LayersReducer";
 import { devMode } from "./Maps";
+import DefaultSky from "../images/DefaultSky.png";
+import CloudSky from "../images/CloudSky.png";
+import ClearSky from "../images/ClearSky.png";
 
 function MapEventsComponent() {
 	const { zoomLevel, mapCenter } = useContext(MapContext); // initial zoom level provided for MapContainer
@@ -62,6 +67,8 @@ const Menu = () => {
 		setIsAppLoading,
 		show,
 		setShow,
+		flight,
+		setFlight,
 	} = useContext(MapContext);
 	const [activePanel, setActivePanel] = useState("");
 	const AllPanels = document.querySelectorAll(".PanelData");
@@ -219,9 +226,12 @@ const Menu = () => {
 		{ name: "Mapy bazowe", ico: <IoMap />, code: "Map" },
 	];
 	const ThirdDimensionVersionButtons = [
-		{ name: "Modele", ico: <IoLayers />, code: "Models" },
-		{ name: "Zdjęcia w tle", ico: <IoImages />, code: "Photos" },
-		{ name: "Narzędzia", ico: <AiFillTool />, code: "3DTools" },
+		{
+			name: "Zdjęcia w tle",
+			ico: <IoImages />,
+			code: "Photos",
+			fn: PanelHandler,
+		},
 	];
 
 	const ToolsButtons = [
@@ -303,6 +313,29 @@ const Menu = () => {
 				)}
 				{show && mapType === "3D" ? (
 					<>
+						{flight ? (
+							<button
+								className="buttons-btn"
+								onClick={() => setFlight(false)}
+								title={"Swobodny lot"}
+							>
+								{<GiOrbit />}
+								<div className="buttons-btn-desc">
+									<span>Orbita</span>
+								</div>
+							</button>
+						) : (
+							<button
+								className="buttons-btn"
+								onClick={() => setFlight(true)}
+								title={"Swobodny lot"}
+							>
+								{<IoIosAirplane />}
+								<div className="buttons-btn-desc">
+									<span>Swobodny lot</span>
+								</div>
+							</button>
+						)}
 						{ThirdDimensionVersionButtons.map((el, index) => (
 							<PanelBtn
 								key={index}
@@ -334,16 +367,25 @@ const Menu = () => {
 			<div className="PanelData Panel Models">Here is models panel</div>
 			<div className="PanelData Panel Photos">
 				<button className="Map-tile" onClick={() => setSkyHDR("Terrain")}>
-					<MdPhoto className="Map-tile-ico" />
-					<span>Domyślny</span>
+					<div className="Map-tile-photoDesc">
+						<MdPhoto className="Map-tile-ico" />
+						<span>Domyślny</span>
+					</div>
+					<img className="Map-tile-image" src={DefaultSky} alt="" />
 				</button>
 				<button className="Map-tile" onClick={() => setSkyHDR("Sunflowers")}>
-					<MdPhoto className="Map-tile-ico" />
-					<span>Zachmurzony</span>
+					<div className="Map-tile-photoDesc">
+						<MdPhoto className="Map-tile-ico" />
+						<span>Zachmurzony</span>
+					</div>
+					<img className="Map-tile-image" src={CloudSky} alt="" />
 				</button>
 				<button className="Map-tile" onClick={() => setSkyHDR("Clear")}>
-					<MdPhoto className="Map-tile-ico" />
-					<span>Czysty</span>
+					<div className="Map-tile-photoDesc">
+						<MdPhoto className="Map-tile-ico" />
+						<span>Czysty</span>
+					</div>
+					<img className="Map-tile-image" src={ClearSky} alt="" />
 				</button>
 			</div>
 			<div className="PanelData Panel 3DTools">Here is 3D Tools panel</div>
@@ -625,6 +667,19 @@ const MenuBar = styled.div`
 			overflow: hidden;
 			border: 2px solid white;
 			background-color: white;
+
+			&-image {
+				width: 12.5rem;
+				height: 7.5rem;
+				border-radius: 15px;
+				overflow: hidden;
+			}
+
+			&-photoDesc {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 
 			&-desc {
 				width: max-content;

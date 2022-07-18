@@ -15,7 +15,7 @@ const Loader = () => {
 				setTimeout(() => {
 					loader.current.style.clipPath =
 						"polygon(100% 0, 100% 0, 100% 100%, 100% 100%)";
-				}, 510);
+				}, 1000);
 			}, 1000);
 		}
 	}, [isAppLoading]);

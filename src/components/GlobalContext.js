@@ -34,6 +34,7 @@ const MapProvider = ({ children }) => {
 	const [show, setShow] = useState(false);
 	const [showCross, setShowCross] = useState(false);
 	const [showPrintBorders, setPrintBorders] = useState(false);
+	const [flight, setFlight] = useState(false);
 
 	const removeTool = (tool) => {
 		const toolsArr = tools.filter((el) => el != tool);
@@ -102,6 +103,8 @@ const MapProvider = ({ children }) => {
 				setShowCross,
 				showPrintBorders,
 				setPrintBorders,
+				flight,
+				setFlight,
 			}}
 		>
 			{children}

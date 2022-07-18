@@ -34,7 +34,7 @@ class PDFGenerator extends Component {
 				</div>
 				<PDFExport
 					paperSize={"Letter"}
-					fileName="MapTest.pdf"
+					fileName="Map.pdf"
 					title=""
 					subject=""
 					keywords=""

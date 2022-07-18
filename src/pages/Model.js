@@ -2,7 +2,7 @@ import React, { Suspense, useContext, useEffect } from "react";
 import styled from "styled-components";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Canvas, useLoader } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls, FlyControls } from "@react-three/drei";
 import CityModel from "../components/CityModel";
 import { MapContext } from "../components/GlobalContext";
 import EndFetchingData from "../components/EndFetchingData";
@@ -25,7 +25,7 @@ const DataLoader = () => {
 };
 
 const Model = () => {
-	const { skyHDR } = useContext(MapContext);
+	const { skyHDR, flight } = useContext(MapContext);
 
 	return (
 		<ThreeModel>
@@ -49,7 +49,18 @@ const Model = () => {
 					{skyHDR === "Clear" && (
 						<Environment background={true} files={"clear.hdr"} path={"/HDR/"} />
 					)}
-					<OrbitControls />
+
+					{flight ? (
+						<FlyControls
+							enableDamping={false}
+							movementSpeed={5}
+							rollSpeed={0.5}
+							dragToLook={true}
+							makeDefault={0}
+						/>
+					) : (
+						<OrbitControls />
+					)}
 				</Canvas>
 				<EndFetchingData />
 			</Suspense>
