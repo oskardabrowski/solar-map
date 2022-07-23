@@ -3,6 +3,7 @@
 /public/SolarTest
 /public/WhiteTest
 /public/WhiteTest2
+/tests/node_modules
 # dependencies
 /node_modules
 /.pnp

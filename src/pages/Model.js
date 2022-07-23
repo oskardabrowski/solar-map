@@ -1,6 +1,5 @@
 import React, { Suspense, useContext, useEffect } from "react";
 import styled from "styled-components";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Canvas, useLoader } from "@react-three/fiber";
 import { Environment, OrbitControls, FlyControls } from "@react-three/drei";
 import CityModel from "../components/CityModel";

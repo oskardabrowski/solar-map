@@ -2,7 +2,7 @@ import { SiOpenstreetmap } from "react-icons/si";
 import { RiMapFill } from "react-icons/ri";
 import { MdInsertPhoto } from "react-icons/md";
 
-export const devMode = false;
+export const devMode = true;
 
 const AllMaps = {
 	baseMaps: [

@@ -15,7 +15,7 @@ function App() {
 		<ReduxProvider>
 			<MapProvider>
 				<Router>
-					<Container>
+					<Container id="AppContainer">
 						<Tools />
 						<Header />
 						<div className="appBody">

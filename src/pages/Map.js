@@ -159,23 +159,15 @@ const DisableEdit = () => {
 };
 DisableEdit();
 
-export default function App() {
-	const {
-		zoomLevel,
-		mapTile,
-		solarTile,
-		searchedLocation,
-		measurementShape,
-		mapCenter,
-		mapRef,
-	} = useContext(MapContext);
+export default function Map() {
+	const { mapTile, searchedLocation } = useContext(MapContext);
 	const layers = useSelector((state) => state.layers.array);
 	const arrExists = layers.map((el) => el.code);
 	const MapRef = useRef();
 	const [thisMap, setThisMap] = useState(null);
 
 	return (
-		<MapStyles>
+		<MapStyles id="MapContainer">
 			<MapContainer
 				className={`flatmap`}
 				center={[53.01, 18.63]}

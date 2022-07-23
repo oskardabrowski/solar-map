@@ -280,7 +280,7 @@ const Menu = () => {
 	];
 
 	return (
-		<MenuBar>
+		<MenuBar id="MenuBar">
 			<div className="hideShow">
 				<button onClick={() => setShow(!show)}>
 					{show ? <BsArrowLeftShort /> : <BsArrowRightShort />}
