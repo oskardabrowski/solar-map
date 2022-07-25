@@ -36,8 +36,6 @@
     "react-icons": "^4.3.1",
     "react-is": "16.8",
     "react-leaflet": "^3.2.5",
-    "react-leaflet-draw": "^0.19.8",
-    "react-leaflet-easyprint": "^2.0.0",
     "react-loader-spinner": "^5.1.5",
     "react-redux": "^8.0.1",
     "react-resizable": "^3.0.4",
