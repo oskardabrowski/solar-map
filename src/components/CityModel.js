@@ -65,9 +65,9 @@ const CityModel = () => {
 		<>
 			<CityTile1 />
 			<CityTile2 />
-			<CityTile3 />
-			<CityTile4 />
-			<CityTile5 />
+			{/* <CityTile3 /> */}
+			{/* <CityTile4 /> */}
+			{/* <CityTile5 /> */}
 			{/* <N50 />
 			<N49 />
 			<N48 />

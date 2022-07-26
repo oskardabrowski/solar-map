@@ -28,8 +28,8 @@ export const CityTile2 = () => {
 		<>
 			<primitive
 				object={gltf.scene}
-				scale={AllMaps.models[1].scale}
-				position={AllMaps.models[1].position}
+				scale={0.943}
+				position={[-26.425, -0.0, 0.29]}
 			/>
 		</>
 	);

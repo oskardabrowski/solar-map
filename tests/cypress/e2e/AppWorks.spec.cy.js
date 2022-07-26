@@ -32,17 +32,56 @@ describe("Searching works", () => {
 		SuggestionsPanel.get("div.PanelSearch-suggestions-suggestion").each(
 			(el, index) => {
 				if (index === 2) {
-					console.log(el);
 					el.click();
 				}
 			}
 		);
 		cy.get("img.leaflet-marker-icon").should("be.visible");
 
-		cy.wait(2250);
+		cy.wait(1000);
 
 		cy.get("button[title='Wyszukaj adres']").click();
 
 		cy.get("img.leaflet-marker-icon").should("not.exist");
+	});
+});
+
+describe("Tiles works", () => {
+	it("passes", () => {
+		const Button = cy.get("button[title='Warstwy tematyczne']");
+		Button.click();
+
+		const span = cy.contains("span", "Klasyfikacja powierzchni");
+		const AreaClasses = span.parent().parent();
+
+		AreaClasses.click();
+
+		cy.wait(3000);
+		cy.contains("span", "Klasyfikacja powierzchni").parent().parent().click();
+
+		const span2 = cy.contains("span", "Gradient powierzchni");
+		const AreaGradient = span2.parent().parent();
+
+		AreaGradient.click();
+
+		cy.wait(3000);
+		cy.contains("span", "Gradient powierzchni").parent().parent().click();
+
+		const span3 = cy.contains("span", "Widoczność nieba");
+		const AreaView = span3.parent().parent();
+
+		AreaView.click();
+
+		cy.wait(3000);
+		cy.contains("span", "Widoczność nieba").parent().parent().click();
+
+		const span4 = cy.contains("span", "Obrysy Budynków");
+		const AreaBorders = span4.parent().parent();
+
+		AreaBorders.click();
+
+		cy.wait(3000);
+		cy.contains("span", "Obrysy Budynków").parent().parent().click();
+		cy.get("button[title='Warstwy tematyczne']").click();
 	});
 });
