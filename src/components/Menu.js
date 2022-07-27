@@ -8,6 +8,7 @@ import {
 	BsFillInfoCircleFill,
 	BsRulers,
 	BsFillCloudDownloadFill,
+	BsFillPinMapFill,
 } from "react-icons/bs";
 import { HiLocationMarker } from "react-icons/hi";
 import { AiFillTool, AiOutlineCheck, AiFillPrinter } from "react-icons/ai";
@@ -346,7 +347,7 @@ const Menu = () => {
 							/>
 						))}
 						<button onClick={() => navigateToPage("/")} className="buttons-btn">
-							<IoMap />
+							<BsFillPinMapFill />
 							<div className="buttons-btn-desc">
 								<span>Wersja dwuwymiarowa</span>
 							</div>

@@ -105,23 +105,6 @@ const AllMaps = {
 			ico: <RiMapFill className="Map-tile-desc-ico" />,
 		},
 		{
-			code: "stamentonerlite",
-			url: "https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}{r}.png",
-			attribution:
-				'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-			attributionCode: (
-				<>
-					Map tiles by <a href="http://stamen.com">Stamen Design</a>,{" "}
-					<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>{" "}
-					&mdash; Map data &copy;{" "}
-					<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>{" "}
-					contributors
-				</>
-			),
-			name: "Stamen Toner Lite",
-			ico: <RiMapFill className="Map-tile-desc-ico" />,
-		},
-		{
 			code: "esriworldimagery",
 			url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
 			attribution:

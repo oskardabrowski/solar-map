@@ -71,11 +71,7 @@ export const CityTile5 = () => {
 	);
 	return (
 		<>
-			<primitive
-				object={gltf.scene}
-				scale={0.98}
-				position={[3.25, -0.08, 46.8]}
-			/>
+			<primitive object={gltf.scene} scale={1} position={[3.25, 0.1005, 47]} />
 		</>
 	);
 };
