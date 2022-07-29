@@ -94,3 +94,18 @@ export const CityTile6 = () => {
 		</>
 	);
 };
+export const CityTile7 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[6].devUrl : AllMaps.models[6].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={0.895}
+				position={[57.5, -0.15, -46.81]}
+			/>
+		</>
+	);
+};

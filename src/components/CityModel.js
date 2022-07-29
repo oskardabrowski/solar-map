@@ -6,6 +6,7 @@ import {
 	CityTile4,
 	CityTile5,
 	CityTile6,
+	CityTile7,
 } from "./Single3DModels/Surface";
 import EndFetchingData from "../components/EndFetchingData";
 
@@ -18,6 +19,7 @@ const CityModel = () => {
 			<CityTile4 />
 			<CityTile5 />
 			<CityTile6 />
+			<CityTile7 />
 		</>
 	);
 };
