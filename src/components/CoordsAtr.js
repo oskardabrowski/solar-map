@@ -191,25 +191,25 @@ const CoordsAtr = () => {
 	}, [coords]);
 
 	return (
-		<Wrapper>
+		<Wrapper id="CoordsLabel">
 			<div>
 				<form>
-					<select onChange={(e) => setProjFc(e)}>
+					<select id="CoordsSelection" onChange={(e) => setProjFc(e)}>
 						<option value="84">WGS 84</option>
 						<option value="92">PUWG 1992</option>
 						<option value="2000">PL 2000</option>
 					</select>
 				</form>
 			</div>
-			<div>
+			<div id="CoordsSelection84">
 				{proj === "84" && `${coords.lng.toFixed(4)}, `}
 				{proj === "84" && `${coords.lat.toFixed(4)}`}
 			</div>
-			<div>
+			<div id="CoordsSelection92">
 				{proj === "92" && `${puwg92[0].toFixed(4)}, `}
 				{proj === "92" && `${puwg92[1].toFixed(4)}`}
 			</div>
-			<div>
+			<div id="CoordsSelection2000">
 				{proj === "2000" && `${pl2000[0].toFixed(4)}, `}
 				{proj === "2000" && `${pl2000[1].toFixed(4)}`}
 			</div>
