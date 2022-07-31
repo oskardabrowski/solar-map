@@ -8,8 +8,8 @@ import {
 	CityTile6,
 	CityTile7,
 	CityTile8,
+	CityTile9,
 } from "./Single3DModels/Surface";
-import EndFetchingData from "../components/EndFetchingData";
 
 const CityModel = () => {
 	return (
@@ -22,6 +22,7 @@ const CityModel = () => {
 			<CityTile6 />
 			<CityTile7 />
 			<CityTile8 />
+			<CityTile9 />
 		</>
 	);
 };
