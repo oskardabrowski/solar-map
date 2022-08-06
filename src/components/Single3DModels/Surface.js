@@ -223,8 +223,53 @@ export const CityTile15 = () => {
 		<>
 			<primitive
 				object={gltf.scene}
-				scale={0.8975}
-				position={[84.35, 0.07, 95.75]}
+				scale={AllMaps.models[14].scale}
+				position={AllMaps.models[14].position}
+			/>
+		</>
+	);
+};
+export const CityTile16 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[15].devUrl : AllMaps.models[15].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[15].scale}
+				position={AllMaps.models[15].position}
+			/>
+		</>
+	);
+};
+export const CityTile17 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[16].devUrl : AllMaps.models[16].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[16].scale}
+				position={AllMaps.models[16].position}
+			/>
+		</>
+	);
+};
+export const CityTile18 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[17].devUrl : AllMaps.models[17].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={0.79}
+				position={[98.4, 0.105, 0.65]}
 			/>
 		</>
 	);
