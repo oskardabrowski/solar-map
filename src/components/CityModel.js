@@ -21,6 +21,8 @@ import {
 	CityTile19,
 	CityTile20,
 	CityTile21,
+	CityTile22,
+	CityTile23,
 } from "./Single3DModels/Surface";
 
 const CityModel = () => {
@@ -47,6 +49,8 @@ const CityModel = () => {
 			<CityTile19 />
 			<CityTile20 />
 			<CityTile21 />
+			<CityTile22 />
+			<CityTile23 />
 		</>
 	);
 };
