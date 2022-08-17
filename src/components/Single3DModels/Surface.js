@@ -343,8 +343,68 @@ export const CityTile23 = () => {
 		<>
 			<primitive
 				object={gltf.scene}
+				scale={AllMaps.models[22].scale}
+				position={AllMaps.models[22].position}
+			/>
+		</>
+	);
+};
+export const CityTile24 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[23].devUrl : AllMaps.models[23].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[23].scale}
+				position={AllMaps.models[23].position}
+			/>
+		</>
+	);
+};
+export const CityTile25 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[24].devUrl : AllMaps.models[24].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[24].scale}
+				position={AllMaps.models[24].position}
+			/>
+		</>
+	);
+};
+export const CityTile26 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[25].devUrl : AllMaps.models[25].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[25].scale}
+				position={AllMaps.models[25].position}
+			/>
+		</>
+	);
+};
+export const CityTile27 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[26].devUrl : AllMaps.models[26].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
 				scale={0.845}
-				position={[-153, 0.11, -0.2]}
+				position={[-108, 0.01, -94.65]}
 			/>
 		</>
 	);
