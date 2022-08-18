@@ -332,6 +332,18 @@ const AllMaps = {
 		{
 			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/GLTF/CityGltfTile27_Map.gltf",
 			devUrl: "http://localhost:8080/Tiles/GLTF/CityGltfTile27_Map.gltf",
+			position: [-108, 0.01, -94.65],
+			scale: 0.845,
+		},
+		{
+			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/GLTF/CityGltfTile28_Map.gltf",
+			devUrl: "http://localhost:8080/Tiles/GLTF/CityGltfTile28_Map.gltf",
+			position: [-50.5, -0.95, -121.5],
+			scale: 0.845,
+		},
+		{
+			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/GLTF/CityGltfTile29_Map.gltf",
+			devUrl: "http://localhost:8080/Tiles/GLTF/CityGltfTile29_Map.gltf",
 			position: [-102.15, -0.78, 47],
 			scale: 0.845,
 		},

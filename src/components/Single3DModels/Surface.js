@@ -403,8 +403,38 @@ export const CityTile27 = () => {
 		<>
 			<primitive
 				object={gltf.scene}
+				scale={AllMaps.models[26].scale}
+				position={AllMaps.models[26].position}
+			/>
+		</>
+	);
+};
+export const CityTile28 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[27].devUrl : AllMaps.models[27].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[27].scale}
+				position={AllMaps.models[27].position}
+			/>
+		</>
+	);
+};
+export const CityTile29 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[28].devUrl : AllMaps.models[28].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
 				scale={0.845}
-				position={[-108, 0.01, -94.65]}
+				position={[14.65, -0.1, -95]}
 			/>
 		</>
 	);
