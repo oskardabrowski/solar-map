@@ -448,8 +448,38 @@ export const CityTile30 = () => {
 		<>
 			<primitive
 				object={gltf.scene}
+				scale={AllMaps.models[29].scale}
+				position={AllMaps.models[29].position}
+			/>
+		</>
+	);
+};
+export const CityTile31 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[30].devUrl : AllMaps.models[30].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[30].scale}
+				position={AllMaps.models[30].position}
+			/>
+		</>
+	);
+};
+export const CityTile32 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[31].devUrl : AllMaps.models[31].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
 				scale={0.845}
-				position={[58, -0.1, -95.5]}
+				position={[59.55, -0.925, -121.75]}
 			/>
 		</>
 	);
