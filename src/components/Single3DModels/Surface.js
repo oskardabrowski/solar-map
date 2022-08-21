@@ -493,8 +493,83 @@ export const CityTile33 = () => {
 		<>
 			<primitive
 				object={gltf.scene}
-				scale={0.845}
-				position={[144.5, -0.1, -94.85]}
+				scale={AllMaps.models[32].scale}
+				position={AllMaps.models[32].position}
+			/>
+		</>
+	);
+};
+export const CityTile34 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[33].devUrl : AllMaps.models[33].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[33].scale}
+				position={AllMaps.models[33].position}
+			/>
+		</>
+	);
+};
+export const CityTile35 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[34].devUrl : AllMaps.models[34].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[34].scale}
+				position={AllMaps.models[34].position}
+			/>
+		</>
+	);
+};
+export const CityTile36 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[35].devUrl : AllMaps.models[35].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[35].scale}
+				position={AllMaps.models[35].position}
+			/>
+		</>
+	);
+};
+export const CityTile37 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[36].devUrl : AllMaps.models[36].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[36].scale}
+				position={AllMaps.models[36].position}
+			/>
+		</>
+	);
+};
+export const CityTile38 = () => {
+	const gltf = useLoader(
+		GLTFLoader,
+		devMode ? AllMaps.models[37].devUrl : AllMaps.models[37].url
+	);
+	return (
+		<>
+			<primitive
+				object={gltf.scene}
+				scale={AllMaps.models[37].scale}
+				position={AllMaps.models[37].position}
 			/>
 		</>
 	);

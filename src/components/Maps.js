@@ -2,7 +2,7 @@ import { SiOpenstreetmap } from "react-icons/si";
 import { RiMapFill } from "react-icons/ri";
 import { MdInsertPhoto } from "react-icons/md";
 
-export const devMode = true;
+export const devMode = false;
 
 const AllMaps = {
 	baseMaps: [
@@ -368,7 +368,37 @@ const AllMaps = {
 		{
 			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/GLTF/CityGltfTile33_Map.gltf",
 			devUrl: "http://localhost:8080/Tiles/GLTF/CityGltfTile33_Map.gltf",
-			position: [-102.15, -0.78, 47],
+			position: [144.5, -0.1, -94.85],
+			scale: 0.845,
+		},
+		{
+			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/GLTF/CityGltfTile34_Map.gltf",
+			devUrl: "http://localhost:8080/Tiles/GLTF/CityGltfTile34_Map.gltf",
+			position: [160.25, -0.1, -79.625],
+			scale: 0.845,
+		},
+		{
+			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/GLTF/CityGltfTile35_Map.gltf",
+			devUrl: "http://localhost:8080/Tiles/GLTF/CityGltfTile35_Map.gltf",
+			position: [144.85, -0.05, 1],
+			scale: 0.845,
+		},
+		{
+			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/GLTF/CityGltfTile36_Map.gltf",
+			devUrl: "http://localhost:8080/Tiles/GLTF/CityGltfTile36_Map.gltf",
+			position: [158.25, -0.95, -49],
+			scale: 0.845,
+		},
+		{
+			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/GLTF/CityGltfTile37_Map.gltf",
+			devUrl: "http://localhost:8080/Tiles/GLTF/CityGltfTile37_Map.gltf",
+			position: [152.75, -0.9, -3.5],
+			scale: 0.845,
+		},
+		{
+			url: "https://09autzsln5kxbytjc1nntg.on.drv.tw/www.tiles2/GLTF/CityGltfTile38_Map.gltf",
+			devUrl: "http://localhost:8080/Tiles/GLTF/CityGltfTile38_Map.gltf",
+			position: [146.65, -0.9, 31.85],
 			scale: 0.845,
 		},
 	],
