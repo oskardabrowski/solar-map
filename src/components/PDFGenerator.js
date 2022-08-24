@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { PDFExport } from "@progress/kendo-react-pdf";
 import SolarMapLogo from "../images/SolarMapLogo.png";
 import { MapContext } from "./GlobalContext";
+import { BallTriangle } from "react-loader-spinner";
 
 const CloseBtn = () => {
 	const { setTakeScreen } = useContext(MapContext);
+
 	return (
 		<button onClick={() => setTakeScreen(false)} className="ExportMenu-Exit">
 			Wróć
@@ -41,6 +43,12 @@ class PDFGenerator extends Component {
 					ref={(r) => (this.map = r)}
 				>
 					<div className="PaperA4">
+						<BallTriangle
+							id="generateLoader"
+							color="#001f45"
+							height={100}
+							width={100}
+						/>
 						<img src={SolarMapLogo} alt="" className="Logo" />
 						<div className="MapCanvasContainer"></div>
 					</div>
@@ -72,6 +80,16 @@ const PDFWindow = styled.div`
 		position: relative;
 		overflow: hidden;
 		transform: scale(0.9);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#generateLoader {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 
 	.Logo {
@@ -113,7 +131,6 @@ const PDFWindow = styled.div`
 	.MapCanvasContainer {
 		width: 94%;
 		height: 96%;
-		background: skyblue;
 		position: absolute;
 		top: 50%;
 		left: 50%;

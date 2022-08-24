@@ -110,7 +110,6 @@ function MapEventsComponent() {
 				const resultantImage = new Image();
 				resultantImage.style = "border: 1px solid black";
 				resultantImage.src = imageurl;
-
 				document.querySelector(".MapCanvasContainer").appendChild(canvas);
 
 				// canvas.toBlob(function (blob) {
