@@ -39,11 +39,7 @@ function GetIcon(_iconSize) {
 	});
 }
 const snapshotOptions = {
-	hideElementsWithSelectors: [
-		// ".leaflet-control-container",
-		// ".leaflet-dont-include-pane",
-		// "#snapshot-button",
-	],
+	hideElementsWithSelectors: [],
 	hidden: true,
 };
 
@@ -76,14 +72,6 @@ function MapEventsComponent() {
 	}, [takeScreen]);
 
 	const takeScreenShot = () => {
-		// const featureBounds = greekborder.getBounds().pad(0.1);
-
-		// const nw = featureBounds.getNorthWest();
-		// const se = featureBounds.getSouthEast();
-		// const topLeft = map.latLngToContainerPoint(nw);
-		// const bottomRight = map.latLngToContainerPoint(se);
-
-		// const imageSize = bottomRight.subtract(topLeft);
 		screenshotter.takeScreen("image").then((image) => {
 			var img = new Image();
 
@@ -93,7 +81,6 @@ function MapEventsComponent() {
 				canvas.width = 420;
 				canvas.height = 594;
 				canvas.style.background = "skyblue";
-				// from https://stackoverflow.com/questions/26015497/how-to-resize-then-crop-an-image-with-canvas
 				ctx.drawImage(
 					img,
 					window.innerWidth / 2 - 210,
@@ -111,11 +98,6 @@ function MapEventsComponent() {
 				resultantImage.style = "border: 1px solid black";
 				resultantImage.src = imageurl;
 				document.querySelector(".MapCanvasContainer").appendChild(canvas);
-
-				// canvas.toBlob(function (blob) {
-				// 	// saveAs function installed as part of leaflet snapshot package
-				// 	saveAs(blob, "greek_border.png");
-				// });
 			};
 			img.src = image;
 		});
@@ -200,30 +182,12 @@ export default function Map() {
 
 					<MapEventsComponent />
 					<Geoman />
-
-					{/* <CircleMarker
-						center={mapCenter}
-						pathOptions={{ color: "red" }}
-						radius={10}
-						blocked={true}
-					></CircleMarker>
-
-					<Rectangle
-						bounds={[
-							[52.95, 18.56],
-							[53.07, 18.7],
-						]}
-						pathOptions={{ color: "red" }}
-					/> */}
-
 					{searchedLocation != null && (
 						<Marker
 							icon={GetIcon()}
 							position={[searchedLocation.shapeY, searchedLocation.shapeX]}
 						></Marker>
 					)}
-
-					{/* Tile map layers */}
 					{devMode === false && (
 						<>
 							{AllMaps.layers.map((map, index) => (
@@ -263,8 +227,6 @@ export default function Map() {
 						</>
 					)}
 				</Suspense>
-
-				{/* Tile basemap layers */}
 				{AllMaps.baseMaps.map((map, index) => (
 					<>
 						{mapTile === map.code && (
@@ -336,8 +298,6 @@ const MapStyles = styled.div`
 		}
 	}
 
-	/* required styles */
-
 	.leaflet-pane,
 	.leaflet-tile,
 	.leaflet-marker-icon,
@@ -363,11 +323,9 @@ const MapStyles = styled.div`
 		user-select: none;
 		-webkit-user-drag: none;
 	}
-	/* Safari renders non-retina tile on retina better with this, but Chrome is worse */
 	.leaflet-safari .leaflet-tile {
 		image-rendering: -webkit-optimize-contrast;
 	}
-	/* hack that prevents hw layers "stretching" when loading new tiles */
 	.leaflet-safari .leaflet-tile-container {
 		width: 1600px;
 		height: 1600px;
@@ -377,8 +335,6 @@ const MapStyles = styled.div`
 	.leaflet-marker-shadow {
 		display: block;
 	}
-	/* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */
-	/* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */
 	.leaflet-container .leaflet-overlay-pane svg,
 	.leaflet-container .leaflet-marker-pane img,
 	.leaflet-container .leaflet-tile-pane img,
@@ -411,7 +367,6 @@ const MapStyles = styled.div`
 		box-sizing: border-box;
 		z-index: 800;
 	}
-	/* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
 	.leaflet-overlay-pane svg {
 		-moz-user-select: none;
 	}
@@ -456,12 +411,10 @@ const MapStyles = styled.div`
 		position: absolute;
 	}
 
-	/* control positioning */
-
 	.leaflet-control {
 		position: relative;
 		z-index: 800;
-		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
+		pointer-events: visiblePainted;
 		pointer-events: auto;
 	}
 	.leaflet-top,
@@ -502,8 +455,6 @@ const MapStyles = styled.div`
 		margin-right: 10px;
 	}
 
-	/* zoom and fade animations */
-
 	.leaflet-fade-anim .leaflet-tile {
 		will-change: opacity;
 	}
@@ -543,8 +494,6 @@ const MapStyles = styled.div`
 		visibility: hidden;
 	}
 
-	/* cursors */
-
 	.leaflet-interactive {
 		cursor: pointer;
 	}
@@ -567,8 +516,6 @@ const MapStyles = styled.div`
 		cursor: -webkit-grabbing;
 		cursor: -moz-grabbing;
 	}
-
-	/* marker & overlays interactivity */
 	.leaflet-marker-icon,
 	.leaflet-marker-shadow,
 	.leaflet-image-layer,
@@ -580,11 +527,9 @@ const MapStyles = styled.div`
 	.leaflet-marker-icon.leaflet-interactive,
 	.leaflet-image-layer.leaflet-interactive,
 	.leaflet-pane > svg path.leaflet-interactive {
-		pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
+		pointer-events: visiblePainted;
 		pointer-events: auto;
 	}
-
-	/* visual tweaks */
 
 	.leaflet-container {
 		background: #ddd;
@@ -601,12 +546,9 @@ const MapStyles = styled.div`
 		background: rgba(255, 255, 255, 0.5);
 	}
 
-	/* general typography */
 	.leaflet-container {
 		font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
 	}
-
-	/* general toolbar styles */
 
 	.leaflet-bar {
 		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
@@ -653,9 +595,6 @@ const MapStyles = styled.div`
 		height: 30px;
 		line-height: 30px;
 	}
-
-	/* zoom control */
-
 	.leaflet-control-zoom-in,
 	.leaflet-control-zoom-out {
 		font: bold 18px "Lucida Console", Monaco, monospace;
@@ -671,9 +610,6 @@ const MapStyles = styled.div`
 	.leaflet-touch .leaflet-control-zoom-out {
 		font-size: 24px;
 	}
-
-	/* layers control */
-
 	.leaflet-control-layers {
 		box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 		background: #fff;
@@ -722,14 +658,9 @@ const MapStyles = styled.div`
 		border-top: 1px solid #ddd;
 		margin: 5px -10px 5px -6px;
 	}
-
-	/* Default icon URLs */
 	.leaflet-default-icon-path {
 		background-image: url(images/marker-icon.png);
 	}
-
-	/* attribution and scale controls */
-
 	.leaflet-container .leaflet-control-attribution {
 		background: #fff;
 		background: rgba(255, 255, 255, 0.7);
@@ -881,16 +812,10 @@ const MapStyles = styled.div`
 	.leaflet-oldie .leaflet-popup-tip {
 		border: 1px solid #999;
 	}
-
-	/* div icon */
-
 	.leaflet-div-icon {
 		background: #fff;
 		border: 1px solid #666;
 	}
-
-	/* Tooltip */
-	/* Base styles for the element that has a tooltip */
 	.leaflet-tooltip {
 		position: absolute;
 		padding: 6px;
@@ -920,9 +845,6 @@ const MapStyles = styled.div`
 		background: transparent;
 		content: "";
 	}
-
-	/* Directions */
-
 	.leaflet-tooltip-bottom {
 		margin-top: 6px;
 	}

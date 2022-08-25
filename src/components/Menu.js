@@ -431,7 +431,6 @@ const Menu = () => {
 						name={mapel.name}
 						Events={<MapEventsComponent />}
 						url={devMode == true ? mapel.devUrl : mapel.url}
-						// url={mapel.googleDrive}
 						attribution={""}
 						action={setSolarTile}
 						mapCenter={mapCenter}
@@ -443,6 +442,9 @@ const Menu = () => {
 			<div className="PanelData Panel Tools">
 				{ToolsButtons.map((el, index) => {
 					const { name, fnc, special, ico, desc } = el;
+
+					if (fnc === "Print" && window.innerHeight < 700) return null;
+
 					return (
 						<button
 							className="Tools-tool"
