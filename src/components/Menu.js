@@ -302,11 +302,9 @@ const Menu = () => {
 						<button
 							onClick={() => navigateToPage("/model")}
 							className="buttons-btn"
+							title="Wersja trójwymiarowa"
 						>
 							<Md3DRotation />
-							<div className="buttons-btn-desc">
-								<span>Wersja trójwymiarowa</span>
-							</div>
 						</button>
 					</>
 				) : (
@@ -318,12 +316,9 @@ const Menu = () => {
 							<button
 								className="buttons-btn"
 								onClick={() => setFlight(false)}
-								title={"Swobodny lot"}
+								title={"Orbita"}
 							>
 								{<GiOrbit />}
-								<div className="buttons-btn-desc">
-									<span>Orbita</span>
-								</div>
 							</button>
 						) : (
 							<button
@@ -332,9 +327,6 @@ const Menu = () => {
 								title={"Swobodny lot"}
 							>
 								{<IoIosAirplane />}
-								<div className="buttons-btn-desc">
-									<span>Swobodny lot</span>
-								</div>
 							</button>
 						)}
 						{ThirdDimensionVersionButtons.map((el, index) => (
@@ -346,22 +338,24 @@ const Menu = () => {
 								code={el.code}
 							/>
 						))}
-						<button onClick={() => navigateToPage("/")} className="buttons-btn">
+						<button
+							title="Wersja dwuwymiarowa"
+							onClick={() => navigateToPage("/")}
+							className="buttons-btn"
+						>
 							<BsFillPinMapFill />
-							<div className="buttons-btn-desc">
-								<span>Wersja dwuwymiarowa</span>
-							</div>
 						</button>
 					</>
 				) : (
 					""
 				)}
 				{show && (
-					<button className="buttons-btn" onClick={() => setInfoOpen(true)}>
+					<button
+						title="Informacje"
+						className="buttons-btn"
+						onClick={() => setInfoOpen(true)}
+					>
 						<BsFillInfoCircleFill />
-						<div className="buttons-btn-desc">
-							<span>Informacje</span>
-						</div>
 					</button>
 				)}
 			</div>
